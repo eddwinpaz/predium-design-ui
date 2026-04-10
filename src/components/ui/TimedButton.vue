@@ -3,27 +3,28 @@ import { ref, computed, onBeforeUnmount, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    label: string
-    duration: number
-    autoStart?: boolean
+    label?: string
+    duration?: number
+    paused?: boolean
     disabled?: boolean
   }>(),
   {
+    label: 'Countdown',
     duration: 10,
-    autoStart: false,
+    paused: true,
     disabled: false,
   }
 )
 
 const emit = defineEmits<{
-  complete: []
   click: []
 }>()
 
 const remaining = ref(props.duration)
-const running = ref(false)
 const finished = ref(false)
 let interval: ReturnType<typeof setInterval> | null = null
+
+const running = computed(() => !props.paused && !finished.value)
 
 const displayTime = computed(() => {
   const mins = Math.floor(remaining.value / 60)
@@ -32,83 +33,97 @@ const displayTime = computed(() => {
 })
 
 const progress = computed(() => {
-  if (props.duration === 0) return 0
+  if (props.duration === 0) return 100
   return ((props.duration - remaining.value) / props.duration) * 100
 })
 
-function start() {
-  if (running.value || finished.value) return
-  running.value = true
-  interval = setInterval(() => {
-    remaining.value--
-    if (remaining.value <= 0) {
-      remaining.value = 0
-      running.value = false
-      finished.value = true
-      if (interval) clearInterval(interval)
-      emit('complete')
-    }
-  }, 1000)
+function tick() {
+  remaining.value--
+  if (remaining.value <= 0) {
+    remaining.value = 0
+    finished.value = true
+    stopTimer()
+    emit('click')
+  }
+}
+
+function startTimer() {
+  if (interval || finished.value) return
+  interval = setInterval(tick, 1000)
+}
+
+function stopTimer() {
+  if (interval) {
+    clearInterval(interval)
+    interval = null
+  }
 }
 
 function reset() {
-  if (interval) clearInterval(interval)
+  stopTimer()
   remaining.value = props.duration
-  running.value = false
   finished.value = false
 }
 
-function handleClick() {
-  if (finished.value || props.disabled) return
-  if (!running.value) start()
-  emit('click')
-}
-
-watch(() => props.autoStart, (val) => {
-  if (val) start()
+/* Declarative start/pause via paused prop */
+watch(() => props.paused, (paused) => {
+  if (!paused && !finished.value) {
+    startTimer()
+  } else {
+    stopTimer()
+  }
 }, { immediate: true })
 
-onBeforeUnmount(() => {
-  if (interval) clearInterval(interval)
+watch(() => props.duration, () => {
+  reset()
 })
 
-defineExpose({ start, reset })
+onBeforeUnmount(() => stopTimer())
+
+defineExpose({ reset })
 </script>
 
 <template>
   <button
     :class="[
-      'relative inline-flex items-center overflow-hidden rounded-full text-[14px] font-medium transition-colors',
-      'h-[40px] min-w-[120px]',
+      'relative inline-flex items-center justify-center overflow-hidden rounded-[8px] text-[14px] font-medium',
+      'h-[48px] min-w-[140px]',
       finished || disabled
-        ? 'bg-[#eee] text-[#999] cursor-not-allowed'
-        : 'bg-[#000] text-white cursor-pointer hover:bg-[#222]',
+        ? 'bg-[#eee] text-[#bbb] cursor-not-allowed'
+        : 'cursor-pointer',
     ]"
     :disabled="finished || disabled"
-    @click="handleClick"
+    @click="!finished && !disabled && $emit('click')"
   >
-    <!-- Progress fill (black sliding from left) -->
+    <!-- Background layers when running -->
+    <template v-if="running && !finished">
+      <!-- Elapsed portion: black -->
+      <div
+        class="absolute inset-y-0 left-0 bg-[#000] transition-[width] duration-1000 ease-linear"
+        :style="{ width: progress + '%' }"
+      />
+      <!-- Remaining portion: gray -->
+      <div
+        class="absolute inset-y-0 right-0 bg-[#e0e0e0] transition-[width] duration-1000 ease-linear"
+        :style="{ width: (100 - progress) + '%' }"
+      />
+    </template>
+
+    <!-- Solid black when paused but not finished and not started yet -->
     <div
-      v-if="running"
-      class="absolute inset-y-0 left-0 bg-[#000] transition-all duration-1000 ease-linear"
-      :style="{ width: progress + '%' }"
+      v-if="!running && !finished && !disabled"
+      class="absolute inset-0 bg-[#000]"
     />
 
-    <!-- Remaining area (gray when running) -->
-    <div
-      v-if="running"
-      class="absolute inset-y-0 right-0 bg-[#e0e0e0]"
-      :style="{ width: (100 - progress) + '%' }"
-    />
-
-    <!-- Label -->
+    <!-- Content -->
     <span
       :class="[
-        'relative z-10 w-full text-center px-[16px]',
-        running ? 'text-white' : '',
+        'relative z-10 flex items-center gap-[4px] px-[16px]',
+        finished || disabled ? 'text-[#bbb]' : 'text-white',
       ]"
     >
-      {{ label }}({{ displayTime }})
+      <span>{{ label }}</span>
+      <span class="tabular-nums">({{ displayTime }})</span>
     </span>
   </button>
 </template>

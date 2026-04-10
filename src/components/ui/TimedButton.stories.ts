@@ -9,7 +9,7 @@ const meta: Meta<typeof TimedButton> = {
   argTypes: {
     label: { control: 'text' },
     duration: { control: 'number' },
-    autoStart: { control: 'boolean' },
+    paused: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
 }
@@ -19,64 +19,72 @@ type Story = StoryObj<typeof TimedButton>
 
 export const Default: Story = {
   args: {
-    label: 'Label',
-    duration: 6,
-  },
-  render: (args) => ({
-    components: { TimedButton },
-    setup: () => ({ args }),
-    template: '<TimedButton v-bind="args" @complete="() => {}" @click="() => {}" />',
-  }),
-}
-
-export const AutoStart: Story = {
-  args: {
-    label: 'Processing',
+    label: 'Countdown',
     duration: 10,
-    autoStart: true,
+    paused: true,
   },
-  render: (args) => ({
+}
+
+export const DeferredInit: Story = {
+  render: () => ({
     components: { TimedButton },
-    setup: () => ({ args }),
-    template: '<TimedButton v-bind="args" />',
+    setup() {
+      const paused = ref(true)
+      return { paused }
+    },
+    template: `
+      <div class="flex flex-col gap-[16px]">
+        <p class="text-[13px] text-[#545454]">Use the pause prop to declaratively start and pause the countdown timer.</p>
+        <div class="flex items-center gap-[12px]">
+          <button
+            class="px-[12px] py-[8px] text-[14px] font-medium bg-[#000] text-white rounded-[8px] hover:bg-[#333]"
+            @click="paused = !paused"
+          >
+            {{ paused ? 'Run' : 'Pause' }}
+          </button>
+          <TimedButton label="Countdown" :duration="10" :paused="paused" />
+        </div>
+      </div>
+    `,
   }),
 }
 
-export const ShortTimer: Story = {
+export const Durations: Story = {
+  render: () => ({
+    components: { TimedButton },
+    template: `
+      <div class="flex items-center gap-[12px]">
+        <TimedButton label="Countdown" :duration="10" :paused="false" />
+        <TimedButton label="Countdown" :duration="18" :paused="false" />
+        <TimedButton label="Countdown" :duration="35" :paused="false" />
+        <TimedButton label="Countdown" :duration="60" :paused="false" />
+      </div>
+    `,
+  }),
+}
+
+export const Paused: Story = {
   args: {
     label: 'Confirm',
-    duration: 3,
+    duration: 6,
+    paused: true,
   },
-  render: (args) => ({
-    components: { TimedButton },
-    setup: () => ({ args }),
-    template: '<TimedButton v-bind="args" />',
-  }),
 }
 
-export const LongTimer: Story = {
+export const Running: Story = {
   args: {
-    label: 'Expires',
-    duration: 120,
+    label: 'Processing',
+    duration: 15,
+    paused: false,
   },
-  render: (args) => ({
-    components: { TimedButton },
-    setup: () => ({ args }),
-    template: '<TimedButton v-bind="args" />',
-  }),
 }
 
 export const Disabled: Story = {
   args: {
-    label: 'Label',
-    duration: 6,
+    label: 'Expired',
+    duration: 0,
     disabled: true,
   },
-  render: (args) => ({
-    components: { TimedButton },
-    setup: () => ({ args }),
-    template: '<TimedButton v-bind="args" />',
-  }),
 }
 
 export const WithReset: Story = {
@@ -84,39 +92,28 @@ export const WithReset: Story = {
     components: { TimedButton },
     setup() {
       const btnRef = ref()
-      return { btnRef }
+      const paused = ref(true)
+      function reset() {
+        btnRef.value?.reset()
+        paused.value = true
+      }
+      return { btnRef, paused, reset }
     },
     template: `
       <div class="flex items-center gap-[12px]">
-        <TimedButton ref="btnRef" label="Action" :duration="5" />
+        <TimedButton ref="btnRef" label="Action" :duration="5" :paused="paused" />
+        <button
+          class="px-[12px] py-[8px] text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px]"
+          @click="paused = false"
+        >
+          Start
+        </button>
         <button
           class="px-[12px] py-[8px] text-[14px] font-medium text-[#545454] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px]"
-          @click="btnRef?.reset()"
+          @click="reset"
         >
           Reset
         </button>
-      </div>
-    `,
-  }),
-}
-
-export const States: Story = {
-  render: () => ({
-    components: { TimedButton },
-    template: `
-      <div class="flex flex-col gap-[16px]">
-        <div class="flex items-center gap-[12px]">
-          <TimedButton label="Click to start" :duration="6" />
-          <span class="text-[13px] text-[#999]">Ready (click to start)</span>
-        </div>
-        <div class="flex items-center gap-[12px]">
-          <TimedButton label="Running" :duration="10" :autoStart="true" />
-          <span class="text-[13px] text-[#999]">Running (auto-started)</span>
-        </div>
-        <div class="flex items-center gap-[12px]">
-          <TimedButton label="Expired" :duration="0" />
-          <span class="text-[13px] text-[#999]">Finished (0:00)</span>
-        </div>
       </div>
     `,
   }),
