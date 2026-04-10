@@ -1648,7 +1648,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}, {
 			default: E(() => [s.value ? (g(), a("div", {
 				key: 0,
-				class: f(["absolute z-[9999] w-56 bg-white border border-[#e2e2e2] rounded-xl shadow-xl overflow-hidden", v.value])
+				class: f(["absolute z-[9999] min-w-[180px] bg-white border border-[#e2e2e2] rounded-xl shadow-xl overflow-hidden", v.value])
 			}, [y(e.$slots, "default")], 2)) : i("", !0)]),
 			_: 3
 		})], 512));

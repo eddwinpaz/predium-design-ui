@@ -75,7 +75,7 @@ const placementClasses = computed(() => {
       <div
         v-if="open"
         :class="[
-          'absolute z-[9999] w-56 bg-white border border-[#e2e2e2] rounded-xl shadow-xl overflow-hidden',
+          'absolute z-[9999] min-w-[180px] bg-white border border-[#e2e2e2] rounded-xl shadow-xl overflow-hidden',
           placementClasses,
         ]"
       >
