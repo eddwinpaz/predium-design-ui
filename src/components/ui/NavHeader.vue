@@ -129,100 +129,20 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           </button>
         </nav>
 
-        <!-- Grid / Module switcher -->
-        <div class="relative">
-          <button
-            :class="[
-              'w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors',
-              gridOpen ? 'bg-[#f6f6f6] text-[#000]' : 'text-[#545454] hover:bg-[#f6f6f6]',
-            ]"
-            @click.stop="toggleGrid"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="5" cy="5" r="2" /><circle cx="12" cy="5" r="2" /><circle cx="19" cy="5" r="2" />
-              <circle cx="5" cy="12" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="19" cy="12" r="2" />
-              <circle cx="5" cy="19" r="2" /><circle cx="12" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
-            </svg>
-          </button>
-
-          <!-- Mobile backdrop -->
-          <Transition
-            enter-active-class="transition duration-150 ease-out"
-            enter-from-class="opacity-0"
-            enter-to-class="opacity-100"
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0"
-          >
-            <div
-              v-if="gridOpen && modules?.length"
-              class="fixed inset-0 top-[52px] bg-black/20 sm:bg-transparent z-[9998]"
-              @click="gridOpen = false"
-            />
-          </Transition>
-
-          <!-- Module switcher panel -->
-          <Transition
-            enter-active-class="transition duration-150 ease-out"
-            enter-from-class="opacity-0 scale-95 translate-y-1"
-            enter-to-class="opacity-100 scale-100 translate-y-0"
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0 scale-95"
-          >
-            <div
-              v-if="gridOpen && modules?.length"
-              class="fixed inset-x-[12px] top-[64px] bottom-[12px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
-            >
-              <!-- Header -->
-              <div class="px-[20px] pt-[20px] pb-[12px]">
-                <h3 class="text-[15px] font-semibold text-[#000]">Modules</h3>
-              </div>
-
-              <!-- Module groups -->
-              <div class="px-[12px] pb-[16px] max-h-[70vh] sm:max-h-[420px] overflow-y-auto">
-                <div v-for="(group, gi) in modules" :key="group.title" :class="gi > 0 ? 'mt-[16px]' : ''">
-                  <!-- Group title -->
-                  <div class="px-[8px] mb-[8px]">
-                    <span class="text-[11px] font-semibold text-[#999] uppercase tracking-[1px]">{{ group.title }}</span>
-                  </div>
-
-                  <!-- Items grid -->
-                  <div class="grid grid-cols-4 sm:grid-cols-3 gap-[2px] sm:gap-[4px]">
-                    <button
-                      v-for="(item, ii) in group.items"
-                      :key="item.label"
-                      class="flex flex-col items-center gap-[4px] sm:gap-[6px] p-[10px] sm:p-[12px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group"
-                      @click="gridOpen = false; $emit('moduleClick', item)"
-                    >
-                      <!-- Icon circle -->
-                      <div
-                        class="w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-[10px] sm:rounded-[12px] flex items-center justify-center transition-transform group-hover:scale-110"
-                        :style="{ backgroundColor: getColor(item, gi, ii) + '14' }"
-                      >
-                        <svg
-                          width="20" height="20" viewBox="0 0 24 24" fill="none"
-                          :stroke="getColor(item, gi, ii)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        >
-                          <path :d="getIconPath(item)" />
-                        </svg>
-                      </div>
-                      <!-- Label -->
-                      <span class="text-[11px] sm:text-[12px] font-medium text-[#000] text-center leading-[13px] sm:leading-[14px]">{{ item.label }}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Footer -->
-              <div class="border-t border-[#e2e2e2] px-[20px] py-[12px]">
-                <button class="text-[13px] text-[#545454] hover:text-[#000] font-medium transition-colors">
-                  All modules
-                </button>
-              </div>
-            </div>
-          </Transition>
-        </div>
+        <!-- Grid / Module switcher button -->
+        <button
+          :class="[
+            'w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors',
+            gridOpen ? 'bg-[#f6f6f6] text-[#000]' : 'text-[#545454] hover:bg-[#f6f6f6]',
+          ]"
+          @click="toggleGrid"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="5" cy="5" r="2" /><circle cx="12" cy="5" r="2" /><circle cx="19" cy="5" r="2" />
+            <circle cx="5" cy="12" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="19" cy="12" r="2" />
+            <circle cx="5" cy="19" r="2" /><circle cx="12" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
+          </svg>
+        </button>
 
         <!-- Avatar -->
         <button
@@ -261,6 +181,52 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
             {{ item.label }}
           </button>
         </nav>
+      </div>
+    </Transition>
+
+    <!-- Modules drawer (same pattern as hamburger) -->
+    <Transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="opacity-0 -translate-y-2"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0 -translate-y-2"
+    >
+      <div v-if="gridOpen && modules?.length" class="border-b border-[#e2e2e2] bg-white">
+        <div class="px-[16px] pt-[16px] pb-[8px]">
+          <h3 class="text-[15px] font-semibold text-[#000]">Modules</h3>
+        </div>
+
+        <div class="px-[8px] pb-[12px]">
+          <div v-for="(group, gi) in modules" :key="group.title" :class="gi > 0 ? 'mt-[12px]' : ''">
+            <div class="px-[8px] mb-[6px]">
+              <span class="text-[11px] font-semibold text-[#999] uppercase tracking-[1px]">{{ group.title }}</span>
+            </div>
+
+            <div class="grid grid-cols-4 sm:grid-cols-6 gap-[2px]">
+              <button
+                v-for="(item, ii) in group.items"
+                :key="item.label"
+                class="flex flex-col items-center gap-[4px] p-[10px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group"
+                @click="gridOpen = false; $emit('moduleClick', item)"
+              >
+                <div
+                  class="w-[36px] h-[36px] rounded-[10px] flex items-center justify-center"
+                  :style="{ backgroundColor: getColor(item, gi, ii) + '14' }"
+                >
+                  <svg
+                    width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    :stroke="getColor(item, gi, ii)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  >
+                    <path :d="getIconPath(item)" />
+                  </svg>
+                </div>
+                <span class="text-[11px] font-medium text-[#000] text-center leading-[13px]">{{ item.label }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </Transition>
   </div>
