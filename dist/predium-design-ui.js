@@ -2139,12 +2139,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: "relative flex gap-4"
 		}, [o("div", Rr, [o("div", { class: f([
 			"w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0 border-2 transition-colors",
-			s < t.currentStep ? "bg-btn-primary border-border-selected text-white" : "",
-			s === t.currentStep ? "bg-btn-primary border-border-selected text-white" : "",
+			s < t.currentStep ? "bg-btn-primary border-btn-primary text-btn-primary-text" : "",
+			s === t.currentStep ? "bg-btn-primary border-btn-primary text-btn-primary-text" : "",
 			s > t.currentStep ? "bg-surface border-border text-content-tertiary" : ""
 		]) }, [s < t.currentStep ? (g(), a("svg", zr, [...r[0] ||= [o("path", { d: "M5 13l4 4L19 7" }, null, -1)]])) : (g(), a("span", Br, S(s + 1), 1))], 2), s < t.steps.length - 1 ? (g(), a("div", {
 			key: 0,
-			class: f(["w-0.5 flex-1 min-h-[24px]", s < t.currentStep ? "bg-btn-primary" : "bg-[#e2e2e2]"])
+			class: f(["w-0.5 flex-1 min-h-[24px]", s < t.currentStep ? "bg-btn-primary" : "bg-border"])
 		}, null, 2)) : i("", !0)]), o("div", { class: f(["pb-8 flex-1", s === t.steps.length - 1 ? "pb-0" : ""]) }, [
 			o("h4", { class: f(["text-sm font-semibold", s <= t.currentStep ? "text-content-primary" : "text-content-tertiary"]) }, S(e.title), 3),
 			e.description ? (g(), a("p", {

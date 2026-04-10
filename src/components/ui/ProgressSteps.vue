@@ -23,8 +23,8 @@ withDefaults(defineProps<Props>(), {
         <div
           :class="[
             'w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0 border-2 transition-colors',
-            i < currentStep ? 'bg-btn-primary border-border-selected text-white' : '',
-            i === currentStep ? 'bg-btn-primary border-border-selected text-white' : '',
+            i < currentStep ? 'bg-btn-primary border-btn-primary text-btn-primary-text' : '',
+            i === currentStep ? 'bg-btn-primary border-btn-primary text-btn-primary-text' : '',
             i > currentStep ? 'bg-surface border-border text-content-tertiary' : '',
           ]"
         >
@@ -46,7 +46,7 @@ withDefaults(defineProps<Props>(), {
           v-if="i < steps.length - 1"
           :class="[
             'w-0.5 flex-1 min-h-[24px]',
-            i < currentStep ? 'bg-btn-primary' : 'bg-[#e2e2e2]',
+            i < currentStep ? 'bg-btn-primary' : 'bg-border',
           ]"
         />
       </div>
