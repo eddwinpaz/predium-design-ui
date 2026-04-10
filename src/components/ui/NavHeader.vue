@@ -42,8 +42,7 @@ const initials = computed(() => {
 </script>
 
 <template>
-  <!-- Base Web header: height 52px (scale1200+scale100), px scale600(24px) -->
-  <header class="flex items-center justify-between h-[52px] px-scale600 border-b border-[#e2e2e2] bg-white">
+  <header class="flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white overflow-x-auto">
     <!-- Left: Brand -->
     <div class="flex items-center gap-1">
       <span class="text-[15px] font-bold text-[#000] tracking-tight">{{ brand }}</span>
@@ -56,7 +55,7 @@ const initials = computed(() => {
     <!-- Right: Nav + Actions -->
     <div class="flex items-center gap-1">
       <!-- Nav links -->
-      <nav v-if="navItems?.length" class="flex items-center gap-0.5 mr-4">
+      <nav v-if="navItems?.length" class="hidden sm:flex items-center gap-0.5 mr-4">
         <button
           v-for="item in navItems"
           :key="item.label"

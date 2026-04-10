@@ -23,7 +23,7 @@ defineEmits<{
 
 <template>
   <div>
-    <div :class="['flex border-b border-border', fill ? '' : 'gap-0']" role="tablist">
+    <div :class="['flex border-b border-border overflow-x-auto scrollbar-none', fill ? '' : 'gap-0']" role="tablist">
       <button
         v-for="tab in tabs"
         :key="tab.key"

@@ -177,9 +177,16 @@
   }
 }
 
-/* Focus ring utility */
+/* Utilities */
 @layer utilities {
   .focus-ring {
     @apply outline-none ring-2 ring-border-focus ring-offset-2;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }

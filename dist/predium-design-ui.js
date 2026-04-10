@@ -505,11 +505,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	setup(t) {
 		let r = t, s = n(() => ({
 			2: "grid-cols-2",
-			3: "grid-cols-3",
-			4: "grid-cols-4",
-			5: "grid-cols-5",
-			6: "grid-cols-6"
-		})[r.columns] ?? "grid-cols-3");
+			3: "grid-cols-2 sm:grid-cols-3",
+			4: "grid-cols-2 sm:grid-cols-4",
+			5: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5",
+			6: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
+		})[r.columns] ?? "grid-cols-2 sm:grid-cols-3");
 		return (n, r) => (g(), a("div", null, [o("div", we, [
 			o("h3", Te, S(t.title), 1),
 			t.editable ? (g(), a("button", {
@@ -520,7 +520,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			y(n.$slots, "action")
 		]), o("div", Ee, [t.fields?.length ? (g(), a("div", {
 			key: 0,
-			class: f(["grid gap-0 px-[24px] py-[20px]", s.value])
+			class: f(["grid gap-0 px-[16px] sm:px-[24px] py-[16px] sm:py-[20px]", s.value])
 		}, [(g(!0), a(e, null, v(t.fields, (e, t) => (g(), a("div", {
 			key: t,
 			class: "py-[8px] pr-[16px]"
@@ -1312,7 +1312,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 3
 		}, 8, ["show"]));
 	}
-}), Ht = { class: "flex items-center justify-between h-[52px] px-scale600 border-b border-[#e2e2e2] bg-white" }, Ut = { class: "flex items-center gap-1" }, Wt = { class: "text-[15px] font-bold text-[#000] tracking-tight" }, Gt = {
+}), Ht = { class: "flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white overflow-x-auto" }, Ut = { class: "flex items-center gap-1" }, Wt = { class: "text-[15px] font-bold text-[#000] tracking-tight" }, Gt = {
 	key: 0,
 	class: "text-[15px] font-normal text-[#000]"
 }, Kt = {
@@ -1320,7 +1320,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "ml-2 pl-2 border-l border-[#e2e2e2]"
 }, qt = { class: "text-xs text-[#545454] italic" }, Jt = { class: "flex items-center gap-1" }, Yt = {
 	key: 0,
-	class: "flex items-center gap-0.5 mr-4"
+	class: "hidden sm:flex items-center gap-0.5 mr-4"
 }, Xt = ["onClick"], Zt = /* @__PURE__ */ u({
 	__name: "NavHeader",
 	props: {
@@ -1444,21 +1444,21 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			})], -1)]])) : i("", !0)
 		], 2)) : i("", !0);
 	}
-}), sn = { class: "px-[24px] pt-[20px] pb-[16px] bg-white" }, cn = { class: "flex items-start justify-between" }, ln = {
+}), sn = { class: "px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-white" }, cn = { class: "flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]" }, ln = {
 	key: 0,
-	class: "flex items-center gap-[6px] text-[14px] mb-[4px]"
+	class: "flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px] overflow-x-auto whitespace-nowrap"
 }, un = {
 	key: 0,
 	class: "text-[#999]"
 }, dn = ["onClick"], fn = {
 	key: 2,
 	class: "text-[#000] font-medium"
-}, pn = { class: "flex items-center gap-[12px]" }, mn = { class: "text-[24px] font-bold text-[#000] leading-[32px]" }, hn = {
+}, pn = { class: "flex flex-wrap items-center gap-[8px] sm:gap-[12px]" }, mn = { class: "text-[20px] sm:text-[24px] font-bold text-[#000] leading-[28px] sm:leading-[32px]" }, hn = {
 	key: 1,
 	class: "text-[13px] text-[#999] mt-[2px]"
 }, gn = {
 	key: 0,
-	class: "flex items-center gap-[8px] mt-[4px]"
+	class: "flex flex-wrap items-center gap-[8px] sm:mt-[4px]"
 }, _n = {
 	key: 0,
 	class: "relative"
@@ -2259,7 +2259,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	emits: ["update:modelValue"],
 	setup(t) {
 		return (n, r) => (g(), a("div", null, [o("div", {
-			class: f(["flex border-b border-border", t.fill ? "" : "gap-0"]),
+			class: f(["flex border-b border-border overflow-x-auto scrollbar-none", t.fill ? "" : "gap-0"]),
 			role: "tablist"
 		}, [(g(!0), a(e, null, v(t.tabs, (e) => (g(), a("button", {
 			key: e.key,
@@ -2684,7 +2684,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "text-[12px] text-[#999] mt-[2px]"
 }, $r = {
 	key: 1,
-	class: "text-[13px] text-[#000] mt-[4px]"
+	class: "text-[11px] sm:text-[13px] text-[#000] mt-[4px]"
 }, ei = {
 	key: 2,
 	class: "text-[13px] text-[#7356BF] font-medium mt-[4px]"
@@ -2714,17 +2714,17 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			style: p({ gridTemplateColumns: `repeat(${t.headers.length}, 1fr)` })
 		}, [(g(!0), a(e, null, v(t.headers, (e) => (g(), a("div", {
 			key: e,
-			class: "py-[10px] text-center text-[13px] font-medium text-[#545454] border-b border-[#e2e2e2]"
+			class: "py-[8px] sm:py-[10px] text-center text-[11px] sm:text-[13px] font-medium text-[#545454] border-b border-[#e2e2e2]"
 		}, S(e), 1))), 128)), (g(!0), a(e, null, v(t.days, (e, t) => (g(), a("div", {
 			key: t,
 			class: f([
-				"relative flex flex-col items-center justify-center py-[16px] min-h-[88px] cursor-pointer transition-colors",
+				"relative flex flex-col items-center justify-center py-[10px] sm:py-[16px] min-h-[72px] sm:min-h-[88px] cursor-pointer transition-colors",
 				t > 0 ? "border-l border-[#e2e2e2]" : "",
 				e.disabled ? "opacity-40 cursor-not-allowed" : "hover:bg-[#f6f6f6]"
 			]),
 			onClick: (t) => !e.disabled && s("update:modelValue", e.date)
 		}, [
-			o("div", { class: f(["flex items-center justify-center text-[18px] font-semibold", c(e) ? "w-[40px] h-[40px] rounded-full bg-[#7356BF] text-white" : "text-[#000]"]) }, S(e.date), 3),
+			o("div", { class: f(["flex items-center justify-center text-[15px] sm:text-[18px] font-semibold", c(e) ? "w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#7356BF] text-white" : "text-[#000]"]) }, S(e.date), 3),
 			e.month ? (g(), a("span", Qr, S(e.month), 1)) : i("", !0),
 			e.price ? (g(), a("span", $r, S(e.price), 1)) : i("", !0),
 			e.label ? (g(), a("span", ei, S(e.label), 1)) : i("", !0)

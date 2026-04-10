@@ -23,15 +23,16 @@ defineEmits<{
   edit: []
 }>()
 
+/* Mobile: 2 cols, tablet: 3 cols, desktop: configured cols */
 const gridClass = computed(() => {
   const map: Record<number, string> = {
     2: 'grid-cols-2',
-    3: 'grid-cols-3',
-    4: 'grid-cols-4',
-    5: 'grid-cols-5',
-    6: 'grid-cols-6',
+    3: 'grid-cols-2 sm:grid-cols-3',
+    4: 'grid-cols-2 sm:grid-cols-4',
+    5: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5',
+    6: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6',
   }
-  return map[props.columns] ?? 'grid-cols-3'
+  return map[props.columns] ?? 'grid-cols-2 sm:grid-cols-3'
 })
 </script>
 
@@ -53,7 +54,7 @@ const gridClass = computed(() => {
     <!-- Card: only the content -->
     <div class="border border-[#e2e2e2] rounded-[12px] bg-white">
       <!-- Fields grid -->
-      <div v-if="fields?.length" :class="['grid gap-0 px-[24px] py-[20px]', gridClass]">
+      <div v-if="fields?.length" :class="['grid gap-0 px-[16px] sm:px-[24px] py-[16px] sm:py-[20px]', gridClass]">
         <div
           v-for="(field, i) in fields"
           :key="i"

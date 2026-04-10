@@ -46,12 +46,12 @@ const statusClasses = computed(() => {
 </script>
 
 <template>
-  <div class="px-[24px] pt-[20px] pb-[16px] bg-white">
+  <div class="px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-white">
     <!-- Breadcrumbs + Title row -->
-    <div class="flex items-start justify-between">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
       <div>
         <!-- Breadcrumbs -->
-        <div v-if="breadcrumbs?.length" class="flex items-center gap-[6px] text-[14px] mb-[4px]">
+        <div v-if="breadcrumbs?.length" class="flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px] overflow-x-auto whitespace-nowrap">
           <template v-for="(crumb, i) in breadcrumbs" :key="i">
             <span v-if="i > 0" class="text-[#999]">›</span>
             <span
@@ -66,8 +66,8 @@ const statusClasses = computed(() => {
         </div>
 
         <!-- Title + Status -->
-        <div class="flex items-center gap-[12px]">
-          <h1 class="text-[24px] font-bold text-[#000] leading-[32px]">{{ title }}</h1>
+        <div class="flex flex-wrap items-center gap-[8px] sm:gap-[12px]">
+          <h1 class="text-[20px] sm:text-[24px] font-bold text-[#000] leading-[28px] sm:leading-[32px]">{{ title }}</h1>
           <span
             v-if="status"
             :class="['inline-flex items-center px-[10px] py-[2px] rounded-full text-[12px] font-medium', statusClasses]"
@@ -83,7 +83,7 @@ const statusClasses = computed(() => {
       </div>
 
       <!-- Actions -->
-      <div v-if="actions?.length" class="flex items-center gap-[8px] mt-[4px]">
+      <div v-if="actions?.length" class="flex flex-wrap items-center gap-[8px] sm:mt-[4px]">
         <template v-for="(action, i) in actions" :key="i">
           <!-- Dropdown button -->
           <div v-if="action.kind === 'dropdown'" class="relative">
