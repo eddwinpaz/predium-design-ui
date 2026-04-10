@@ -1341,7 +1341,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, $t = ["onClick"], en = {
 	key: 0,
-	class: "fixed inset-x-0 top-[52px] sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border-b sm:border border-[#e2e2e2] sm:rounded-[16px] shadow-2xl sm:overflow-hidden"
+	class: "fixed inset-x-[8px] top-[60px] bottom-[8px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
 }, tn = { class: "px-[12px] pb-[16px] max-h-[70vh] sm:max-h-[420px] overflow-y-auto" }, nn = { class: "px-[8px] mb-[8px]" }, rn = { class: "text-[11px] font-semibold text-[#999] uppercase tracking-[1px]" }, an = { class: "grid grid-cols-4 sm:grid-cols-3 gap-[2px] sm:gap-[4px]" }, on = ["onClick"], sn = ["stroke"], cn = ["d"], ln = { class: "text-[11px] sm:text-[12px] font-medium text-[#000] text-center leading-[13px] sm:leading-[14px]" }, un = {
 	key: 0,
 	class: "sm:hidden border-b border-[#e2e2e2] bg-white"

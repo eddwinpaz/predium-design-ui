@@ -156,7 +156,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="fixed inset-x-0 top-[52px] sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border-b sm:border border-[#e2e2e2] sm:rounded-[16px] shadow-2xl sm:overflow-hidden"
+              class="fixed inset-x-[8px] top-[60px] bottom-[8px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
             >
               <!-- Header -->
               <div class="px-[20px] pt-[20px] pb-[12px]">
