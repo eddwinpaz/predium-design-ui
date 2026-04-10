@@ -42,7 +42,7 @@ const gridClass = computed(() => {
       <h3 class="text-[15px] font-semibold text-[#000]">{{ title }}</h3>
       <button
         v-if="editable"
-        class="text-[14px] text-[#545454] font-medium hover:text-[#000] cursor-pointer"
+        class="px-[12px] py-[8px] text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors cursor-pointer"
         @click="$emit('edit')"
       >
         Edit

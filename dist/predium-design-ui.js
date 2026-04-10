@@ -514,7 +514,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			o("h3", Te, S(t.title), 1),
 			t.editable ? (g(), a("button", {
 				key: 0,
-				class: "text-[14px] text-[#545454] font-medium hover:text-[#000] cursor-pointer",
+				class: "px-[12px] py-[8px] text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors cursor-pointer",
 				onClick: r[0] ||= (e) => n.$emit("edit")
 			}, " Edit ")) : i("", !0),
 			y(n.$slots, "action")
