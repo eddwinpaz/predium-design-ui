@@ -5,8 +5,13 @@ export interface DataGridColumn {
   key: string
   label: string
   width?: string
-  /** Hide this column on mobile (<640px). Default false */
   hideMobile?: boolean
+}
+
+export interface BulkAction {
+  label: string
+  key: string
+  danger?: boolean
 }
 
 const props = withDefaults(
@@ -16,19 +21,25 @@ const props = withDefaults(
     rows: Record<string, any>[]
     selectable?: boolean
     editable?: boolean
+    bulkActions?: BulkAction[]
   }>(),
   {
     selectable: true,
     editable: true,
+    bulkActions: () => [
+      { label: 'Delete', key: 'delete', danger: true },
+      { label: 'Export', key: 'export' },
+    ],
   }
 )
 
 const emit = defineEmits<{
   edit: []
-  delete: [indices: number[]]
+  bulkAction: [action: string, indices: number[]]
 }>()
 
 const selected = ref<Set<number>>(new Set())
+const editMode = ref(false)
 
 const allSelected = computed(() =>
   props.rows.length > 0 && selected.value.size === props.rows.length
@@ -37,6 +48,8 @@ const allSelected = computed(() =>
 const someSelected = computed(() =>
   selected.value.size > 0 && selected.value.size < props.rows.length
 )
+
+const hasSelection = computed(() => selected.value.size > 0)
 
 function toggleAll() {
   if (allSelected.value) {
@@ -56,8 +69,18 @@ function toggleRow(index: number) {
   selected.value = next
 }
 
-function handleDelete() {
-  emit('delete', Array.from(selected.value))
+function handleBulkAction(key: string) {
+  emit('bulkAction', key, Array.from(selected.value))
+  selected.value = new Set()
+}
+
+function enterEdit() {
+  editMode.value = true
+  emit('edit')
+}
+
+function exitEdit() {
+  editMode.value = false
   selected.value = new Set()
 }
 </script>
@@ -66,26 +89,62 @@ function handleDelete() {
   <div>
     <!-- Header -->
     <div class="flex flex-wrap items-center justify-between gap-[8px] mb-[12px]">
-      <h3 v-if="title" class="text-[15px] font-semibold text-[#000]">{{ title }}</h3>
       <div class="flex items-center gap-[8px]">
-        <button
-          v-if="selected.size > 0"
-          class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium text-white bg-[#e11900] hover:bg-[#c41400] rounded-[8px] transition-colors"
-          @click="handleDelete"
+        <h3 v-if="title" class="text-[15px] font-semibold text-[#000]">{{ title }}</h3>
+        <!-- Selection count badge -->
+        <span
+          v-if="hasSelection"
+          class="text-[12px] font-medium text-[#545454] bg-[#f6f6f6] px-[8px] py-[2px] rounded-full"
         >
-          Delete {{ selected.size === rows.length ? 'all' : selected.size }}
-        </button>
-        <button
-          v-if="editable"
-          class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors"
-          @click="$emit('edit')"
-        >
-          Edit
-        </button>
+          {{ selected.size }} selected
+        </span>
+      </div>
+
+      <div class="flex items-center gap-[6px]">
+        <!-- Bulk action bar (visible when items selected) -->
+        <template v-if="hasSelection">
+          <button
+            v-for="action in bulkActions"
+            :key="action.key"
+            :class="[
+              'px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium rounded-[8px] transition-colors',
+              action.danger
+                ? 'text-white bg-[#e11900] hover:bg-[#c41400]'
+                : 'text-[#000] bg-[#f6f6f6] hover:bg-[#eee]',
+            ]"
+            @click="handleBulkAction(action.key)"
+          >
+            {{ action.label }} ({{ selected.size }})
+          </button>
+          <button
+            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium text-[#999] hover:text-[#000] transition-colors"
+            @click="selected = new Set()"
+          >
+            Cancel
+          </button>
+        </template>
+
+        <!-- Edit / Done button (visible when no selection) -->
+        <template v-else>
+          <button
+            v-if="editable && !editMode"
+            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors"
+            @click="enterEdit"
+          >
+            Edit
+          </button>
+          <button
+            v-if="editMode"
+            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-[#000] hover:bg-[#333] rounded-[8px] transition-colors"
+            @click="exitEdit"
+          >
+            Done
+          </button>
+        </template>
       </div>
     </div>
 
-    <!-- Desktop/Tablet: horizontal scroll table -->
+    <!-- Desktop/Tablet: table -->
     <div class="hidden sm:block border border-[#e2e2e2] rounded-[12px] bg-white overflow-hidden">
       <div class="overflow-x-auto">
         <table class="w-full border-collapse">
@@ -119,7 +178,7 @@ function handleDelete() {
               :key="i"
               :class="[
                 'border-b border-[#e2e2e2] last:border-b-0 transition-colors',
-                selected.has(i) ? 'bg-[#f8f8ff]' : 'hover:bg-[#fafafa]',
+                selected.has(i) ? 'bg-[#f0f4ff]' : 'hover:bg-[#fafafa]',
               ]"
             >
               <td v-if="selectable" class="w-[44px] px-[12px] py-[10px]">
@@ -138,7 +197,7 @@ function handleDelete() {
                 :key="col.key"
                 class="px-[12px] py-[10px] text-[13px] text-[#000]"
               >
-                <slot :name="'cell-' + col.key" :row="row" :value="row[col.key]" :index="i">
+                <slot :name="'cell-' + col.key" :row="row" :value="row[col.key]" :index="i" :editMode="editMode">
                   {{ row[col.key] }}
                 </slot>
               </td>
@@ -155,10 +214,9 @@ function handleDelete() {
         :key="i"
         :class="[
           'border border-[#e2e2e2] rounded-[12px] bg-white p-[14px] transition-colors',
-          selected.has(i) ? 'border-[#000] bg-[#f8f8ff]' : '',
+          selected.has(i) ? 'border-[#000] bg-[#f0f4ff]' : '',
         ]"
       >
-        <!-- Top: checkbox + first column value as title -->
         <div class="flex items-start gap-[10px]">
           <div
             v-if="selectable"
@@ -172,12 +230,11 @@ function handleDelete() {
           </div>
 
           <div class="flex-1 min-w-0">
-            <!-- Fields as label:value pairs -->
             <div class="grid grid-cols-2 gap-x-[12px] gap-y-[8px]">
               <div v-for="col in columns" :key="col.key">
                 <div class="text-[10px] font-medium text-[#999] uppercase tracking-[0.5px]">{{ col.label }}</div>
                 <div class="text-[13px] text-[#000] mt-[1px] truncate">
-                  <slot :name="'cell-' + col.key" :row="row" :value="row[col.key]" :index="i">
+                  <slot :name="'cell-' + col.key" :row="row" :value="row[col.key]" :index="i" :editMode="editMode">
                     {{ row[col.key] }}
                   </slot>
                 </div>

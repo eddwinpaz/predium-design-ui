@@ -26,56 +26,26 @@ export const Scheduling: Story = {
         { key: 'scheduledBy', label: 'Scheduled by' },
       ]
       const rows = [
-        { stop: '1', type: 'Pickup', status: 'Booked', time: '09/19/2024 09:00 04/22/2024 17:30', locationId: '12KAS', address: '107 MARKET RD, NEW ORLEANS,', contact: 'Dallas Waters', method: 'Manual', scheduledBy: 'Carrier' },
-        { stop: '99', type: 'Dropoff', status: 'Requested', time: '09/21/2024 09:00 04/22/2024 17:30', locationId: '1923', address: '1480 MAIN AVE UNIT 200, HOUST', contact: 'Michelle Woods', method: 'Manual', scheduledBy: 'UF Operations' },
+        { stop: '1', type: 'Pickup', status: 'Booked', time: '09/19/2024 09:00', locationId: '12KAS', address: '107 MARKET RD, NEW ORLEANS', contact: 'Dallas Waters', method: 'Manual', scheduledBy: 'Carrier' },
+        { stop: '99', type: 'Dropoff', status: 'Requested', time: '09/21/2024 09:00', locationId: '1923', address: '1480 MAIN AVE UNIT 200, HOUST', contact: 'Michelle Woods', method: 'Manual', scheduledBy: 'UF Operations' },
       ]
-      function onDelete(indices: number[]) {
-        alert('Delete rows: ' + indices.join(', '))
+      function onBulk(action: string, indices: number[]) {
+        alert(action + ': rows ' + indices.join(', '))
       }
-      return { columns, rows, onDelete }
+      return { columns, rows, onBulk }
     },
     template: `
       <DataGrid
         title="Scheduling"
         :columns="columns"
         :rows="rows"
-        @delete="onDelete"
+        @bulk-action="onBulk"
       />
     `,
   }),
 }
 
-export const Carriers: Story = {
-  render: () => ({
-    components: { DataGrid },
-    setup() {
-      const columns = [
-        { key: 'mode', label: 'Mode', width: '60px' },
-        { key: 'scac', label: 'SCAC', width: '80px' },
-        { key: 'carrier', label: 'Carrier name' },
-        { key: 'equipment', label: 'Equipment Type' },
-        { key: 'rate', label: 'Rate' },
-      ]
-      const rows = [
-        { mode: 'TL', scac: 'GOHH', carrier: 'Golden Horizon Haulers', equipment: 'Dry Van', rate: '$900' },
-      ]
-      return { columns, rows }
-    },
-    template: `
-      <DataGrid
-        title="Carriers"
-        :columns="columns"
-        :rows="rows"
-      >
-        <template #cell-rate="{ value }">
-          <span>{{ value }} <a href="#" class="text-[#276EF1] hover:underline">See analysis</a></span>
-        </template>
-      </DataGrid>
-    `,
-  }),
-}
-
-export const ManyRows: Story = {
+export const Shipments: Story = {
   render: () => ({
     components: { DataGrid },
     setup() {
@@ -93,23 +63,68 @@ export const ManyRows: Story = {
         { id: 'SHP-004', origin: 'Seattle, WA', destination: 'Denver, CO', status: 'Delivered', cost: '$3,200' },
         { id: 'SHP-005', origin: 'New York, NY', destination: 'Boston, MA', status: 'Cancelled', cost: '$720' },
       ]
-      function onDelete(indices: number[]) {
-        alert('Deleting ' + indices.length + ' items')
+      const bulkActions = [
+        { label: 'Delete', key: 'delete', danger: true },
+        { label: 'Export', key: 'export' },
+        { label: 'Assign', key: 'assign' },
+      ]
+      function onBulk(action: string, indices: number[]) {
+        alert(action + ': ' + indices.length + ' items')
       }
-      return { columns, rows, onDelete }
+      return { columns, rows, bulkActions, onBulk }
     },
     template: `
       <DataGrid
         title="Shipments"
         :columns="columns"
         :rows="rows"
-        @delete="onDelete"
+        :bulk-actions="bulkActions"
+        @bulk-action="onBulk"
+        @edit="() => alert('Entering edit mode')"
       />
     `,
   }),
 }
 
-export const NoSelection: Story = {
+export const CustomBulkActions: Story = {
+  render: () => ({
+    components: { DataGrid },
+    setup() {
+      const columns = [
+        { key: 'carrier', label: 'Carrier' },
+        { key: 'scac', label: 'SCAC' },
+        { key: 'type', label: 'Type' },
+        { key: 'status', label: 'Status' },
+      ]
+      const rows = [
+        { carrier: 'GlobalFlow Carriers', scac: 'GFC', type: 'Asset', status: 'Active' },
+        { carrier: 'Knight Swift', scac: 'KSW', type: 'Asset', status: 'Active' },
+        { carrier: 'XPO Logistics', scac: 'XPO', type: 'Broker', status: 'Suspended' },
+        { carrier: 'Werner', scac: 'WRN', type: 'Asset', status: 'Active' },
+      ]
+      const bulkActions = [
+        { label: 'Suspend', key: 'suspend', danger: true },
+        { label: 'Export CSV', key: 'export' },
+        { label: 'Send invite', key: 'invite' },
+      ]
+      function onBulk(action: string, indices: number[]) {
+        alert(action + ': ' + indices.length + ' carriers')
+      }
+      return { columns, rows, bulkActions, onBulk }
+    },
+    template: `
+      <DataGrid
+        title="Carriers"
+        :columns="columns"
+        :rows="rows"
+        :bulk-actions="bulkActions"
+        @bulk-action="onBulk"
+      />
+    `,
+  }),
+}
+
+export const NoSelectable: Story = {
   render: () => ({
     components: { DataGrid },
     setup() {
@@ -125,13 +140,7 @@ export const NoSelection: Story = {
       return { columns, rows }
     },
     template: `
-      <DataGrid
-        title="Financials"
-        :columns="columns"
-        :rows="rows"
-        :selectable="false"
-        :editable="false"
-      />
+      <DataGrid title="Financials" :columns="columns" :rows="rows" :selectable="false" :editable="false" />
     `,
   }),
 }
