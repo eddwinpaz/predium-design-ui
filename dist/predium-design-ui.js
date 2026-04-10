@@ -487,9 +487,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		}, 8, ["modelValue", "disabled"]));
 	}
-}), we = { class: "border border-[#e2e2e2] rounded-[12px] bg-white" }, Te = { class: "flex items-center justify-between px-[24px] pt-[20px] pb-[16px]" }, Ee = { class: "text-[16px] font-semibold text-[#000]" }, De = { class: "text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] leading-[16px]" }, Oe = { class: "text-[14px] text-[#000] leading-[20px] mt-[2px]" }, ke = {
+}), we = { class: "flex items-center justify-between mb-[12px]" }, Te = { class: "text-[15px] font-semibold text-[#000]" }, Ee = { class: "border border-[#e2e2e2] rounded-[12px] bg-white" }, De = { class: "text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] leading-[16px]" }, Oe = { class: "text-[14px] text-[#000] leading-[20px] mt-[2px]" }, ke = {
 	key: 1,
-	class: "px-[24px] pb-[24px]"
+	class: "px-[24px] py-[20px]"
 }, Ae = /* @__PURE__ */ u({
 	__name: "DetailSection",
 	props: {
@@ -510,25 +510,21 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			5: "grid-cols-5",
 			6: "grid-cols-6"
 		})[r.columns] ?? "grid-cols-3");
-		return (n, r) => (g(), a("div", we, [
-			o("div", Te, [
-				o("h3", Ee, S(t.title), 1),
-				t.editable ? (g(), a("button", {
-					key: 0,
-					class: "text-[14px] text-[#276EF1] font-medium hover:underline cursor-pointer",
-					onClick: r[0] ||= (e) => n.$emit("edit")
-				}, " Edit ")) : i("", !0),
-				y(n.$slots, "action")
-			]),
-			t.fields?.length ? (g(), a("div", {
+		return (n, r) => (g(), a("div", null, [o("div", we, [
+			o("h3", Te, S(t.title), 1),
+			t.editable ? (g(), a("button", {
 				key: 0,
-				class: f(["grid gap-0 px-[24px] pb-[24px]", s.value])
-			}, [(g(!0), a(e, null, v(t.fields, (e, t) => (g(), a("div", {
-				key: t,
-				class: "py-[8px] pr-[16px]"
-			}, [o("div", De, S(e.label), 1), o("div", Oe, S(e.value), 1)]))), 128))], 2)) : i("", !0),
-			n.$slots.default ? (g(), a("div", ke, [y(n.$slots, "default")])) : i("", !0)
-		]));
+				class: "text-[14px] text-[#545454] font-medium hover:text-[#000] cursor-pointer",
+				onClick: r[0] ||= (e) => n.$emit("edit")
+			}, " Edit ")) : i("", !0),
+			y(n.$slots, "action")
+		]), o("div", Ee, [t.fields?.length ? (g(), a("div", {
+			key: 0,
+			class: f(["grid gap-0 px-[24px] py-[20px]", s.value])
+		}, [(g(!0), a(e, null, v(t.fields, (e, t) => (g(), a("div", {
+			key: t,
+			class: "py-[8px] pr-[16px]"
+		}, [o("div", De, S(e.label), 1), o("div", Oe, S(e.value), 1)]))), 128))], 2)) : i("", !0), n.$slots.default ? (g(), a("div", ke, [y(n.$slots, "default")])) : i("", !0)])]));
 	}
 }), je = ["disabled"], Me = {
 	key: 0,
