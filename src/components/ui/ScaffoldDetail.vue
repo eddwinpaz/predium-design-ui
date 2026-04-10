@@ -9,8 +9,10 @@
 
 <template>
   <div class="flex h-screen overflow-hidden bg-white">
-    <!-- Sidebar -->
-    <slot name="sidebar" />
+    <!-- Sidebar: hidden on mobile, visible on sm+ -->
+    <div class="hidden sm:flex">
+      <slot name="sidebar" />
+    </div>
 
     <!-- Main area -->
     <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
@@ -19,25 +21,25 @@
 
       <!-- Scrollable content -->
       <div class="flex-1 overflow-y-auto">
-        <!-- Page header (breadcrumbs, title, status, actions) -->
+        <!-- Page header -->
         <slot name="pageHeader" />
 
         <!-- Tabs bar -->
-        <div v-if="$slots.tabs" class="px-[16px] sm:px-[24px] border-b border-[#e2e2e2] bg-white sticky top-0 z-10">
+        <div v-if="$slots.tabs" class="px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white sticky top-0 z-10">
           <slot name="tabs" />
         </div>
 
         <!-- Two-column layout: content + right panel -->
         <div class="flex flex-col lg:flex-row">
           <!-- Left: main content -->
-          <div class="flex-1 min-w-0 p-[16px] sm:p-[24px]">
-            <div class="flex flex-col gap-[24px] sm:gap-[32px]">
+          <div class="flex-1 min-w-0 p-[12px] sm:p-[16px] md:p-[24px]">
+            <div class="flex flex-col gap-[20px] sm:gap-[24px] md:gap-[32px]">
               <slot name="content" />
             </div>
           </div>
 
-          <!-- Right: sticky side panel (map, route, etc.) -->
-          <div v-if="$slots.rightPanel" class="lg:w-[360px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[16px] sm:p-[24px] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
+          <!-- Right: side panel -->
+          <div v-if="$slots.rightPanel" class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[12px] sm:p-[16px] md:p-[24px] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
             <slot name="rightPanel" />
           </div>
         </div>

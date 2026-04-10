@@ -26,7 +26,7 @@ export const ShipmentDetail: Story = {
   render: () => ({
     components: { ScaffoldDetail, SidebarNav, NavHeader, PageHeader, Tabs, DetailSection, DataGrid },
     setup() {
-      const sidebarCollapsed = ref(true)
+      const sidebarCollapsed = ref(window.innerWidth < 1024)
       const activeTab = ref('details')
       const tabs = [
         { key: 'details', label: 'Details' },
@@ -165,22 +165,38 @@ export const ShipmentDetail: Story = {
 
           <!-- Carriers -->
           <DetailSection title="Carriers" :editable="false">
-            <table class="w-full text-[13px]">
-              <thead>
-                <tr class="border-b border-[#e2e2e2]">
-                  <th v-for="h in ['Mode', 'SCAC', 'Carrier name', 'Equipment Type', 'Rate']" :key="h" class="text-left py-[8px] pr-[16px] text-[11px] font-medium text-[#999] uppercase tracking-[0.5px]">{{ h }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="py-[10px] pr-[16px]">TL</td>
-                  <td class="py-[10px] pr-[16px]">GOHH</td>
-                  <td class="py-[10px] pr-[16px]">Golden Horizon Haulers</td>
-                  <td class="py-[10px] pr-[16px]">Dry Van</td>
-                  <td class="py-[10px]">$900 <a href="#" class="text-[#276EF1] hover:underline">See analysis</a></td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- Mobile: stacked fields -->
+            <div class="sm:hidden grid grid-cols-2 gap-x-[12px] gap-y-[8px]">
+              <div v-for="f in [
+                { label: 'Mode', value: 'TL' },
+                { label: 'SCAC', value: 'GOHH' },
+                { label: 'Carrier name', value: 'Golden Horizon Haulers' },
+                { label: 'Equipment Type', value: 'Dry Van' },
+                { label: 'Rate', value: '$900' },
+              ]" :key="f.label">
+                <div class="text-[10px] font-medium text-[#999] uppercase tracking-[0.5px]">{{ f.label }}</div>
+                <div class="text-[13px] text-[#000] mt-[1px]">{{ f.value }}</div>
+              </div>
+            </div>
+            <!-- Desktop: table -->
+            <div class="hidden sm:block overflow-x-auto">
+              <table class="w-full text-[13px]">
+                <thead>
+                  <tr class="border-b border-[#e2e2e2]">
+                    <th v-for="h in ['Mode', 'SCAC', 'Carrier name', 'Equipment Type', 'Rate']" :key="h" class="text-left py-[8px] pr-[16px] text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] whitespace-nowrap">{{ h }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="py-[10px] pr-[16px]">TL</td>
+                    <td class="py-[10px] pr-[16px]">GOHH</td>
+                    <td class="py-[10px] pr-[16px] whitespace-nowrap">Golden Horizon Haulers</td>
+                    <td class="py-[10px] pr-[16px]">Dry Van</td>
+                    <td class="py-[10px] whitespace-nowrap">$900 <a href="#" class="text-[#276EF1] hover:underline">See analysis</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </DetailSection>
 
           <!-- Scheduling -->
@@ -213,7 +229,7 @@ export const ShipmentDetail: Story = {
         <!-- Right panel: map + route -->
         <template #rightPanel>
           <!-- Map placeholder -->
-          <div class="bg-[#f0f0f0] rounded-[12px] h-[240px] flex items-center justify-center mb-[24px] overflow-hidden relative">
+          <div class="bg-[#f0f0f0] rounded-[12px] h-[180px] sm:h-[200px] lg:h-[240px] flex items-center justify-center mb-[16px] sm:mb-[24px] overflow-hidden relative">
             <svg class="w-full h-full" viewBox="0 0 400 240" fill="none">
               <rect width="400" height="240" fill="#e8e8e8" />
               <circle cx="320" cy="80" r="6" fill="#276EF1" />

@@ -2239,22 +2239,22 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			stroke: "none"
 		}, [...r[1] ||= [o("path", { d: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" }, null, -1)]], 10, Qr))], 42, Zr))), 128))]));
 	}
-}), ei = { class: "flex h-screen overflow-hidden bg-white" }, ti = { class: "flex-1 flex flex-col min-w-0 overflow-hidden" }, ni = { class: "flex-1 overflow-y-auto" }, ri = {
+}), ei = { class: "flex h-screen overflow-hidden bg-white" }, ti = { class: "hidden sm:flex" }, ni = { class: "flex-1 flex flex-col min-w-0 overflow-hidden" }, ri = { class: "flex-1 overflow-y-auto" }, ii = {
 	key: 0,
-	class: "px-[16px] sm:px-[24px] border-b border-[#e2e2e2] bg-white sticky top-0 z-10"
-}, ii = { class: "flex flex-col lg:flex-row" }, ai = { class: "flex-1 min-w-0 p-[16px] sm:p-[24px]" }, oi = { class: "flex flex-col gap-[24px] sm:gap-[32px]" }, si = {
+	class: "px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white sticky top-0 z-10"
+}, ai = { class: "flex flex-col lg:flex-row" }, oi = { class: "flex-1 min-w-0 p-[12px] sm:p-[16px] md:p-[24px]" }, si = { class: "flex flex-col gap-[20px] sm:gap-[24px] md:gap-[32px]" }, ci = {
 	key: 0,
-	class: "lg:w-[360px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[16px] sm:p-[24px] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto"
-}, ci = /* @__PURE__ */ u({
+	class: "w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[12px] sm:p-[16px] md:p-[24px] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto"
+}, li = /* @__PURE__ */ u({
 	__name: "ScaffoldDetail",
 	setup(e) {
-		return (e, t) => (g(), a("div", ei, [y(e.$slots, "sidebar"), o("div", ti, [y(e.$slots, "navHeader"), o("div", ni, [
+		return (e, t) => (g(), a("div", ei, [o("div", ti, [y(e.$slots, "sidebar")]), o("div", ni, [y(e.$slots, "navHeader"), o("div", ri, [
 			y(e.$slots, "pageHeader"),
-			e.$slots.tabs ? (g(), a("div", ri, [y(e.$slots, "tabs")])) : i("", !0),
-			o("div", ii, [o("div", ai, [o("div", oi, [y(e.$slots, "content")])]), e.$slots.rightPanel ? (g(), a("div", si, [y(e.$slots, "rightPanel")])) : i("", !0)])
+			e.$slots.tabs ? (g(), a("div", ii, [y(e.$slots, "tabs")])) : i("", !0),
+			o("div", ai, [o("div", oi, [o("div", si, [y(e.$slots, "content")])]), e.$slots.rightPanel ? (g(), a("div", ci, [y(e.$slots, "rightPanel")])) : i("", !0)])
 		])])]));
 	}
-}), li = ["onClick"], ui = /* @__PURE__ */ u({
+}), ui = ["onClick"], di = /* @__PURE__ */ u({
 	__name: "SegmentControl",
 	props: {
 		modelValue: {},
@@ -2271,15 +2271,15 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				t.modelValue === e.value ? "bg-white text-[#000] shadow-sm" : "text-[#545454] hover:text-[#000]"
 			]),
 			onClick: (t) => n.$emit("update:modelValue", e.value)
-		}, S(e.label), 11, li))), 128))], 2));
+		}, S(e.label), 11, ui))), 128))], 2));
 	}
-}), di = { class: "relative" }, fi = {
+}), fi = { class: "relative" }, pi = {
 	key: 0,
 	xmlns: "http://www.w3.org/2000/svg",
 	class: "h-4 w-4 text-content-primary flex-shrink-0",
 	viewBox: "0 0 20 20",
 	fill: "currentColor"
-}, pi = /* @__PURE__ */ u({
+}, mi = /* @__PURE__ */ u({
 	__name: "Select",
 	props: {
 		modelValue: { default: null },
@@ -2312,7 +2312,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			disabled: s.disabled,
 			"onUpdate:modelValue": c[0] ||= (e) => n.$emit("update:modelValue", e)
 		}, {
-			default: E(() => [o("div", di, [l(C(ee), { class: f([
+			default: E(() => [o("div", fi, [l(C(ee), { class: f([
 				"flex items-center justify-between w-full border-2 rounded-[8px] px-3 text-left transition-colors",
 				u.value,
 				{
@@ -2350,7 +2350,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 							"flex items-center justify-between px-3 py-2 cursor-pointer text-sm text-content-primary",
 							t ? "bg-bg-secondary" : "",
 							n ? "font-medium" : ""
-						]) }, [o("span", null, S(e.label), 1), n ? (g(), a("svg", fi, [...c[2] ||= [o("path", {
+						]) }, [o("span", null, S(e.label), 1), n ? (g(), a("svg", pi, [...c[2] ||= [o("path", {
 							"fill-rule": "evenodd",
 							d: "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z",
 							"clip-rule": "evenodd"
@@ -2364,10 +2364,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		}, 8, ["model-value", "disabled"]));
 	}
-}), mi = { class: "flex items-center h-[52px] px-[14px] flex-shrink-0" }, hi = {
+}), hi = { class: "flex items-center h-[52px] px-[14px] flex-shrink-0" }, gi = {
 	key: 0,
 	class: "ml-[10px] text-[14px] font-semibold truncate"
-}, gi = { class: "flex-1 overflow-y-auto overflow-x-hidden py-[8px] px-[8px]" }, _i = ["onClick"], vi = {
+}, _i = { class: "flex-1 overflow-y-auto overflow-x-hidden py-[8px] px-[8px]" }, vi = ["onClick"], yi = {
 	class: "w-[20px] h-[20px] flex-shrink-0",
 	viewBox: "0 0 24 24",
 	fill: "none",
@@ -2375,13 +2375,13 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	"stroke-width": "1.8",
 	"stroke-linecap": "round",
 	"stroke-linejoin": "round"
-}, yi = ["d"], bi = {
+}, bi = ["d"], xi = {
 	key: 0,
 	class: "flex-1 text-[14px] text-left truncate"
-}, xi = {
+}, Si = {
 	key: 0,
 	class: "ml-[42px] mb-[4px]"
-}, Si = ["onClick"], Ci = ["onClick"], wi = {
+}, Ci = ["onClick"], wi = ["onClick"], Ti = {
 	class: "w-[20px] h-[20px] flex-shrink-0",
 	viewBox: "0 0 24 24",
 	fill: "none",
@@ -2389,10 +2389,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	"stroke-width": "1.8",
 	"stroke-linecap": "round",
 	"stroke-linejoin": "round"
-}, Ti = ["d"], Ei = {
+}, Ei = ["d"], Di = {
 	key: 0,
 	class: "text-[14px] truncate"
-}, Di = /* @__PURE__ */ u({
+}, Oi = /* @__PURE__ */ u({
 	__name: "SidebarNav",
 	props: {
 		items: {},
@@ -2434,7 +2434,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		function y(e) {
 			return e.icon || h[e.label] || "M4 6h16M4 12h16M4 18h16";
 		}
-		return (n, r) => (g(), a("nav", { class: f(["flex flex-col h-full bg-[#000] text-white transition-all duration-300 ease-in-out flex-shrink-0 overflow-hidden", c.value ? "w-[56px]" : "w-[240px]"]) }, [o("div", mi, [o("button", {
+		return (n, r) => (g(), a("nav", { class: f(["flex flex-col h-full bg-[#000] text-white transition-all duration-300 ease-in-out flex-shrink-0 overflow-hidden", c.value ? "w-[56px]" : "w-[240px]"]) }, [o("div", hi, [o("button", {
 			class: "w-[32px] h-[32px] flex items-center justify-center rounded-[8px] text-white hover:bg-[#333] transition-colors",
 			onClick: u
 		}, [...r[0] ||= [o("svg", {
@@ -2445,7 +2445,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			stroke: "currentColor",
 			"stroke-width": "2",
 			"stroke-linecap": "round"
-		}, [o("path", { d: "M4 6h16M4 12h16M4 18h16" })], -1)]]), c.value ? i("", !0) : (g(), a("span", hi, S(t.brand), 1))]), o("div", gi, [(g(!0), a(e, null, v(t.items, (t) => (g(), a(e, { key: t.label }, [t.children?.length ? (g(), a(e, { key: 0 }, [o("button", {
+		}, [o("path", { d: "M4 6h16M4 12h16M4 18h16" })], -1)]]), c.value ? i("", !0) : (g(), a("span", gi, S(t.brand), 1))]), o("div", _i, [(g(!0), a(e, null, v(t.items, (t) => (g(), a(e, { key: t.label }, [t.children?.length ? (g(), a(e, { key: 0 }, [o("button", {
 			class: f([
 				"flex items-center w-full rounded-[8px] transition-colors gap-[12px] mb-[2px]",
 				c.value ? "justify-center px-0 py-[10px]" : "px-[10px] py-[10px]",
@@ -2453,8 +2453,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			]),
 			onClick: (e) => c.value ? u() : d(t.label)
 		}, [
-			(g(), a("svg", vi, [o("path", { d: y(t) }, null, 8, yi)])),
-			c.value ? i("", !0) : (g(), a("span", bi, S(t.label), 1)),
+			(g(), a("svg", yi, [o("path", { d: y(t) }, null, 8, bi)])),
+			c.value ? i("", !0) : (g(), a("span", xi, S(t.label), 1)),
 			c.value ? i("", !0) : (g(), a("svg", {
 				key: 1,
 				class: f(["w-[14px] h-[14px] transition-transform duration-200 flex-shrink-0", l.value.has(t.label) ? "rotate-180" : ""]),
@@ -2463,11 +2463,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				stroke: "currentColor",
 				"stroke-width": "2"
 			}, [...r[1] ||= [o("path", { d: "M6 9l6 6 6-6" }, null, -1)]], 2))
-		], 10, _i), !c.value && l.value.has(t.label) ? (g(), a("div", xi, [(g(!0), a(e, null, v(t.children, (e) => (g(), a("button", {
+		], 10, vi), !c.value && l.value.has(t.label) ? (g(), a("div", Si, [(g(!0), a(e, null, v(t.children, (e) => (g(), a("button", {
 			key: e.to,
 			class: f(["block w-full text-left text-[14px] py-[8px] px-[10px] rounded-[8px] transition-colors mb-[1px]", e.active ? "text-white bg-[#333]" : "text-[#999] hover:text-white hover:bg-[#1a1a1a]"]),
 			onClick: (t) => p(e.to)
-		}, S(e.label), 11, Si))), 128))])) : i("", !0)], 64)) : (g(), a("button", {
+		}, S(e.label), 11, Ci))), 128))])) : i("", !0)], 64)) : (g(), a("button", {
 			key: 1,
 			class: f([
 				"flex items-center w-full rounded-[8px] transition-colors gap-[12px] mb-[2px]",
@@ -2475,15 +2475,15 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				t.active ? "text-white bg-[#333]" : "text-[#999] hover:text-white hover:bg-[#1a1a1a]"
 			]),
 			onClick: (e) => t.to && p(t.to)
-		}, [(g(), a("svg", wi, [o("path", { d: y(t) }, null, 8, Ti)])), c.value ? i("", !0) : (g(), a("span", Ei, S(t.label), 1))], 10, Ci))], 64))), 128))])], 2));
+		}, [(g(), a("svg", Ti, [o("path", { d: y(t) }, null, 8, Ei)])), c.value ? i("", !0) : (g(), a("span", Di, S(t.label), 1))], 10, wi))], 64))), 128))])], 2));
 	}
-}), Oi = { class: "flex h-full w-full overflow-hidden" }, ki = {
+}), ki = { class: "flex h-full w-full overflow-hidden" }, Ai = {
 	key: 0,
 	class: "flex items-center justify-between h-[48px] px-[16px] flex-shrink-0"
-}, Ai = { class: "text-[15px] font-semibold text-[#000] truncate" }, ji = { class: "flex items-center gap-[4px]" }, Mi = { class: "flex-1 overflow-y-auto overflow-x-hidden" }, Ni = {
+}, ji = { class: "text-[15px] font-semibold text-[#000] truncate" }, Mi = { class: "flex items-center gap-[4px]" }, Ni = { class: "flex-1 overflow-y-auto overflow-x-hidden" }, Pi = {
 	key: 0,
 	class: "flex-shrink-0 border-r border-[#e2e2e2] flex flex-col items-center pt-[12px]"
-}, Pi = { class: "flex-1 min-w-0 overflow-auto" }, Fi = /* @__PURE__ */ u({
+}, Fi = { class: "flex-1 min-w-0 overflow-auto" }, Ii = /* @__PURE__ */ u({
 	__name: "SidePanel",
 	props: {
 		title: { default: "" },
@@ -2514,11 +2514,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			width: c.value ? "0px" : `${r.width}px`,
 			minWidth: c.value ? "0px" : `${r.width}px`
 		}));
-		return (t, n) => (g(), a("div", Oi, [
+		return (t, n) => (g(), a("div", ki, [
 			o("div", {
 				class: f(["flex flex-col bg-white overflow-hidden transition-all duration-300 ease-in-out flex-shrink-0", e.bordered ? "border-r border-[#e2e2e2]" : ""]),
 				style: p(u.value)
-			}, [e.title || t.$slots.headerActions || e.collapsible ? (g(), a("div", ki, [o("span", Ai, S(e.title), 1), o("div", ji, [
+			}, [e.title || t.$slots.headerActions || e.collapsible ? (g(), a("div", Ai, [o("span", ji, S(e.title), 1), o("div", Mi, [
 				y(t.$slots, "headerActions"),
 				t.$slots.headerActions === void 0 && t.$slots.add ? (g(), a("button", {
 					key: 0,
@@ -2546,8 +2546,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 					"stroke-width": "2",
 					"stroke-linecap": "round"
 				}, [o("path", { d: "M15 18l-6-6 6-6" })], -1)]])) : i("", !0)
-			])])) : i("", !0), o("div", Mi, [y(t.$slots, "sidebar")])], 6),
-			c.value && e.collapsible ? (g(), a("div", Ni, [o("button", {
+			])])) : i("", !0), o("div", Ni, [y(t.$slots, "sidebar")])], 6),
+			c.value && e.collapsible ? (g(), a("div", Pi, [o("button", {
 				class: "w-[32px] h-[32px] flex items-center justify-center rounded-[6px] text-[#545454] hover:bg-[#f6f6f6] transition-colors",
 				onClick: l
 			}, [...n[3] ||= [o("svg", {
@@ -2559,10 +2559,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				"stroke-width": "2",
 				"stroke-linecap": "round"
 			}, [o("path", { d: "M9 18l6-6-6-6" })], -1)]])])) : i("", !0),
-			o("div", Pi, [y(t.$slots, "default")])
+			o("div", Fi, [y(t.$slots, "default")])
 		]));
 	}
-}), Ii = /* @__PURE__ */ u({
+}), Li = /* @__PURE__ */ u({
 	__name: "Separator",
 	props: {
 		orientation: { default: "horizontal" },
@@ -2588,10 +2588,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f(["border-l border-border self-stretch", i.value])
 		}, null, 2));
 	}
-}), Li = {
+}), Ri = {
 	key: 0,
 	class: "space-y-2"
-}, Ri = /* @__PURE__ */ u({
+}, zi = /* @__PURE__ */ u({
 	__name: "Skeleton",
 	props: {
 		variant: { default: "text" },
@@ -2604,7 +2604,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}
 	},
 	setup(t) {
-		return (n, r) => t.variant === "text" ? (g(), a("div", Li, [(g(!0), a(e, null, v(t.rows, (e) => (g(), a("div", {
+		return (n, r) => t.variant === "text" ? (g(), a("div", Ri, [(g(!0), a(e, null, v(t.rows, (e) => (g(), a("div", {
 			key: e,
 			class: f(["rounded bg-bg-secondary", t.animated ? "animate-pulse" : ""]),
 			style: p({
@@ -2627,16 +2627,16 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			})
 		}, null, 6));
 	}
-}), zi = { class: "w-full" }, Bi = { class: "flex items-center gap-3" }, Vi = [
+}), Bi = { class: "w-full" }, Vi = { class: "flex items-center gap-3" }, Hi = [
 	"min",
 	"max",
 	"step",
 	"value",
 	"disabled"
-], Hi = {
+], Ui = {
 	key: 0,
 	class: "text-sm font-medium text-content-primary min-w-[3ch] text-right"
-}, Ui = /* @__PURE__ */ u({
+}, Wi = /* @__PURE__ */ u({
 	__name: "Slider",
 	props: {
 		modelValue: {},
@@ -2654,7 +2654,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	},
 	emits: ["update:modelValue"],
 	setup(e) {
-		return (t, n) => (g(), a("div", zi, [o("div", Bi, [o("input", {
+		return (t, n) => (g(), a("div", Bi, [o("div", Vi, [o("input", {
 			type: "range",
 			min: e.min,
 			max: e.max,
@@ -2663,9 +2663,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			disabled: e.disabled,
 			class: "slider-input w-full h-2 rounded-full appearance-none cursor-pointer bg-bg-secondary [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-black [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md disabled:opacity-40 disabled:cursor-not-allowed",
 			onInput: n[0] ||= (e) => t.$emit("update:modelValue", Number(e.target.value))
-		}, null, 40, Vi), e.showValue ? (g(), a("span", Hi, S(e.modelValue), 1)) : i("", !0)])]));
+		}, null, 40, Hi), e.showValue ? (g(), a("span", Ui, S(e.modelValue), 1)) : i("", !0)])]));
 	}
-}), Wi = ["stroke"], Gi = ["fill"], Ki = /* @__PURE__ */ u({
+}), Gi = ["stroke"], Ki = ["fill"], qi = /* @__PURE__ */ u({
 	__name: "Spinner",
 	props: {
 		size: { default: "md" },
@@ -2693,41 +2693,41 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			r: "10",
 			stroke: i.value,
 			"stroke-width": "3"
-		}, null, 8, Wi), o("path", {
+		}, null, 8, Gi), o("path", {
 			class: "opacity-75",
 			fill: i.value,
 			d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-		}, null, 8, Gi)], 2));
+		}, null, 8, Ki)], 2));
 	}
-}), qi = { class: "flex items-center justify-center" }, Ji = { class: "flex flex-col items-center" }, Yi = {
+}), Ji = { class: "flex items-center justify-center" }, Yi = { class: "flex flex-col items-center" }, Xi = {
 	key: 0,
 	class: "w-4 h-4",
 	fill: "none",
 	viewBox: "0 0 24 24",
 	stroke: "currentColor",
 	"stroke-width": "3"
-}, Xi = { key: 1 }, Zi = /* @__PURE__ */ u({
+}, Zi = { key: 1 }, Qi = /* @__PURE__ */ u({
 	__name: "Stepper",
 	props: {
 		steps: {},
 		activeStep: {}
 	},
 	setup(t) {
-		return (n, r) => (g(), a("div", qi, [(g(!0), a(e, null, v(t.steps, (n, s) => (g(), a(e, { key: s }, [o("div", Ji, [o("div", { class: f([
+		return (n, r) => (g(), a("div", Ji, [(g(!0), a(e, null, v(t.steps, (n, s) => (g(), a(e, { key: s }, [o("div", Yi, [o("div", { class: f([
 			"w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors",
 			s < t.activeStep ? "bg-black text-white" : "",
 			s === t.activeStep ? "bg-black text-white" : "",
 			s > t.activeStep ? "border-2 border-border text-content-tertiary" : ""
-		]) }, [s < t.activeStep ? (g(), a("svg", Yi, [...r[0] ||= [o("path", {
+		]) }, [s < t.activeStep ? (g(), a("svg", Xi, [...r[0] ||= [o("path", {
 			"stroke-linecap": "round",
 			"stroke-linejoin": "round",
 			d: "M5 13l4 4L19 7"
-		}, null, -1)]])) : (g(), a("span", Xi, S(s + 1), 1))], 2), o("span", { class: f(["mt-2 text-xs font-medium whitespace-nowrap", s <= t.activeStep ? "text-content-primary" : "text-content-tertiary"]) }, S(n.label), 3)]), s < t.steps.length - 1 ? (g(), a("div", {
+		}, null, -1)]])) : (g(), a("span", Zi, S(s + 1), 1))], 2), o("span", { class: f(["mt-2 text-xs font-medium whitespace-nowrap", s <= t.activeStep ? "text-content-primary" : "text-content-tertiary"]) }, S(n.label), 3)]), s < t.steps.length - 1 ? (g(), a("div", {
 			key: 0,
 			class: f(["flex-1 h-[2px] mx-3 mt-[-16px]", s < t.activeStep ? "bg-black" : "bg-border"])
 		}, null, 2)) : i("", !0)], 64))), 128))]));
 	}
-}), Qi = { class: "w-full border-collapse text-sm" }, $i = /* @__PURE__ */ u({
+}), $i = { class: "w-full border-collapse text-sm" }, ea = /* @__PURE__ */ u({
 	__name: "Table",
 	props: {
 		columns: {},
@@ -2759,7 +2759,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			];
 		}
 		let l = n(() => ["px-scale400 text-font200 text-content-primary", r.compact ? "py-scale200" : "py-scale400"]);
-		return (n, r) => (g(), a("div", { class: f(t.stickyHeader ? "" : "overflow-x-auto") }, [o("table", Qi, [o("thead", null, [o("tr", null, [(g(!0), a(e, null, v(t.columns, (e) => (g(), a("th", {
+		return (n, r) => (g(), a("div", { class: f(t.stickyHeader ? "" : "overflow-x-auto") }, [o("table", $i, [o("thead", null, [o("tr", null, [(g(!0), a(e, null, v(t.columns, (e) => (g(), a("th", {
 			key: e.key,
 			class: f([i.value, e.align === "right" ? "text-right" : e.align === "center" ? "text-center" : "text-left"]),
 			style: p(e.width ? { width: e.width } : {})
@@ -2775,13 +2775,13 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			rowIndex: i
 		}, () => [c(S(r[e.key]), 1)])], 2))), 128))], 2))), 128))])])], 2));
 	}
-}), ea = ["aria-selected", "onClick"], ta = {
+}), ta = ["aria-selected", "onClick"], na = {
 	key: 0,
 	class: "ml-1 text-content-tertiary"
-}, na = {
+}, ra = {
 	key: 1,
 	class: "absolute bottom-0 left-0 right-0 h-[3px] bg-black rounded-t-full"
-}, ra = { class: "mt-4" }, ia = /* @__PURE__ */ u({
+}, ia = { class: "mt-4" }, aa = /* @__PURE__ */ u({
 	__name: "Tabs",
 	props: {
 		modelValue: {},
@@ -2808,11 +2808,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			onClick: (t) => n.$emit("update:modelValue", e.key)
 		}, [
 			c(S(e.label), 1),
-			e.count == null ? i("", !0) : (g(), a("span", ta, "(" + S(e.count) + ")", 1)),
-			t.modelValue === e.key ? (g(), a("span", na)) : i("", !0)
-		], 10, ea))), 128))], 2), o("div", ra, [y(n.$slots, "default")])]));
+			e.count == null ? i("", !0) : (g(), a("span", na, "(" + S(e.count) + ")", 1)),
+			t.modelValue === e.key ? (g(), a("span", ra)) : i("", !0)
+		], 10, ta))), 128))], 2), o("div", ia, [y(n.$slots, "default")])]));
 	}
-}), aa = /* @__PURE__ */ u({
+}), oa = /* @__PURE__ */ u({
 	__name: "Tag",
 	props: {
 		selected: {
@@ -2848,12 +2848,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			onClick: c
 		}, [y(e.$slots, "default")], 2));
 	}
-}), oa = [
+}), sa = [
 	"value",
 	"placeholder",
 	"rows",
 	"disabled"
-], sa = /* @__PURE__ */ u({
+], ca = /* @__PURE__ */ u({
 	__name: "Textarea",
 	props: {
 		modelValue: { default: "" },
@@ -2884,21 +2884,21 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			rows: e.rows,
 			disabled: e.disabled,
 			onInput: n[0] ||= (e) => t.$emit("update:modelValue", e.target.value)
-		}, null, 42, oa));
+		}, null, 42, sa));
 	}
-}), ca = ["disabled"], la = { class: "absolute top-[16px] right-[16px]" }, ua = {
+}), la = ["disabled"], ua = { class: "absolute top-[16px] right-[16px]" }, da = {
 	key: 0,
 	class: "w-[20px] h-[20px] rounded-full bg-[#000] flex items-center justify-center"
-}, da = {
+}, fa = {
 	key: 1,
 	class: "w-[20px] h-[20px] rounded-full border-2 border-[#e2e2e2] group-hover:border-[#999]"
-}, fa = {
+}, $ = {
 	key: 0,
 	class: "mb-[12px]"
-}, $ = { class: "text-[16px] font-semibold text-[#000] leading-[24px]" }, pa = {
+}, pa = { class: "text-[16px] font-semibold text-[#000] leading-[24px]" }, ma = {
 	key: 1,
 	class: "text-[14px] text-[#545454] mt-[4px] leading-[20px]"
-}, ma = /* @__PURE__ */ u({
+}, ha = /* @__PURE__ */ u({
 	__name: "Tile",
 	props: {
 		selected: {
@@ -2924,22 +2924,22 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				e.align === "center" ? "items-center text-center" : "items-start"
 			]),
 			onClick: n[0] ||= (n) => !e.disabled && t.$emit("click")
-		}, [o("div", la, [e.selected ? (g(), a("div", ua, [...n[1] ||= [o("svg", {
+		}, [o("div", ua, [e.selected ? (g(), a("div", da, [...n[1] ||= [o("svg", {
 			class: "w-[12px] h-[12px] text-white",
 			viewBox: "0 0 24 24",
 			fill: "none",
 			stroke: "currentColor",
 			"stroke-width": "3"
-		}, [o("path", { d: "M5 13l4 4L19 7" })], -1)]])) : (g(), a("div", da))]), o("div", { class: f(["p-[24px] pt-[20px] w-full", e.align === "center" ? "flex flex-col items-center" : ""]) }, [
-			t.$slots.icon ? (g(), a("div", fa, [y(t.$slots, "icon")])) : i("", !0),
-			o("div", $, [y(t.$slots, "default")]),
-			t.$slots.description ? (g(), a("div", pa, [y(t.$slots, "description")])) : i("", !0)
-		], 2)], 10, ca));
+		}, [o("path", { d: "M5 13l4 4L19 7" })], -1)]])) : (g(), a("div", fa))]), o("div", { class: f(["p-[24px] pt-[20px] w-full", e.align === "center" ? "flex flex-col items-center" : ""]) }, [
+			t.$slots.icon ? (g(), a("div", $, [y(t.$slots, "icon")])) : i("", !0),
+			o("div", pa, [y(t.$slots, "default")]),
+			t.$slots.description ? (g(), a("div", ma, [y(t.$slots, "description")])) : i("", !0)
+		], 2)], 10, la));
 	}
-}), ha = ["disabled"], ga = {
+}), ga = ["disabled"], _a = {
 	key: 1,
 	class: "absolute inset-0 bg-[#000]"
-}, _a = { class: "tabular-nums" }, va = /* @__PURE__ */ u({
+}, va = { class: "tabular-nums" }, ya = /* @__PURE__ */ u({
 	__name: "TimedButton",
 	props: {
 		label: { default: "Countdown" },
@@ -2991,11 +2991,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				class: "absolute inset-y-0 right-0 bg-[#e0e0e0] transition-[width] duration-1000 ease-linear",
 				style: p({ width: 100 - b.value + "%" })
 			}, null, 4)], 64)) : i("", !0),
-			!v.value && !d.value && !t.disabled ? (g(), a("div", ga)) : i("", !0),
-			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-[#bbb]" : "text-white"]) }, [o("span", null, S(t.label), 1), o("span", _a, "(" + S(y.value) + ")", 1)], 2)
-		], 10, ha));
+			!v.value && !d.value && !t.disabled ? (g(), a("div", _a)) : i("", !0),
+			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-[#bbb]" : "text-white"]) }, [o("span", null, S(t.label), 1), o("span", va, "(" + S(y.value) + ")", 1)], 2)
+		], 10, ga));
 	}
-}), ya = { class: "flex-1" }, ba = /* @__PURE__ */ u({
+}), ba = { class: "flex-1" }, xa = /* @__PURE__ */ u({
 	__name: "Toast",
 	props: {
 		message: {},
@@ -3046,7 +3046,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				key: 0,
 				class: f(["flex items-center gap-3 px-4 py-3 rounded-lg shadow-xl text-sm min-w-[320px]", h()])
 			}, [
-				o("span", ya, S(e.message), 1),
+				o("span", ba, S(e.message), 1),
 				e.action ? (g(), a("button", {
 					key: 0,
 					class: "font-medium underline cursor-pointer",
@@ -3060,10 +3060,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		}));
 	}
-}), xa = ["aria-checked", "disabled"], Sa = { key: 0 }, Ca = { class: "text-sm font-medium text-content-primary" }, wa = {
+}), Sa = ["aria-checked", "disabled"], Ca = { key: 0 }, wa = { class: "text-sm font-medium text-content-primary" }, Ta = {
 	key: 0,
 	class: "text-xs text-content-tertiary"
-}, Ta = /* @__PURE__ */ u({
+}, Ea = /* @__PURE__ */ u({
 	__name: "Toggle",
 	props: {
 		modelValue: { type: Boolean },
@@ -3093,9 +3093,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			"inline-block rounded-full bg-white shadow transform transition-transform duration-200",
 			e.size === "sm" ? "h-4 w-4 mt-0.5 ml-0.5" : "h-5 w-5 mt-0.5 ml-0.5",
 			e.modelValue ? e.size === "sm" ? "translate-x-4" : "translate-x-5" : "translate-x-0"
-		]) }, null, 2)], 10, xa), e.label ? (g(), a("div", Sa, [o("span", Ca, S(e.label), 1), e.description ? (g(), a("p", wa, S(e.description), 1)) : i("", !0)])) : i("", !0)], 2));
+		]) }, null, 2)], 10, Sa), e.label ? (g(), a("div", Ca, [o("span", wa, S(e.label), 1), e.description ? (g(), a("p", Ta, S(e.description), 1)) : i("", !0)])) : i("", !0)], 2));
 	}
-}), Ea = /* @__PURE__ */ u({
+}), Da = /* @__PURE__ */ u({
 	__name: "Tooltip",
 	props: {
 		content: {},
@@ -3138,10 +3138,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		})], 32));
 	}
-}), Da = ["onClick"], Oa = {
+}), Oa = ["onClick"], ka = {
 	key: 1,
 	class: "w-4"
-}, ka = { class: "text-content-primary" }, Aa = /* @__PURE__ */ u({
+}, Aa = { class: "text-content-primary" }, ja = /* @__PURE__ */ u({
 	__name: "TreeView",
 	props: {
 		items: {},
@@ -3178,7 +3178,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				fill: "none",
 				stroke: "currentColor",
 				"stroke-width": "2"
-			}, [...s[0] ||= [o("path", { d: "M9 5l7 7-7 7" }, null, -1)]], 2)) : (g(), a("span", Oa)), o("span", ka, S(e.label), 1)], 8, Da), e.children?.length && c.value.has(e.id) ? (g(), r(u, {
+			}, [...s[0] ||= [o("path", { d: "M9 5l7 7-7 7" }, null, -1)]], 2)) : (g(), a("span", ka)), o("span", Aa, S(e.label), 1)], 8, Oa), e.children?.length && c.value.has(e.id) ? (g(), r(u, {
 				key: 0,
 				items: e.children,
 				depth: t.depth + 1,
@@ -3190,7 +3190,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			])) : i("", !0)]))), 128))], 2);
 		};
 	}
-}), ja = /* @__PURE__ */ u({
+}), Ma = /* @__PURE__ */ u({
 	__name: "Typography",
 	props: {
 		variant: { default: "paragraph-medium" },
@@ -3273,16 +3273,16 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 3
 		}, 8, ["class"]));
 	}
-}), Ma = { class: "w-full border border-[#e2e2e2] rounded-[12px] overflow-hidden" }, Na = ["onClick"], Pa = {
+}), Na = { class: "w-full border border-[#e2e2e2] rounded-[12px] overflow-hidden" }, Pa = ["onClick"], Fa = {
 	key: 0,
 	class: "text-[12px] text-[#999] mt-[2px]"
-}, Fa = {
+}, Ia = {
 	key: 1,
 	class: "text-[11px] sm:text-[13px] text-[#000] mt-[4px]"
-}, Ia = {
+}, La = {
 	key: 2,
 	class: "text-[13px] text-[#7356BF] font-medium mt-[4px]"
-}, La = /* @__PURE__ */ u({
+}, Ra = /* @__PURE__ */ u({
 	__name: "WeekPicker",
 	props: {
 		modelValue: {},
@@ -3303,7 +3303,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		function c(e) {
 			return r.modelValue === e.date;
 		}
-		return (n, r) => (g(), a("div", Ma, [o("div", {
+		return (n, r) => (g(), a("div", Na, [o("div", {
 			class: "grid",
 			style: p({ gridTemplateColumns: `repeat(${t.headers.length}, 1fr)` })
 		}, [(g(!0), a(e, null, v(t.headers, (e) => (g(), a("div", {
@@ -3319,11 +3319,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			onClick: (t) => !e.disabled && s("update:modelValue", e.date)
 		}, [
 			o("div", { class: f(["flex items-center justify-center text-[15px] sm:text-[18px] font-semibold", c(e) ? "w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#7356BF] text-white" : "text-[#000]"]) }, S(e.date), 3),
-			e.month ? (g(), a("span", Pa, S(e.month), 1)) : i("", !0),
-			e.price ? (g(), a("span", Fa, S(e.price), 1)) : i("", !0),
-			e.label ? (g(), a("span", Ia, S(e.label), 1)) : i("", !0)
-		], 10, Na))), 128))], 4)]));
+			e.month ? (g(), a("span", Fa, S(e.month), 1)) : i("", !0),
+			e.price ? (g(), a("span", Ia, S(e.price), 1)) : i("", !0),
+			e.label ? (g(), a("span", La, S(e.label), 1)) : i("", !0)
+		], 10, Pa))), 128))], 4)]));
 	}
 });
 //#endregion
-export { W as Accordion, K as Avatar, q as Badge, Q as Banner, ae as Breadcrumbs, ce as Button, de as ButtonGroup, me as Card, ye as Checkbox, Ce as Combobox, tt as DataGrid, lt as DatePicker, Ae as DetailSection, gt as Drawer, wt as FileUploader, kt as FilterList, Ft as FormControl, Bt as Input, Jt as KpiCard, Xt as Link, tn as List, on as Menu, yn as MessageCard, wn as Modal, Zn as NavHeader, ar as Notification, xr as PageHeader, Er as Pagination, kr as PhoneInput, Mr as PinCode, Nr as Popover, Ir as ProgressBar, Hr as ProgressSteps, Yr as Radio, $r as Rating, ci as ScaffoldDetail, ui as SegmentControl, pi as Select, Ii as Separator, Fi as SidePanel, Di as SidebarNav, Ri as Skeleton, Ui as Slider, Ki as Spinner, Zi as Stepper, $i as Table, ia as Tabs, aa as Tag, sa as Textarea, ma as Tile, va as TimedButton, ba as Toast, Ta as Toggle, Ea as Tooltip, Aa as TreeView, ja as Typography, La as WeekPicker };
+export { W as Accordion, K as Avatar, q as Badge, Q as Banner, ae as Breadcrumbs, ce as Button, de as ButtonGroup, me as Card, ye as Checkbox, Ce as Combobox, tt as DataGrid, lt as DatePicker, Ae as DetailSection, gt as Drawer, wt as FileUploader, kt as FilterList, Ft as FormControl, Bt as Input, Jt as KpiCard, Xt as Link, tn as List, on as Menu, yn as MessageCard, wn as Modal, Zn as NavHeader, ar as Notification, xr as PageHeader, Er as Pagination, kr as PhoneInput, Mr as PinCode, Nr as Popover, Ir as ProgressBar, Hr as ProgressSteps, Yr as Radio, $r as Rating, li as ScaffoldDetail, di as SegmentControl, mi as Select, Li as Separator, Ii as SidePanel, Oi as SidebarNav, zi as Skeleton, Wi as Slider, qi as Spinner, Qi as Stepper, ea as Table, aa as Tabs, oa as Tag, ca as Textarea, ha as Tile, ya as TimedButton, xa as Toast, Ea as Toggle, Da as Tooltip, ja as TreeView, Ma as Typography, Ra as WeekPicker };
