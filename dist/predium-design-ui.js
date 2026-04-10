@@ -611,20 +611,24 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		return (n, r) => (g(), a("div", null, [
 			o("div", je, [o("div", Me, [t.title ? (g(), a("h3", Ne, S(t.title), 1)) : i("", !0), b.value ? (g(), a("span", Pe, S(u.value.size) + " selected ", 1)) : i("", !0)]), o("div", Fe, [b.value ? (g(), a(e, { key: 0 }, [(g(!0), a(e, null, v(t.bulkActions, (e) => (g(), a("button", {
 				key: e.key,
-				class: f(["px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium rounded-[8px] transition-colors", e.danger ? "text-white bg-[#e11900] hover:bg-[#c41400]" : "text-[#000] bg-[#f6f6f6] hover:bg-[#eee]"]),
+				class: f(["px-[8px] py-[4px] text-[12px] font-medium rounded-[6px] transition-colors", e.danger ? "text-white bg-[#e11900] hover:bg-[#c41400]" : "text-[#000] bg-[#f6f6f6] hover:bg-[#eee]"]),
 				onClick: (t) => w(e.key)
 			}, S(e.label) + " (" + S(u.value.size) + ") ", 11, Ie))), 128)), o("button", {
-				class: "px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium text-[#999] hover:text-[#000] transition-colors",
+				class: "px-[8px] py-[4px] text-[12px] font-medium text-[#000] hover:underline transition-colors",
 				onClick: r[0] ||= (e) => u.value = /* @__PURE__ */ new Set()
-			}, " Cancel ")], 64)) : (g(), a(e, { key: 1 }, [t.editable && !d.value ? (g(), a("button", {
-				key: 0,
-				class: "px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors",
-				onClick: T
-			}, " Edit ")) : i("", !0), d.value ? (g(), a("button", {
-				key: 1,
-				class: "px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-[#000] hover:bg-[#333] rounded-[8px] transition-colors",
-				onClick: E
-			}, " Done ")) : i("", !0)], 64))])]),
+			}, " Cancel ")], 64)) : (g(), a(e, { key: 1 }, [
+				y(n.$slots, "headerActions"),
+				t.editable && !d.value ? (g(), a("button", {
+					key: 0,
+					class: "hidden",
+					onClick: T
+				}, " Edit ")) : i("", !0),
+				d.value ? (g(), a("button", {
+					key: 1,
+					class: "px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-[#000] hover:bg-[#333] rounded-[8px] transition-colors",
+					onClick: E
+				}, " Done ")) : i("", !0)
+			], 64))])]),
 			o("div", Le, [o("div", Re, [o("table", ze, [o("thead", null, [o("tr", Be, [t.selectable ? (g(), a("th", Ve, [o("div", {
 				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors", m.value || h.value ? "bg-[#000] border-[#000]" : "border-[#ccc] hover:border-[#999]"]),
 				onClick: x

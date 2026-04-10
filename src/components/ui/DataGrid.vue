@@ -107,7 +107,7 @@ function exitEdit() {
             v-for="action in bulkActions"
             :key="action.key"
             :class="[
-              'px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium rounded-[8px] transition-colors',
+              'px-[8px] py-[4px] text-[12px] font-medium rounded-[6px] transition-colors',
               action.danger
                 ? 'text-white bg-[#e11900] hover:bg-[#c41400]'
                 : 'text-[#000] bg-[#f6f6f6] hover:bg-[#eee]',
@@ -117,18 +117,19 @@ function exitEdit() {
             {{ action.label }} ({{ selected.size }})
           </button>
           <button
-            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[12px] sm:text-[13px] font-medium text-[#999] hover:text-[#000] transition-colors"
+            class="px-[8px] py-[4px] text-[12px] font-medium text-[#000] hover:underline transition-colors"
             @click="selected = new Set()"
           >
             Cancel
           </button>
         </template>
 
-        <!-- Edit / Done button (visible when no selection) -->
+        <!-- Slot for custom header actions (no built-in Edit button) -->
         <template v-else>
+          <slot name="headerActions" />
           <button
             v-if="editable && !editMode"
-            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors"
+            class="hidden"
             @click="enterEdit"
           >
             Edit
