@@ -60,7 +60,7 @@ const kindClassMap: Record<string, string> = {
 }
 
 function kindClasses(): string {
-  return kindClassMap[props.kind] || kindClassMap.info
+  return kindClassMap[props.kind] ?? kindClassMap['info'] ?? ''
 }
 </script>
 

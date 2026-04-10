@@ -61,7 +61,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			"#F97066"
 		], i = n(() => {
 			let e = t.name.trim().split(/\s+/);
-			return e.length === 0 ? "" : e.length === 1 ? e[0][0]?.toUpperCase() ?? "" : (e[0][0] + e[e.length - 1][0]).toUpperCase();
+			return e.length === 0 ? "" : e.length === 1 ? (e[0]?.[0] ?? "").toUpperCase() : ((e[0]?.[0] ?? "") + (e[e.length - 1]?.[0] ?? "")).toUpperCase();
 		}), o = n(() => {
 			let e = 0;
 			for (let n = 0; n < t.name.length; n++) e = t.name.charCodeAt(n) + ((e << 5) - e);
@@ -526,11 +526,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			"December"
 		], w = n(() => {
 			if (!c.modelValue) return null;
-			let [e, t, n] = c.modelValue.split("-").map(Number);
+			let e = c.modelValue.split("-").map(Number), t = e[0] ?? 2026, n = e[1] ?? 1, r = e[2] ?? 1;
 			return {
-				year: e,
-				month: t - 1,
-				day: n
+				year: t,
+				month: n - 1,
+				day: r
 			};
 		}), T = n(() => {
 			if (!c.modelValue) return "";
@@ -760,7 +760,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				}
 				t.push(n);
 			}
-			t.length && (r.multiple ? u.value = [...u.value, ...t] : u.value = [t[0]], s("upload", u.value));
+			t.length && (r.multiple ? u.value = [...u.value, ...t] : u.value = t[0] ? [t[0]] : [], s("upload", u.value));
 		}
 		function h(e) {
 			l.value = !1, !(r.disabled || !e.dataTransfer?.files.length) && m(Array.from(e.dataTransfer.files));
@@ -2316,7 +2316,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			negative: "bg-negative text-white"
 		};
 		function h() {
-			return p[s.kind] || p.info;
+			return p[s.kind] ?? p.info ?? "";
 		}
 		return (n, s) => (g(), r(t, {
 			"enter-active-class": "transition duration-300 ease-out",

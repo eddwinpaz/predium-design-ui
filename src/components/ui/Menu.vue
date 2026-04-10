@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 
 export interface MenuItemType {
-  label: string
+  label?: string
   icon?: string
   danger?: boolean
   disabled?: boolean

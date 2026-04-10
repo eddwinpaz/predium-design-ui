@@ -44,7 +44,7 @@ function validateAndAdd(newFiles: File[]) {
     if (props.multiple) {
       files.value = [...files.value, ...valid]
     } else {
-      files.value = [valid[0]]
+      files.value = valid[0] ? [valid[0]] : []
     }
     emit('upload', files.value)
   }

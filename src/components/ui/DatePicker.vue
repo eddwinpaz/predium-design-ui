@@ -29,7 +29,10 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 const selectedDate = computed(() => {
   if (!props.modelValue) return null
-  const [y, m, d] = props.modelValue.split('-').map(Number)
+  const parts = props.modelValue.split('-').map(Number)
+  const y = parts[0] ?? 2026
+  const m = parts[1] ?? 1
+  const d = parts[2] ?? 1
   return { year: y, month: m - 1, day: d }
 })
 
