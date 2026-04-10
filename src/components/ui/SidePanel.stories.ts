@@ -29,7 +29,10 @@ export const Default: Story = {
     setup() {
       const collapsed = ref(false)
       const activeFilter = ref('all')
-      return { collapsed, activeFilter }
+      const showEnRoute = ref(false)
+      const showAuctions = ref(true)
+      const showSaved = ref(true)
+      return { collapsed, activeFilter, showEnRoute, showAuctions, showSaved }
     },
     template: `
       <SidePanel v-model:collapsed="collapsed" title="Boards">
@@ -43,19 +46,27 @@ export const Default: Story = {
               ]"
             />
 
+            <!-- Shipments en route (collapsible) -->
             <div class="mt-[16px] px-[4px]">
-              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-[#545454]" @click="showEnRoute = !showEnRoute">
+                <svg :class="['w-[12px] h-[12px] transition-transform duration-200', showEnRoute ? '' : '-rotate-90']" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 Shipments en route
               </button>
+              <div v-if="showEnRoute" class="flex flex-col">
+                <div v-for="item in ['All en route', 'Pickup today', 'Delivery today']" :key="item"
+                  class="px-[8px] py-[6px] text-[13px] text-[#545454] hover:bg-[#f6f6f6] rounded-[6px] cursor-pointer">
+                  {{ item }}
+                </div>
+              </div>
             </div>
 
+            <!-- Auctions (collapsible) -->
             <div class="mt-[8px] px-[4px]">
-              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-[#545454]" @click="showAuctions = !showAuctions">
+                <svg :class="['w-[12px] h-[12px] transition-transform duration-200', showAuctions ? '' : '-rotate-90']" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 Auctions
               </button>
-              <div class="flex flex-col">
+              <div v-if="showAuctions" class="flex flex-col">
                 <div v-for="item in [
                   { label: 'All auctions', count: 1 },
                   { label: 'Auction running', count: 3 },
@@ -69,12 +80,13 @@ export const Default: Story = {
               </div>
             </div>
 
-            <div class="mt-[12px] px-[4px]">
-              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px]">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+            <!-- Saved boards (collapsible) -->
+            <div class="mt-[8px] px-[4px]">
+              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-[#545454]" @click="showSaved = !showSaved">
+                <svg :class="['w-[12px] h-[12px] transition-transform duration-200', showSaved ? '' : '-rotate-90']" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 Saved boards
               </button>
-              <div class="flex flex-col">
+              <div v-if="showSaved" class="flex flex-col">
                 <div v-for="item in [
                   { label: 'Needs scheduling', count: 3 },
                   { label: 'Tracking on time', count: 3 },
@@ -115,8 +127,6 @@ export const Default: Story = {
                 { id: '868478938', date: 'Aug 26, 8:30 CST', status: 'Carrier assigned' },
                 { id: '234443938', date: 'Aug 24, 12:30 CST', status: 'Carrier assigned' },
                 { id: '987443938', date: 'Aug 15, 15:30 CST', status: 'In transit' },
-                { id: '868498138', date: 'Aug 9, 17:30 CST', status: 'In transit' },
-                { id: '868443001', date: 'Aug 9, 19:30 CST', status: 'Carrier assigned' },
               ]" :key="row.id" style="border-bottom: 1px solid #e2e2e2;">
                 <td style="padding: 10px 12px; color: #276EF1; cursor: pointer;">{{ row.id }}</td>
                 <td style="padding: 10px 12px;">{{ row.date }}</td>
@@ -184,31 +194,6 @@ export const WithFilterList: Story = {
         <div class="p-[24px]">
           <h2 class="text-[20px] font-bold text-[#000] mb-[8px]">{{ active === 'all' ? 'All Shipments' : active }}</h2>
           <p class="text-[14px] text-[#545454]">Showing shipments for the selected filter.</p>
-        </div>
-      </SidePanel>
-    `,
-  }),
-}
-
-export const NarrowWidth: Story = {
-  render: () => ({
-    components: { SidePanel },
-    setup() {
-      const collapsed = ref(false)
-      return { collapsed }
-    },
-    template: `
-      <SidePanel v-model:collapsed="collapsed" title="Menu" :width="200">
-        <template #sidebar>
-          <div class="p-[8px]">
-            <div v-for="item in ['Dashboard', 'Analytics', 'Reports', 'Settings']" :key="item"
-              class="px-[8px] py-[8px] text-[14px] text-[#545454] hover:bg-[#f6f6f6] rounded-[6px] cursor-pointer">
-              {{ item }}
-            </div>
-          </div>
-        </template>
-        <div class="flex items-center justify-center h-full text-[#999] text-[14px]">
-          Main content area
         </div>
       </SidePanel>
     `,
