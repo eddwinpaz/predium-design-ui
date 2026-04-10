@@ -1341,8 +1341,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, $t = ["onClick"], en = {
 	key: 0,
-	class: "absolute right-0 top-full mt-[8px] z-[9999] w-[320px] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
-}, tn = { class: "px-[12px] pb-[16px] max-h-[420px] overflow-y-auto" }, nn = { class: "px-[8px] mb-[8px]" }, rn = { class: "text-[11px] font-semibold text-[#999] uppercase tracking-[1px]" }, an = { class: "grid grid-cols-3 gap-[4px]" }, on = ["onClick"], sn = ["stroke"], cn = ["d"], ln = { class: "text-[12px] font-medium text-[#000] text-center leading-[14px]" }, un = {
+	class: "fixed inset-x-0 top-[52px] sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border-b sm:border border-[#e2e2e2] sm:rounded-[16px] shadow-2xl sm:overflow-hidden"
+}, tn = { class: "px-[12px] pb-[16px] max-h-[70vh] sm:max-h-[420px] overflow-y-auto" }, nn = { class: "px-[8px] mb-[8px]" }, rn = { class: "text-[11px] font-semibold text-[#999] uppercase tracking-[1px]" }, an = { class: "grid grid-cols-4 sm:grid-cols-3 gap-[2px] sm:gap-[4px]" }, on = ["onClick"], sn = ["stroke"], cn = ["d"], ln = { class: "text-[11px] sm:text-[12px] font-medium text-[#000] text-center leading-[13px] sm:leading-[14px]" }, un = {
 	key: 0,
 	class: "sm:hidden border-b border-[#e2e2e2] bg-white"
 }, dn = {
@@ -1433,12 +1433,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 						class: f(r > 0 ? "mt-[16px]" : "")
 					}, [o("div", nn, [o("span", rn, S(t.title), 1)]), o("div", an, [(g(!0), a(e, null, v(t.items, (e, t) => (g(), a("button", {
 						key: e.label,
-						class: "flex flex-col items-center gap-[6px] p-[12px] rounded-[12px] hover:bg-[#f6f6f6] transition-colors cursor-pointer group",
+						class: "flex flex-col items-center gap-[4px] sm:gap-[6px] p-[10px] sm:p-[12px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group",
 						onClick: (t) => {
 							y.value = !1, n.$emit("moduleClick", e);
 						}
 					}, [o("div", {
-						class: "w-[40px] h-[40px] rounded-[12px] flex items-center justify-center transition-transform group-hover:scale-110",
+						class: "w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-[10px] sm:rounded-[12px] flex items-center justify-center transition-transform group-hover:scale-110",
 						style: p({ backgroundColor: k(e, r, t) + "14" })
 					}, [(g(), a("svg", {
 						width: "20",
