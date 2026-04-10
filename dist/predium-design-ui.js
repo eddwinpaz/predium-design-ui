@@ -1790,10 +1790,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}
 		let u = n(() => {
 			let e = {
-				positive: "bg-[#e6f4ea] text-[#1e7d34]",
-				warning: "bg-[#fef3c7] text-[#92400e]",
-				negative: "bg-[#fef2f2] text-[#991b1b]",
-				accent: "bg-[#eaf0fd] text-[#1e40af]",
+				positive: "bg-positive-light text-positive-text",
+				warning: "bg-warning-light text-warning-text",
+				negative: "bg-negative-light text-negative-text",
+				accent: "bg-accent-light text-accent-text",
 				neutral: "bg-surface-input text-content-secondary"
 			};
 			return e[r.statusColor] ?? e.neutral;

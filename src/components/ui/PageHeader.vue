@@ -35,10 +35,10 @@ function toggleDropdown(i: number) {
 
 const statusClasses = computed(() => {
   const map: Record<string, string> = {
-    positive: 'bg-[#e6f4ea] text-[#1e7d34]',
-    warning: 'bg-[#fef3c7] text-[#92400e]',
-    negative: 'bg-[#fef2f2] text-[#991b1b]',
-    accent: 'bg-[#eaf0fd] text-[#1e40af]',
+    positive: 'bg-positive-light text-positive-text',
+    warning: 'bg-warning-light text-warning-text',
+    negative: 'bg-negative-light text-negative-text',
+    accent: 'bg-accent-light text-accent-text',
     neutral: 'bg-surface-input text-content-secondary',
   }
   return map[props.statusColor] ?? map.neutral
