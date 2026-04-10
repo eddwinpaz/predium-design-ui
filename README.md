@@ -14,13 +14,26 @@ Vue 3 component library inspired by Uber's [Base Web](https://baseweb.design) de
 ## Installation
 
 ```bash
-npm install predium-design-ui
+npm install github:eddwinpaz/predium-design-ui
 ```
 
 ### Peer dependencies
 
 ```bash
 npm install vue tailwindcss @tailwindcss/vite
+```
+
+### Pin a specific version
+
+```bash
+# Latest main
+npm install github:eddwinpaz/predium-design-ui
+
+# Specific commit
+npm install github:eddwinpaz/predium-design-ui#abc1234
+
+# Specific tag/release
+npm install github:eddwinpaz/predium-design-ui#v0.1.0
 ```
 
 ## Setup
@@ -181,17 +194,18 @@ npm run build        # Build library
 npm run type-check   # TypeScript check
 ```
 
-## Publishing
+## Updating in consumer projects
 
-1. Update version in `package.json`
-2. Create a GitHub Release
-3. The `publish.yml` workflow automatically publishes to npm
-
-Or manually:
+When the library is updated, consumers run:
 
 ```bash
-npm run build
-npm publish --access public
+npm update predium-design-ui
+```
+
+Or reinstall to get latest:
+
+```bash
+npm install github:eddwinpaz/predium-design-ui
 ```
 
 ## License
