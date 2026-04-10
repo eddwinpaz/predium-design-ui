@@ -21,7 +21,7 @@ function buttonClasses(): string {
   const base = 'inline-flex items-center font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#000] focus-visible:ring-offset-2'
 
   const kindMap: Record<string, string> = {
-    primary: 'bg-black text-white hover:bg-[#333] active:bg-[#1a1a1a]',
+    primary: 'bg-black text-white hover:bg-btn-primary-hover active:bg-[#1a1a1a]',
     secondary: 'bg-transparent text-black border border-border hover:bg-bg-secondary',
     tertiary: 'bg-bg-secondary text-black hover:bg-bg-tertiary',
     minimal: 'bg-transparent text-black hover:bg-bg-secondary',

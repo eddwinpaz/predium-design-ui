@@ -90,11 +90,11 @@ function exitEdit() {
     <!-- Header -->
     <div class="flex flex-wrap items-center justify-between gap-[8px] mb-[12px]">
       <div class="flex items-center gap-[8px]">
-        <h3 v-if="title" class="text-[15px] font-semibold text-[#000]">{{ title }}</h3>
+        <h3 v-if="title" class="text-[15px] font-semibold text-content-primary">{{ title }}</h3>
         <!-- Selection count badge -->
         <span
           v-if="hasSelection"
-          class="text-[12px] font-medium text-[#545454] bg-[#f6f6f6] px-[8px] py-[2px] rounded-full"
+          class="text-[12px] font-medium text-content-secondary bg-surface-input px-[8px] py-[2px] rounded-full"
         >
           {{ selected.size }} selected
         </span>
@@ -110,14 +110,14 @@ function exitEdit() {
               'px-[8px] py-[4px] text-[12px] font-medium rounded-[6px] transition-colors',
               action.danger
                 ? 'text-white bg-[#e11900] hover:bg-[#c41400]'
-                : 'text-[#000] bg-[#f6f6f6] hover:bg-[#eee]',
+                : 'text-content-primary bg-surface-input hover:bg-surface-input-hover',
             ]"
             @click="handleBulkAction(action.key)"
           >
             {{ action.label }} ({{ selected.size }})
           </button>
           <button
-            class="px-[8px] py-[4px] text-[12px] font-medium text-[#000] hover:underline transition-colors"
+            class="px-[8px] py-[4px] text-[12px] font-medium text-content-primary hover:underline transition-colors"
             @click="selected = new Set()"
           >
             Cancel
@@ -136,7 +136,7 @@ function exitEdit() {
           </button>
           <button
             v-if="editMode"
-            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-[#000] hover:bg-[#333] rounded-[8px] transition-colors"
+            class="px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-btn-primary hover:bg-btn-primary-hover rounded-[8px] transition-colors"
             @click="exitEdit"
           >
             Done
@@ -146,16 +146,16 @@ function exitEdit() {
     </div>
 
     <!-- Desktop/Tablet: table -->
-    <div class="hidden sm:block border border-[#e2e2e2] rounded-[12px] bg-white overflow-hidden">
+    <div class="hidden sm:block border border-border rounded-[12px] bg-surface overflow-hidden">
       <div class="overflow-x-auto">
         <table class="w-full border-collapse">
           <thead>
-            <tr class="border-b border-[#e2e2e2]">
+            <tr class="border-b border-border">
               <th v-if="selectable" class="w-[44px] px-[12px] py-[10px] text-left">
                 <div
                   :class="[
                     'w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors',
-                    allSelected || someSelected ? 'bg-[#000] border-[#000]' : 'border-[#ccc] hover:border-[#999]',
+                    allSelected || someSelected ? 'bg-btn-primary border-border-selected' : 'border-border-hover hover:border-border-hover',
                   ]"
                   @click="toggleAll"
                 >
@@ -166,7 +166,7 @@ function exitEdit() {
               <th
                 v-for="col in columns"
                 :key="col.key"
-                class="px-[12px] py-[10px] text-left text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] whitespace-nowrap"
+                class="px-[12px] py-[10px] text-left text-[11px] font-medium text-content-tertiary uppercase tracking-[0.5px] whitespace-nowrap"
                 :style="col.width ? { width: col.width } : {}"
               >
                 {{ col.label }}
@@ -178,15 +178,15 @@ function exitEdit() {
               v-for="(row, i) in rows"
               :key="i"
               :class="[
-                'border-b border-[#e2e2e2] last:border-b-0 transition-colors',
-                selected.has(i) ? 'bg-[#f0f4ff]' : 'hover:bg-[#fafafa]',
+                'border-b border-border last:border-b-0 transition-colors',
+                selected.has(i) ? 'bg-surface-selected' : 'hover:bg-surface-hover',
               ]"
             >
               <td v-if="selectable" class="w-[44px] px-[12px] py-[10px]">
                 <div
                   :class="[
                     'w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors',
-                    selected.has(i) ? 'bg-[#000] border-[#000]' : 'border-[#ccc] hover:border-[#999]',
+                    selected.has(i) ? 'bg-btn-primary border-border-selected' : 'border-border-hover hover:border-border-hover',
                   ]"
                   @click="toggleRow(i)"
                 >
@@ -196,7 +196,7 @@ function exitEdit() {
               <td
                 v-for="col in columns"
                 :key="col.key"
-                class="px-[12px] py-[10px] text-[13px] text-[#000]"
+                class="px-[12px] py-[10px] text-[13px] text-content-primary"
               >
                 <slot :name="'cell-' + col.key" :row="row" :value="row[col.key]" :index="i" :editMode="editMode">
                   {{ row[col.key] }}
@@ -214,8 +214,8 @@ function exitEdit() {
         v-for="(row, i) in rows"
         :key="i"
         :class="[
-          'border border-[#e2e2e2] rounded-[12px] bg-white p-[14px] transition-colors',
-          selected.has(i) ? 'border-[#000] bg-[#f0f4ff]' : '',
+          'border border-border rounded-[12px] bg-surface p-[14px] transition-colors',
+          selected.has(i) ? 'border-border-selected bg-surface-selected' : '',
         ]"
       >
         <div class="flex items-start gap-[10px]">
@@ -223,7 +223,7 @@ function exitEdit() {
             v-if="selectable"
             :class="[
               'w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors flex-shrink-0 mt-[2px]',
-              selected.has(i) ? 'bg-[#000] border-[#000]' : 'border-[#ccc]',
+              selected.has(i) ? 'bg-btn-primary border-border-selected' : 'border-border-hover',
             ]"
             @click="toggleRow(i)"
           >
@@ -233,8 +233,8 @@ function exitEdit() {
           <div class="flex-1 min-w-0">
             <div class="grid grid-cols-2 gap-x-[12px] gap-y-[8px]">
               <div v-for="col in columns" :key="col.key">
-                <div class="text-[10px] font-medium text-[#999] uppercase tracking-[0.5px]">{{ col.label }}</div>
-                <div class="text-[13px] text-[#000] mt-[1px] truncate">
+                <div class="text-[10px] font-medium text-content-tertiary uppercase tracking-[0.5px]">{{ col.label }}</div>
+                <div class="text-[13px] text-content-primary mt-[1px] truncate">
                   <slot :name="'cell-' + col.key" :row="row" :value="row[col.key]" :index="i" :editMode="editMode">
                     {{ row[col.key] }}
                   </slot>

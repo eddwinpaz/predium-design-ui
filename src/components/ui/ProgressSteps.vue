@@ -23,9 +23,9 @@ withDefaults(defineProps<Props>(), {
         <div
           :class="[
             'w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0 border-2 transition-colors',
-            i < currentStep ? 'bg-[#000] border-[#000] text-white' : '',
-            i === currentStep ? 'bg-[#000] border-[#000] text-white' : '',
-            i > currentStep ? 'bg-white border-[#e2e2e2] text-[#999]' : '',
+            i < currentStep ? 'bg-btn-primary border-border-selected text-white' : '',
+            i === currentStep ? 'bg-btn-primary border-border-selected text-white' : '',
+            i > currentStep ? 'bg-surface border-border text-content-tertiary' : '',
           ]"
         >
           <!-- Checkmark for completed -->
@@ -46,7 +46,7 @@ withDefaults(defineProps<Props>(), {
           v-if="i < steps.length - 1"
           :class="[
             'w-0.5 flex-1 min-h-[24px]',
-            i < currentStep ? 'bg-[#000]' : 'bg-[#e2e2e2]',
+            i < currentStep ? 'bg-btn-primary' : 'bg-[#e2e2e2]',
           ]"
         />
       </div>
@@ -56,7 +56,7 @@ withDefaults(defineProps<Props>(), {
         <h4
           :class="[
             'text-sm font-semibold',
-            i <= currentStep ? 'text-[#000]' : 'text-[#999]',
+            i <= currentStep ? 'text-content-primary' : 'text-content-tertiary',
           ]"
         >
           {{ step.title }}
@@ -65,7 +65,7 @@ withDefaults(defineProps<Props>(), {
           v-if="step.description"
           :class="[
             'text-xs mt-0.5',
-            i <= currentStep ? 'text-[#545454]' : 'text-[#999]',
+            i <= currentStep ? 'text-content-secondary' : 'text-content-tertiary',
           ]"
         >
           {{ step.description }}

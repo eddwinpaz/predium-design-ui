@@ -35,9 +35,9 @@ const sizeClass = computed(() => {
   <div
     :class="[
       'flex border-2 rounded-[8px] overflow-hidden transition-colors',
-      error ? 'border-[#e11900] bg-white' : '',
-      !error && !disabled ? 'bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus-within:!bg-white focus-within:!border-[#000]' : '',
-      disabled ? 'opacity-40 bg-[#f6f6f6] border-transparent' : '',
+      error ? 'border-[#e11900] bg-surface' : '',
+      !error && !disabled ? 'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected' : '',
+      disabled ? 'opacity-40 bg-surface-input border-transparent' : '',
     ]"
   >
     <select

@@ -92,12 +92,12 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
 
 <template>
   <div>
-    <header class="flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white">
+    <header class="flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-border bg-surface">
       <!-- Left: Hamburger (mobile) + Brand -->
       <div class="flex items-center gap-[8px]">
         <button
           v-if="navItems?.length"
-          class="sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-[#000] hover:bg-[#f6f6f6] transition-colors"
+          class="sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-content-primary hover:bg-surface-input transition-colors"
           @click="toggleMobileMenu"
         >
           <svg v-if="!mobileMenuOpen" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -105,10 +105,10 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
         </button>
 
         <div class="flex items-center gap-1">
-          <span class="text-[15px] font-bold text-[#000] tracking-tight">{{ brand }}</span>
-          <span v-if="brandSuffix" class="text-[15px] font-normal text-[#000]">{{ brandSuffix }}</span>
-          <div v-if="subtitle" class="hidden sm:block ml-2 pl-2 border-l border-[#e2e2e2]">
-            <span class="text-xs text-[#545454] italic">{{ subtitle }}</span>
+          <span class="text-[15px] font-bold text-content-primary tracking-tight">{{ brand }}</span>
+          <span v-if="brandSuffix" class="text-[15px] font-normal text-content-primary">{{ brandSuffix }}</span>
+          <div v-if="subtitle" class="hidden sm:block ml-2 pl-2 border-l border-border">
+            <span class="text-xs text-content-secondary italic">{{ subtitle }}</span>
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
             :key="item.label"
             :class="[
               'px-[12px] py-[6px] text-[14px] rounded-[8px] transition-colors whitespace-nowrap',
-              item.active ? 'text-[#000] font-medium' : 'text-[#545454] hover:text-[#000] hover:bg-[#f6f6f6]',
+              item.active ? 'text-content-primary font-medium' : 'text-content-secondary hover:text-content-primary hover:bg-surface-input',
             ]"
             @click="$emit('navigate', item)"
           >
@@ -133,7 +133,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
         <button
           :class="[
             'w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors',
-            gridOpen ? 'bg-[#f6f6f6] text-[#000]' : 'text-[#545454] hover:bg-[#f6f6f6]',
+            gridOpen ? 'bg-surface-input text-content-primary' : 'text-content-secondary hover:bg-surface-input',
           ]"
           @click="toggleGrid"
         >
@@ -164,9 +164,9 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
       leave-from-class="opacity-100"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <div v-if="mobileMenuOpen && navItems?.length" class="sm:hidden border-b border-[#e2e2e2] bg-white">
+      <div v-if="mobileMenuOpen && navItems?.length" class="sm:hidden border-b border-border bg-surface">
         <div v-if="subtitle" class="px-[16px] pt-[12px] pb-[4px]">
-          <span class="text-[12px] text-[#999]">{{ subtitle }}</span>
+          <span class="text-[12px] text-content-tertiary">{{ subtitle }}</span>
         </div>
         <nav class="flex flex-col py-[8px]">
           <button
@@ -174,7 +174,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
             :key="item.label"
             :class="[
               'w-full text-left px-[16px] py-[12px] text-[15px] transition-colors',
-              item.active ? 'text-[#000] font-semibold bg-[#f6f6f6]' : 'text-[#545454] hover:bg-[#f6f6f6] hover:text-[#000]',
+              item.active ? 'text-content-primary font-semibold bg-surface-input' : 'text-content-secondary hover:bg-surface-input hover:text-content-primary',
             ]"
             @click="$emit('navigate', item); mobileMenuOpen = false"
           >
@@ -193,22 +193,22 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
       leave-from-class="opacity-100"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <div v-if="gridOpen && modules?.length" class="border-b border-[#e2e2e2] bg-white">
+      <div v-if="gridOpen && modules?.length" class="border-b border-border bg-surface">
         <div class="px-[16px] pt-[16px] pb-[8px]">
-          <h3 class="text-[15px] font-semibold text-[#000]">Modules</h3>
+          <h3 class="text-[15px] font-semibold text-content-primary">Modules</h3>
         </div>
 
         <div class="px-[8px] pb-[12px]">
           <div v-for="(group, gi) in modules" :key="group.title" :class="gi > 0 ? 'mt-[12px]' : ''">
             <div class="px-[8px] mb-[6px]">
-              <span class="text-[11px] font-semibold text-[#999] uppercase tracking-[1px]">{{ group.title }}</span>
+              <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
             </div>
 
             <div class="grid grid-cols-4 sm:grid-cols-6 gap-[2px]">
               <button
                 v-for="(item, ii) in group.items"
                 :key="item.label"
-                class="flex flex-col items-center gap-[4px] p-[10px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group"
+                class="flex flex-col items-center gap-[4px] p-[10px] rounded-[12px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer group"
                 @click="gridOpen = false; $emit('moduleClick', item)"
               >
                 <div
@@ -222,7 +222,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
                     <path :d="getIconPath(item)" />
                   </svg>
                 </div>
-                <span class="text-[11px] font-medium text-[#000] text-center leading-[13px]">{{ item.label }}</span>
+                <span class="text-[11px] font-medium text-content-primary text-center leading-[13px]">{{ item.label }}</span>
               </button>
             </div>
           </div>

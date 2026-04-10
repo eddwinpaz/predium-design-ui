@@ -160,6 +160,72 @@
   --color-rating: #ffc043;
   --color-purple: #7356bf;
   --color-purple-light: #ede8f8;
+
+  /* Surface aliases */
+  --color-surface: #ffffff;
+  --color-surface-hover: #f6f6f6;
+  --color-surface-input: #f6f6f6;
+  --color-surface-input-hover: #eeeeee;
+  --color-surface-selected: #f0f4ff;
+  --color-btn-primary: #000000;
+  --color-btn-primary-hover: #333333;
+  --color-btn-primary-text: #ffffff;
+  --color-sidebar-bg: #000000;
+  --color-sidebar-text: #ffffff;
+  --color-sidebar-muted: #999999;
+  --color-sidebar-hover: #1a1a1a;
+  --color-sidebar-active: #333333;
+}
+
+/* ═══════════════════════════════════════════
+ * DARK MODE
+ * Apply by adding class="dark" to <html> or <body>
+ * ═══════════════════════════════════════════ */
+.dark {
+  --color-bg-primary: #141414;
+  --color-bg-secondary: #1e1e1e;
+  --color-bg-tertiary: #2a2a2a;
+  --color-bg-inverse: #ffffff;
+  --color-bg-state-disabled: #1e1e1e;
+
+  --color-content-primary: #f0f0f0;
+  --color-content-secondary: #a0a0a0;
+  --color-content-tertiary: #666666;
+  --color-content-disabled: #444444;
+  --color-content-inverse: #000000;
+
+  --color-border: #333333;
+  --color-border-hover: #555555;
+  --color-border-selected: #ffffff;
+  --color-border-focus: #5b8def;
+
+  --color-primary: #ffffff;
+  --color-primary-hover: #cccccc;
+  --color-primary-active: #e0e0e0;
+
+  --color-positive-light: #0a2e1a;
+  --color-positive-text: #4ade80;
+  --color-negative-light: #2e0a0a;
+  --color-negative-text: #f87171;
+  --color-warning-light: #2e2a0a;
+  --color-warning-text: #fbbf24;
+  --color-accent-light: #0a1a2e;
+  --color-accent-text: #93b4f5;
+  --color-purple-light: #1e152e;
+
+  --color-surface: #141414;
+  --color-surface-hover: #1e1e1e;
+  --color-surface-input: #1e1e1e;
+  --color-surface-input-hover: #2a2a2a;
+  --color-surface-selected: #1a1f2e;
+  --color-btn-primary: #ffffff;
+  --color-btn-primary-hover: #e0e0e0;
+  --color-btn-primary-text: #000000;
+  --color-sidebar-bg: #0a0a0a;
+  --color-sidebar-text: #f0f0f0;
+  --color-sidebar-muted: #666666;
+  --color-sidebar-hover: #1a1a1a;
+  --color-sidebar-active: #2a2a2a;
 }
 
 @layer base {
@@ -168,8 +234,8 @@
   }
   body {
     font-family: var(--font-sans);
-    font-size: 14px;                       /* Base Web default: font200 */
-    line-height: 20px;                     /* Base Web default: lineHeight200 */
+    font-size: 14px;
+    line-height: 20px;
     color: var(--color-content-primary);
     background-color: var(--color-bg-primary);
     -webkit-font-smoothing: antialiased;

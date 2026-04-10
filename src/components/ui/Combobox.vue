@@ -66,7 +66,7 @@ function getDisplayValue(val: unknown): string {
       <div
         :class="[
           'flex items-center border-2 rounded-[8px] transition-colors',
-          disabled ? 'opacity-40 bg-[#f6f6f6] border-transparent cursor-not-allowed' : 'bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus-within:!bg-white focus-within:!border-[#000]',
+          disabled ? 'opacity-40 bg-surface-input border-transparent cursor-not-allowed' : 'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected',
           sizeClass,
         ]"
       >

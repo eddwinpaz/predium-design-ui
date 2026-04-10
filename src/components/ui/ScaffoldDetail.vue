@@ -8,7 +8,7 @@
 </script>
 
 <template>
-  <div class="flex h-screen overflow-hidden bg-white">
+  <div class="flex h-screen overflow-hidden bg-surface">
     <!-- Sidebar: hidden on mobile, visible on sm+ -->
     <div class="hidden sm:flex">
       <slot name="sidebar" />
@@ -25,7 +25,7 @@
         <slot name="pageHeader" />
 
         <!-- Tabs bar -->
-        <div v-if="$slots.tabs" class="px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white sticky top-0 z-10">
+        <div v-if="$slots.tabs" class="px-[12px] sm:px-[24px] border-b border-border bg-surface sticky top-0 z-10">
           <slot name="tabs" />
         </div>
 
@@ -39,7 +39,7 @@
           </div>
 
           <!-- Right: side panel - stretches full height on desktop -->
-          <div v-if="$slots.rightPanel" class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[12px] sm:p-[16px] md:p-[24px]">
+          <div v-if="$slots.rightPanel" class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-border p-[12px] sm:p-[16px] md:p-[24px]">
             <div class="lg:sticky lg:top-[24px]">
               <slot name="rightPanel" />
             </div>

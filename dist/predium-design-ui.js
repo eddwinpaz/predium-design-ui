@@ -267,7 +267,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		let r = t, i = w();
 		function s() {
 			let e = {
-				primary: "bg-black text-white hover:bg-[#333] active:bg-[#1a1a1a]",
+				primary: "bg-black text-white hover:bg-btn-primary-hover active:bg-[#1a1a1a]",
 				secondary: "bg-transparent text-black border border-border hover:bg-bg-secondary",
 				tertiary: "bg-bg-secondary text-black hover:bg-bg-tertiary",
 				minimal: "bg-transparent text-black hover:bg-bg-secondary"
@@ -448,7 +448,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}, {
 			default: E(() => [o("div", be, [o("div", { class: f([
 				"flex items-center border-2 rounded-[8px] transition-colors",
-				s.disabled ? "opacity-40 bg-[#f6f6f6] border-transparent cursor-not-allowed" : "bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus-within:!bg-white focus-within:!border-[#000]",
+				s.disabled ? "opacity-40 bg-surface-input border-transparent cursor-not-allowed" : "bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected",
 				y.value
 			]) }, [l(C(j), {
 				placeholder: s.placeholder,
@@ -487,7 +487,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		}, 8, ["modelValue", "disabled"]));
 	}
-}), we = { class: "flex items-center justify-between mb-[12px]" }, Te = { class: "text-[15px] font-semibold text-[#000]" }, Ee = { class: "border border-[#e2e2e2] rounded-[12px] bg-white" }, De = { class: "text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] leading-[16px]" }, Oe = { class: "text-[14px] text-[#000] leading-[20px] mt-[2px]" }, ke = {
+}), we = { class: "flex items-center justify-between mb-[12px]" }, Te = { class: "text-[15px] font-semibold text-content-primary" }, Ee = { class: "border border-border rounded-[12px] bg-surface" }, De = { class: "text-[11px] font-medium text-content-tertiary uppercase tracking-[0.5px] leading-[16px]" }, Oe = { class: "text-[14px] text-content-primary leading-[20px] mt-[2px]" }, ke = {
 	key: 1,
 	class: "px-[24px] py-[20px]"
 }, Ae = /* @__PURE__ */ u({
@@ -514,7 +514,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			o("h3", Te, S(t.title), 1),
 			t.editable ? (g(), a("button", {
 				key: 0,
-				class: "px-[12px] py-[8px] text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors cursor-pointer",
+				class: "px-[12px] py-[8px] text-[14px] font-medium text-content-primary bg-surface-input hover:bg-surface-input-hover rounded-[8px] transition-colors cursor-pointer",
 				onClick: r[0] ||= (e) => n.$emit("edit")
 			}, " Edit ")) : i("", !0),
 			y(n.$slots, "action")
@@ -528,11 +528,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), je = { class: "flex flex-wrap items-center justify-between gap-[8px] mb-[12px]" }, Me = { class: "flex items-center gap-[8px]" }, Ne = {
 	key: 0,
-	class: "text-[15px] font-semibold text-[#000]"
+	class: "text-[15px] font-semibold text-content-primary"
 }, Pe = {
 	key: 1,
-	class: "text-[12px] font-medium text-[#545454] bg-[#f6f6f6] px-[8px] py-[2px] rounded-full"
-}, Fe = { class: "flex items-center gap-[6px]" }, Ie = ["onClick"], Le = { class: "hidden sm:block border border-[#e2e2e2] rounded-[12px] bg-white overflow-hidden" }, Re = { class: "overflow-x-auto" }, ze = { class: "w-full border-collapse" }, Be = { class: "border-b border-[#e2e2e2]" }, Ve = {
+	class: "text-[12px] font-medium text-content-secondary bg-surface-input px-[8px] py-[2px] rounded-full"
+}, Fe = { class: "flex items-center gap-[6px]" }, Ie = ["onClick"], Le = { class: "hidden sm:block border border-border rounded-[12px] bg-surface overflow-hidden" }, Re = { class: "overflow-x-auto" }, ze = { class: "w-full border-collapse" }, Be = { class: "border-b border-border" }, Ve = {
 	key: 0,
 	class: "w-[44px] px-[12px] py-[10px] text-left"
 }, He = {
@@ -566,7 +566,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	fill: "none",
 	stroke: "currentColor",
 	"stroke-width": "2"
-}, Ze = { class: "flex-1 min-w-0" }, Qe = { class: "grid grid-cols-2 gap-x-[12px] gap-y-[8px]" }, $e = { class: "text-[10px] font-medium text-[#999] uppercase tracking-[0.5px]" }, et = { class: "text-[13px] text-[#000] mt-[1px] truncate" }, tt = /* @__PURE__ */ u({
+}, Ze = { class: "flex-1 min-w-0" }, Qe = { class: "grid grid-cols-2 gap-x-[12px] gap-y-[8px]" }, $e = { class: "text-[10px] font-medium text-content-tertiary uppercase tracking-[0.5px]" }, et = { class: "text-[13px] text-content-primary mt-[1px] truncate" }, tt = /* @__PURE__ */ u({
 	__name: "DataGrid",
 	props: {
 		title: {},
@@ -611,10 +611,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		return (n, r) => (g(), a("div", null, [
 			o("div", je, [o("div", Me, [t.title ? (g(), a("h3", Ne, S(t.title), 1)) : i("", !0), b.value ? (g(), a("span", Pe, S(u.value.size) + " selected ", 1)) : i("", !0)]), o("div", Fe, [b.value ? (g(), a(e, { key: 0 }, [(g(!0), a(e, null, v(t.bulkActions, (e) => (g(), a("button", {
 				key: e.key,
-				class: f(["px-[8px] py-[4px] text-[12px] font-medium rounded-[6px] transition-colors", e.danger ? "text-white bg-[#e11900] hover:bg-[#c41400]" : "text-[#000] bg-[#f6f6f6] hover:bg-[#eee]"]),
+				class: f(["px-[8px] py-[4px] text-[12px] font-medium rounded-[6px] transition-colors", e.danger ? "text-white bg-[#e11900] hover:bg-[#c41400]" : "text-content-primary bg-surface-input hover:bg-surface-input-hover"]),
 				onClick: (t) => w(e.key)
 			}, S(e.label) + " (" + S(u.value.size) + ") ", 11, Ie))), 128)), o("button", {
-				class: "px-[8px] py-[4px] text-[12px] font-medium text-[#000] hover:underline transition-colors",
+				class: "px-[8px] py-[4px] text-[12px] font-medium text-content-primary hover:underline transition-colors",
 				onClick: r[0] ||= (e) => u.value = /* @__PURE__ */ new Set()
 			}, " Cancel ")], 64)) : (g(), a(e, { key: 1 }, [
 				y(n.$slots, "headerActions"),
@@ -625,26 +625,26 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				}, " Edit ")) : i("", !0),
 				d.value ? (g(), a("button", {
 					key: 1,
-					class: "px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-[#000] hover:bg-[#333] rounded-[8px] transition-colors",
+					class: "px-[10px] sm:px-[12px] py-[6px] sm:py-[8px] text-[13px] sm:text-[14px] font-medium text-white bg-btn-primary hover:bg-btn-primary-hover rounded-[8px] transition-colors",
 					onClick: E
 				}, " Done ")) : i("", !0)
 			], 64))])]),
 			o("div", Le, [o("div", Re, [o("table", ze, [o("thead", null, [o("tr", Be, [t.selectable ? (g(), a("th", Ve, [o("div", {
-				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors", m.value || h.value ? "bg-[#000] border-[#000]" : "border-[#ccc] hover:border-[#999]"]),
+				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors", m.value || h.value ? "bg-btn-primary border-border-selected" : "border-border-hover hover:border-border-hover"]),
 				onClick: x
 			}, [m.value ? (g(), a("svg", He, [...r[1] ||= [o("path", { d: "M2 6l3 3 5-5" }, null, -1)]])) : h.value ? (g(), a("svg", Ue, [...r[2] ||= [o("path", { d: "M2 6h8" }, null, -1)]])) : i("", !0)], 2)])) : i("", !0), (g(!0), a(e, null, v(t.columns, (e) => (g(), a("th", {
 				key: e.key,
-				class: "px-[12px] py-[10px] text-left text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] whitespace-nowrap",
+				class: "px-[12px] py-[10px] text-left text-[11px] font-medium text-content-tertiary uppercase tracking-[0.5px] whitespace-nowrap",
 				style: p(e.width ? { width: e.width } : {})
 			}, S(e.label), 5))), 128))])]), o("tbody", null, [(g(!0), a(e, null, v(t.rows, (s, l) => (g(), a("tr", {
 				key: l,
-				class: f(["border-b border-[#e2e2e2] last:border-b-0 transition-colors", u.value.has(l) ? "bg-[#f0f4ff]" : "hover:bg-[#fafafa]"])
+				class: f(["border-b border-border last:border-b-0 transition-colors", u.value.has(l) ? "bg-surface-selected" : "hover:bg-surface-hover"])
 			}, [t.selectable ? (g(), a("td", We, [o("div", {
-				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors", u.value.has(l) ? "bg-[#000] border-[#000]" : "border-[#ccc] hover:border-[#999]"]),
+				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors", u.value.has(l) ? "bg-btn-primary border-border-selected" : "border-border-hover hover:border-border-hover"]),
 				onClick: (e) => C(l)
 			}, [u.value.has(l) ? (g(), a("svg", Ke, [...r[3] ||= [o("path", { d: "M2 6l3 3 5-5" }, null, -1)]])) : i("", !0)], 10, Ge)])) : i("", !0), (g(!0), a(e, null, v(t.columns, (e) => (g(), a("td", {
 				key: e.key,
-				class: "px-[12px] py-[10px] text-[13px] text-[#000]"
+				class: "px-[12px] py-[10px] text-[13px] text-content-primary"
 			}, [y(n.$slots, "cell-" + e.key, {
 				row: s,
 				value: s[e.key],
@@ -653,10 +653,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			}, () => [c(S(s[e.key]), 1)])]))), 128))], 2))), 128))])])])]),
 			o("div", qe, [(g(!0), a(e, null, v(t.rows, (s, l) => (g(), a("div", {
 				key: l,
-				class: f(["border border-[#e2e2e2] rounded-[12px] bg-white p-[14px] transition-colors", u.value.has(l) ? "border-[#000] bg-[#f0f4ff]" : ""])
+				class: f(["border border-border rounded-[12px] bg-surface p-[14px] transition-colors", u.value.has(l) ? "border-border-selected bg-surface-selected" : ""])
 			}, [o("div", Je, [t.selectable ? (g(), a("div", {
 				key: 0,
-				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors flex-shrink-0 mt-[2px]", u.value.has(l) ? "bg-[#000] border-[#000]" : "border-[#ccc]"]),
+				class: f(["w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors flex-shrink-0 mt-[2px]", u.value.has(l) ? "bg-btn-primary border-border-selected" : "border-border-hover"]),
 				onClick: (e) => C(l)
 			}, [u.value.has(l) ? (g(), a("svg", Xe, [...r[4] ||= [o("path", { d: "M2 6l3 3 5-5" }, null, -1)]])) : i("", !0)], 10, Ye)) : i("", !0), o("div", Ze, [o("div", Qe, [(g(!0), a(e, null, v(t.columns, (e) => (g(), a("div", { key: e.key }, [o("div", $e, S(e.label), 1), o("div", et, [y(n.$slots, "cell-" + e.key, {
 				row: s,
@@ -782,7 +782,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"w-full flex items-center justify-between border-2 rounded-[8px] transition-colors",
 				P.value,
-				t.disabled ? "opacity-40 cursor-not-allowed bg-[#f6f6f6] border-transparent" : "bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus:!bg-white focus:!border-[#000] cursor-pointer"
+				t.disabled ? "opacity-40 cursor-not-allowed bg-surface-input border-transparent" : "bg-surface-input border-transparent hover:bg-surface-input-hover focus:!bg-surface focus:!border-border-selected cursor-pointer"
 			]),
 			onClick: M
 		}, [o("span", { class: f(t.modelValue ? "text-content-primary" : "text-content-tertiary") }, S(T.value || t.placeholder), 3), r[0] ||= s("<svg class=\"w-4 h-4 text-content-secondary ml-2 shrink-0\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"></rect><line x1=\"16\" y1=\"2\" x2=\"16\" y2=\"6\"></line><line x1=\"8\" y1=\"2\" x2=\"8\" y2=\"6\"></line><line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\"></line></svg>", 1)], 10, nt), u.value ? (g(), a("div", rt, [
@@ -1020,7 +1020,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), Tt = {
 	key: 0,
-	class: "text-[13px] font-semibold text-[#000] mb-[8px] px-[4px]"
+	class: "text-[13px] font-semibold text-content-primary mb-[8px] px-[4px]"
 }, Et = { class: "flex flex-col" }, Dt = ["onClick"], Ot = {
 	key: 0,
 	class: "absolute left-0 top-[8px] bottom-[8px] w-[3px] rounded-full bg-[#276EF1]"
@@ -1035,14 +1035,14 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	setup(t) {
 		return (n, r) => (g(), a("div", null, [t.title ? (g(), a("div", Tt, S(t.title), 1)) : i("", !0), o("div", Et, [(g(!0), a(e, null, v(t.items, (e) => (g(), a("button", {
 			key: e.value,
-			class: f(["relative flex items-center justify-between px-[12px] py-[10px] text-[14px] rounded-[8px] transition-colors text-left", t.modelValue === e.value ? "text-[#276EF1] font-medium bg-[#F0F4FF]" : "text-[#545454] hover:bg-[#f6f6f6]"]),
+			class: f(["relative flex items-center justify-between px-[12px] py-[10px] text-[14px] rounded-[8px] transition-colors text-left", t.modelValue === e.value ? "text-[#276EF1] font-medium bg-surface-selected" : "text-content-secondary hover:bg-surface-input"]),
 			onClick: (t) => n.$emit("update:modelValue", e.value)
 		}, [
 			t.modelValue === e.value ? (g(), a("div", Ot)) : i("", !0),
 			o("span", null, S(e.label), 1),
 			e.count == null ? i("", !0) : (g(), a("span", {
 				key: 1,
-				class: f(["text-[13px]", t.modelValue === e.value ? "text-[#276EF1]" : "text-[#999]"])
+				class: f(["text-[13px]", t.modelValue === e.value ? "text-[#276EF1]" : "text-content-tertiary"])
 			}, S(e.count), 3))
 		], 10, Dt))), 128))])]));
 	}
@@ -1124,9 +1124,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			"relative flex items-center border-2 rounded-[8px] transition-colors",
 			r.value,
 			{
-				"border-[#e11900] bg-white": e.error,
-				"border-[#048848] bg-white": e.positive && !e.error,
-				"bg-[#f6f6f6] border-transparent hover:bg-[#eeeeee] focus-within:!bg-white focus-within:!border-[#000]": !e.error && !e.positive,
+				"border-[#e11900] bg-surface": e.error,
+				"border-[#048848] bg-surface": e.positive && !e.error,
+				"bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected": !e.error && !e.positive,
 				"opacity-40 cursor-not-allowed": e.disabled
 			}
 		]) }, [
@@ -1307,7 +1307,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), nn = { class: "relative inline-block text-left" }, rn = {
 	key: 0,
-	class: "border-t border-[#e2e2e2] my-1"
+	class: "border-t border-border my-1"
 }, an = ["onClick"], on = /* @__PURE__ */ u({
 	__name: "Menu",
 	props: {
@@ -1338,13 +1338,13 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}, {
 			default: E(() => [d.value ? (g(), a("div", {
 				key: 0,
-				class: f(["absolute z-[9999] mt-1 w-56 bg-white border border-[#e2e2e2] rounded-xl shadow-lg py-1 focus:outline-none", p.value]),
+				class: f(["absolute z-[9999] mt-1 w-56 bg-surface border border-border rounded-xl shadow-lg py-1 focus:outline-none", p.value]),
 				onClick: s[0] ||= O(() => {}, ["stop"])
 			}, [(g(!0), a(e, null, v(r.items, (t, n) => (g(), a(e, { key: n }, [t.divider ? (g(), a("div", rn)) : (g(), a("button", {
 				key: 1,
 				class: f([
 					"w-full text-left px-3 py-2 text-sm flex items-center gap-2 transition-colors",
-					t.danger ? "text-[#e11900] hover:bg-[#fef2f2]" : "text-[#000] hover:bg-[#f6f6f6]",
+					t.danger ? "text-[#e11900] hover:bg-[#fef2f2]" : "text-content-primary hover:bg-surface-input",
 					t.disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"
 				]),
 				onClick: (e) => b(t)
@@ -1354,11 +1354,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), sn = {
 	key: 0,
-	class: "rounded-[16px] overflow-hidden border border-[#e2e2e2] bg-white"
+	class: "rounded-[16px] overflow-hidden border border-border bg-surface"
 }, cn = {
 	key: 0,
 	class: "w-full h-[200px] overflow-hidden"
-}, ln = ["src", "alt"], un = { class: "p-[24px]" }, dn = { class: "text-[18px] font-bold text-[#000] leading-[24px]" }, fn = { class: "text-[14px] text-[#545454] mt-[6px] leading-[20px]" }, pn = { class: "flex items-center min-h-[120px]" }, mn = { class: "flex-1 p-[24px]" }, hn = { class: "text-[18px] font-bold leading-[24px]" }, gn = { class: "text-[14px] opacity-85 mt-[4px] leading-[20px]" }, _n = {
+}, ln = ["src", "alt"], un = { class: "p-[24px]" }, dn = { class: "text-[18px] font-bold text-content-primary leading-[24px]" }, fn = { class: "text-[14px] text-content-secondary mt-[6px] leading-[20px]" }, pn = { class: "flex items-center min-h-[120px]" }, mn = { class: "flex-1 p-[24px]" }, hn = { class: "text-[18px] font-bold leading-[24px]" }, gn = { class: "text-[14px] opacity-85 mt-[4px] leading-[20px]" }, _n = {
 	key: 0,
 	class: "flex-shrink-0 p-[16px]"
 }, vn = ["src", "alt"], yn = /* @__PURE__ */ u({
@@ -1383,7 +1383,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			o("p", fn, S(e.description), 1),
 			e.buttonLabel ? (g(), a("button", {
 				key: 0,
-				class: "mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-[#000] text-white hover:bg-[#333] transition-colors",
+				class: "mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-btn-primary text-white hover:bg-btn-primary-hover transition-colors",
 				onClick: n[0] ||= (e) => t.$emit("action")
 			}, S(e.buttonLabel), 1)) : i("", !0)
 		])])) : (g(), a("div", {
@@ -1398,7 +1398,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			o("p", gn, S(e.description), 1),
 			e.buttonLabel ? (g(), a("button", {
 				key: 0,
-				class: "mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-white/20 hover:bg-white/30 transition-colors",
+				class: "mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-surface/20 hover:bg-surface/30 transition-colors",
 				onClick: n[1] ||= (e) => t.$emit("action")
 			}, S(e.buttonLabel), 1)) : i("", !0)
 		]), e.image ? (g(), a("div", _n, [o("img", {
@@ -1500,7 +1500,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 3
 		}, 8, ["show"]));
 	}
-}), Tn = { class: "flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white" }, En = { class: "flex items-center gap-[8px]" }, Dn = {
+}), Tn = { class: "flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-border bg-surface" }, En = { class: "flex items-center gap-[8px]" }, Dn = {
 	key: 0,
 	width: "20",
 	height: "20",
@@ -1518,25 +1518,25 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	stroke: "currentColor",
 	"stroke-width": "2",
 	"stroke-linecap": "round"
-}, kn = { class: "flex items-center gap-1" }, An = { class: "text-[15px] font-bold text-[#000] tracking-tight" }, jn = {
+}, kn = { class: "flex items-center gap-1" }, An = { class: "text-[15px] font-bold text-content-primary tracking-tight" }, jn = {
 	key: 0,
-	class: "text-[15px] font-normal text-[#000]"
+	class: "text-[15px] font-normal text-content-primary"
 }, Mn = {
 	key: 1,
-	class: "hidden sm:block ml-2 pl-2 border-l border-[#e2e2e2]"
-}, Nn = { class: "text-xs text-[#545454] italic" }, Pn = { class: "flex items-center gap-[4px]" }, Fn = {
+	class: "hidden sm:block ml-2 pl-2 border-l border-border"
+}, Nn = { class: "text-xs text-content-secondary italic" }, Pn = { class: "flex items-center gap-[4px]" }, Fn = {
 	key: 0,
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, In = ["onClick"], Ln = {
 	key: 0,
-	class: "sm:hidden border-b border-[#e2e2e2] bg-white"
+	class: "sm:hidden border-b border-border bg-surface"
 }, Rn = {
 	key: 0,
 	class: "px-[16px] pt-[12px] pb-[4px]"
-}, zn = { class: "text-[12px] text-[#999]" }, Bn = { class: "flex flex-col py-[8px]" }, Vn = ["onClick"], Hn = {
+}, zn = { class: "text-[12px] text-content-tertiary" }, Bn = { class: "flex flex-col py-[8px]" }, Vn = ["onClick"], Hn = {
 	key: 0,
-	class: "border-b border-[#e2e2e2] bg-white"
-}, Un = { class: "px-[8px] pb-[12px]" }, Wn = { class: "px-[8px] mb-[6px]" }, Gn = { class: "text-[11px] font-semibold text-[#999] uppercase tracking-[1px]" }, Kn = { class: "grid grid-cols-4 sm:grid-cols-6 gap-[2px]" }, qn = ["onClick"], Jn = ["stroke"], Yn = ["d"], Xn = { class: "text-[11px] font-medium text-[#000] text-center leading-[13px]" }, Zn = /* @__PURE__ */ u({
+	class: "border-b border-border bg-surface"
+}, Un = { class: "px-[8px] pb-[12px]" }, Wn = { class: "px-[8px] mb-[6px]" }, Gn = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, Kn = { class: "grid grid-cols-4 sm:grid-cols-6 gap-[2px]" }, qn = ["onClick"], Jn = ["stroke"], Yn = ["d"], Xn = { class: "text-[11px] font-medium text-content-primary text-center leading-[13px]" }, Zn = /* @__PURE__ */ u({
 	__name: "NavHeader",
 	props: {
 		brand: { default: "Predium" },
@@ -1590,7 +1590,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		return (n, c) => (g(), a("div", null, [
 			o("header", Tn, [o("div", En, [r.navItems?.length ? (g(), a("button", {
 				key: 0,
-				class: "sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-[#000] hover:bg-[#f6f6f6] transition-colors",
+				class: "sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-content-primary hover:bg-surface-input transition-colors",
 				onClick: b
 			}, [d.value ? (g(), a("svg", On, [...c[2] ||= [o("path", { d: "M18 6L6 18M6 6l12 12" }, null, -1)]])) : (g(), a("svg", Dn, [...c[1] ||= [o("path", { d: "M4 6h16M4 12h16M4 18h16" }, null, -1)]]))])) : i("", !0), o("div", kn, [
 				o("span", An, S(r.brand), 1),
@@ -1599,11 +1599,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			])]), o("div", Pn, [
 				r.navItems?.length ? (g(), a("nav", Fn, [(g(!0), a(e, null, v(r.navItems, (e) => (g(), a("button", {
 					key: e.label,
-					class: f(["px-[12px] py-[6px] text-[14px] rounded-[8px] transition-colors whitespace-nowrap", e.active ? "text-[#000] font-medium" : "text-[#545454] hover:text-[#000] hover:bg-[#f6f6f6]"]),
+					class: f(["px-[12px] py-[6px] text-[14px] rounded-[8px] transition-colors whitespace-nowrap", e.active ? "text-content-primary font-medium" : "text-content-secondary hover:text-content-primary hover:bg-surface-input"]),
 					onClick: (t) => n.$emit("navigate", e)
 				}, S(e.label), 11, In))), 128))])) : i("", !0),
 				o("button", {
-					class: f(["w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors", m.value ? "bg-[#f6f6f6] text-[#000]" : "text-[#545454] hover:bg-[#f6f6f6]"]),
+					class: f(["w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors", m.value ? "bg-surface-input text-content-primary" : "text-content-secondary hover:bg-surface-input"]),
 					onClick: y
 				}, [...c[3] ||= [s("<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><circle cx=\"5\" cy=\"5\" r=\"2\"></circle><circle cx=\"12\" cy=\"5\" r=\"2\"></circle><circle cx=\"19\" cy=\"5\" r=\"2\"></circle><circle cx=\"5\" cy=\"12\" r=\"2\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><circle cx=\"19\" cy=\"12\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle><circle cx=\"12\" cy=\"19\" r=\"2\"></circle><circle cx=\"19\" cy=\"19\" r=\"2\"></circle></svg>", 1)]], 2),
 				o("button", {
@@ -1622,7 +1622,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			}, {
 				default: E(() => [d.value && r.navItems?.length ? (g(), a("div", Ln, [r.subtitle ? (g(), a("div", Rn, [o("span", zn, S(r.subtitle), 1)])) : i("", !0), o("nav", Bn, [(g(!0), a(e, null, v(r.navItems, (e) => (g(), a("button", {
 					key: e.label,
-					class: f(["w-full text-left px-[16px] py-[12px] text-[15px] transition-colors", e.active ? "text-[#000] font-semibold bg-[#f6f6f6]" : "text-[#545454] hover:bg-[#f6f6f6] hover:text-[#000]"]),
+					class: f(["w-full text-left px-[16px] py-[12px] text-[15px] transition-colors", e.active ? "text-content-primary font-semibold bg-surface-input" : "text-content-secondary hover:bg-surface-input hover:text-content-primary"]),
 					onClick: (t) => {
 						n.$emit("navigate", e), d.value = !1;
 					}
@@ -1637,12 +1637,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				"leave-from-class": "opacity-100",
 				"leave-to-class": "opacity-0 -translate-y-2"
 			}, {
-				default: E(() => [m.value && r.modules?.length ? (g(), a("div", Hn, [c[4] ||= o("div", { class: "px-[16px] pt-[16px] pb-[8px]" }, [o("h3", { class: "text-[15px] font-semibold text-[#000]" }, "Modules")], -1), o("div", Un, [(g(!0), a(e, null, v(r.modules, (t, r) => (g(), a("div", {
+				default: E(() => [m.value && r.modules?.length ? (g(), a("div", Hn, [c[4] ||= o("div", { class: "px-[16px] pt-[16px] pb-[8px]" }, [o("h3", { class: "text-[15px] font-semibold text-content-primary" }, "Modules")], -1), o("div", Un, [(g(!0), a(e, null, v(r.modules, (t, r) => (g(), a("div", {
 					key: t.title,
 					class: f(r > 0 ? "mt-[12px]" : "")
 				}, [o("div", Wn, [o("span", Gn, S(t.title), 1)]), o("div", Kn, [(g(!0), a(e, null, v(t.items, (e, t) => (g(), a("button", {
 					key: e.label,
-					class: "flex flex-col items-center gap-[4px] p-[10px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group",
+					class: "flex flex-col items-center gap-[4px] p-[10px] rounded-[12px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer group",
 					onClick: (t) => {
 						m.value = !1, n.$emit("moduleClick", e);
 					}
@@ -1747,18 +1747,18 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			})], -1)]])) : i("", !0)
 		], 2)) : i("", !0);
 	}
-}), or = { class: "px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-white" }, sr = { class: "flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]" }, cr = {
+}), or = { class: "px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-surface" }, sr = { class: "flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]" }, cr = {
 	key: 0,
 	class: "flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px] overflow-x-auto whitespace-nowrap"
 }, lr = {
 	key: 0,
-	class: "text-[#999]"
+	class: "text-content-tertiary"
 }, ur = ["onClick"], dr = {
 	key: 2,
-	class: "text-[#000] font-medium"
-}, fr = { class: "flex flex-wrap items-center gap-[8px] sm:gap-[12px]" }, pr = { class: "text-[20px] sm:text-[24px] font-bold text-[#000] leading-[28px] sm:leading-[32px]" }, mr = {
+	class: "text-content-primary font-medium"
+}, fr = { class: "flex flex-wrap items-center gap-[8px] sm:gap-[12px]" }, pr = { class: "text-[20px] sm:text-[24px] font-bold text-content-primary leading-[28px] sm:leading-[32px]" }, mr = {
 	key: 1,
-	class: "text-[13px] text-[#999] mt-[2px]"
+	class: "text-[13px] text-content-tertiary mt-[2px]"
 }, hr = {
 	key: 0,
 	class: "flex flex-wrap items-center gap-[8px] sm:mt-[4px]"
@@ -1767,7 +1767,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "relative"
 }, _r = ["onClick"], vr = {
 	key: 0,
-	class: "absolute right-0 top-full mt-[4px] z-50 min-w-[180px] bg-white border border-[#e2e2e2] rounded-[12px] shadow-xl overflow-hidden"
+	class: "absolute right-0 top-full mt-[4px] z-50 min-w-[180px] bg-surface border border-border rounded-[12px] shadow-xl overflow-hidden"
 }, yr = ["onClick"], br = ["onClick"], xr = /* @__PURE__ */ u({
 	__name: "PageHeader",
 	props: {
@@ -1794,14 +1794,14 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				warning: "bg-[#fef3c7] text-[#92400e]",
 				negative: "bg-[#fef2f2] text-[#991b1b]",
 				accent: "bg-[#eaf0fd] text-[#1e40af]",
-				neutral: "bg-[#f6f6f6] text-[#545454]"
+				neutral: "bg-surface-input text-content-secondary"
 			};
 			return e[r.statusColor] ?? e.neutral;
 		});
 		return (n, r) => (g(), a("div", or, [o("div", sr, [o("div", null, [
 			t.breadcrumbs?.length ? (g(), a("div", cr, [(g(!0), a(e, null, v(t.breadcrumbs, (r, o) => (g(), a(e, { key: o }, [o > 0 ? (g(), a("span", lr, "›")) : i("", !0), o < t.breadcrumbs.length - 1 ? (g(), a("span", {
 				key: 1,
-				class: "text-[#545454] hover:text-[#000] cursor-pointer",
+				class: "text-content-secondary hover:text-content-primary cursor-pointer",
 				onClick: (e) => n.$emit("breadcrumbClick", o)
 			}, S(r), 9, ur)) : (g(), a("span", dr, S(r), 1))], 64))), 128))])) : i("", !0),
 			o("div", fr, [o("h1", pr, S(t.title), 1), t.status ? (g(), a("span", {
@@ -1810,23 +1810,23 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			}, S(t.status), 3)) : i("", !0)]),
 			t.subtitle ? (g(), a("div", mr, S(t.subtitle), 1)) : i("", !0)
 		]), t.actions?.length ? (g(), a("div", hr, [(g(!0), a(e, null, v(t.actions, (t, u) => (g(), a(e, { key: u }, [t.kind === "dropdown" ? (g(), a("div", gr, [o("button", {
-			class: "flex items-center gap-[4px] px-[12px] py-[8px] text-[14px] font-medium text-[#000] hover:bg-[#f6f6f6] rounded-[8px] transition-colors",
+			class: "flex items-center gap-[4px] px-[12px] py-[8px] text-[14px] font-medium text-content-primary hover:bg-surface-input rounded-[8px] transition-colors",
 			onClick: O((e) => l(u), ["stop"])
 		}, [c(S(t.label) + " ", 1), r[0] ||= o("svg", {
-			class: "w-[14px] h-[14px] text-[#545454]",
+			class: "w-[14px] h-[14px] text-content-secondary",
 			viewBox: "0 0 24 24",
 			fill: "none",
 			stroke: "currentColor",
 			"stroke-width": "2"
 		}, [o("path", { d: "M6 9l6 6 6-6" })], -1)], 8, _r), s.value === u ? (g(), a("div", vr, [(g(!0), a(e, null, v(t.items, (e) => (g(), a("button", {
 			key: e,
-			class: "w-full text-left px-[16px] py-[10px] text-[14px] text-[#000] hover:bg-[#f6f6f6] transition-colors",
+			class: "w-full text-left px-[16px] py-[10px] text-[14px] text-content-primary hover:bg-surface-input transition-colors",
 			onClick: (r) => {
 				s.value = null, n.$emit("dropdownSelect", t, e);
 			}
 		}, S(e), 9, yr))), 128))])) : i("", !0)])) : (g(), a("button", {
 			key: 1,
-			class: f(["px-[12px] py-[8px] text-[14px] font-medium rounded-[8px] transition-colors", t.kind === "primary" ? "bg-[#000] text-white hover:bg-[#333]" : "text-[#000] hover:bg-[#f6f6f6]"]),
+			class: f(["px-[12px] py-[8px] text-[14px] font-medium rounded-[8px] transition-colors", t.kind === "primary" ? "bg-btn-primary text-white hover:bg-btn-primary-hover" : "text-content-primary hover:bg-surface-input"]),
 			onClick: (e) => n.$emit("actionClick", t)
 		}, S(t.label), 11, br))], 64))), 128))])) : i("", !0)])]));
 	}
@@ -1946,9 +1946,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		});
 		return (t, n) => (g(), a("div", { class: f([
 			"flex border-2 rounded-[8px] overflow-hidden transition-colors",
-			e.error ? "border-[#e11900] bg-white" : "",
-			!e.error && !e.disabled ? "bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus-within:!bg-white focus-within:!border-[#000]" : "",
-			e.disabled ? "opacity-40 bg-[#f6f6f6] border-transparent" : ""
+			e.error ? "border-[#e11900] bg-surface" : "",
+			!e.error && !e.disabled ? "bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected" : "",
+			e.disabled ? "opacity-40 bg-surface-input border-transparent" : ""
 		]) }, [o("select", {
 			value: e.countryCode,
 			disabled: e.disabled,
@@ -2022,7 +2022,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"text-center font-semibold border-2 rounded-[8px] outline-none transition-colors",
 				t.size === "compact" ? "w-10 h-10 text-lg" : "w-12 h-12 text-xl",
-				t.error ? "border-[#e11900] bg-white" : "bg-[#f6f6f6] border-transparent focus:!bg-white focus:!border-[#000]",
+				t.error ? "border-[#e11900] bg-surface" : "bg-surface-input border-transparent focus:!bg-surface focus:!border-border-selected",
 				t.disabled ? "opacity-40 cursor-not-allowed" : ""
 			]),
 			onInput: (t) => s(e - 1, t),
@@ -2073,7 +2073,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}, {
 			default: E(() => [s.value ? (g(), a("div", {
 				key: 0,
-				class: f(["absolute z-[9999] min-w-[180px] bg-white border border-[#e2e2e2] rounded-xl shadow-xl overflow-hidden", v.value])
+				class: f(["absolute z-[9999] min-w-[180px] bg-surface border border-border rounded-xl shadow-xl overflow-hidden", v.value])
 			}, [y(e.$slots, "default")], 2)) : i("", !0)]),
 			_: 3
 		})], 512));
@@ -2139,17 +2139,17 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: "relative flex gap-4"
 		}, [o("div", Rr, [o("div", { class: f([
 			"w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0 border-2 transition-colors",
-			s < t.currentStep ? "bg-[#000] border-[#000] text-white" : "",
-			s === t.currentStep ? "bg-[#000] border-[#000] text-white" : "",
-			s > t.currentStep ? "bg-white border-[#e2e2e2] text-[#999]" : ""
+			s < t.currentStep ? "bg-btn-primary border-border-selected text-white" : "",
+			s === t.currentStep ? "bg-btn-primary border-border-selected text-white" : "",
+			s > t.currentStep ? "bg-surface border-border text-content-tertiary" : ""
 		]) }, [s < t.currentStep ? (g(), a("svg", zr, [...r[0] ||= [o("path", { d: "M5 13l4 4L19 7" }, null, -1)]])) : (g(), a("span", Br, S(s + 1), 1))], 2), s < t.steps.length - 1 ? (g(), a("div", {
 			key: 0,
-			class: f(["w-0.5 flex-1 min-h-[24px]", s < t.currentStep ? "bg-[#000]" : "bg-[#e2e2e2]"])
+			class: f(["w-0.5 flex-1 min-h-[24px]", s < t.currentStep ? "bg-btn-primary" : "bg-[#e2e2e2]"])
 		}, null, 2)) : i("", !0)]), o("div", { class: f(["pb-8 flex-1", s === t.steps.length - 1 ? "pb-0" : ""]) }, [
-			o("h4", { class: f(["text-sm font-semibold", s <= t.currentStep ? "text-[#000]" : "text-[#999]"]) }, S(e.title), 3),
+			o("h4", { class: f(["text-sm font-semibold", s <= t.currentStep ? "text-content-primary" : "text-content-tertiary"]) }, S(e.title), 3),
 			e.description ? (g(), a("p", {
 				key: 0,
-				class: f(["text-xs mt-0.5", s <= t.currentStep ? "text-[#545454]" : "text-[#999]"])
+				class: f(["text-xs mt-0.5", s <= t.currentStep ? "text-content-secondary" : "text-content-tertiary"])
 			}, S(e.description), 3)) : i("", !0),
 			s === t.currentStep ? (g(), a("div", Vr, [y(n.$slots, "step-" + s, {
 				step: e,
@@ -2239,12 +2239,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			stroke: "none"
 		}, [...r[1] ||= [o("path", { d: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" }, null, -1)]], 10, Qr))], 42, Zr))), 128))]));
 	}
-}), ei = { class: "flex h-screen overflow-hidden bg-white" }, ti = { class: "hidden sm:flex" }, ni = { class: "flex-1 flex flex-col min-w-0 overflow-hidden" }, ri = { class: "flex-1 overflow-y-auto" }, ii = {
+}), ei = { class: "flex h-screen overflow-hidden bg-surface" }, ti = { class: "hidden sm:flex" }, ni = { class: "flex-1 flex flex-col min-w-0 overflow-hidden" }, ri = { class: "flex-1 overflow-y-auto" }, ii = {
 	key: 0,
-	class: "px-[12px] sm:px-[24px] border-b border-[#e2e2e2] bg-white sticky top-0 z-10"
+	class: "px-[12px] sm:px-[24px] border-b border-border bg-surface sticky top-0 z-10"
 }, ai = { class: "flex flex-col lg:flex-row lg:min-h-full" }, oi = { class: "flex-1 min-w-0 p-[12px] sm:p-[16px] md:p-[24px]" }, si = { class: "flex flex-col gap-[20px] sm:gap-[24px] md:gap-[32px]" }, ci = {
 	key: 0,
-	class: "w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[12px] sm:p-[16px] md:p-[24px]"
+	class: "w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-border p-[12px] sm:p-[16px] md:p-[24px]"
 }, li = { class: "lg:sticky lg:top-[24px]" }, ui = /* @__PURE__ */ u({
 	__name: "ScaffoldDetail",
 	setup(e) {
@@ -2263,12 +2263,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	},
 	emits: ["update:modelValue"],
 	setup(t) {
-		return (n, r) => (g(), a("div", { class: f(["inline-flex rounded-full bg-[#f0f0f0] p-[3px]", t.size === "sm" ? "gap-[2px]" : "gap-[3px]"]) }, [(g(!0), a(e, null, v(t.options, (e) => (g(), a("button", {
+		return (n, r) => (g(), a("div", { class: f(["inline-flex rounded-full bg-surface-input p-[3px]", t.size === "sm" ? "gap-[2px]" : "gap-[3px]"]) }, [(g(!0), a(e, null, v(t.options, (e) => (g(), a("button", {
 			key: e.value,
 			class: f([
 				"rounded-full font-medium transition-all duration-200 whitespace-nowrap",
 				t.size === "sm" ? "px-[12px] py-[4px] text-[12px]" : "px-[16px] py-[6px] text-[14px]",
-				t.modelValue === e.value ? "bg-white text-[#000] shadow-sm" : "text-[#545454] hover:text-[#000]"
+				t.modelValue === e.value ? "bg-surface text-content-primary shadow-sm" : "text-content-secondary hover:text-content-primary"
 			]),
 			onClick: (t) => n.$emit("update:modelValue", e.value)
 		}, S(e.label), 11, di))), 128))], 2));
@@ -2316,9 +2316,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				"flex items-center justify-between w-full border-2 rounded-[8px] px-3 text-left transition-colors",
 				u.value,
 				{
-					"border-[#e11900] bg-white": s.error,
-					"bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus:!bg-white focus:!border-[#000]": !s.error && !s.disabled,
-					"opacity-40 cursor-not-allowed bg-[#f6f6f6] border-transparent": s.disabled
+					"border-[#e11900] bg-surface": s.error,
+					"bg-surface-input border-transparent hover:bg-surface-input-hover focus:!bg-surface focus:!border-border-selected": !s.error && !s.disabled,
+					"opacity-40 cursor-not-allowed bg-surface-input border-transparent": s.disabled
 				}
 			]) }, {
 				default: E(() => [o("span", { class: f([d.value ? "text-content-primary" : "text-content-tertiary"]) }, S(d.value || s.placeholder), 3), c[1] ||= o("svg", {
@@ -2340,7 +2340,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				"leave-from-class": "opacity-100",
 				"leave-to-class": "opacity-0"
 			}, {
-				default: E(() => [l(C(R), { class: "absolute z-50 mt-1 w-full bg-white border border-border rounded-lg shadow-lg py-1 max-h-60 overflow-auto focus:outline-none" }, {
+				default: E(() => [l(C(R), { class: "absolute z-50 mt-1 w-full bg-surface border border-border rounded-lg shadow-lg py-1 max-h-60 overflow-auto focus:outline-none" }, {
 					default: E(() => [(g(!0), a(e, null, v(s.options, (e) => (g(), r(C(te), {
 						key: e.value,
 						value: e.value,
@@ -2434,8 +2434,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		function y(e) {
 			return e.icon || h[e.label] || "M4 6h16M4 12h16M4 18h16";
 		}
-		return (n, r) => (g(), a("nav", { class: f(["flex flex-col h-full bg-[#000] text-white transition-all duration-300 ease-in-out flex-shrink-0 overflow-hidden", c.value ? "w-[56px]" : "w-[240px]"]) }, [o("div", gi, [o("button", {
-			class: "w-[32px] h-[32px] flex items-center justify-center rounded-[8px] text-white hover:bg-[#333] transition-colors",
+		return (n, r) => (g(), a("nav", { class: f(["flex flex-col h-full bg-sidebar-bg text-sidebar-text transition-all duration-300 ease-in-out flex-shrink-0 overflow-hidden", c.value ? "w-[56px]" : "w-[240px]"]) }, [o("div", gi, [o("button", {
+			class: "w-[32px] h-[32px] flex items-center justify-center rounded-[8px] text-white hover:bg-sidebar-hover transition-colors",
 			onClick: u
 		}, [...r[0] ||= [o("svg", {
 			width: "20",
@@ -2449,7 +2449,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"flex items-center w-full rounded-[8px] transition-colors gap-[12px] mb-[2px]",
 				c.value ? "justify-center px-0 py-[10px]" : "px-[10px] py-[10px]",
-				m(t) ? "text-white" : "text-[#999] hover:text-white hover:bg-[#1a1a1a]"
+				m(t) ? "text-white" : "text-content-tertiary hover:text-white hover:bg-[#1a1a1a]"
 			]),
 			onClick: (e) => c.value ? u() : d(t.label)
 		}, [
@@ -2465,14 +2465,14 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			}, [...r[1] ||= [o("path", { d: "M6 9l6 6 6-6" }, null, -1)]], 2))
 		], 10, yi), !c.value && l.value.has(t.label) ? (g(), a("div", Ci, [(g(!0), a(e, null, v(t.children, (e) => (g(), a("button", {
 			key: e.to,
-			class: f(["block w-full text-left text-[14px] py-[8px] px-[10px] rounded-[8px] transition-colors mb-[1px]", e.active ? "text-white bg-[#333]" : "text-[#999] hover:text-white hover:bg-[#1a1a1a]"]),
+			class: f(["block w-full text-left text-[14px] py-[8px] px-[10px] rounded-[8px] transition-colors mb-[1px]", e.active ? "text-white bg-[#333]" : "text-content-tertiary hover:text-white hover:bg-[#1a1a1a]"]),
 			onClick: (t) => p(e.to)
 		}, S(e.label), 11, wi))), 128))])) : i("", !0)], 64)) : (g(), a("button", {
 			key: 1,
 			class: f([
 				"flex items-center w-full rounded-[8px] transition-colors gap-[12px] mb-[2px]",
 				c.value ? "justify-center px-0 py-[10px]" : "px-[10px] py-[10px]",
-				t.active ? "text-white bg-[#333]" : "text-[#999] hover:text-white hover:bg-[#1a1a1a]"
+				t.active ? "text-white bg-[#333]" : "text-content-tertiary hover:text-white hover:bg-[#1a1a1a]"
 			]),
 			onClick: (e) => t.to && p(t.to)
 		}, [(g(), a("svg", Ei, [o("path", { d: y(t) }, null, 8, Di)])), c.value ? i("", !0) : (g(), a("span", Oi, S(t.label), 1))], 10, Ti))], 64))), 128))])], 2));
@@ -2480,9 +2480,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 }), Ai = { class: "flex h-full w-full overflow-hidden" }, ji = {
 	key: 0,
 	class: "flex items-center justify-between h-[48px] px-[16px] flex-shrink-0"
-}, Mi = { class: "text-[15px] font-semibold text-[#000] truncate" }, Ni = { class: "flex items-center gap-[4px]" }, Pi = { class: "flex-1 overflow-y-auto overflow-x-hidden" }, Fi = {
+}, Mi = { class: "text-[15px] font-semibold text-content-primary truncate" }, Ni = { class: "flex items-center gap-[4px]" }, Pi = { class: "flex-1 overflow-y-auto overflow-x-hidden" }, Fi = {
 	key: 0,
-	class: "flex-shrink-0 border-r border-[#e2e2e2] flex flex-col items-center pt-[12px]"
+	class: "flex-shrink-0 border-r border-border flex flex-col items-center pt-[12px]"
 }, Ii = { class: "flex-1 min-w-0 overflow-auto" }, Li = /* @__PURE__ */ u({
 	__name: "SidePanel",
 	props: {
@@ -2516,13 +2516,13 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}));
 		return (t, n) => (g(), a("div", Ai, [
 			o("div", {
-				class: f(["flex flex-col bg-white overflow-hidden transition-all duration-300 ease-in-out flex-shrink-0", e.bordered ? "border-r border-[#e2e2e2]" : ""]),
+				class: f(["flex flex-col bg-surface overflow-hidden transition-all duration-300 ease-in-out flex-shrink-0", e.bordered ? "border-r border-border" : ""]),
 				style: p(u.value)
 			}, [e.title || t.$slots.headerActions || e.collapsible ? (g(), a("div", ji, [o("span", Mi, S(e.title), 1), o("div", Ni, [
 				y(t.$slots, "headerActions"),
 				t.$slots.headerActions === void 0 && t.$slots.add ? (g(), a("button", {
 					key: 0,
-					class: "w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-[#545454] hover:bg-[#f6f6f6] transition-colors",
+					class: "w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-secondary hover:bg-surface-input transition-colors",
 					onClick: n[0] ||= (e) => t.$emit("add")
 				}, [...n[1] ||= [o("svg", {
 					width: "16",
@@ -2535,7 +2535,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				}, [o("path", { d: "M12 5v14M5 12h14" })], -1)]])) : i("", !0),
 				e.collapsible ? (g(), a("button", {
 					key: 1,
-					class: "w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-[#545454] hover:bg-[#f6f6f6] transition-colors",
+					class: "w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-secondary hover:bg-surface-input transition-colors",
 					onClick: l
 				}, [...n[2] ||= [o("svg", {
 					width: "16",
@@ -2548,7 +2548,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				}, [o("path", { d: "M15 18l-6-6 6-6" })], -1)]])) : i("", !0)
 			])])) : i("", !0), o("div", Pi, [y(t.$slots, "sidebar")])], 6),
 			c.value && e.collapsible ? (g(), a("div", Fi, [o("button", {
-				class: "w-[32px] h-[32px] flex items-center justify-center rounded-[6px] text-[#545454] hover:bg-[#f6f6f6] transition-colors",
+				class: "w-[32px] h-[32px] flex items-center justify-center rounded-[6px] text-content-secondary hover:bg-surface-input transition-colors",
 				onClick: l
 			}, [...n[3] ||= [o("svg", {
 				width: "16",
@@ -2832,7 +2832,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			let e = {
 				sm: "px-3 py-1 text-xs",
 				md: "px-4 py-1.5 text-sm"
-			}, t = r.selected ? "bg-black text-white border border-black cursor-pointer" : "bg-white text-black border border-border hover:bg-bg-secondary cursor-pointer", n = [
+			}, t = r.selected ? "bg-black text-white border border-black cursor-pointer" : "bg-surface text-black border border-border hover:bg-bg-secondary cursor-pointer", n = [
 				"inline-flex items-center rounded-full font-medium transition-colors duration-150",
 				e[r.size],
 				t
@@ -2875,7 +2875,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"w-full border-2 rounded-[8px] px-3 py-2.5 text-sm bg-bg-primary outline-none transition-colors duration-150",
 				"placeholder:text-content-tertiary",
-				e.error ? "border-negative" : "border-transparent bg-[#f6f6f6] hover:bg-[#eee] focus:!bg-white focus:!border-[#000]",
+				e.error ? "border-negative" : "border-transparent bg-surface-input hover:bg-surface-input-hover focus:!bg-surface focus:!border-border-selected",
 				e.disabled ? "opacity-40 cursor-not-allowed bg-bg-secondary" : "",
 				e.resize === "none" ? "resize-none" : e.resize === "vertical" ? "resize-y" : "resize"
 			]),
@@ -2888,16 +2888,16 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), ua = ["disabled"], da = { class: "absolute top-[16px] right-[16px]" }, fa = {
 	key: 0,
-	class: "w-[20px] h-[20px] rounded-full bg-[#000] flex items-center justify-center"
+	class: "w-[20px] h-[20px] rounded-full bg-btn-primary flex items-center justify-center"
 }, $ = {
 	key: 1,
-	class: "w-[20px] h-[20px] rounded-full border-2 border-[#e2e2e2] group-hover:border-[#999]"
+	class: "w-[20px] h-[20px] rounded-full border-2 border-border group-hover:border-border-hover"
 }, pa = {
 	key: 0,
 	class: "mb-[12px]"
-}, ma = { class: "text-[16px] font-semibold text-[#000] leading-[24px]" }, ha = {
+}, ma = { class: "text-[16px] font-semibold text-content-primary leading-[24px]" }, ha = {
 	key: 1,
-	class: "text-[14px] text-[#545454] mt-[4px] leading-[20px]"
+	class: "text-[14px] text-content-secondary mt-[4px] leading-[20px]"
 }, ga = /* @__PURE__ */ u({
 	__name: "Tile",
 	props: {
@@ -2919,8 +2919,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"relative flex flex-col w-full text-left rounded-[12px] transition-all duration-150 cursor-pointer group",
 				"border-2",
-				e.selected ? "border-[#000] bg-white shadow-sm" : "border-[#e2e2e2] bg-white hover:border-[#000] hover:shadow-sm",
-				e.disabled ? "opacity-40 cursor-not-allowed hover:border-[#e2e2e2] hover:shadow-none" : "",
+				e.selected ? "border-border-selected bg-surface shadow-sm" : "border-border bg-surface hover:border-border-selected hover:shadow-sm",
+				e.disabled ? "opacity-40 cursor-not-allowed hover:border-border hover:shadow-none" : "",
 				e.align === "center" ? "items-center text-center" : "items-start"
 			]),
 			onClick: n[0] ||= (n) => !e.disabled && t.$emit("click")
@@ -2938,7 +2938,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), _a = ["disabled"], va = {
 	key: 1,
-	class: "absolute inset-0 bg-[#000]"
+	class: "absolute inset-0 bg-btn-primary"
 }, ya = { class: "tabular-nums" }, ba = /* @__PURE__ */ u({
 	__name: "TimedButton",
 	props: {
@@ -2979,20 +2979,20 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"relative inline-flex items-center justify-center overflow-hidden rounded-[8px] text-[14px] font-medium",
 				"h-[48px] min-w-[140px]",
-				d.value || t.disabled ? "bg-[#eee] text-[#bbb] cursor-not-allowed" : "cursor-pointer"
+				d.value || t.disabled ? "bg-surface-input-hover text-content-disabled cursor-not-allowed" : "cursor-pointer"
 			]),
 			disabled: d.value || t.disabled,
 			onClick: r[0] ||= (e) => !d.value && !t.disabled && n.$emit("click")
 		}, [
 			v.value && !d.value ? (g(), a(e, { key: 0 }, [o("div", {
-				class: "absolute inset-y-0 left-0 bg-[#000] transition-[width] duration-1000 ease-linear",
+				class: "absolute inset-y-0 left-0 bg-btn-primary transition-[width] duration-1000 ease-linear",
 				style: p({ width: b.value + "%" })
 			}, null, 4), o("div", {
-				class: "absolute inset-y-0 right-0 bg-[#e0e0e0] transition-[width] duration-1000 ease-linear",
+				class: "absolute inset-y-0 right-0 bg-surface-input-hover transition-[width] duration-1000 ease-linear",
 				style: p({ width: 100 - b.value + "%" })
 			}, null, 4)], 64)) : i("", !0),
 			!v.value && !d.value && !t.disabled ? (g(), a("div", va)) : i("", !0),
-			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-[#bbb]" : "text-white"]) }, [o("span", null, S(t.label), 1), o("span", ya, "(" + S(y.value) + ")", 1)], 2)
+			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-content-disabled" : "text-white"]) }, [o("span", null, S(t.label), 1), o("span", ya, "(" + S(y.value) + ")", 1)], 2)
 		], 10, _a));
 	}
 }), xa = { class: "flex-1" }, Sa = /* @__PURE__ */ u({
@@ -3090,7 +3090,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			]),
 			onClick: n[0] ||= (n) => !e.disabled && t.$emit("update:modelValue", !e.modelValue)
 		}, [o("span", { class: f([
-			"inline-block rounded-full bg-white shadow transform transition-transform duration-200",
+			"inline-block rounded-full bg-surface shadow transform transition-transform duration-200",
 			e.size === "sm" ? "h-4 w-4 mt-0.5 ml-0.5" : "h-5 w-5 mt-0.5 ml-0.5",
 			e.modelValue ? e.size === "sm" ? "translate-x-4" : "translate-x-5" : "translate-x-0"
 		]) }, null, 2)], 10, Ca), e.label ? (g(), a("div", wa, [o("span", Ta, S(e.label), 1), e.description ? (g(), a("p", Ea, S(e.description), 1)) : i("", !0)])) : i("", !0)], 2));
@@ -3273,12 +3273,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 3
 		}, 8, ["class"]));
 	}
-}), Pa = { class: "w-full border border-[#e2e2e2] rounded-[12px] overflow-hidden" }, Fa = ["onClick"], Ia = {
+}), Pa = { class: "w-full border border-border rounded-[12px] overflow-hidden" }, Fa = ["onClick"], Ia = {
 	key: 0,
-	class: "text-[12px] text-[#999] mt-[2px]"
+	class: "text-[12px] text-content-tertiary mt-[2px]"
 }, La = {
 	key: 1,
-	class: "text-[11px] sm:text-[13px] text-[#000] mt-[4px]"
+	class: "text-[11px] sm:text-[13px] text-content-primary mt-[4px]"
 }, Ra = {
 	key: 2,
 	class: "text-[13px] text-[#7356BF] font-medium mt-[4px]"
@@ -3308,17 +3308,17 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			style: p({ gridTemplateColumns: `repeat(${t.headers.length}, 1fr)` })
 		}, [(g(!0), a(e, null, v(t.headers, (e) => (g(), a("div", {
 			key: e,
-			class: "py-[8px] sm:py-[10px] text-center text-[11px] sm:text-[13px] font-medium text-[#545454] border-b border-[#e2e2e2]"
+			class: "py-[8px] sm:py-[10px] text-center text-[11px] sm:text-[13px] font-medium text-content-secondary border-b border-border"
 		}, S(e), 1))), 128)), (g(!0), a(e, null, v(t.days, (e, t) => (g(), a("div", {
 			key: t,
 			class: f([
 				"relative flex flex-col items-center justify-center py-[10px] sm:py-[16px] min-h-[72px] sm:min-h-[88px] cursor-pointer transition-colors",
-				t > 0 ? "border-l border-[#e2e2e2]" : "",
-				e.disabled ? "opacity-40 cursor-not-allowed" : "hover:bg-[#f6f6f6]"
+				t > 0 ? "border-l border-border" : "",
+				e.disabled ? "opacity-40 cursor-not-allowed" : "hover:bg-surface-input"
 			]),
 			onClick: (t) => !e.disabled && s("update:modelValue", e.date)
 		}, [
-			o("div", { class: f(["flex items-center justify-center text-[15px] sm:text-[18px] font-semibold", c(e) ? "w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#7356BF] text-white" : "text-[#000]"]) }, S(e.date), 3),
+			o("div", { class: f(["flex items-center justify-center text-[15px] sm:text-[18px] font-semibold", c(e) ? "w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#7356BF] text-white" : "text-content-primary"]) }, S(e.date), 3),
 			e.month ? (g(), a("span", Ia, S(e.month), 1)) : i("", !0),
 			e.price ? (g(), a("span", La, S(e.price), 1)) : i("", !0),
 			e.label ? (g(), a("span", Ra, S(e.label), 1)) : i("", !0)

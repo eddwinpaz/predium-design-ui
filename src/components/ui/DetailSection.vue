@@ -40,10 +40,10 @@ const gridClass = computed(() => {
   <div>
     <!-- Header: OUTSIDE the card -->
     <div class="flex items-center justify-between mb-[12px]">
-      <h3 class="text-[15px] font-semibold text-[#000]">{{ title }}</h3>
+      <h3 class="text-[15px] font-semibold text-content-primary">{{ title }}</h3>
       <button
         v-if="editable"
-        class="px-[12px] py-[8px] text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors cursor-pointer"
+        class="px-[12px] py-[8px] text-[14px] font-medium text-content-primary bg-surface-input hover:bg-surface-input-hover rounded-[8px] transition-colors cursor-pointer"
         @click="$emit('edit')"
       >
         Edit
@@ -52,7 +52,7 @@ const gridClass = computed(() => {
     </div>
 
     <!-- Card: only the content -->
-    <div class="border border-[#e2e2e2] rounded-[12px] bg-white">
+    <div class="border border-border rounded-[12px] bg-surface">
       <!-- Fields grid -->
       <div v-if="fields?.length" :class="['grid gap-0 px-[16px] sm:px-[24px] py-[16px] sm:py-[20px]', gridClass]">
         <div
@@ -60,10 +60,10 @@ const gridClass = computed(() => {
           :key="i"
           class="py-[8px] pr-[16px]"
         >
-          <div class="text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] leading-[16px]">
+          <div class="text-[11px] font-medium text-content-tertiary uppercase tracking-[0.5px] leading-[16px]">
             {{ field.label }}
           </div>
-          <div class="text-[14px] text-[#000] leading-[20px] mt-[2px]">
+          <div class="text-[14px] text-content-primary leading-[20px] mt-[2px]">
             {{ field.value }}
           </div>
         </div>

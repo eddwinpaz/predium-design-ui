@@ -82,8 +82,8 @@ function handleBackspace(index: number, event: KeyboardEvent) {
         'text-center font-semibold border-2 rounded-[8px] outline-none transition-colors',
         size === 'compact' ? 'w-10 h-10 text-lg' : 'w-12 h-12 text-xl',
         error
-          ? 'border-[#e11900] bg-white'
-          : 'bg-[#f6f6f6] border-transparent focus:!bg-white focus:!border-[#000]',
+          ? 'border-[#e11900] bg-surface'
+          : 'bg-surface-input border-transparent focus:!bg-surface focus:!border-border-selected',
         disabled
           ? 'opacity-40 cursor-not-allowed'
           : '',

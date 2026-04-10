@@ -5,7 +5,7 @@
       'placeholder:text-content-tertiary',
       error
         ? 'border-negative'
-        : 'border-transparent bg-[#f6f6f6] hover:bg-[#eee] focus:!bg-white focus:!border-[#000]',
+        : 'border-transparent bg-surface-input hover:bg-surface-input-hover focus:!bg-surface focus:!border-border-selected',
       disabled ? 'opacity-40 cursor-not-allowed bg-bg-secondary' : '',
       resize === 'none'
         ? 'resize-none'

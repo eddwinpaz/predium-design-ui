@@ -23,7 +23,7 @@ defineEmits<{
 <template>
   <div
     :class="[
-      'inline-flex rounded-full bg-[#f0f0f0] p-[3px]',
+      'inline-flex rounded-full bg-surface-input p-[3px]',
       size === 'sm' ? 'gap-[2px]' : 'gap-[3px]',
     ]"
   >
@@ -34,8 +34,8 @@ defineEmits<{
         'rounded-full font-medium transition-all duration-200 whitespace-nowrap',
         size === 'sm' ? 'px-[12px] py-[4px] text-[12px]' : 'px-[16px] py-[6px] text-[14px]',
         modelValue === opt.value
-          ? 'bg-white text-[#000] shadow-sm'
-          : 'text-[#545454] hover:text-[#000]',
+          ? 'bg-surface text-content-primary shadow-sm'
+          : 'text-content-secondary hover:text-content-primary',
       ]"
       @click="$emit('update:modelValue', opt.value)"
     >

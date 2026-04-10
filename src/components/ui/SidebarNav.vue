@@ -84,14 +84,14 @@ function getIcon(item: SidebarItem): string {
 <template>
   <nav
     :class="[
-      'flex flex-col h-full bg-[#000] text-white transition-all duration-300 ease-in-out flex-shrink-0 overflow-hidden',
+      'flex flex-col h-full bg-sidebar-bg text-sidebar-text transition-all duration-300 ease-in-out flex-shrink-0 overflow-hidden',
       isCollapsed ? 'w-[56px]' : 'w-[240px]',
     ]"
   >
     <!-- Hamburger -->
     <div class="flex items-center h-[52px] px-[14px] flex-shrink-0">
       <button
-        class="w-[32px] h-[32px] flex items-center justify-center rounded-[8px] text-white hover:bg-[#333] transition-colors"
+        class="w-[32px] h-[32px] flex items-center justify-center rounded-[8px] text-white hover:bg-sidebar-hover transition-colors"
         @click="toggleCollapse"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -112,7 +112,7 @@ function getIcon(item: SidebarItem): string {
               isCollapsed ? 'justify-center px-0 py-[10px]' : 'px-[10px] py-[10px]',
               isGroupActive(item)
                 ? 'text-white'
-                : 'text-[#999] hover:text-white hover:bg-[#1a1a1a]',
+                : 'text-content-tertiary hover:text-white hover:bg-[#1a1a1a]',
             ]"
             @click="isCollapsed ? toggleCollapse() : toggleGroup(item.label)"
           >
@@ -139,7 +139,7 @@ function getIcon(item: SidebarItem): string {
                 'block w-full text-left text-[14px] py-[8px] px-[10px] rounded-[8px] transition-colors mb-[1px]',
                 child.active
                   ? 'text-white bg-[#333]'
-                  : 'text-[#999] hover:text-white hover:bg-[#1a1a1a]',
+                  : 'text-content-tertiary hover:text-white hover:bg-[#1a1a1a]',
               ]"
               @click="handleNav(child.to)"
             >
@@ -156,7 +156,7 @@ function getIcon(item: SidebarItem): string {
               isCollapsed ? 'justify-center px-0 py-[10px]' : 'px-[10px] py-[10px]',
               item.active
                 ? 'text-white bg-[#333]'
-                : 'text-[#999] hover:text-white hover:bg-[#1a1a1a]',
+                : 'text-content-tertiary hover:text-white hover:bg-[#1a1a1a]',
             ]"
             @click="item.to && handleNav(item.to)"
           >

@@ -4,9 +4,9 @@
       'relative flex items-center border-2 rounded-[8px] transition-colors',
       sizeClasses,
       {
-        'border-[#e11900] bg-white': error,
-        'border-[#048848] bg-white': positive && !error,
-        'bg-[#f6f6f6] border-transparent hover:bg-[#eeeeee] focus-within:!bg-white focus-within:!border-[#000]': !error && !positive,
+        'border-[#e11900] bg-surface': error,
+        'border-[#048848] bg-surface': positive && !error,
+        'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected': !error && !positive,
         'opacity-40 cursor-not-allowed': disabled,
       },
     ]"

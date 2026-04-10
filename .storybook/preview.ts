@@ -20,10 +20,31 @@ const preview: Preview = {
       },
     },
   },
+  globalTypes: {
+    theme: {
+      description: 'Theme',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', icon: 'sun', title: 'Light' },
+          { value: 'dark', icon: 'moon', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  initialGlobals: {
+    theme: 'light',
+  },
   decorators: [
-    (story) => ({
+    (story, context) => ({
       components: { story },
-      template: '<div style="padding: 16px; min-height: 200px; overflow: visible;"><story /></div>',
+      setup() {
+        const isDark = context.globals.theme === 'dark'
+        return { isDark }
+      },
+      template: `<div :class="isDark ? 'dark' : ''" style="min-height: 200px; overflow: visible;"><div style="padding: 16px;" :style="isDark ? 'background: #141414; color: #f0f0f0' : ''"><story /></div></div>`,
     }),
   ],
 };

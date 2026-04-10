@@ -10,9 +10,9 @@
           'flex items-center justify-between w-full border-2 rounded-[8px] px-3 text-left transition-colors',
           sizeClasses,
           {
-            'border-[#e11900] bg-white': error,
-            'bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus:!bg-white focus:!border-[#000]': !error && !disabled,
-            'opacity-40 cursor-not-allowed bg-[#f6f6f6] border-transparent': disabled,
+            'border-[#e11900] bg-surface': error,
+            'bg-surface-input border-transparent hover:bg-surface-input-hover focus:!bg-surface focus:!border-border-selected': !error && !disabled,
+            'opacity-40 cursor-not-allowed bg-surface-input border-transparent': disabled,
           },
         ]"
       >
@@ -42,7 +42,7 @@
         leave-to-class="opacity-0"
       >
         <ListboxOptions
-          class="absolute z-50 mt-1 w-full bg-white border border-border rounded-lg shadow-lg py-1 max-h-60 overflow-auto focus:outline-none"
+          class="absolute z-50 mt-1 w-full bg-surface border border-border rounded-lg shadow-lg py-1 max-h-60 overflow-auto focus:outline-none"
         >
           <ListboxOption
             v-for="opt in options"

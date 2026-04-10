@@ -140,7 +140,7 @@ const sizeClasses = computed(() => {
       :class="[
         'w-full flex items-center justify-between border-2 rounded-[8px] transition-colors',
         sizeClasses,
-        disabled ? 'opacity-40 cursor-not-allowed bg-[#f6f6f6] border-transparent' : 'bg-[#f6f6f6] border-transparent hover:bg-[#eee] focus:!bg-white focus:!border-[#000] cursor-pointer',
+        disabled ? 'opacity-40 cursor-not-allowed bg-surface-input border-transparent' : 'bg-surface-input border-transparent hover:bg-surface-input-hover focus:!bg-surface focus:!border-border-selected cursor-pointer',
       ]"
       @click="toggle"
     >
