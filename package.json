@@ -1,0 +1,98 @@
+{
+  "name": "predium-design-ui",
+  "version": "0.1.0",
+  "description": "Vue 3 component library based on Uber's Base Web design system. 47 production-ready components with Tailwind CSS v4.",
+  "type": "module",
+  "main": "./dist/predium-design-ui.js",
+  "module": "./dist/predium-design-ui.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/predium-design-ui.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": "./dist/style.css",
+    "./tokens.css": "./src/assets/main.css"
+  },
+  "files": [
+    "dist",
+    "src/assets/main.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --build && vite build",
+    "build:lib": "vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --ext .vue,.ts --fix",
+    "format": "prettier --write \"src/**/*.{vue,ts,css}\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "component-library",
+    "design-system",
+    "tailwindcss",
+    "uber",
+    "baseweb",
+    "ui-components",
+    "predium"
+  ],
+  "author": "Predium",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddwinpaz/predium-design-ui.git"
+  },
+  "homepage": "https://github.com/eddwinpaz/predium-design-ui#readme",
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0",
+    "vue": "^3.4.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": false
+    }
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.1.1",
+    "@storybook/addon-a11y": "^10.3.5",
+    "@storybook/addon-docs": "^10.3.5",
+    "@storybook/addon-onboarding": "^10.3.5",
+    "@storybook/addon-vitest": "^10.3.5",
+    "@storybook/vue3-vite": "^10.3.5",
+    "@tailwindcss/vite": "^4.2.2",
+    "@tsconfig/node24": "^24.0.4",
+    "@types/node": "^24.12.0",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vitest/coverage-v8": "^4.1.4",
+    "@vue/tsconfig": "^0.9.1",
+    "eslint": "^9.39.4",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "^3.8.2",
+    "storybook": "^10.3.5",
+    "tailwindcss": "^4.2.2",
+    "typescript": "~6.0.0",
+    "vite": "^8.0.3",
+    "vitest": "^4.1.4",
+    "vue": "^3.5.31",
+    "vue-router": "^5.0.4",
+    "vue-tsc": "^3.2.6"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/*
+ * Predium UI Design System - Token Layer
+ * Based on Uber's Base Web (baseweb.design) exact tokens
+ *
+ * Spacing: 4px grid system (scale0=4, scale100=8, ..., scale1600=64)
+ * Typography: Base Web type scale
+ * Sizing: Component height scale
+ * Borders: Base Web border tokens
+ */
+@theme {
+  /* ═══════════════════════════════════════════
+   * FONT
+   * ═══════════════════════════════════════════ */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+  /* ═══════════════════════════════════════════
+   * SPACING — Base Web 4px grid scale
+   * Usage: p-scale200 = 8px, m-scale600 = 24px, gap-scale400 = 16px
+   * ═══════════════════════════════════════════ */
+  --spacing-scale0: 2px;
+  --spacing-scale100: 4px;
+  --spacing-scale200: 8px;
+  --spacing-scale300: 12px;
+  --spacing-scale400: 16px;
+  --spacing-scale500: 20px;
+  --spacing-scale600: 24px;
+  --spacing-scale700: 28px;
+  --spacing-scale800: 32px;
+  --spacing-scale900: 36px;
+  --spacing-scale1000: 40px;
+  --spacing-scale1200: 48px;
+  --spacing-scale1400: 56px;
+  --spacing-scale1600: 64px;
+
+  /* ═══════════════════════════════════════════
+   * SIZING — Component height scale
+   * Usage: h-size100 = 20px (pill), h-size400 = 36px (compact), h-size500 = 44px (default)
+   * ═══════════════════════════════════════════ */
+  --spacing-size0: 2px;
+  --spacing-size50: 10px;
+  --spacing-size100: 20px;
+  --spacing-size200: 24px;
+  --spacing-size300: 32px;
+  --spacing-size400: 36px;
+  --spacing-size500: 44px;
+  --spacing-size600: 48px;
+  --spacing-size700: 56px;
+  --spacing-size800: 64px;
+  --spacing-size900: 72px;
+  --spacing-size1000: 80px;
+
+  /* ═══════════════════════════════════════════
+   * BORDER RADIUS — Base Web radius tokens
+   * ═══════════════════════════════════════════ */
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* ═══════════════════════════════════════════
+   * TYPOGRAPHY — Base Web type scale (font-size / line-height)
+   * Usage: text-font100, text-font200, etc.
+   * ═══════════════════════════════════════════ */
+  --font-size-font100: 12px;
+  --font-size-font150: 12px;
+  --font-size-font200: 14px;
+  --font-size-font250: 14px;
+  --font-size-font300: 16px;
+  --font-size-font350: 16px;
+  --font-size-font400: 18px;
+  --font-size-font450: 20px;
+  --font-size-font550: 24px;
+  --font-size-font650: 28px;
+  --font-size-font750: 32px;
+  --font-size-font850: 36px;
+  --font-size-font950: 40px;
+  --font-size-font1050: 44px;
+  --font-size-font1150: 52px;
+  --font-size-font1250: 72px;
+  --font-size-font1350: 96px;
+  --font-size-font1450: 112px;
+
+  /* Line heights matching Base Web */
+  --line-height-font100: 16px;
+  --line-height-font200: 20px;
+  --line-height-font300: 24px;
+  --line-height-font400: 28px;
+  --line-height-font450: 28px;
+  --line-height-font550: 32px;
+  --line-height-font650: 36px;
+  --line-height-font750: 40px;
+  --line-height-font850: 44px;
+  --line-height-font950: 52px;
+  --line-height-font1050: 56px;
+  --line-height-font1150: 64px;
+  --line-height-font1250: 84px;
+  --line-height-font1350: 112px;
+  --line-height-font1450: 132px;
+
+  /* ═══════════════════════════════════════════
+   * COLORS — Uber Core Palette (exact hex values)
+   * ═══════════════════════════════════════════ */
+
+  /* Core */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Primary */
+  --color-primary: #000000;
+  --color-primary-hover: #333333;
+  --color-primary-active: #1a1a1a;
+
+  /* Backgrounds */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f6f6f6;
+  --color-bg-tertiary: #eeeeee;
+  --color-bg-inverse: #000000;
+  --color-bg-state-disabled: #f6f6f6;
+
+  /* Content */
+  --color-content-primary: #000000;
+  --color-content-secondary: #545454;
+  --color-content-tertiary: #999999;
+  --color-content-disabled: #cccccc;
+  --color-content-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #e2e2e2;
+  --color-border-hover: #cccccc;
+  --color-border-selected: #000000;
+  --color-border-focus: #276ef1;
+
+  /* Semantic - Positive */
+  --color-positive: #048848;
+  --color-positive-light: #e6f4ea;
+  --color-positive-text: #1e7d34;
+
+  /* Semantic - Negative */
+  --color-negative: #e11900;
+  --color-negative-light: #fef2f2;
+  --color-negative-text: #991b1b;
+
+  /* Semantic - Warning */
+  --color-warning: #ffc043;
+  --color-warning-light: #fef3c7;
+  --color-warning-text: #92400e;
+
+  /* Semantic - Accent / Info */
+  --color-accent: #276ef1;
+  --color-accent-light: #eaf0fd;
+  --color-accent-text: #1e40af;
+
+  /* Rating / Misc */
+  --color-rating: #ffc043;
+  --color-purple: #7356bf;
+  --color-purple-light: #ede8f8;
+}
+
+@layer base {
+  *, *::before, *::after {
+    border-color: var(--color-border);
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;                       /* Base Web default: font200 */
+    line-height: 20px;                     /* Base Web default: lineHeight200 */
+    color: var(--color-content-primary);
+    background-color: var(--color-bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Focus ring utility */
+@layer utilities {
+  .focus-ring {
+    @apply outline-none ring-2 ring-border-focus ring-offset-2;
+  }
+}
