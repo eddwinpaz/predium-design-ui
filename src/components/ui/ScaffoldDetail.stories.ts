@@ -14,7 +14,7 @@ const meta: Meta<typeof ScaffoldDetail> = {
   tags: ['autodocs'],
   decorators: [
     () => ({
-      template: '<div style="height: 700px; margin: -16px; overflow: hidden;"><story /></div>',
+      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
 }
