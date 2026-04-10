@@ -30,7 +30,7 @@
         </div>
 
         <!-- Two-column layout: content + right panel -->
-        <div class="flex flex-col lg:flex-row">
+        <div class="flex flex-col lg:flex-row lg:min-h-full">
           <!-- Left: main content -->
           <div class="flex-1 min-w-0 p-[12px] sm:p-[16px] md:p-[24px]">
             <div class="flex flex-col gap-[20px] sm:gap-[24px] md:gap-[32px]">
@@ -38,9 +38,11 @@
             </div>
           </div>
 
-          <!-- Right: side panel -->
-          <div v-if="$slots.rightPanel" class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[12px] sm:p-[16px] md:p-[24px] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
-            <slot name="rightPanel" />
+          <!-- Right: side panel - stretches full height on desktop -->
+          <div v-if="$slots.rightPanel" class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-[#e2e2e2] p-[12px] sm:p-[16px] md:p-[24px]">
+            <div class="lg:sticky lg:top-[24px]">
+              <slot name="rightPanel" />
+            </div>
           </div>
         </div>
       </div>
