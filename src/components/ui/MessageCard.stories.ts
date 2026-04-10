@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import MessageCard from './MessageCard.vue'
 
 const meta: Meta<typeof MessageCard> = {
@@ -6,10 +6,7 @@ const meta: Meta<typeof MessageCard> = {
   component: MessageCard,
   tags: ['autodocs'],
   argTypes: {
-    heading: { control: 'text' },
-    description: { control: 'text' },
-    buttonLabel: { control: 'text' },
-    image: { control: 'text' },
+    layout: { control: 'select', options: ['horizontal', 'vertical'] },
     backgroundColor: { control: 'color' },
     color: { control: 'color' },
   },
@@ -18,71 +15,121 @@ const meta: Meta<typeof MessageCard> = {
 export default meta
 type Story = StoryObj<typeof MessageCard>
 
-export const Default: Story = {
+export const Horizontal: Story = {
   args: {
+    layout: 'horizontal',
     heading: 'Get started with Predium',
     description: 'Ship smarter with our AI-powered logistics platform',
     buttonLabel: 'Learn more',
-    backgroundColor: '#276EF1',
+    backgroundColor: '#6366f1',
+    color: 'white',
+  },
+}
+
+export const HorizontalWithImage: Story = {
+  args: {
+    layout: 'horizontal',
+    heading: 'Get started with Predium',
+    description: 'Ship smarter with our AI-powered logistics platform',
+    buttonLabel: 'Learn more',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=200&fit=crop',
+    backgroundColor: '#6366f1',
+    color: 'white',
   },
 }
 
 export const Dark: Story = {
   args: {
+    layout: 'horizontal',
     heading: 'New feature available',
-    description: 'Track your shipments in real-time',
+    description: 'Track your shipments in real-time with live GPS updates',
     buttonLabel: 'Try now',
     backgroundColor: '#000',
+    color: 'white',
   },
 }
 
 export const Green: Story = {
   args: {
+    layout: 'horizontal',
     heading: 'Shipment delivered',
     description: 'Your load #SHP-4821 has been delivered successfully',
     backgroundColor: '#048848',
+    color: 'white',
   },
 }
 
 export const Warning: Story = {
   args: {
+    layout: 'horizontal',
     heading: 'Action required',
-    description: '3 shipments need your attention',
+    description: '3 shipments need your attention before end of day',
     buttonLabel: 'Review',
     backgroundColor: '#FFC043',
     color: '#000',
   },
 }
 
-export const WithImage: Story = {
-  args: {
-    heading: 'Get started with Predium',
-    description: 'Ship smarter with our AI-powered logistics platform',
-    buttonLabel: 'Learn more',
-    backgroundColor: '#276EF1',
-  },
+export const Vertical: Story = {
   render: (args) => ({
     components: { MessageCard },
     setup: () => ({ args }),
     template: `
-      <MessageCard v-bind="args">
-        <template #default>
-          <div class="w-32 flex items-end justify-end p-4">
-            <svg width="120" height="100" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="120" height="100" rx="8" fill="white" fill-opacity="0.2"/>
-              <path d="M60 25L85 75H35L60 25Z" fill="white" fill-opacity="0.4"/>
-              <circle cx="60" cy="55" r="20" fill="white" fill-opacity="0.3"/>
-            </svg>
-          </div>
-        </template>
-      </MessageCard>
+      <div style="max-width: 360px;">
+        <MessageCard v-bind="args" />
+      </div>
     `,
   }),
+  args: {
+    layout: 'vertical',
+    heading: 'Heading',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+    buttonLabel: 'Call to Action',
+    image: 'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=600&h=400&fit=crop',
+  },
 }
 
-export const NoButton: Story = {
+export const VerticalNoImage: Story = {
+  render: (args) => ({
+    components: { MessageCard },
+    setup: () => ({ args }),
+    template: `
+      <div style="max-width: 360px;">
+        <MessageCard v-bind="args" />
+      </div>
+    `,
+  }),
   args: {
-    heading: 'Welcome back',
-    description: 'You have 12 active shipments across 5 routes',
+    layout: 'vertical',
+    heading: 'Welcome to Predium',
+    description: 'Your logistics management platform is ready. Start by creating your first shipment.',
+    buttonLabel: 'Get started',
   },
+}
+
+export const BothLayouts: Story = {
+  render: () => ({
+    components: { MessageCard },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; max-width: 600px;">
+        <MessageCard
+          layout="horizontal"
+          heading="Get started with Predium"
+          description="Ship smarter with our AI-powered logistics platform"
+          buttonLabel="Learn more"
+          image="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&h=200&fit=crop"
+          backgroundColor="#6366f1"
+        />
+        <div style="max-width: 360px;">
+          <MessageCard
+            layout="vertical"
+            heading="Heading"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+            buttonLabel="Call to Action"
+            image="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=600&h=400&fit=crop"
+          />
+        </div>
+      </div>
+    `,
+  }),
 }

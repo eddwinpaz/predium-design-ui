@@ -1,19 +1,20 @@
 <script setup lang="ts">
-interface Props {
-  heading: string
-  description: string
-  buttonLabel?: string
-  image?: string
-  backgroundColor?: string
-  color?: string
-}
-
-withDefaults(defineProps<Props>(), {
-  buttonLabel: undefined,
-  image: undefined,
-  backgroundColor: '#276EF1',
-  color: 'white',
-})
+const props = withDefaults(
+  defineProps<{
+    heading: string
+    description: string
+    buttonLabel?: string
+    image?: string
+    backgroundColor?: string
+    color?: string
+    layout?: 'horizontal' | 'vertical'
+  }>(),
+  {
+    backgroundColor: '#276EF1',
+    color: 'white',
+    layout: 'horizontal',
+  }
+)
 
 defineEmits<{
   action: []
@@ -21,24 +22,44 @@ defineEmits<{
 </script>
 
 <template>
-  <div
-    :class="['rounded-2xl overflow-hidden relative']"
-    :style="{ backgroundColor, color }"
-  >
-    <div class="flex">
-      <div class="flex-1 p-6">
-        <h3 class="text-lg font-bold mb-1">{{ heading }}</h3>
-        <p class="text-sm opacity-90 mb-4">{{ description }}</p>
+  <!-- VERTICAL layout: image on top, content below on white bg -->
+  <div v-if="layout === 'vertical'" class="rounded-[16px] overflow-hidden border border-[#e2e2e2] bg-white">
+    <!-- Image -->
+    <div v-if="image" class="w-full h-[200px] overflow-hidden">
+      <img :src="image" :alt="heading" class="w-full h-full object-cover" />
+    </div>
+    <!-- Content -->
+    <div class="p-[24px]">
+      <h3 class="text-[18px] font-bold text-[#000] leading-[24px]">{{ heading }}</h3>
+      <p class="text-[14px] text-[#545454] mt-[6px] leading-[20px]">{{ description }}</p>
+      <button
+        v-if="buttonLabel"
+        class="mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-[#000] text-white hover:bg-[#333] transition-colors"
+        @click="$emit('action')"
+      >
+        {{ buttonLabel }}
+      </button>
+    </div>
+  </div>
+
+  <!-- HORIZONTAL layout: colored bg, optional image on right -->
+  <div v-else class="rounded-[16px] overflow-hidden" :style="{ backgroundColor, color }">
+    <div class="flex items-center min-h-[120px]">
+      <!-- Content -->
+      <div class="flex-1 p-[24px]">
+        <h3 class="text-[18px] font-bold leading-[24px]">{{ heading }}</h3>
+        <p class="text-[14px] opacity-85 mt-[4px] leading-[20px]">{{ description }}</p>
         <button
           v-if="buttonLabel"
-          class="px-4 py-2 text-sm font-medium rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-colors"
+          class="mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-white/20 hover:bg-white/30 transition-colors"
           @click="$emit('action')"
         >
           {{ buttonLabel }}
         </button>
       </div>
-      <div v-if="image" class="w-32 flex items-end justify-end p-4">
-        <img :src="image" :alt="heading" class="max-w-full max-h-24 object-contain" />
+      <!-- Image -->
+      <div v-if="image" class="flex-shrink-0 p-[16px]">
+        <img :src="image" :alt="heading" class="w-[100px] h-[100px] rounded-[12px] object-cover" />
       </div>
     </div>
   </div>
