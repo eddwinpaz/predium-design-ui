@@ -1341,7 +1341,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, $t = ["onClick"], en = {
 	key: 0,
-	class: "fixed inset-x-[8px] top-[60px] bottom-[8px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
+	class: "fixed inset-x-[12px] top-[64px] bottom-[12px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
 }, tn = { class: "px-[12px] pb-[16px] max-h-[70vh] sm:max-h-[420px] overflow-y-auto" }, nn = { class: "px-[8px] mb-[8px]" }, rn = { class: "text-[11px] font-semibold text-[#999] uppercase tracking-[1px]" }, an = { class: "grid grid-cols-4 sm:grid-cols-3 gap-[2px] sm:gap-[4px]" }, on = ["onClick"], sn = ["stroke"], cn = ["d"], ln = { class: "text-[11px] sm:text-[12px] font-medium text-[#000] text-center leading-[13px] sm:leading-[14px]" }, un = {
 	key: 0,
 	class: "sm:hidden border-b border-[#e2e2e2] bg-white"
@@ -1401,7 +1401,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			key: 0,
 			class: "sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-[#000] hover:bg-[#f6f6f6] transition-colors",
 			onClick: c[0] ||= (e) => d.value = !d.value
-		}, [d.value ? (g(), a("svg", Gt, [...c[4] ||= [o("path", { d: "M18 6L6 18M6 6l12 12" }, null, -1)]])) : (g(), a("svg", Wt, [...c[3] ||= [o("path", { d: "M4 6h16M4 12h16M4 18h16" }, null, -1)]]))])) : i("", !0), o("div", Kt, [
+		}, [d.value ? (g(), a("svg", Gt, [...c[5] ||= [o("path", { d: "M18 6L6 18M6 6l12 12" }, null, -1)]])) : (g(), a("svg", Wt, [...c[4] ||= [o("path", { d: "M4 6h16M4 12h16M4 18h16" }, null, -1)]]))])) : i("", !0), o("div", Kt, [
 			o("span", qt, S(r.brand), 1),
 			r.brandSuffix ? (g(), a("span", Jt, S(r.brandSuffix), 1)) : i("", !0),
 			r.subtitle ? (g(), a("div", Yt, [o("span", Xt, S(r.subtitle), 1)])) : i("", !0)
@@ -1415,49 +1415,67 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				ref_key: "gridRef",
 				ref: b,
 				class: "relative"
-			}, [o("button", {
-				class: f(["w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors", y.value ? "bg-[#f6f6f6] text-[#000]" : "text-[#545454] hover:bg-[#f6f6f6]"]),
-				onClick: c[1] ||= O((e) => y.value = !y.value, ["stop"])
-			}, [...c[5] ||= [s("<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><circle cx=\"5\" cy=\"5\" r=\"2\"></circle><circle cx=\"12\" cy=\"5\" r=\"2\"></circle><circle cx=\"19\" cy=\"5\" r=\"2\"></circle><circle cx=\"5\" cy=\"12\" r=\"2\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><circle cx=\"19\" cy=\"12\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle><circle cx=\"12\" cy=\"19\" r=\"2\"></circle><circle cx=\"19\" cy=\"19\" r=\"2\"></circle></svg>", 1)]], 2), l(t, {
-				"enter-active-class": "transition duration-150 ease-out",
-				"enter-from-class": "opacity-0 scale-95 translate-y-1",
-				"enter-to-class": "opacity-100 scale-100 translate-y-0",
-				"leave-active-class": "transition duration-100 ease-in",
-				"leave-from-class": "opacity-100",
-				"leave-to-class": "opacity-0 scale-95"
-			}, {
-				default: E(() => [y.value && r.modules?.length ? (g(), a("div", en, [
-					c[6] ||= o("div", { class: "px-[20px] pt-[20px] pb-[12px]" }, [o("h3", { class: "text-[15px] font-semibold text-[#000]" }, "Modules")], -1),
-					o("div", tn, [(g(!0), a(e, null, v(r.modules, (t, r) => (g(), a("div", {
-						key: t.title,
-						class: f(r > 0 ? "mt-[16px]" : "")
-					}, [o("div", nn, [o("span", rn, S(t.title), 1)]), o("div", an, [(g(!0), a(e, null, v(t.items, (e, t) => (g(), a("button", {
-						key: e.label,
-						class: "flex flex-col items-center gap-[4px] sm:gap-[6px] p-[10px] sm:p-[12px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group",
-						onClick: (t) => {
-							y.value = !1, n.$emit("moduleClick", e);
-						}
-					}, [o("div", {
-						class: "w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-[10px] sm:rounded-[12px] flex items-center justify-center transition-transform group-hover:scale-110",
-						style: p({ backgroundColor: k(e, r, t) + "14" })
-					}, [(g(), a("svg", {
-						width: "20",
-						height: "20",
-						viewBox: "0 0 24 24",
-						fill: "none",
-						stroke: k(e, r, t),
-						"stroke-width": "2",
-						"stroke-linecap": "round",
-						"stroke-linejoin": "round"
-					}, [o("path", { d: D(e) }, null, 8, cn)], 8, sn))], 4), o("span", ln, S(e.label), 1)], 8, on))), 128))])], 2))), 128))]),
-					c[7] ||= o("div", { class: "border-t border-[#e2e2e2] px-[20px] py-[12px]" }, [o("button", { class: "text-[13px] text-[#545454] hover:text-[#000] font-medium transition-colors" }, " All modules ")], -1)
-				])) : i("", !0)]),
-				_: 1
-			})], 512),
+			}, [
+				o("button", {
+					class: f(["w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors", y.value ? "bg-[#f6f6f6] text-[#000]" : "text-[#545454] hover:bg-[#f6f6f6]"]),
+					onClick: c[1] ||= O((e) => y.value = !y.value, ["stop"])
+				}, [...c[6] ||= [s("<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><circle cx=\"5\" cy=\"5\" r=\"2\"></circle><circle cx=\"12\" cy=\"5\" r=\"2\"></circle><circle cx=\"19\" cy=\"5\" r=\"2\"></circle><circle cx=\"5\" cy=\"12\" r=\"2\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><circle cx=\"19\" cy=\"12\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle><circle cx=\"12\" cy=\"19\" r=\"2\"></circle><circle cx=\"19\" cy=\"19\" r=\"2\"></circle></svg>", 1)]], 2),
+				l(t, {
+					"enter-active-class": "transition duration-150 ease-out",
+					"enter-from-class": "opacity-0",
+					"enter-to-class": "opacity-100",
+					"leave-active-class": "transition duration-100 ease-in",
+					"leave-from-class": "opacity-100",
+					"leave-to-class": "opacity-0"
+				}, {
+					default: E(() => [y.value && r.modules?.length ? (g(), a("div", {
+						key: 0,
+						class: "sm:hidden fixed inset-0 top-[52px] bg-black/30 z-[9998]",
+						onClick: c[2] ||= (e) => y.value = !1
+					})) : i("", !0)]),
+					_: 1
+				}),
+				l(t, {
+					"enter-active-class": "transition duration-150 ease-out",
+					"enter-from-class": "opacity-0 scale-95 translate-y-1",
+					"enter-to-class": "opacity-100 scale-100 translate-y-0",
+					"leave-active-class": "transition duration-100 ease-in",
+					"leave-from-class": "opacity-100",
+					"leave-to-class": "opacity-0 scale-95"
+				}, {
+					default: E(() => [y.value && r.modules?.length ? (g(), a("div", en, [
+						c[7] ||= o("div", { class: "px-[20px] pt-[20px] pb-[12px]" }, [o("h3", { class: "text-[15px] font-semibold text-[#000]" }, "Modules")], -1),
+						o("div", tn, [(g(!0), a(e, null, v(r.modules, (t, r) => (g(), a("div", {
+							key: t.title,
+							class: f(r > 0 ? "mt-[16px]" : "")
+						}, [o("div", nn, [o("span", rn, S(t.title), 1)]), o("div", an, [(g(!0), a(e, null, v(t.items, (e, t) => (g(), a("button", {
+							key: e.label,
+							class: "flex flex-col items-center gap-[4px] sm:gap-[6px] p-[10px] sm:p-[12px] rounded-[12px] hover:bg-[#f6f6f6] active:bg-[#eee] transition-colors cursor-pointer group",
+							onClick: (t) => {
+								y.value = !1, n.$emit("moduleClick", e);
+							}
+						}, [o("div", {
+							class: "w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded-[10px] sm:rounded-[12px] flex items-center justify-center transition-transform group-hover:scale-110",
+							style: p({ backgroundColor: k(e, r, t) + "14" })
+						}, [(g(), a("svg", {
+							width: "20",
+							height: "20",
+							viewBox: "0 0 24 24",
+							fill: "none",
+							stroke: k(e, r, t),
+							"stroke-width": "2",
+							"stroke-linecap": "round",
+							"stroke-linejoin": "round"
+						}, [o("path", { d: D(e) }, null, 8, cn)], 8, sn))], 4), o("span", ln, S(e.label), 1)], 8, on))), 128))])], 2))), 128))]),
+						c[8] ||= o("div", { class: "border-t border-[#e2e2e2] px-[20px] py-[12px]" }, [o("button", { class: "text-[13px] text-[#545454] hover:text-[#000] font-medium transition-colors" }, " All modules ")], -1)
+					])) : i("", !0)]),
+					_: 1
+				})
+			], 512),
 			o("button", {
 				class: "w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold cursor-pointer hover:opacity-90 transition-opacity",
 				style: p({ backgroundColor: r.avatarColor }),
-				onClick: c[2] ||= (e) => n.$emit("avatarClick")
+				onClick: c[3] ||= (e) => n.$emit("avatarClick")
 			}, S(x.value), 5)
 		])]), l(t, {
 			"enter-active-class": "transition duration-200 ease-out",

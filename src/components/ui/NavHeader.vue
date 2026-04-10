@@ -145,6 +145,22 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
             </svg>
           </button>
 
+          <!-- Mobile backdrop -->
+          <Transition
+            enter-active-class="transition duration-150 ease-out"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+            leave-active-class="transition duration-100 ease-in"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
+          >
+            <div
+              v-if="gridOpen && modules?.length"
+              class="sm:hidden fixed inset-0 top-[52px] bg-black/30 z-[9998]"
+              @click="gridOpen = false"
+            />
+          </Transition>
+
           <!-- Module switcher panel -->
           <Transition
             enter-active-class="transition duration-150 ease-out"
@@ -156,7 +172,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="fixed inset-x-[8px] top-[60px] bottom-[8px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
+              class="fixed inset-x-[12px] top-[64px] bottom-[12px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
             >
               <!-- Header -->
               <div class="px-[20px] pt-[20px] pb-[12px]">
