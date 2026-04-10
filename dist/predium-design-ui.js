@@ -2513,19 +2513,19 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			onInput: n[0] ||= (e) => t.$emit("update:modelValue", e.target.value)
 		}, null, 42, Qr));
 	}
-}), $ = ["disabled"], ei = { class: "absolute top-[16px] right-[16px]" }, ti = {
+}), ei = ["disabled"], ti = { class: "absolute top-[16px] right-[16px]" }, ni = {
 	key: 0,
 	class: "w-[20px] h-[20px] rounded-full bg-[#000] flex items-center justify-center"
-}, ni = {
+}, ri = {
 	key: 1,
 	class: "w-[20px] h-[20px] rounded-full border-2 border-[#e2e2e2] group-hover:border-[#999]"
-}, ri = {
+}, ii = {
 	key: 0,
 	class: "mb-[12px]"
-}, ii = { class: "text-[16px] font-semibold text-[#000] leading-[24px]" }, ai = {
+}, ai = { class: "text-[16px] font-semibold text-[#000] leading-[24px]" }, oi = {
 	key: 1,
 	class: "text-[14px] text-[#545454] mt-[4px] leading-[20px]"
-}, oi = /* @__PURE__ */ u({
+}, $ = /* @__PURE__ */ u({
 	__name: "Tile",
 	props: {
 		selected: {
@@ -2551,19 +2551,79 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				e.align === "center" ? "items-center text-center" : "items-start"
 			]),
 			onClick: n[0] ||= (n) => !e.disabled && t.$emit("click")
-		}, [o("div", ei, [e.selected ? (g(), a("div", ti, [...n[1] ||= [o("svg", {
+		}, [o("div", ti, [e.selected ? (g(), a("div", ni, [...n[1] ||= [o("svg", {
 			class: "w-[12px] h-[12px] text-white",
 			viewBox: "0 0 24 24",
 			fill: "none",
 			stroke: "currentColor",
 			"stroke-width": "3"
-		}, [o("path", { d: "M5 13l4 4L19 7" })], -1)]])) : (g(), a("div", ni))]), o("div", { class: f(["p-[24px] pt-[20px] w-full", e.align === "center" ? "flex flex-col items-center" : ""]) }, [
-			t.$slots.icon ? (g(), a("div", ri, [y(t.$slots, "icon")])) : i("", !0),
-			o("div", ii, [y(t.$slots, "default")]),
-			t.$slots.description ? (g(), a("div", ai, [y(t.$slots, "description")])) : i("", !0)
-		], 2)], 10, $));
+		}, [o("path", { d: "M5 13l4 4L19 7" })], -1)]])) : (g(), a("div", ri))]), o("div", { class: f(["p-[24px] pt-[20px] w-full", e.align === "center" ? "flex flex-col items-center" : ""]) }, [
+			t.$slots.icon ? (g(), a("div", ii, [y(t.$slots, "icon")])) : i("", !0),
+			o("div", ai, [y(t.$slots, "default")]),
+			t.$slots.description ? (g(), a("div", oi, [y(t.$slots, "description")])) : i("", !0)
+		], 2)], 10, ei));
 	}
-}), si = { class: "flex-1" }, ci = /* @__PURE__ */ u({
+}), si = ["disabled"], ci = /* @__PURE__ */ u({
+	__name: "TimedButton",
+	props: {
+		label: {},
+		duration: { default: 10 },
+		autoStart: {
+			type: Boolean,
+			default: !1
+		},
+		disabled: {
+			type: Boolean,
+			default: !1
+		}
+	},
+	emits: ["complete", "click"],
+	setup(e, { expose: t, emit: r }) {
+		let s = e, c = r, l = _(s.duration), u = _(!1), d = _(!1), h = null, v = n(() => {
+			let e = Math.floor(l.value / 60), t = l.value % 60;
+			return `${e}:${String(t).padStart(2, "0")}`;
+		}), y = n(() => s.duration === 0 ? 0 : (s.duration - l.value) / s.duration * 100);
+		function b() {
+			u.value || d.value || (u.value = !0, h = setInterval(() => {
+				l.value--, l.value <= 0 && (l.value = 0, u.value = !1, d.value = !0, h && clearInterval(h), c("complete"));
+			}, 1e3));
+		}
+		function x() {
+			h && clearInterval(h), l.value = s.duration, u.value = !1, d.value = !1;
+		}
+		function C() {
+			d.value || s.disabled || (u.value || b(), c("click"));
+		}
+		return T(() => s.autoStart, (e) => {
+			e && b();
+		}, { immediate: !0 }), m(() => {
+			h && clearInterval(h);
+		}), t({
+			start: b,
+			reset: x
+		}), (t, n) => (g(), a("button", {
+			class: f([
+				"relative inline-flex items-center overflow-hidden rounded-full text-[14px] font-medium transition-colors",
+				"h-[40px] min-w-[120px]",
+				d.value || e.disabled ? "bg-[#eee] text-[#999] cursor-not-allowed" : "bg-[#000] text-white cursor-pointer hover:bg-[#222]"
+			]),
+			disabled: d.value || e.disabled,
+			onClick: C
+		}, [
+			u.value ? (g(), a("div", {
+				key: 0,
+				class: "absolute inset-y-0 left-0 bg-[#000] transition-all duration-1000 ease-linear",
+				style: p({ width: y.value + "%" })
+			}, null, 4)) : i("", !0),
+			u.value ? (g(), a("div", {
+				key: 1,
+				class: "absolute inset-y-0 right-0 bg-[#e0e0e0]",
+				style: p({ width: 100 - y.value + "%" })
+			}, null, 4)) : i("", !0),
+			o("span", { class: f(["relative z-10 w-full text-center px-[16px]", u.value ? "text-white" : ""]) }, S(e.label) + "(" + S(v.value) + ") ", 3)
+		], 10, si));
+	}
+}), li = { class: "flex-1" }, ui = /* @__PURE__ */ u({
 	__name: "Toast",
 	props: {
 		message: {},
@@ -2614,7 +2674,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				key: 0,
 				class: f(["flex items-center gap-3 px-4 py-3 rounded-lg shadow-xl text-sm min-w-[320px]", h()])
 			}, [
-				o("span", si, S(e.message), 1),
+				o("span", li, S(e.message), 1),
 				e.action ? (g(), a("button", {
 					key: 0,
 					class: "font-medium underline cursor-pointer",
@@ -2628,10 +2688,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		}));
 	}
-}), li = ["aria-checked", "disabled"], ui = { key: 0 }, di = { class: "text-sm font-medium text-content-primary" }, fi = {
+}), di = ["aria-checked", "disabled"], fi = { key: 0 }, pi = { class: "text-sm font-medium text-content-primary" }, mi = {
 	key: 0,
 	class: "text-xs text-content-tertiary"
-}, pi = /* @__PURE__ */ u({
+}, hi = /* @__PURE__ */ u({
 	__name: "Toggle",
 	props: {
 		modelValue: { type: Boolean },
@@ -2661,9 +2721,9 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			"inline-block rounded-full bg-white shadow transform transition-transform duration-200",
 			e.size === "sm" ? "h-4 w-4 mt-0.5 ml-0.5" : "h-5 w-5 mt-0.5 ml-0.5",
 			e.modelValue ? e.size === "sm" ? "translate-x-4" : "translate-x-5" : "translate-x-0"
-		]) }, null, 2)], 10, li), e.label ? (g(), a("div", ui, [o("span", di, S(e.label), 1), e.description ? (g(), a("p", fi, S(e.description), 1)) : i("", !0)])) : i("", !0)], 2));
+		]) }, null, 2)], 10, di), e.label ? (g(), a("div", fi, [o("span", pi, S(e.label), 1), e.description ? (g(), a("p", mi, S(e.description), 1)) : i("", !0)])) : i("", !0)], 2));
 	}
-}), mi = /* @__PURE__ */ u({
+}), gi = /* @__PURE__ */ u({
 	__name: "Tooltip",
 	props: {
 		content: {},
@@ -2706,10 +2766,10 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 1
 		})], 32));
 	}
-}), hi = ["onClick"], gi = {
+}), _i = ["onClick"], vi = {
 	key: 1,
 	class: "w-4"
-}, _i = { class: "text-content-primary" }, vi = /* @__PURE__ */ u({
+}, yi = { class: "text-content-primary" }, bi = /* @__PURE__ */ u({
 	__name: "TreeView",
 	props: {
 		items: {},
@@ -2746,7 +2806,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				fill: "none",
 				stroke: "currentColor",
 				"stroke-width": "2"
-			}, [...s[0] ||= [o("path", { d: "M9 5l7 7-7 7" }, null, -1)]], 2)) : (g(), a("span", gi)), o("span", _i, S(e.label), 1)], 8, hi), e.children?.length && c.value.has(e.id) ? (g(), r(u, {
+			}, [...s[0] ||= [o("path", { d: "M9 5l7 7-7 7" }, null, -1)]], 2)) : (g(), a("span", vi)), o("span", yi, S(e.label), 1)], 8, _i), e.children?.length && c.value.has(e.id) ? (g(), r(u, {
 				key: 0,
 				items: e.children,
 				depth: t.depth + 1,
@@ -2758,7 +2818,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			])) : i("", !0)]))), 128))], 2);
 		};
 	}
-}), yi = /* @__PURE__ */ u({
+}), xi = /* @__PURE__ */ u({
 	__name: "Typography",
 	props: {
 		variant: { default: "paragraph-medium" },
@@ -2841,16 +2901,16 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			_: 3
 		}, 8, ["class"]));
 	}
-}), bi = { class: "w-full border border-[#e2e2e2] rounded-[12px] overflow-hidden" }, xi = ["onClick"], Si = {
+}), Si = { class: "w-full border border-[#e2e2e2] rounded-[12px] overflow-hidden" }, Ci = ["onClick"], wi = {
 	key: 0,
 	class: "text-[12px] text-[#999] mt-[2px]"
-}, Ci = {
+}, Ti = {
 	key: 1,
 	class: "text-[11px] sm:text-[13px] text-[#000] mt-[4px]"
-}, wi = {
+}, Ei = {
 	key: 2,
 	class: "text-[13px] text-[#7356BF] font-medium mt-[4px]"
-}, Ti = /* @__PURE__ */ u({
+}, Di = /* @__PURE__ */ u({
 	__name: "WeekPicker",
 	props: {
 		modelValue: {},
@@ -2871,7 +2931,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		function c(e) {
 			return r.modelValue === e.date;
 		}
-		return (n, r) => (g(), a("div", bi, [o("div", {
+		return (n, r) => (g(), a("div", Si, [o("div", {
 			class: "grid",
 			style: p({ gridTemplateColumns: `repeat(${t.headers.length}, 1fr)` })
 		}, [(g(!0), a(e, null, v(t.headers, (e) => (g(), a("div", {
@@ -2887,11 +2947,11 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			onClick: (t) => !e.disabled && s("update:modelValue", e.date)
 		}, [
 			o("div", { class: f(["flex items-center justify-center text-[15px] sm:text-[18px] font-semibold", c(e) ? "w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] rounded-full bg-[#7356BF] text-white" : "text-[#000]"]) }, S(e.date), 3),
-			e.month ? (g(), a("span", Si, S(e.month), 1)) : i("", !0),
-			e.price ? (g(), a("span", Ci, S(e.price), 1)) : i("", !0),
-			e.label ? (g(), a("span", wi, S(e.label), 1)) : i("", !0)
-		], 10, xi))), 128))], 4)]));
+			e.month ? (g(), a("span", wi, S(e.month), 1)) : i("", !0),
+			e.price ? (g(), a("span", Ti, S(e.price), 1)) : i("", !0),
+			e.label ? (g(), a("span", Ei, S(e.label), 1)) : i("", !0)
+		], 10, Ci))), 128))], 4)]));
 	}
 });
 //#endregion
-export { W as Accordion, K as Avatar, q as Badge, Q as Banner, ae as Breadcrumbs, ce as Button, de as ButtonGroup, me as Card, ye as Checkbox, Ce as Combobox, Re as DatePicker, Ae as DetailSection, Ge as Drawer, $e as FileUploader, it as FilterList, ut as FormControl, ht as Input, Ct as KpiCard, Tt as Link, At as List, Pt as Menu, Vt as MessageCard, Kt as Modal, bn as NavHeader, On as Notification, Wn as PageHeader, Yn as Pagination, Qn as PhoneInput, tr as PinCode, nr as Popover, ar as ProgressBar, dr as ProgressSteps, vr as Radio, Sr as Rating, wr as SegmentControl, Dr as Select, Or as Separator, Ar as Skeleton, Fr as Slider, Rr as Spinner, Ur as Stepper, Gr as Table, Xr as Tabs, Zr as Tag, $r as Textarea, oi as Tile, ci as Toast, pi as Toggle, mi as Tooltip, vi as TreeView, yi as Typography, Ti as WeekPicker };
+export { W as Accordion, K as Avatar, q as Badge, Q as Banner, ae as Breadcrumbs, ce as Button, de as ButtonGroup, me as Card, ye as Checkbox, Ce as Combobox, Re as DatePicker, Ae as DetailSection, Ge as Drawer, $e as FileUploader, it as FilterList, ut as FormControl, ht as Input, Ct as KpiCard, Tt as Link, At as List, Pt as Menu, Vt as MessageCard, Kt as Modal, bn as NavHeader, On as Notification, Wn as PageHeader, Yn as Pagination, Qn as PhoneInput, tr as PinCode, nr as Popover, ar as ProgressBar, dr as ProgressSteps, vr as Radio, Sr as Rating, wr as SegmentControl, Dr as Select, Or as Separator, Ar as Skeleton, Fr as Slider, Rr as Spinner, Ur as Stepper, Gr as Table, Xr as Tabs, Zr as Tag, $r as Textarea, $ as Tile, ci as TimedButton, ui as Toast, hi as Toggle, gi as Tooltip, bi as TreeView, xi as Typography, Di as WeekPicker };
