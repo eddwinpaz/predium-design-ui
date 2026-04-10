@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed } from 'vue'
 
 export interface NavItem {
   label: string
@@ -46,8 +46,6 @@ const emit = defineEmits<{
 
 const mobileMenuOpen = ref(false)
 const gridOpen = ref(false)
-const gridRef = ref<HTMLElement | null>(null)
-const panelRef = ref<HTMLElement | null>(null)
 
 const initials = computed(() => {
   if (props.userInitials) return props.userInitials
@@ -58,17 +56,15 @@ const initials = computed(() => {
   return 'U'
 })
 
-function handleClickOutside(e: MouseEvent) {
-  const target = e.target as Node
-  const inGrid = gridRef.value?.contains(target)
-  const inPanel = panelRef.value?.contains(target)
-  if (!inGrid && !inPanel) {
-    gridOpen.value = false
-  }
+function toggleGrid() {
+  gridOpen.value = !gridOpen.value
+  if (gridOpen.value) mobileMenuOpen.value = false
 }
 
-onMounted(() => document.addEventListener('click', handleClickOutside))
-onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+  if (mobileMenuOpen.value) gridOpen.value = false
+}
 
 /* Default icons per module name for fallback */
 const defaultIcons: Record<string, string> = {
@@ -102,7 +98,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
         <button
           v-if="navItems?.length"
           class="sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-[#000] hover:bg-[#f6f6f6] transition-colors"
-          @click="mobileMenuOpen = !mobileMenuOpen"
+          @click="toggleMobileMenu"
         >
           <svg v-if="!mobileMenuOpen" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
           <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
@@ -134,13 +130,13 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
         </nav>
 
         <!-- Grid / Module switcher -->
-        <div ref="gridRef" class="relative">
+        <div class="relative">
           <button
             :class="[
               'w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors',
               gridOpen ? 'bg-[#f6f6f6] text-[#000]' : 'text-[#545454] hover:bg-[#f6f6f6]',
             ]"
-            @click.stop="gridOpen = !gridOpen"
+            @click="toggleGrid"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <circle cx="5" cy="5" r="2" /><circle cx="12" cy="5" r="2" /><circle cx="19" cy="5" r="2" />
@@ -160,7 +156,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="sm:hidden fixed inset-0 top-[52px] bg-black/30 z-[9998]"
+              class="fixed inset-0 top-[52px] bg-black/20 sm:bg-transparent z-[9998]"
               @click="gridOpen = false"
             />
           </Transition>
@@ -176,7 +172,6 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              ref="panelRef"
               class="fixed inset-x-[12px] top-[64px] bottom-[12px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
             >
               <!-- Header -->
