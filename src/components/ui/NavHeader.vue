@@ -136,7 +136,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
               'w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors',
               gridOpen ? 'bg-[#f6f6f6] text-[#000]' : 'text-[#545454] hover:bg-[#f6f6f6]',
             ]"
-            @click="toggleGrid"
+            @click.stop="toggleGrid"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <circle cx="5" cy="5" r="2" /><circle cx="12" cy="5" r="2" /><circle cx="19" cy="5" r="2" />

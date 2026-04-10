@@ -1416,7 +1416,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			o("div", en, [
 				o("button", {
 					class: f(["w-[36px] h-[36px] flex items-center justify-center rounded-[8px] transition-colors", m.value ? "bg-[#f6f6f6] text-[#000]" : "text-[#545454] hover:bg-[#f6f6f6]"]),
-					onClick: y
+					onClick: O(y, ["stop"])
 				}, [...c[4] ||= [s("<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><circle cx=\"5\" cy=\"5\" r=\"2\"></circle><circle cx=\"12\" cy=\"5\" r=\"2\"></circle><circle cx=\"19\" cy=\"5\" r=\"2\"></circle><circle cx=\"5\" cy=\"12\" r=\"2\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle><circle cx=\"19\" cy=\"12\" r=\"2\"></circle><circle cx=\"5\" cy=\"19\" r=\"2\"></circle><circle cx=\"12\" cy=\"19\" r=\"2\"></circle><circle cx=\"19\" cy=\"19\" r=\"2\"></circle></svg>", 1)]], 2),
 				l(t, {
 					"enter-active-class": "transition duration-150 ease-out",
