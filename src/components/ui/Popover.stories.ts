@@ -23,14 +23,14 @@ export const Default: Story = {
       <div class="p-20">
         <Popover placement="bottom-start">
           <template #trigger>
-            <button class="px-4 py-2 bg-black text-white rounded-lg text-sm font-medium">
+            <button class="px-4 py-2 bg-btn-primary text-white rounded-lg text-sm font-medium">
               Open Menu
             </button>
           </template>
           <div class="w-48">
-            <a href="#" class="block px-4 py-2.5 text-sm text-[#000] hover:bg-[#f6f6f6]">Profile</a>
-            <a href="#" class="block px-4 py-2.5 text-sm text-[#000] hover:bg-[#f6f6f6]">Settings</a>
-            <a href="#" class="block px-4 py-2.5 text-sm text-[#000] hover:bg-[#f6f6f6]">Sign out</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-content-primary hover:bg-surface-input">Profile</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-content-primary hover:bg-surface-input">Settings</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-content-primary hover:bg-surface-input">Sign out</a>
           </div>
         </Popover>
       </div>

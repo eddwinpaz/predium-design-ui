@@ -174,16 +174,16 @@ export const ShipmentDetail: Story = {
                 { label: 'Equipment Type', value: 'Dry Van' },
                 { label: 'Rate', value: '$900' },
               ]" :key="f.label">
-                <div class="text-[10px] font-medium text-[#999] uppercase tracking-[0.5px]">{{ f.label }}</div>
-                <div class="text-[13px] text-[#000] mt-[1px]">{{ f.value }}</div>
+                <div class="text-[10px] font-medium text-content-tertiary uppercase tracking-[0.5px]">{{ f.label }}</div>
+                <div class="text-[13px] text-content-primary mt-[1px]">{{ f.value }}</div>
               </div>
             </div>
             <!-- Desktop: table -->
             <div class="hidden sm:block overflow-x-auto">
               <table class="w-full text-[13px]">
                 <thead>
-                  <tr class="border-b border-[#e2e2e2]">
-                    <th v-for="h in ['Mode', 'SCAC', 'Carrier name', 'Equipment Type', 'Rate']" :key="h" class="text-left py-[8px] pr-[16px] text-[11px] font-medium text-[#999] uppercase tracking-[0.5px] whitespace-nowrap">{{ h }}</th>
+                  <tr class="border-b border-border">
+                    <th v-for="h in ['Mode', 'SCAC', 'Carrier name', 'Equipment Type', 'Rate']" :key="h" class="text-left py-[8px] pr-[16px] text-[11px] font-medium text-content-tertiary uppercase tracking-[0.5px] whitespace-nowrap">{{ h }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -244,24 +244,24 @@ export const ShipmentDetail: Story = {
 
           <!-- Route timeline -->
           <div class="flex items-center justify-between mb-[12px]">
-            <h3 class="text-[15px] font-semibold text-[#000]">Route</h3>
-            <button class="px-[12px] py-[6px] text-[13px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px] transition-colors">Edit</button>
+            <h3 class="text-[15px] font-semibold text-content-primary">Route</h3>
+            <button class="px-[12px] py-[6px] text-[13px] font-medium text-content-primary bg-surface-input hover:bg-surface-input-hover rounded-[8px] transition-colors">Edit</button>
           </div>
 
           <!-- Stop 1 -->
           <div class="flex gap-[12px]">
             <div class="flex flex-col items-center">
               <div class="w-[24px] h-[24px] rounded-full bg-[#276EF1] flex items-center justify-center text-white text-[11px] font-bold">1</div>
-              <div class="w-[2px] flex-1 bg-[#e2e2e2] my-[4px]" />
+              <div class="w-[2px] flex-1 bg-border my-[4px]" />
             </div>
             <div class="pb-[20px]">
-              <p class="text-[14px] font-semibold text-[#000]">New Orleans, LA</p>
-              <p class="text-[12px] text-[#545454]">BVB Warehouse</p>
-              <p class="text-[11px] text-[#999] mt-[4px] flex items-center gap-[4px]">
+              <p class="text-[14px] font-semibold text-content-primary">New Orleans, LA</p>
+              <p class="text-[12px] text-content-secondary">BVB Warehouse</p>
+              <p class="text-[11px] text-content-tertiary mt-[4px] flex items-center gap-[4px]">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                 09/19/2024 00:01 - 09/16/2024 23:59
               </p>
-              <p class="text-[11px] text-[#999] mt-[2px] flex items-center gap-[4px]">
+              <p class="text-[11px] text-content-tertiary mt-[2px] flex items-center gap-[4px]">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V3H8v4"/></svg>
                 Pick up 2 orders
               </p>
@@ -272,26 +272,26 @@ export const ShipmentDetail: Story = {
           <div class="flex gap-[12px]">
             <div class="flex flex-col items-center">
               <div class="w-[10px] h-[10px] rounded-full bg-[#999]" />
-              <div class="w-[2px] flex-1 bg-[#e2e2e2] my-[4px]" />
+              <div class="w-[2px] flex-1 bg-border my-[4px]" />
             </div>
             <div class="pb-[20px]">
-              <p class="text-[12px] text-[#999] italic">On the way</p>
+              <p class="text-[12px] text-content-tertiary italic">On the way</p>
             </div>
           </div>
 
           <!-- Stop 2 -->
           <div class="flex gap-[12px]">
             <div class="flex flex-col items-center">
-              <div class="w-[24px] h-[24px] rounded-full bg-[#000] flex items-center justify-center text-white text-[11px] font-bold">2</div>
+              <div class="w-[24px] h-[24px] rounded-full bg-btn-primary flex items-center justify-center text-white text-[11px] font-bold">2</div>
             </div>
             <div>
-              <p class="text-[14px] font-semibold text-[#000]">Houston, TX</p>
-              <p class="text-[12px] text-[#545454]">Horizon Distribution Center</p>
-              <p class="text-[11px] text-[#999] mt-[4px] flex items-center gap-[4px]">
+              <p class="text-[14px] font-semibold text-content-primary">Houston, TX</p>
+              <p class="text-[12px] text-content-secondary">Horizon Distribution Center</p>
+              <p class="text-[11px] text-content-tertiary mt-[4px] flex items-center gap-[4px]">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                 09/21/2024 00:01 - 09/21/2024 23:59
               </p>
-              <p class="text-[11px] text-[#999] mt-[2px] flex items-center gap-[4px]">
+              <p class="text-[11px] text-content-tertiary mt-[2px] flex items-center gap-[4px]">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V3H8v4"/></svg>
                 Deliver 2 orders
               </p>

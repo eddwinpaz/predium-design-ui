@@ -57,8 +57,8 @@ export const Default: Story = {
           brand="Predium TMS"
           @navigate="(to) => lastNav = to"
         />
-        <div class="flex-1 bg-white p-[24px]">
-          <p class="text-[14px] text-[#545454]">Last navigated: <strong>{{ lastNav || 'none' }}</strong></p>
+        <div class="flex-1 bg-surface p-[24px]">
+          <p class="text-[14px] text-content-secondary">Last navigated: <strong>{{ lastNav || 'none' }}</strong></p>
         </div>
       </div>
     `,
@@ -92,9 +92,9 @@ export const WithActiveChild: Story = {
     template: `
       <div class="flex h-full">
         <SidebarNav v-model:collapsed="collapsed" :items="items" brand="Predium" />
-        <div class="flex-1 bg-white p-[24px]">
+        <div class="flex-1 bg-surface p-[24px]">
           <h2 class="text-[20px] font-bold">Routing guides</h2>
-          <p class="text-[14px] text-[#545454] mt-[4px]">Active child auto-expands the parent group.</p>
+          <p class="text-[14px] text-content-secondary mt-[4px]">Active child auto-expands the parent group.</p>
         </div>
       </div>
     `,
@@ -111,8 +111,8 @@ export const Collapsed: Story = {
     template: `
       <div class="flex h-full">
         <SidebarNav v-model:collapsed="collapsed" :items="sampleItems" brand="Predium" />
-        <div class="flex-1 bg-white p-[24px]">
-          <p class="text-[14px] text-[#545454]">Sidebar is collapsed. Click hamburger to expand.</p>
+        <div class="flex-1 bg-surface p-[24px]">
+          <p class="text-[14px] text-content-secondary">Sidebar is collapsed. Click hamburger to expand.</p>
         </div>
       </div>
     `,

@@ -89,7 +89,7 @@ export const Colors: Story = {
         <Typography variant="heading-large" color="primary">Primary — content-primary</Typography>
         <Typography variant="heading-large" color="secondary">Secondary — content-secondary</Typography>
         <Typography variant="heading-large" color="tertiary">Tertiary — content-tertiary</Typography>
-        <div class="bg-black p-3 rounded-lg inline-block">
+        <div class="bg-btn-primary p-3 rounded-lg inline-block">
           <Typography variant="heading-large" color="inverse">Inverse — content-inverse</Typography>
         </div>
         <Typography variant="heading-large" color="accent">Accent — accent</Typography>

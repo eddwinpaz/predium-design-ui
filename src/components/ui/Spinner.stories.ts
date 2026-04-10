@@ -33,7 +33,7 @@ export const Sizes: Story = {
 export const Colors: Story = {
   render: () => ({
     components: { Spinner },
-    template: '<div class="flex items-center gap-4"><Spinner color="primary" /><Spinner color="accent" /><div class="bg-black p-3 rounded-lg"><Spinner color="inverse" /></div></div>',
+    template: '<div class="flex items-center gap-4"><Spinner color="primary" /><Spinner color="accent" /><div class="bg-btn-primary p-3 rounded-lg"><Spinner color="inverse" /></div></div>',
   }),
 }
 

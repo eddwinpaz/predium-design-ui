@@ -48,13 +48,13 @@ export const Default: Story = {
 
             <!-- Shipments en route (collapsible) -->
             <div class="mt-[16px] px-[4px]">
-              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-[#545454]" @click="showEnRoute = !showEnRoute">
+              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-content-tertiary uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-content-secondary" @click="showEnRoute = !showEnRoute">
                 <svg :class="['w-[12px] h-[12px] transition-transform duration-200', showEnRoute ? '' : '-rotate-90']" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 Shipments en route
               </button>
               <div v-if="showEnRoute" class="flex flex-col">
                 <div v-for="item in ['All en route', 'Pickup today', 'Delivery today']" :key="item"
-                  class="px-[8px] py-[6px] text-[13px] text-[#545454] hover:bg-[#f6f6f6] rounded-[6px] cursor-pointer">
+                  class="px-[8px] py-[6px] text-[13px] text-content-secondary hover:bg-surface-input rounded-[6px] cursor-pointer">
                   {{ item }}
                 </div>
               </div>
@@ -62,7 +62,7 @@ export const Default: Story = {
 
             <!-- Auctions (collapsible) -->
             <div class="mt-[8px] px-[4px]">
-              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-[#545454]" @click="showAuctions = !showAuctions">
+              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-content-tertiary uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-content-secondary" @click="showAuctions = !showAuctions">
                 <svg :class="['w-[12px] h-[12px] transition-transform duration-200', showAuctions ? '' : '-rotate-90']" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 Auctions
               </button>
@@ -73,16 +73,16 @@ export const Default: Story = {
                   { label: 'Auction ended', count: 5 },
                   { label: 'Awarded', count: 7 },
                   { label: 'Cancelled', count: 9 },
-                ]" :key="item.label" class="flex items-center justify-between px-[8px] py-[6px] text-[13px] text-[#545454] hover:bg-[#f6f6f6] rounded-[6px] cursor-pointer">
+                ]" :key="item.label" class="flex items-center justify-between px-[8px] py-[6px] text-[13px] text-content-secondary hover:bg-surface-input rounded-[6px] cursor-pointer">
                   <span>{{ item.label }}</span>
-                  <span class="text-[12px] text-[#999]">{{ item.count }}</span>
+                  <span class="text-[12px] text-content-tertiary">{{ item.count }}</span>
                 </div>
               </div>
             </div>
 
             <!-- Saved boards (collapsible) -->
             <div class="mt-[8px] px-[4px]">
-              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-[#999] uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-[#545454]" @click="showSaved = !showSaved">
+              <button class="flex items-center gap-[4px] text-[12px] font-semibold text-content-tertiary uppercase tracking-[0.5px] mb-[4px] cursor-pointer hover:text-content-secondary" @click="showSaved = !showSaved">
                 <svg :class="['w-[12px] h-[12px] transition-transform duration-200', showSaved ? '' : '-rotate-90']" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 Saved boards
               </button>
@@ -92,9 +92,9 @@ export const Default: Story = {
                   { label: 'Tracking on time', count: 3 },
                   { label: 'Rescheduling needed', count: 3 },
                   { label: 'Delivered', count: 3 },
-                ]" :key="item.label" class="flex items-center justify-between px-[8px] py-[6px] text-[13px] text-[#545454] hover:bg-[#f6f6f6] rounded-[6px] cursor-pointer">
+                ]" :key="item.label" class="flex items-center justify-between px-[8px] py-[6px] text-[13px] text-content-secondary hover:bg-surface-input rounded-[6px] cursor-pointer">
                   <span>{{ item.label }}</span>
-                  <span class="text-[12px] text-[#999]">{{ item.count }}</span>
+                  <span class="text-[12px] text-content-tertiary">{{ item.count }}</span>
                 </div>
               </div>
             </div>
@@ -103,20 +103,20 @@ export const Default: Story = {
 
         <!-- Main content -->
         <div class="p-[24px]">
-          <h2 class="text-[24px] font-bold text-[#000] mb-[16px]">All shipments</h2>
+          <h2 class="text-[24px] font-bold text-content-primary mb-[16px]">All shipments</h2>
           <div class="flex items-center gap-[8px] mb-[16px]">
-            <span class="px-[12px] py-[4px] bg-[#000] text-white text-[13px] font-medium rounded-full flex items-center gap-[4px]">
+            <span class="px-[12px] py-[4px] bg-btn-primary text-white text-[13px] font-medium rounded-full flex items-center gap-[4px]">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
               Filters
             </span>
-            <span class="px-[12px] py-[4px] bg-[#f6f6f6] text-[13px] text-[#545454] rounded-full">Creation date: 09/01/24-Today</span>
+            <span class="px-[12px] py-[4px] bg-surface-input text-[13px] text-content-secondary rounded-full">Creation date: 09/01/24-Today</span>
           </div>
           <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
             <thead>
               <tr>
-                <th style="text-align: left; padding: 10px 12px; font-size: 12px; color: #999; font-weight: 500; border-bottom: 2px solid #e2e2e2;">Shipment ID</th>
-                <th style="text-align: left; padding: 10px 12px; font-size: 12px; color: #999; font-weight: 500; border-bottom: 2px solid #e2e2e2;">Order created</th>
-                <th style="text-align: left; padding: 10px 12px; font-size: 12px; color: #999; font-weight: 500; border-bottom: 2px solid #e2e2e2;">Status</th>
+                <th style="text-align: left; padding: 10px 12px; font-size: 12px; color: var(--color-content-tertiary); font-weight: 500; border-bottom: 2px solid var(--color-border);">Shipment ID</th>
+                <th style="text-align: left; padding: 10px 12px; font-size: 12px; color: var(--color-content-tertiary); font-weight: 500; border-bottom: 2px solid var(--color-border);">Order created</th>
+                <th style="text-align: left; padding: 10px 12px; font-size: 12px; color: var(--color-content-tertiary); font-weight: 500; border-bottom: 2px solid var(--color-border);">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -127,8 +127,8 @@ export const Default: Story = {
                 { id: '868478938', date: 'Aug 26, 8:30 CST', status: 'Carrier assigned' },
                 { id: '234443938', date: 'Aug 24, 12:30 CST', status: 'Carrier assigned' },
                 { id: '987443938', date: 'Aug 15, 15:30 CST', status: 'In transit' },
-              ]" :key="row.id" style="border-bottom: 1px solid #e2e2e2;">
-                <td style="padding: 10px 12px; color: #276EF1; cursor: pointer;">{{ row.id }}</td>
+              ]" :key="row.id" style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 10px 12px; color: var(--color-accent); cursor: pointer;">{{ row.id }}</td>
                 <td style="padding: 10px 12px;">{{ row.date }}</td>
                 <td style="padding: 10px 12px;">{{ row.status }}</td>
               </tr>
@@ -153,14 +153,14 @@ export const Collapsed: Story = {
           <div class="p-[12px]">
             <div class="flex flex-col gap-[4px]">
               <div v-for="item in ['Active', 'Pending', 'Completed', 'Cancelled']" :key="item"
-                class="px-[8px] py-[8px] text-[14px] text-[#545454] hover:bg-[#f6f6f6] rounded-[6px] cursor-pointer">
+                class="px-[8px] py-[8px] text-[14px] text-content-secondary hover:bg-surface-input rounded-[6px] cursor-pointer">
                 {{ item }}
               </div>
             </div>
           </div>
         </template>
         <div class="p-[24px]">
-          <p class="text-[14px] text-[#545454]">Click the arrow to expand the sidebar.</p>
+          <p class="text-[14px] text-content-secondary">Click the arrow to expand the sidebar.</p>
         </div>
       </SidePanel>
     `,
@@ -192,8 +192,8 @@ export const WithFilterList: Story = {
           </div>
         </template>
         <div class="p-[24px]">
-          <h2 class="text-[20px] font-bold text-[#000] mb-[8px]">{{ active === 'all' ? 'All Shipments' : active }}</h2>
-          <p class="text-[14px] text-[#545454]">Showing shipments for the selected filter.</p>
+          <h2 class="text-[20px] font-bold text-content-primary mb-[8px]">{{ active === 'all' ? 'All Shipments' : active }}</h2>
+          <p class="text-[14px] text-content-secondary">Showing shipments for the selected filter.</p>
         </div>
       </SidePanel>
     `,

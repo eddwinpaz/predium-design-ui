@@ -2678,7 +2678,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			md: "w-6 h-6",
 			lg: "w-8 h-8"
 		})[t.size]), i = n(() => ({
-			primary: "#000000",
+			primary: "currentColor",
 			accent: "#276ef1",
 			inverse: "#ffffff"
 		})[t.color]);
@@ -2780,7 +2780,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "ml-1 text-content-tertiary"
 }, ia = {
 	key: 1,
-	class: "absolute bottom-0 left-0 right-0 h-[3px] bg-black rounded-t-full"
+	class: "absolute bottom-0 left-0 right-0 h-[3px] bg-content-primary rounded-t-full"
 }, aa = { class: "mt-4" }, oa = /* @__PURE__ */ u({
 	__name: "Tabs",
 	props: {
@@ -2832,7 +2832,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			let e = {
 				sm: "px-3 py-1 text-xs",
 				md: "px-4 py-1.5 text-sm"
-			}, t = r.selected ? "bg-black text-white border border-black cursor-pointer" : "bg-surface text-black border border-border hover:bg-bg-secondary cursor-pointer", n = [
+			}, t = r.selected ? "bg-btn-primary text-btn-primary-text border border-btn-primary cursor-pointer" : "bg-surface text-content-primary border border-border hover:bg-surface-hover cursor-pointer", n = [
 				"inline-flex items-center rounded-full font-medium transition-colors duration-150",
 				e[r.size],
 				t

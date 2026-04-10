@@ -34,10 +34,10 @@ export const DeferredInit: Story = {
     },
     template: `
       <div class="flex flex-col gap-[16px]">
-        <p class="text-[13px] text-[#545454]">Use the pause prop to declaratively start and pause the countdown timer.</p>
+        <p class="text-[13px] text-content-secondary">Use the pause prop to declaratively start and pause the countdown timer.</p>
         <div class="flex items-center gap-[12px]">
           <button
-            class="px-[12px] py-[8px] text-[14px] font-medium bg-[#000] text-white rounded-[8px] hover:bg-[#333]"
+            class="px-[12px] py-[8px] text-[14px] font-medium bg-btn-primary text-white rounded-[8px] hover:bg-[#333]"
             @click="paused = !paused"
           >
             {{ paused ? 'Run' : 'Pause' }}
@@ -103,13 +103,13 @@ export const WithReset: Story = {
       <div class="flex items-center gap-[12px]">
         <TimedButton ref="btnRef" label="Action" :duration="5" :paused="paused" />
         <button
-          class="px-[12px] py-[8px] text-[14px] font-medium text-[#000] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px]"
+          class="px-[12px] py-[8px] text-[14px] font-medium text-content-primary bg-surface-input hover:bg-surface-input-hover rounded-[8px]"
           @click="paused = false"
         >
           Start
         </button>
         <button
-          class="px-[12px] py-[8px] text-[14px] font-medium text-[#545454] bg-[#f6f6f6] hover:bg-[#eee] rounded-[8px]"
+          class="px-[12px] py-[8px] text-[14px] font-medium text-content-secondary bg-surface-input hover:bg-surface-input-hover rounded-[8px]"
           @click="reset"
         >
           Reset

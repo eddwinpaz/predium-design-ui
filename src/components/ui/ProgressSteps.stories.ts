@@ -37,7 +37,7 @@ export const SecondStep: Story = {
     template: `
       <ProgressSteps v-bind="args">
         <template #step-1>
-          <div class="p-4 bg-[#f6f6f6] rounded-lg text-sm text-[#000]">
+          <div class="p-4 bg-surface-input rounded-lg text-sm text-content-primary">
             <p class="font-medium mb-2">Available carriers:</p>
             <div class="space-y-2">
               <div class="flex justify-between"><span>GlobalFlow Carriers</span><span class="font-semibold">$3,200</span></div>
@@ -74,20 +74,20 @@ export const FourSteps: Story = {
     template: `
       <ProgressSteps v-bind="args">
         <template #step-2>
-          <div class="p-4 bg-[#f6f6f6] rounded-lg text-sm text-[#000]">
+          <div class="p-4 bg-surface-input rounded-lg text-sm text-content-primary">
             <p class="font-medium mb-3">Set rates for each lane:</p>
             <div class="space-y-3">
               <div class="flex items-center gap-3">
                 <span class="flex-1">Chicago, IL → Dallas, TX</span>
-                <div class="w-24 h-8 bg-white border border-[#e2e2e2] rounded-md flex items-center px-2 text-sm text-[#545454]">$2,400</div>
+                <div class="w-24 h-8 bg-white border border-border rounded-md flex items-center px-2 text-sm text-content-secondary">$2,400</div>
               </div>
               <div class="flex items-center gap-3">
                 <span class="flex-1">Atlanta, GA → Miami, FL</span>
-                <div class="w-24 h-8 bg-white border border-[#e2e2e2] rounded-md flex items-center px-2 text-sm text-[#545454]">$1,850</div>
+                <div class="w-24 h-8 bg-white border border-border rounded-md flex items-center px-2 text-sm text-content-secondary">$1,850</div>
               </div>
               <div class="flex items-center gap-3">
                 <span class="flex-1">LA, CA → Phoenix, AZ</span>
-                <div class="w-24 h-8 bg-white border border-[#e2e2e2] rounded-md flex items-center px-2 text-sm text-[#545454]">$1,200</div>
+                <div class="w-24 h-8 bg-white border border-border rounded-md flex items-center px-2 text-sm text-content-secondary">$1,200</div>
               </div>
             </div>
           </div>

@@ -24,8 +24,8 @@ function tagClasses(): string {
   }
 
   const state = props.selected
-    ? 'bg-black text-white border border-black cursor-pointer'
-    : 'bg-surface text-black border border-border hover:bg-bg-secondary cursor-pointer'
+    ? 'bg-btn-primary text-btn-primary-text border border-btn-primary cursor-pointer'
+    : 'bg-surface text-content-primary border border-border hover:bg-surface-hover cursor-pointer'
 
   const parts = [base, sizeMap[props.size], state]
 

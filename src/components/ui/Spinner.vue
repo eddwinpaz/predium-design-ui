@@ -21,7 +21,7 @@ const sizeClass = computed(() => {
 
 const strokeColor = computed(() => {
   const map: Record<string, string> = {
-    primary: '#000000',
+    primary: 'currentColor',
     accent: '#276ef1',
     inverse: '#ffffff',
   }
