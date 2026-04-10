@@ -47,6 +47,7 @@ const emit = defineEmits<{
 const mobileMenuOpen = ref(false)
 const gridOpen = ref(false)
 const gridRef = ref<HTMLElement | null>(null)
+const panelRef = ref<HTMLElement | null>(null)
 
 const initials = computed(() => {
   if (props.userInitials) return props.userInitials
@@ -58,7 +59,10 @@ const initials = computed(() => {
 })
 
 function handleClickOutside(e: MouseEvent) {
-  if (gridRef.value && !gridRef.value.contains(e.target as Node)) {
+  const target = e.target as Node
+  const inGrid = gridRef.value?.contains(target)
+  const inPanel = panelRef.value?.contains(target)
+  if (!inGrid && !inPanel) {
     gridOpen.value = false
   }
 }
@@ -172,6 +176,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
+              ref="panelRef"
               class="fixed inset-x-[12px] top-[64px] bottom-[12px] sm:bottom-auto sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-[8px] z-[9999] sm:w-[380px] bg-white border border-[#e2e2e2] rounded-[16px] shadow-2xl overflow-hidden"
             >
               <!-- Header -->
