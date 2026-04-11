@@ -2780,7 +2780,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	class: "ml-1 text-content-tertiary"
 }, aa = {
 	key: 1,
-	class: "absolute bottom-0 left-0 right-0 h-[3px] bg-content-primary rounded-t-full"
+	class: "absolute bottom-0 left-0 right-0 h-[3px] bg-content-primary"
 }, oa = { class: "mt-4" }, sa = /* @__PURE__ */ u({
 	__name: "Tabs",
 	props: {

@@ -41,7 +41,7 @@ defineEmits<{
         {{ tab.label }}<span v-if="tab.count != null" class="ml-1 text-content-tertiary">({{ tab.count }})</span>
         <span
           v-if="modelValue === tab.key"
-          class="absolute bottom-0 left-0 right-0 h-[3px] bg-content-primary rounded-t-full"
+          class="absolute bottom-0 left-0 right-0 h-[3px] bg-content-primary"
         />
       </button>
     </div>
