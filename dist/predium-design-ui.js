@@ -2726,8 +2726,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		}, null, 2)) : i("", !0)], 64))), 128))]), o("div", ta, [(g(!0), a(e, null, v(t.steps, (n, r) => (g(), a(e, { key: "l" + r }, [o("div", na, [o("span", {
 			class: f(["mt-[6px] text-[10px] sm:text-xs font-medium whitespace-nowrap", r <= t.activeStep ? "text-content-primary" : "text-content-tertiary"]),
 			style: {
-				marginLeft: "-20px",
-				marginRight: "-20px",
+				marginLeft: "-40px",
+				marginRight: "-40px",
 				textAlign: "center"
 			}
 		}, S(n.label), 3)]), r < t.steps.length - 1 ? (g(), a("div", ra)) : i("", !0)], 64))), 128))])])]));

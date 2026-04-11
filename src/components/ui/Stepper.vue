@@ -36,7 +36,7 @@ defineProps<{
         <template v-for="(step, i) in steps" :key="'l'+i">
           <div class="flex-shrink-0 w-[28px] sm:w-8 flex justify-center">
             <span :class="['mt-[6px] text-[10px] sm:text-xs font-medium whitespace-nowrap', i <= activeStep ? 'text-content-primary' : 'text-content-tertiary']"
-              :style="{ marginLeft: '-20px', marginRight: '-20px', textAlign: 'center' }"
+              :style="{ marginLeft: '-40px', marginRight: '-40px', textAlign: 'center' }"
             >
               {{ step.label }}
             </span>
