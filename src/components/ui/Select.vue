@@ -116,14 +116,15 @@ defineEmits<{
   'update:modelValue': [value: string]
 }>()
 
+/* Match Input sizing exactly: compact=36px, default=48px, large=56px */
 const sizeClasses = computed(() => {
   switch (props.size) {
     case 'compact':
-      return 'h-8 text-sm'
+      return 'h-[36px] text-[14px]'
     case 'large':
-      return 'h-12 text-base'
+      return 'h-[56px] text-[16px]'
     default:
-      return 'h-10 text-sm'
+      return 'h-[48px] text-[16px]'
   }
 })
 
