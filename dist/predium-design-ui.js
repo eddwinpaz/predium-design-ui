@@ -2241,7 +2241,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	}
 }), ei = { class: "flex h-screen overflow-hidden bg-surface" }, ti = { class: "hidden sm:flex" }, ni = { class: "flex-1 flex flex-col min-w-0 overflow-hidden" }, ri = { class: "flex-1 overflow-y-auto" }, ii = {
 	key: 0,
-	class: "border-b border-border bg-surface sticky top-0 z-10"
+	class: "bg-surface sticky top-0 z-10"
 }, ai = { class: "px-[12px] sm:px-[16px] md:px-[24px]" }, oi = { class: "flex flex-col lg:flex-row lg:min-h-full" }, si = { class: "flex-1 min-w-0 p-[12px] sm:p-[16px] md:p-[24px]" }, ci = { class: "flex flex-col gap-[20px] sm:gap-[24px] md:gap-[32px]" }, li = {
 	key: 0,
 	class: "w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-border p-[12px] sm:p-[16px] md:p-[24px]"

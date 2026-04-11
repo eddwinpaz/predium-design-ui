@@ -25,7 +25,7 @@
         <slot name="pageHeader" />
 
         <!-- Tabs bar: border goes full width, content has padding -->
-        <div v-if="$slots.tabs" class="border-b border-border bg-surface sticky top-0 z-10">
+        <div v-if="$slots.tabs" class="bg-surface sticky top-0 z-10">
           <div class="px-[12px] sm:px-[16px] md:px-[24px]">
             <slot name="tabs" />
           </div>
