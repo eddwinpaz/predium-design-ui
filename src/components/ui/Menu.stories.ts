@@ -28,7 +28,7 @@ export const Default: Story = {
     template: `
       <Menu v-bind="args" @select="(item) => console.log('Selected:', item.label)">
         <template #trigger>
-          <span class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg cursor-pointer inline-block">
+          <span class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg cursor-pointer inline-block">
             Actions
           </span>
         </template>
@@ -55,7 +55,7 @@ export const WithDisabled: Story = {
     template: `
       <Menu v-bind="args" @select="(item) => console.log('Selected:', item.label)">
         <template #trigger>
-          <span class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg cursor-pointer inline-block">
+          <span class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg cursor-pointer inline-block">
             Actions
           </span>
         </template>
@@ -82,7 +82,7 @@ export const Simple: Story = {
     template: `
       <Menu v-bind="args" @select="(item) => console.log('Selected:', item.label)">
         <template #trigger>
-          <span class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg cursor-pointer inline-block">
+          <span class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg cursor-pointer inline-block">
             Options
           </span>
         </template>

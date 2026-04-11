@@ -49,7 +49,7 @@ function selectItem(item: MenuItemType) {
   <div class="relative inline-block text-left">
     <div @click.stop="toggle">
       <slot name="trigger">
-        <button class="px-4 py-2 text-sm font-medium bg-black text-white rounded-lg">
+        <button class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg">
           Menu
         </button>
       </slot>

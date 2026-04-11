@@ -115,7 +115,7 @@ const statusClasses = computed(() => {
             :class="[
               'px-[12px] py-[8px] text-[14px] font-medium rounded-[8px] transition-colors',
               action.kind === 'primary'
-                ? 'bg-btn-primary text-white hover:bg-btn-primary-hover'
+                ? 'bg-btn-primary text-btn-primary-text hover:bg-btn-primary-hover'
                 : 'text-content-primary hover:bg-surface-input',
             ]"
             @click="$emit('actionClick', action)"

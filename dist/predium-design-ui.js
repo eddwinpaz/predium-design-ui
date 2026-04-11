@@ -1328,7 +1328,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 		function b(e) {
 			e.disabled || (u("select", e), d.value = !1);
 		}
-		return (n, s) => (g(), a("div", nn, [o("div", { onClick: O(h, ["stop"]) }, [y(n.$slots, "trigger", {}, () => [s[1] ||= o("button", { class: "px-4 py-2 text-sm font-medium bg-black text-white rounded-lg" }, " Menu ", -1)])]), l(t, {
+		return (n, s) => (g(), a("div", nn, [o("div", { onClick: O(h, ["stop"]) }, [y(n.$slots, "trigger", {}, () => [s[1] ||= o("button", { class: "px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg" }, " Menu ", -1)])]), l(t, {
 			"enter-active-class": "transition duration-100 ease-out",
 			"enter-from-class": "opacity-0 scale-95",
 			"enter-to-class": "opacity-100 scale-100",
@@ -1826,7 +1826,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			}
 		}, S(e), 9, yr))), 128))])) : i("", !0)])) : (g(), a("button", {
 			key: 1,
-			class: f(["px-[12px] py-[8px] text-[14px] font-medium rounded-[8px] transition-colors", t.kind === "primary" ? "bg-btn-primary text-white hover:bg-btn-primary-hover" : "text-content-primary hover:bg-surface-input"]),
+			class: f(["px-[12px] py-[8px] text-[14px] font-medium rounded-[8px] transition-colors", t.kind === "primary" ? "bg-btn-primary text-btn-primary-text hover:bg-btn-primary-hover" : "text-content-primary hover:bg-surface-input"]),
 			onClick: (e) => n.$emit("actionClick", t)
 		}, S(t.label), 11, br))], 64))), 128))])) : i("", !0)])]));
 	}
@@ -3095,7 +3095,8 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			]),
 			onClick: n[0] ||= (n) => !e.disabled && t.$emit("update:modelValue", !e.modelValue)
 		}, [o("span", { class: f([
-			"inline-block rounded-full bg-surface shadow transform transition-transform duration-200",
+			"inline-block rounded-full shadow transform transition-all duration-200",
+			e.modelValue ? "bg-btn-primary-text" : "bg-content-secondary",
 			e.size === "sm" ? "h-4 w-4 mt-0.5 ml-0.5" : "h-5 w-5 mt-0.5 ml-0.5",
 			e.modelValue ? e.size === "sm" ? "translate-x-4" : "translate-x-5" : "translate-x-0"
 		]) }, null, 2)], 10, Ca), e.label ? (g(), a("div", wa, [o("span", Ta, S(e.label), 1), e.description ? (g(), a("p", Ea, S(e.description), 1)) : i("", !0)])) : i("", !0)], 2));

@@ -27,7 +27,7 @@ export const Default: Story = {
     template: `
       <div>
         <button
-          class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg"
+          class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg"
           @click="isOpen = true"
         >
           Open Drawer
@@ -65,7 +65,7 @@ export const LeftSide: Story = {
     template: `
       <div>
         <button
-          class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg"
+          class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg"
           @click="isOpen = true"
         >
           Open Left Drawer
@@ -93,7 +93,7 @@ export const Large: Story = {
     template: `
       <div>
         <button
-          class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg"
+          class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg"
           @click="isOpen = true"
         >
           Open Large Drawer
@@ -127,7 +127,7 @@ export const WithFooter: Story = {
     template: `
       <div>
         <button
-          class="px-4 py-2 text-sm font-medium bg-btn-primary text-white rounded-lg"
+          class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg"
           @click="isOpen = true"
         >
           Open Drawer with Footer

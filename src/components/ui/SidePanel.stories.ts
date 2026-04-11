@@ -105,7 +105,7 @@ export const Default: Story = {
         <div class="p-[24px]">
           <h2 class="text-[24px] font-bold text-content-primary mb-[16px]">All shipments</h2>
           <div class="flex items-center gap-[8px] mb-[16px]">
-            <span class="px-[12px] py-[4px] bg-btn-primary text-white text-[13px] font-medium rounded-full flex items-center gap-[4px]">
+            <span class="px-[12px] py-[4px] bg-btn-primary text-btn-primary-text text-[13px] font-medium rounded-full flex items-center gap-[4px]">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
               Filters
             </span>

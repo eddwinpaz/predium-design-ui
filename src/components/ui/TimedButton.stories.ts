@@ -37,7 +37,7 @@ export const DeferredInit: Story = {
         <p class="text-[13px] text-content-secondary">Use the pause prop to declaratively start and pause the countdown timer.</p>
         <div class="flex items-center gap-[12px]">
           <button
-            class="px-[12px] py-[8px] text-[14px] font-medium bg-btn-primary text-white rounded-[8px] hover:bg-[#333]"
+            class="px-[12px] py-[8px] text-[14px] font-medium bg-btn-primary text-btn-primary-text rounded-[8px] hover:bg-[#333]"
             @click="paused = !paused"
           >
             {{ paused ? 'Run' : 'Pause' }}

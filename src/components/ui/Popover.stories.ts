@@ -23,7 +23,7 @@ export const Default: Story = {
       <div class="p-20">
         <Popover placement="bottom-start">
           <template #trigger>
-            <button class="px-4 py-2 bg-btn-primary text-white rounded-lg text-sm font-medium">
+            <button class="px-4 py-2 bg-btn-primary text-btn-primary-text rounded-lg text-sm font-medium">
               Open Menu
             </button>
           </template>
