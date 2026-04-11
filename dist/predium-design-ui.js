@@ -2349,8 +2349,8 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 		let c = s, u = n(() => {
 			switch (c.size) {
 				case "compact": return "h-[36px] text-[14px]";
-				case "large": return "h-[56px] text-[16px]";
-				default: return "h-[48px] text-[16px]";
+				case "large": return "h-[48px] text-[16px]";
+				default: return "h-[40px] text-[14px]";
 			}
 		}), d = n(() => {
 			let e = c.options.find((e) => e.value === c.modelValue);
