@@ -24,9 +24,11 @@
         <!-- Page header -->
         <slot name="pageHeader" />
 
-        <!-- Tabs bar -->
-        <div v-if="$slots.tabs" class="px-[12px] sm:px-[24px] border-b border-border bg-surface sticky top-0 z-10">
-          <slot name="tabs" />
+        <!-- Tabs bar: border goes full width, content has padding -->
+        <div v-if="$slots.tabs" class="border-b border-border bg-surface sticky top-0 z-10">
+          <div class="px-[12px] sm:px-[16px] md:px-[24px]">
+            <slot name="tabs" />
+          </div>
         </div>
 
         <!-- Two-column layout: content + right panel -->
