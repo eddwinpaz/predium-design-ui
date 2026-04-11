@@ -2321,7 +2321,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 					"opacity-40 cursor-not-allowed bg-surface-input border-transparent": s.disabled
 				}
 			]) }, {
-				default: E(() => [o("span", { class: f([d.value ? "text-content-primary" : "text-content-tertiary"]) }, S(d.value || s.placeholder), 3), c[1] ||= o("svg", {
+				default: E(() => [o("span", { class: f([d.value ? "text-content-primary" : "text-content-tertiary", "truncate"]) }, S(d.value || s.placeholder), 3), c[1] ||= o("svg", {
 					xmlns: "http://www.w3.org/2000/svg",
 					class: "h-4 w-4 text-content-tertiary ml-2 flex-shrink-0",
 					viewBox: "0 0 20 20",
@@ -2699,7 +2699,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
 		}, null, 8, Ji)], 2));
 	}
-}), Xi = { class: "overflow-x-auto scrollbar-none" }, Zi = { class: "flex items-center justify-center min-w-[300px]" }, Qi = { class: "flex flex-col items-center flex-shrink-0" }, $i = {
+}), Xi = { class: "overflow-x-auto scrollbar-none px-[4px]" }, Zi = { class: "flex items-center min-w-max mx-auto" }, Qi = { class: "flex flex-col items-center flex-shrink-0" }, $i = {
 	key: 0,
 	class: "w-3.5 h-3.5 sm:w-4 sm:h-4",
 	fill: "none",
@@ -2937,18 +2937,18 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			r: "5"
 		}, null, -1), o("path", { d: "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" }, null, -1)]], 2))], 2)], 10, fa));
 	}
-}), pa = ["disabled"], ma = { class: "absolute top-[16px] right-[16px]" }, ha = {
+}), pa = ["disabled"], ma = { class: "absolute top-[10px] sm:top-[16px] right-[10px] sm:right-[16px]" }, ha = {
 	key: 0,
-	class: "w-[20px] h-[20px] rounded-full bg-btn-primary flex items-center justify-center"
+	class: "w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full bg-btn-primary flex items-center justify-center"
 }, ga = {
 	key: 1,
-	class: "w-[20px] h-[20px] rounded-full border-2 border-border group-hover:border-border-hover"
+	class: "w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full border-2 border-border group-hover:border-border-hover"
 }, _a = {
 	key: 0,
 	class: "mb-[12px]"
-}, va = { class: "text-[16px] font-semibold text-content-primary leading-[24px]" }, ya = {
+}, va = { class: "text-[14px] sm:text-[16px] font-semibold text-content-primary leading-[20px] sm:leading-[24px] pr-[20px]" }, ya = {
 	key: 1,
-	class: "text-[14px] text-content-secondary mt-[4px] leading-[20px]"
+	class: "text-[12px] sm:text-[14px] text-content-secondary mt-[4px] leading-[18px] sm:leading-[20px]"
 }, ba = /* @__PURE__ */ u({
 	__name: "Tile",
 	props: {
@@ -2976,12 +2976,12 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			]),
 			onClick: n[0] ||= (n) => !e.disabled && t.$emit("click")
 		}, [o("div", ma, [e.selected ? (g(), a("div", ha, [...n[1] ||= [o("svg", {
-			class: "w-[12px] h-[12px] text-white",
+			class: "w-[10px] h-[10px] sm:w-[12px] sm:h-[12px] text-btn-primary-text",
 			viewBox: "0 0 24 24",
 			fill: "none",
 			stroke: "currentColor",
 			"stroke-width": "3"
-		}, [o("path", { d: "M5 13l4 4L19 7" })], -1)]])) : (g(), a("div", ga))]), o("div", { class: f(["p-[24px] pt-[20px] w-full", e.align === "center" ? "flex flex-col items-center" : ""]) }, [
+		}, [o("path", { d: "M5 13l4 4L19 7" })], -1)]])) : (g(), a("div", ga))]), o("div", { class: f(["p-[14px] sm:p-[20px] md:p-[24px] w-full", e.align === "center" ? "flex flex-col items-center" : ""]) }, [
 			t.$slots.icon ? (g(), a("div", _a, [y(t.$slots, "icon")])) : i("", !0),
 			o("div", va, [y(t.$slots, "default")]),
 			t.$slots.description ? (g(), a("div", ya, [y(t.$slots, "description")])) : i("", !0)

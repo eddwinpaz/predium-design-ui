@@ -16,7 +16,7 @@
           },
         ]"
       >
-        <span :class="[selectedLabel ? 'text-content-primary' : 'text-content-tertiary']">
+        <span :class="[selectedLabel ? 'text-content-primary' : 'text-content-tertiary', 'truncate']">
           {{ selectedLabel || placeholder }}
         </span>
         <svg

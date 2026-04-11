@@ -10,8 +10,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="overflow-x-auto scrollbar-none">
-    <div class="flex items-center justify-center min-w-[300px]">
+  <div class="overflow-x-auto scrollbar-none px-[4px]">
+    <div class="flex items-center min-w-max mx-auto">
       <template v-for="(step, i) in steps" :key="i">
         <!-- Step circle + label -->
         <div class="flex flex-col items-center flex-shrink-0">
