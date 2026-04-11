@@ -159,12 +159,11 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="fixed inset-x-[8px] top-[60px] bottom-[8px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl overflow-y-auto
-                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:bottom-auto sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px]"
+              class="fixed inset-x-[8px] top-[60px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl
+                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:rounded-[16px]"
             >
-              <!-- Header -->
-              <div class="flex items-center justify-between px-[20px] pt-[16px] pb-[12px] border-b border-border">
-                <h3 class="text-[16px] font-semibold text-content-primary">Modules</h3>
+              <!-- Header: just X button, no title -->
+              <div class="flex items-center justify-end px-[12px] pt-[10px]">
                 <button
                   class="w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors"
                   @click="gridOpen = false"
@@ -173,32 +172,34 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
                 </button>
               </div>
 
-              <!-- Groups in columns -->
-              <div class="p-[16px] sm:p-[20px] grid grid-cols-1 sm:grid-cols-2 gap-[20px] sm:gap-[24px]">
-                <div v-for="(group, gi) in modules" :key="group.title">
-                  <div class="mb-[10px]">
-                    <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
-                  </div>
-                  <div class="flex flex-col gap-[2px]">
-                    <button
-                      v-for="(item, ii) in group.items"
-                      :key="item.label"
-                      class="flex items-center gap-[10px] px-[10px] py-[8px] rounded-[8px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer text-left"
-                      @click="gridOpen = false; $emit('moduleClick', item)"
-                    >
-                      <div
-                        class="w-[32px] h-[32px] rounded-[8px] flex items-center justify-center flex-shrink-0"
-                        :style="{ backgroundColor: getColor(item, gi, ii) + '18' }"
+              <!-- Groups: horizontal scroll on mobile, grid on desktop -->
+              <div class="overflow-x-auto scrollbar-none pb-[16px] px-[16px] sm:px-[20px] sm:pb-[20px]">
+                <div class="flex gap-[24px] sm:grid sm:grid-cols-2 sm:gap-[24px] min-w-max sm:min-w-0">
+                  <div v-for="(group, gi) in modules" :key="group.title" class="min-w-[160px] sm:min-w-0 flex-shrink-0 sm:flex-shrink">
+                    <div class="mb-[10px]">
+                      <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
+                    </div>
+                    <div class="flex flex-col gap-[2px]">
+                      <button
+                        v-for="(item, ii) in group.items"
+                        :key="item.label"
+                        class="flex items-center gap-[10px] px-[10px] py-[8px] rounded-[8px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer text-left whitespace-nowrap"
+                        @click="gridOpen = false; $emit('moduleClick', item)"
                       >
-                        <svg
-                          width="16" height="16" viewBox="0 0 24 24" fill="none"
-                          :stroke="getColor(item, gi, ii)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        <div
+                          class="w-[32px] h-[32px] rounded-[8px] flex items-center justify-center flex-shrink-0"
+                          :style="{ backgroundColor: getColor(item, gi, ii) + '18' }"
                         >
-                          <path :d="getIconPath(item)" />
-                        </svg>
-                      </div>
-                      <span class="text-[13px] font-medium text-content-primary">{{ item.label }}</span>
-                    </button>
+                          <svg
+                            width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            :stroke="getColor(item, gi, ii)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          >
+                            <path :d="getIconPath(item)" />
+                          </svg>
+                        </div>
+                        <span class="text-[13px] font-medium text-content-primary">{{ item.label }}</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
