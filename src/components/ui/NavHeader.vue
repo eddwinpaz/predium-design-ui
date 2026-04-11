@@ -172,33 +172,22 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
                 </button>
               </div>
 
-              <!-- Mobile: vertical list flush to top -->
+              <!-- Mobile: same style as hamburger menu -->
               <div class="sm:hidden">
                 <div v-for="(group, gi) in modules" :key="group.title">
-                  <div class="px-[16px] pt-[16px] pb-[8px]">
-                    <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
+                  <div class="px-[16px] pt-[12px] pb-[4px]">
+                    <span class="text-[12px] text-content-tertiary">{{ group.title }}</span>
                   </div>
-                  <div>
+                  <nav class="flex flex-col py-[4px]">
                     <button
                       v-for="(item, ii) in group.items"
                       :key="item.label"
-                      class="flex items-center gap-[12px] w-full px-[16px] py-[14px] border-b border-border text-left active:bg-surface-input transition-colors"
+                      class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary transition-colors"
                       @click="gridOpen = false; $emit('moduleClick', item)"
                     >
-                      <div
-                        class="w-[36px] h-[36px] rounded-[10px] flex items-center justify-center flex-shrink-0"
-                        :style="{ backgroundColor: getColor(item, gi, ii) + '18' }"
-                      >
-                        <svg
-                          width="18" height="18" viewBox="0 0 24 24" fill="none"
-                          :stroke="getColor(item, gi, ii)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        >
-                          <path :d="getIconPath(item)" />
-                        </svg>
-                      </div>
-                      <span class="text-[15px] font-medium text-content-primary">{{ item.label }}</span>
+                      {{ item.label }}
                     </button>
-                  </div>
+                  </nav>
                 </div>
               </div>
 
