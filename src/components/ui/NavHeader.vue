@@ -159,20 +159,20 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="fixed inset-0 top-[52px] z-[9999] bg-surface overflow-y-auto
-                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px] sm:border sm:border-border sm:shadow-2xl"
+              class="fixed inset-x-0 top-[52px] bottom-0 z-[9999] bg-surface overflow-y-auto border-t border-border
+                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:bottom-auto sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px] sm:border sm:border-border sm:shadow-2xl"
             >
-              <!-- Mobile: X button top right -->
-              <div class="flex items-center justify-end px-[16px] pt-[12px] sm:px-[12px] sm:pt-[10px]">
+              <!-- Desktop only: X button -->
+              <div class="hidden sm:flex items-center justify-end px-[12px] pt-[10px]">
                 <button
-                  class="w-[32px] h-[32px] sm:w-[28px] sm:h-[28px] flex items-center justify-center rounded-[8px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors"
+                  class="w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors"
                   @click="gridOpen = false"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
                 </button>
               </div>
 
-              <!-- Mobile: vertical list with dividers -->
+              <!-- Mobile: vertical list flush to top -->
               <div class="sm:hidden">
                 <div v-for="(group, gi) in modules" :key="group.title">
                   <div class="px-[16px] pt-[16px] pb-[8px]">

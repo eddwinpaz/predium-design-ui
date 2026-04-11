@@ -1560,8 +1560,8 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, Hn = ["onClick"], Un = { class: "relative" }, Wn = {
 	key: 0,
-	class: "fixed inset-0 top-[52px] z-[9999] bg-surface overflow-y-auto sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px] sm:border sm:border-border sm:shadow-2xl"
-}, Gn = { class: "flex items-center justify-end px-[16px] pt-[12px] sm:px-[12px] sm:pt-[10px]" }, Kn = { class: "sm:hidden" }, qn = { class: "px-[16px] pt-[16px] pb-[8px]" }, Jn = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, Yn = ["onClick"], Xn = ["stroke"], Zn = ["d"], Qn = { class: "text-[15px] font-medium text-content-primary" }, $n = { class: "hidden sm:block px-[20px] pb-[20px]" }, er = { class: "grid grid-cols-2 gap-[24px]" }, tr = { class: "mb-[10px]" }, nr = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, rr = { class: "flex flex-col gap-[2px]" }, ir = ["onClick"], ar = ["stroke"], or = ["d"], sr = { class: "text-[13px] font-medium text-content-primary" }, cr = {
+	class: "fixed inset-x-0 top-[52px] bottom-0 z-[9999] bg-surface overflow-y-auto border-t border-border sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:bottom-auto sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px] sm:border sm:border-border sm:shadow-2xl"
+}, Gn = { class: "hidden sm:flex items-center justify-end px-[12px] pt-[10px]" }, Kn = { class: "sm:hidden" }, qn = { class: "px-[16px] pt-[16px] pb-[8px]" }, Jn = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, Yn = ["onClick"], Xn = ["stroke"], Zn = ["d"], Qn = { class: "text-[15px] font-medium text-content-primary" }, $n = { class: "hidden sm:block px-[20px] pb-[20px]" }, er = { class: "grid grid-cols-2 gap-[24px]" }, tr = { class: "mb-[10px]" }, nr = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, rr = { class: "flex flex-col gap-[2px]" }, ir = ["onClick"], ar = ["stroke"], or = ["d"], sr = { class: "text-[13px] font-medium text-content-primary" }, cr = {
 	key: 0,
 	class: "sm:hidden border-b border-border bg-surface"
 }, lr = {
@@ -1659,11 +1659,11 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 				}, {
 					default: E(() => [m.value && r.modules?.length ? (g(), a("div", Wn, [
 						o("div", Gn, [o("button", {
-							class: "w-[32px] h-[32px] sm:w-[28px] sm:h-[28px] flex items-center justify-center rounded-[8px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors",
+							class: "w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors",
 							onClick: c[1] ||= (e) => m.value = !1
 						}, [...c[6] ||= [o("svg", {
-							width: "18",
-							height: "18",
+							width: "16",
+							height: "16",
 							viewBox: "0 0 24 24",
 							fill: "none",
 							stroke: "currentColor",
