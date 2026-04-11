@@ -1806,12 +1806,12 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 }), mr = { class: "px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-surface" }, hr = { class: "flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]" }, gr = {
 	key: 0,
 	class: "flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px]"
-}, _r = { class: "flex items-center gap-[6px] sm:hidden" }, vr = {
+}, _r = { class: "flex items-baseline flex-wrap gap-[4px] sm:hidden" }, vr = {
 	key: 1,
 	class: "text-content-tertiary"
 }, yr = {
 	key: 2,
-	class: "text-content-primary font-medium truncate max-w-[200px]"
+	class: "text-content-primary font-medium break-words"
 }, br = { class: "hidden sm:flex items-center gap-[6px]" }, xr = {
 	key: 0,
 	class: "text-content-tertiary"

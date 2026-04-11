@@ -53,7 +53,7 @@ const statusClasses = computed(() => {
         <!-- Breadcrumbs: desktop shows all, mobile shows first + last -->
         <div v-if="breadcrumbs?.length" class="flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px]">
           <!-- Mobile: collapsed -->
-          <div class="flex items-center gap-[6px] sm:hidden">
+          <div class="flex items-baseline flex-wrap gap-[4px] sm:hidden">
             <span
               class="text-content-secondary hover:text-content-primary cursor-pointer"
               @click="$emit('breadcrumbClick', 0)"
@@ -65,7 +65,7 @@ const statusClasses = computed(() => {
               <span class="text-content-tertiary">...</span>
             </template>
             <span v-if="breadcrumbs.length > 1" class="text-content-tertiary">›</span>
-            <span v-if="breadcrumbs.length > 1" class="text-content-primary font-medium truncate max-w-[200px]">
+            <span v-if="breadcrumbs.length > 1" class="text-content-primary font-medium break-words">
               {{ breadcrumbs[breadcrumbs.length - 1] }}
             </span>
           </div>
