@@ -145,7 +145,7 @@ export const CreateLease: Story = {
               <h3 class="text-[16px] font-semibold text-content-primary mb-[16px]">Select Property & Unit</h3>
 
               <!-- Property type tiles -->
-              <div class="grid grid-cols-2 gap-[12px] mb-[20px]">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-[10px] sm:gap-[12px] mb-[20px]">
                 <Tile :selected="propertyTypeResidential" @click="selectResidential">
                   Residential
                 </Tile>
@@ -199,7 +199,7 @@ export const CreateLease: Story = {
               <h3 class="text-[16px] font-semibold text-content-primary mb-[16px]">Lease Duration</h3>
 
               <!-- Lease type tiles -->
-              <div class="grid grid-cols-2 gap-[12px] mb-[20px]">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-[10px] sm:gap-[12px] mb-[20px]">
                 <Tile :selected="leaseTypeFixed" @click="selectFixed">
                   Fixed term
                 </Tile>
