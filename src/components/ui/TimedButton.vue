@@ -119,7 +119,7 @@ defineExpose({ reset })
     <span
       :class="[
         'relative z-10 flex items-center gap-[4px] px-[16px]',
-        finished || disabled ? 'text-content-disabled' : 'text-white',
+        finished || disabled ? 'text-content-disabled' : 'text-btn-primary-text',
       ]"
     >
       <span>{{ label }}</span>

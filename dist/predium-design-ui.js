@@ -2992,7 +2992,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				style: p({ width: 100 - b.value + "%" })
 			}, null, 4)], 64)) : i("", !0),
 			!v.value && !d.value && !t.disabled ? (g(), a("div", va)) : i("", !0),
-			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-content-disabled" : "text-white"]) }, [o("span", null, S(t.label), 1), o("span", ya, "(" + S(y.value) + ")", 1)], 2)
+			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-content-disabled" : "text-btn-primary-text"]) }, [o("span", null, S(t.label), 1), o("span", ya, "(" + S(y.value) + ")", 1)], 2)
 		], 10, _a));
 	}
 }), xa = { class: "flex-1" }, Sa = /* @__PURE__ */ u({
