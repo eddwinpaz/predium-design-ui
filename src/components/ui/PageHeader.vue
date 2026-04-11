@@ -50,19 +50,39 @@ const statusClasses = computed(() => {
     <!-- Breadcrumbs + Title row -->
     <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
       <div>
-        <!-- Breadcrumbs -->
-        <div v-if="breadcrumbs?.length" class="flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px] overflow-x-auto whitespace-nowrap">
-          <template v-for="(crumb, i) in breadcrumbs" :key="i">
-            <span v-if="i > 0" class="text-content-tertiary">›</span>
+        <!-- Breadcrumbs: desktop shows all, mobile shows first + last -->
+        <div v-if="breadcrumbs?.length" class="flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px]">
+          <!-- Mobile: collapsed -->
+          <div class="flex items-center gap-[6px] sm:hidden">
             <span
-              v-if="i < breadcrumbs.length - 1"
               class="text-content-secondary hover:text-content-primary cursor-pointer"
-              @click="$emit('breadcrumbClick', i)"
+              @click="$emit('breadcrumbClick', 0)"
             >
-              {{ crumb }}
+              {{ breadcrumbs[0] }}
             </span>
-            <span v-else class="text-content-primary font-medium">{{ crumb }}</span>
-          </template>
+            <template v-if="breadcrumbs.length > 2">
+              <span class="text-content-tertiary">›</span>
+              <span class="text-content-tertiary">...</span>
+            </template>
+            <span v-if="breadcrumbs.length > 1" class="text-content-tertiary">›</span>
+            <span v-if="breadcrumbs.length > 1" class="text-content-primary font-medium truncate max-w-[200px]">
+              {{ breadcrumbs[breadcrumbs.length - 1] }}
+            </span>
+          </div>
+          <!-- Desktop: full -->
+          <div class="hidden sm:flex items-center gap-[6px]">
+            <template v-for="(crumb, i) in breadcrumbs" :key="i">
+              <span v-if="i > 0" class="text-content-tertiary">›</span>
+              <span
+                v-if="i < breadcrumbs.length - 1"
+                class="text-content-secondary hover:text-content-primary cursor-pointer"
+                @click="$emit('breadcrumbClick', i)"
+              >
+                {{ crumb }}
+              </span>
+              <span v-else class="text-content-primary font-medium">{{ crumb }}</span>
+            </template>
+          </div>
         </div>
 
         <!-- Title + Status -->
