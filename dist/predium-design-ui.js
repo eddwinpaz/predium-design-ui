@@ -3084,7 +3084,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			disabled: e.disabled,
 			class: f([
 				"relative inline-flex shrink-0 rounded-full transition-colors duration-200",
-				e.modelValue ? "bg-black" : "bg-border",
+				e.modelValue ? "bg-content-primary" : "bg-bg-tertiary",
 				e.disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer",
 				e.size === "sm" ? "h-5 w-9" : "h-6 w-11"
 			]),

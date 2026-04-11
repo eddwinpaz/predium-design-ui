@@ -29,7 +29,7 @@ defineEmits<{
       :disabled="disabled"
       :class="[
         'relative inline-flex shrink-0 rounded-full transition-colors duration-200',
-        modelValue ? 'bg-black' : 'bg-border',
+        modelValue ? 'bg-content-primary' : 'bg-bg-tertiary',
         disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
         size === 'sm' ? 'h-5 w-9' : 'h-6 w-11',
       ]"
