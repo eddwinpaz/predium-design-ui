@@ -2102,13 +2102,13 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			md: "h-2",
 			lg: "h-3"
 		})[t.size]), c = n(() => ({
-			primary: "bg-black",
+			primary: "bg-content-primary",
 			positive: "bg-positive",
 			warning: "bg-warning",
 			negative: "bg-negative",
 			accent: "bg-accent"
 		})[t.color]);
-		return (t, n) => (g(), a("div", Pr, [o("div", { class: f(["w-full rounded-full bg-bg-secondary overflow-hidden", s.value]) }, [o("div", {
+		return (t, n) => (g(), a("div", Pr, [o("div", { class: f(["w-full rounded-full bg-bg-tertiary overflow-hidden", s.value]) }, [o("div", {
 			class: f([
 				"h-full rounded-full transition-all duration-500 ease-out",
 				c.value,

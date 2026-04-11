@@ -2,7 +2,7 @@
   <div class="w-full">
     <div
       :class="[
-        'w-full rounded-full bg-bg-secondary overflow-hidden',
+        'w-full rounded-full bg-bg-tertiary overflow-hidden',
         heightClass,
       ]"
     >
@@ -56,7 +56,7 @@ const heightClass = computed(() => {
 
 const barColorClass = computed(() => {
   const map: Record<string, string> = {
-    primary: 'bg-black',
+    primary: 'bg-content-primary',
     positive: 'bg-positive',
     warning: 'bg-warning',
     negative: 'bg-negative',
