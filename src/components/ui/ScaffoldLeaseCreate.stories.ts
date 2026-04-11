@@ -174,7 +174,7 @@ export const CreateLease: Story = {
 
               <!-- Move-in date -->
               <FormControl label="Move-in date">
-                <Input size="large" v-model="moveInDate" placeholder="MM/DD/YYYY" />
+                <Input v-model="moveInDate" placeholder="MM/DD/YYYY" />
               </FormControl>
             </div>
 
@@ -183,13 +183,13 @@ export const CreateLease: Story = {
               <h3 class="text-[16px] font-semibold text-content-primary mb-[16px]">Monthly Rent</h3>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-[16px]">
                 <FormControl label="Base rent">
-                  <Input size="large" v-model="baseRent" />
+                  <Input v-model="baseRent" />
                 </FormControl>
                 <FormControl label="Security deposit">
-                  <Input size="large" v-model="securityDeposit" />
+                  <Input v-model="securityDeposit" />
                 </FormControl>
                 <FormControl label="Pet deposit">
-                  <Input size="large" v-model="petDeposit" />
+                  <Input v-model="petDeposit" />
                 </FormControl>
               </div>
             </div>
@@ -210,10 +210,10 @@ export const CreateLease: Story = {
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
                 <FormControl label="Start date">
-                  <Input size="large" v-model="startDate" placeholder="MM/DD/YYYY" />
+                  <Input v-model="startDate" placeholder="MM/DD/YYYY" />
                 </FormControl>
                 <FormControl label="End date">
-                  <Input size="large" v-model="endDate" placeholder="MM/DD/YYYY" />
+                  <Input v-model="endDate" placeholder="MM/DD/YYYY" />
                 </FormControl>
               </div>
             </div>
