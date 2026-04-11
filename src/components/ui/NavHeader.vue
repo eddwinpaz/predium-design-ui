@@ -159,7 +159,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="fixed inset-x-[8px] top-[60px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl
+              class="fixed left-[8px] right-[8px] top-[60px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl max-h-[70vh] overflow-hidden
                      sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:rounded-[16px]"
             >
               <!-- Header: just X button, no title -->
@@ -175,7 +175,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
               <!-- Groups: horizontal scroll on mobile, grid on desktop -->
               <div class="overflow-x-auto scrollbar-none pb-[16px] px-[16px] sm:px-[20px] sm:pb-[20px]">
                 <div class="flex gap-[24px] sm:grid sm:grid-cols-2 sm:gap-[24px] min-w-max sm:min-w-0">
-                  <div v-for="(group, gi) in modules" :key="group.title" class="min-w-[160px] sm:min-w-0 flex-shrink-0 sm:flex-shrink">
+                  <div v-for="(group, gi) in modules" :key="group.title" class="min-w-[180px] sm:min-w-0 flex-shrink-0 sm:flex-shrink">
                     <div class="mb-[10px]">
                       <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
                     </div>

@@ -1560,7 +1560,7 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, Hn = ["onClick"], Un = { class: "relative" }, Wn = {
 	key: 0,
-	class: "fixed inset-x-[8px] top-[60px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:rounded-[16px]"
+	class: "fixed left-[8px] right-[8px] top-[60px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl max-h-[70vh] overflow-hidden sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:rounded-[16px]"
 }, Gn = { class: "flex items-center justify-end px-[12px] pt-[10px]" }, Kn = { class: "overflow-x-auto scrollbar-none pb-[16px] px-[16px] sm:px-[20px] sm:pb-[20px]" }, qn = { class: "flex gap-[24px] sm:grid sm:grid-cols-2 sm:gap-[24px] min-w-max sm:min-w-0" }, Jn = { class: "mb-[10px]" }, Yn = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, Xn = { class: "flex flex-col gap-[2px]" }, Zn = ["onClick"], Qn = ["stroke"], $n = ["d"], er = { class: "text-[13px] font-medium text-content-primary" }, tr = {
 	key: 0,
 	class: "sm:hidden border-b border-border bg-surface"
@@ -1670,7 +1670,7 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 						"stroke-linecap": "round"
 					}, [o("path", { d: "M18 6L6 18M6 6l12 12" })], -1)]])]), o("div", Kn, [o("div", qn, [(g(!0), a(e, null, v(r.modules, (t, r) => (g(), a("div", {
 						key: t.title,
-						class: "min-w-[160px] sm:min-w-0 flex-shrink-0 sm:flex-shrink"
+						class: "min-w-[180px] sm:min-w-0 flex-shrink-0 sm:flex-shrink"
 					}, [o("div", Jn, [o("span", Yn, S(t.title), 1)]), o("div", Xn, [(g(!0), a(e, null, v(t.items, (e, t) => (g(), a("button", {
 						key: e.label,
 						class: "flex items-center gap-[10px] px-[10px] py-[8px] rounded-[8px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer text-left whitespace-nowrap",
