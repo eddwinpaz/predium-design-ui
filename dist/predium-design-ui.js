@@ -2268,7 +2268,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"rounded-full font-medium transition-all duration-200 whitespace-nowrap",
 				t.size === "sm" ? "px-[12px] py-[4px] text-[12px]" : "px-[16px] py-[6px] text-[14px]",
-				t.modelValue === e.value ? "bg-surface text-content-primary shadow-sm" : "text-content-secondary hover:text-content-primary"
+				t.modelValue === e.value ? "bg-btn-primary text-btn-primary-text shadow-sm" : "text-content-secondary hover:text-content-primary"
 			]),
 			onClick: (t) => n.$emit("update:modelValue", e.value)
 		}, S(e.label), 11, di))), 128))], 2));

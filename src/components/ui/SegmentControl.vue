@@ -34,7 +34,7 @@ defineEmits<{
         'rounded-full font-medium transition-all duration-200 whitespace-nowrap',
         size === 'sm' ? 'px-[12px] py-[4px] text-[12px]' : 'px-[16px] py-[6px] text-[14px]',
         modelValue === opt.value
-          ? 'bg-surface text-content-primary shadow-sm'
+          ? 'bg-btn-primary text-btn-primary-text shadow-sm'
           : 'text-content-secondary hover:text-content-primary',
       ]"
       @click="$emit('update:modelValue', opt.value)"
