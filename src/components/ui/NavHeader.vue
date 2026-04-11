@@ -160,8 +160,14 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
                      sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:bottom-auto sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px]"
             >
               <!-- Header -->
-              <div class="px-[20px] pt-[20px] pb-[12px] border-b border-border">
+              <div class="flex items-center justify-between px-[20px] pt-[16px] pb-[12px] border-b border-border">
                 <h3 class="text-[16px] font-semibold text-content-primary">Modules</h3>
+                <button
+                  class="w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors"
+                  @click="gridOpen = false"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                </button>
               </div>
 
               <!-- Groups in columns -->
