@@ -1,7 +1,7 @@
 <template>
   <textarea
     :class="[
-      'w-full border-2 rounded-[8px] px-3 py-2.5 text-sm bg-bg-primary outline-none transition-colors duration-150',
+      'w-full border-2 rounded-[8px] px-[14px] py-[12px] text-sm bg-bg-primary outline-none transition-colors duration-150',
       'placeholder:text-content-tertiary',
       error
         ? 'border-negative'

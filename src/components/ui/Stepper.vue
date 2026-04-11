@@ -29,7 +29,7 @@ defineProps<{
             </div>
             <div
               v-if="i < steps.length - 1"
-              :class="['flex-1 h-[2px] mx-[8px] sm:mx-[12px] min-w-[40px] sm:min-w-[60px]', i < activeStep ? 'bg-btn-primary' : 'bg-border']"
+              :class="['flex-1 h-[2px] min-w-[40px] sm:min-w-[60px]', i < activeStep ? 'bg-btn-primary' : 'bg-border']"
             />
           </template>
         </div>
@@ -44,7 +44,7 @@ defineProps<{
                 {{ step.label }}
               </span>
             </div>
-            <div v-if="i < steps.length - 1" class="flex-1 min-w-[40px] sm:min-w-[60px] mx-[8px] sm:mx-[12px]" />
+            <div v-if="i < steps.length - 1" class="flex-1 min-w-[40px] sm:min-w-[60px]" />
           </template>
         </div>
       </div>

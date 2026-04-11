@@ -7,7 +7,7 @@
     <div class="relative">
       <ListboxButton
         :class="[
-          'flex items-center justify-between w-full border-2 rounded-[8px] px-3 text-left transition-colors',
+          'flex items-center justify-between w-full border-2 rounded-[8px] px-[14px] text-left transition-colors',
           sizeClasses,
           {
             'border-[#e11900] bg-surface': error,
