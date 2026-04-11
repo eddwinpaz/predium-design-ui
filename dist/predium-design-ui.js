@@ -1383,7 +1383,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			o("p", fn, S(e.description), 1),
 			e.buttonLabel ? (g(), a("button", {
 				key: 0,
-				class: "mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-btn-primary text-white hover:bg-btn-primary-hover transition-colors",
+				class: "mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-btn-primary text-btn-primary-text hover:bg-btn-primary-hover transition-colors",
 				onClick: n[0] ||= (e) => t.$emit("action")
 			}, S(e.buttonLabel), 1)) : i("", !0)
 		])])) : (g(), a("div", {

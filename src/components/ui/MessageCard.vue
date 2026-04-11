@@ -34,7 +34,7 @@ defineEmits<{
       <p class="text-[14px] text-content-secondary mt-[6px] leading-[20px]">{{ description }}</p>
       <button
         v-if="buttonLabel"
-        class="mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-btn-primary text-white hover:bg-btn-primary-hover transition-colors"
+        class="mt-[16px] px-[16px] py-[10px] text-[14px] font-medium rounded-[8px] bg-btn-primary text-btn-primary-text hover:bg-btn-primary-hover transition-colors"
         @click="$emit('action')"
       >
         {{ buttonLabel }}
