@@ -31,7 +31,7 @@ defineEmits<{
         'relative inline-flex shrink-0 rounded-full transition-colors duration-200 border-2',
         modelValue
           ? 'bg-content-primary border-content-primary'
-          : 'bg-bg-tertiary border-border',
+          : 'bg-bg-tertiary border-content-tertiary',
         disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
         size === 'sm' ? 'h-[22px] w-[40px]' : 'h-[26px] w-[48px]',
       ]"
