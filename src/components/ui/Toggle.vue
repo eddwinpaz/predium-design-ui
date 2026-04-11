@@ -28,19 +28,21 @@ defineEmits<{
       :aria-checked="modelValue"
       :disabled="disabled"
       :class="[
-        'relative inline-flex shrink-0 rounded-full transition-colors duration-200',
-        modelValue ? 'bg-content-primary' : 'bg-bg-tertiary',
+        'relative inline-flex shrink-0 rounded-full transition-colors duration-200 border-2',
+        modelValue
+          ? 'bg-content-primary border-content-primary'
+          : 'bg-bg-tertiary border-border',
         disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
-        size === 'sm' ? 'h-5 w-9' : 'h-6 w-11',
+        size === 'sm' ? 'h-[22px] w-[40px]' : 'h-[26px] w-[48px]',
       ]"
       @click="!disabled && $emit('update:modelValue', !modelValue)"
     >
       <span
         :class="[
-          'inline-block rounded-full shadow transform transition-all duration-200',
+          'inline-block rounded-full shadow-sm transition-all duration-200',
           modelValue ? 'bg-btn-primary-text' : 'bg-content-secondary',
-          size === 'sm' ? 'h-4 w-4 mt-0.5 ml-0.5' : 'h-5 w-5 mt-0.5 ml-0.5',
-          modelValue ? (size === 'sm' ? 'translate-x-4' : 'translate-x-5') : 'translate-x-0',
+          size === 'sm' ? 'h-[14px] w-[14px] mt-[2px] ml-[2px]' : 'h-[18px] w-[18px] mt-[2px] ml-[2px]',
+          modelValue ? (size === 'sm' ? 'translate-x-[18px]' : 'translate-x-[22px]') : 'translate-x-0',
         ]"
       />
     </button>
