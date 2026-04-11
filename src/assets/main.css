@@ -183,8 +183,8 @@
  * ═══════════════════════════════════════════ */
 .dark {
   --color-bg-primary: #141414;
-  --color-bg-secondary: #222222;
-  --color-bg-tertiary: #363636;
+  --color-bg-secondary: #262626;
+  --color-bg-tertiary: #3d3d3d;
   --color-bg-inverse: #ffffff;
   --color-bg-state-disabled: #222222;
 
@@ -214,9 +214,9 @@
   --color-purple-light: #251e3d;
 
   --color-surface: #141414;
-  --color-surface-hover: #222222;
-  --color-surface-input: #252525;
-  --color-surface-input-hover: #363636;
+  --color-surface-hover: #262626;
+  --color-surface-input: #2a2a2a;
+  --color-surface-input-hover: #3d3d3d;
   --color-surface-selected: #1a1f2e;
   --color-btn-primary: #ffffff;
   --color-btn-primary-hover: #e0e0e0;
