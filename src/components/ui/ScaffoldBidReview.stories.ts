@@ -106,11 +106,6 @@ export const SeptemberBid: Story = {
             </div>
           </div>
 
-          <!-- Lane volume - using KpiCard -->
-          <div class="max-w-[260px]">
-            <KpiCard value="100%" label="Lane volume assigned" accentColor="accent" />
-          </div>
-
           <!-- How it works -->
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[16px]">
             <div class="flex-1">
@@ -170,12 +165,6 @@ export const SeptemberBid: Story = {
             </table>
           </div>
 
-          <!-- Floating action button -->
-          <div class="flex justify-end sticky bottom-[16px] z-20">
-            <button class="px-[20px] py-[12px] text-[14px] font-semibold bg-btn-primary text-btn-primary-text rounded-[8px] hover:bg-btn-primary-hover transition-colors shadow-lg">
-              Send all assignments
-            </button>
-          </div>
         </template>
       </ScaffoldDetail>
     `,
