@@ -172,13 +172,13 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
                 </button>
               </div>
 
-              <!-- Mobile: same style as hamburger menu -->
-              <div class="sm:hidden">
+              <!-- Mobile: identical to hamburger drawer -->
+              <div class="sm:hidden border-b border-border">
                 <div v-for="(group, gi) in modules" :key="group.title">
                   <div class="px-[16px] pt-[12px] pb-[4px]">
                     <span class="text-[12px] text-content-tertiary">{{ group.title }}</span>
                   </div>
-                  <nav class="flex flex-col py-[4px]">
+                  <nav class="flex flex-col py-[8px]">
                     <button
                       v-for="(item, ii) in group.items"
                       :key="item.label"
