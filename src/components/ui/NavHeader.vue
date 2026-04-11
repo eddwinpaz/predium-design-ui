@@ -29,12 +29,14 @@ const props = withDefaults(
     userName?: string
     userInitials?: string
     avatarColor?: string
+    showMenuButton?: boolean
   }>(),
   {
     brand: 'Predium',
     brandSuffix: 'Exchange',
     subtitle: '',
     avatarColor: '#276EF1',
+    showMenuButton: false,
   }
 )
 
@@ -42,6 +44,7 @@ const emit = defineEmits<{
   navigate: [item: NavItem]
   moduleClick: [item: ModuleItem]
   avatarClick: []
+  menuClick: []
 }>()
 
 const mobileMenuOpen = ref(false)
@@ -95,13 +98,13 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
     <header class="flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-border bg-surface">
       <!-- Left: Hamburger (mobile) + Brand -->
       <div class="flex items-center gap-[8px]">
+        <!-- Hamburger: for sidebar on mobile OR nav menu -->
         <button
-          v-if="navItems?.length"
+          v-if="showMenuButton || navItems?.length"
           class="sm:hidden w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-content-primary hover:bg-surface-input transition-colors"
-          @click="toggleMobileMenu"
+          @click="showMenuButton ? $emit('menuClick') : toggleMobileMenu()"
         >
-          <svg v-if="!mobileMenuOpen" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
-          <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
 
         <div class="flex items-center gap-1">

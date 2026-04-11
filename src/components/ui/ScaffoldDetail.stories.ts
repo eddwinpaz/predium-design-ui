@@ -91,14 +91,16 @@ export const ShipmentDetail: Story = {
         </template>
 
         <!-- Top nav -->
-        <template #navHeader>
+        <template #navHeader="{ openSidebar }">
           <NavHeader
             brand="Predium"
             brandSuffix="TMS"
             subtitle="Bev's Beverages Operations"
             :modules="modules"
+            :showMenuButton="true"
             userName="Alejandro Bernal"
             avatarColor="#000"
+            @menuClick="openSidebar"
           />
         </template>
 
