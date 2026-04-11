@@ -159,23 +159,53 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="fixed left-[8px] right-[8px] top-[60px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl max-h-[70vh] overflow-hidden
-                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:rounded-[16px]"
+              class="fixed inset-0 top-[52px] z-[9999] bg-surface overflow-y-auto
+                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px] sm:border sm:border-border sm:shadow-2xl"
             >
-              <!-- Header: just X button, no title -->
-              <div class="flex items-center justify-end px-[12px] pt-[10px]">
+              <!-- Mobile: X button top right -->
+              <div class="flex items-center justify-end px-[16px] pt-[12px] sm:px-[12px] sm:pt-[10px]">
                 <button
-                  class="w-[28px] h-[28px] flex items-center justify-center rounded-[6px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors"
+                  class="w-[32px] h-[32px] sm:w-[28px] sm:h-[28px] flex items-center justify-center rounded-[8px] text-content-tertiary hover:text-content-primary hover:bg-surface-input transition-colors"
                   @click="gridOpen = false"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
                 </button>
               </div>
 
-              <!-- Groups: horizontal scroll on mobile, grid on desktop -->
-              <div class="overflow-x-auto scrollbar-none pb-[16px] px-[16px] sm:px-[20px] sm:pb-[20px]">
-                <div class="flex gap-[24px] sm:grid sm:grid-cols-2 sm:gap-[24px] min-w-max sm:min-w-0">
-                  <div v-for="(group, gi) in modules" :key="group.title" class="min-w-[180px] sm:min-w-0 flex-shrink-0 sm:flex-shrink">
+              <!-- Mobile: vertical list with dividers -->
+              <div class="sm:hidden">
+                <div v-for="(group, gi) in modules" :key="group.title">
+                  <div class="px-[16px] pt-[16px] pb-[8px]">
+                    <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
+                  </div>
+                  <div>
+                    <button
+                      v-for="(item, ii) in group.items"
+                      :key="item.label"
+                      class="flex items-center gap-[12px] w-full px-[16px] py-[14px] border-b border-border text-left active:bg-surface-input transition-colors"
+                      @click="gridOpen = false; $emit('moduleClick', item)"
+                    >
+                      <div
+                        class="w-[36px] h-[36px] rounded-[10px] flex items-center justify-center flex-shrink-0"
+                        :style="{ backgroundColor: getColor(item, gi, ii) + '18' }"
+                      >
+                        <svg
+                          width="18" height="18" viewBox="0 0 24 24" fill="none"
+                          :stroke="getColor(item, gi, ii)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        >
+                          <path :d="getIconPath(item)" />
+                        </svg>
+                      </div>
+                      <span class="text-[15px] font-medium text-content-primary">{{ item.label }}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Desktop: 2-column grid -->
+              <div class="hidden sm:block px-[20px] pb-[20px]">
+                <div class="grid grid-cols-2 gap-[24px]">
+                  <div v-for="(group, gi) in modules" :key="group.title">
                     <div class="mb-[10px]">
                       <span class="text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]">{{ group.title }}</span>
                     </div>
@@ -183,7 +213,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
                       <button
                         v-for="(item, ii) in group.items"
                         :key="item.label"
-                        class="flex items-center gap-[10px] px-[10px] py-[8px] rounded-[8px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer text-left whitespace-nowrap"
+                        class="flex items-center gap-[10px] px-[10px] py-[8px] rounded-[8px] hover:bg-surface-input active:bg-surface-input-hover transition-colors cursor-pointer text-left"
                         @click="gridOpen = false; $emit('moduleClick', item)"
                       >
                         <div
