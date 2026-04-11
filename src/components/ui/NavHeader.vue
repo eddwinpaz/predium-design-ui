@@ -156,10 +156,8 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="absolute right-0 top-[44px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl overflow-hidden
-                     w-[calc(100vw-24px)] sm:w-auto sm:min-w-[400px] md:min-w-[480px]
-                     max-h-[70vh] overflow-y-auto"
-              style="max-width: min(560px, calc(100vw - 24px));"
+              class="fixed inset-x-[8px] top-[60px] bottom-[8px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl overflow-y-auto
+                     sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:bottom-auto sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px]"
             >
               <!-- Header -->
               <div class="px-[20px] pt-[20px] pb-[12px] border-b border-border">
@@ -239,7 +237,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
       </div>
     </Transition>
 
-    <!-- Backdrop for closing modules panel -->
-    <div v-if="gridOpen" class="fixed inset-0 z-[9998]" @click="gridOpen = false" />
+    <!-- Backdrop -->
+    <div v-if="gridOpen" class="fixed inset-0 z-[9998] bg-black/20 sm:bg-transparent" @click="gridOpen = false" />
   </div>
 </template>

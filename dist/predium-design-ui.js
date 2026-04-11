@@ -1578,8 +1578,7 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 	class: "hidden sm:flex items-center gap-[2px] mr-[12px]"
 }, Wn = ["onClick"], Gn = { class: "relative" }, Kn = {
 	key: 0,
-	class: "absolute right-0 top-[44px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl overflow-hidden w-[calc(100vw-24px)] sm:w-auto sm:min-w-[400px] md:min-w-[480px] max-h-[70vh] overflow-y-auto",
-	style: { "max-width": "min(560px, calc(100vw - 24px))" }
+	class: "fixed inset-x-[8px] top-[60px] bottom-[8px] z-[9999] bg-surface border border-border rounded-[16px] shadow-2xl overflow-y-auto sm:absolute sm:inset-auto sm:right-0 sm:top-[44px] sm:bottom-auto sm:w-[420px] sm:max-h-[70vh] sm:rounded-[16px]"
 }, qn = { class: "p-[16px] sm:p-[20px] grid grid-cols-1 sm:grid-cols-2 gap-[20px] sm:gap-[24px]" }, Jn = { class: "mb-[10px]" }, Yn = { class: "text-[11px] font-semibold text-content-tertiary uppercase tracking-[1px]" }, Xn = { class: "flex flex-col gap-[2px]" }, Zn = ["onClick"], Qn = ["stroke"], $n = ["d"], er = { class: "text-[13px] font-medium text-content-primary" }, tr = {
 	key: 0,
 	class: "sm:hidden border-b border-border bg-surface"
@@ -1709,7 +1708,7 @@ var V = { class: "w-full" }, H = ["aria-expanded", "onClick"], U = { class: "px-
 			}),
 			m.value ? (g(), a("div", {
 				key: 0,
-				class: "fixed inset-0 z-[9998]",
+				class: "fixed inset-0 z-[9998] bg-black/20 sm:bg-transparent",
 				onClick: c[1] ||= (e) => m.value = !1
 			})) : i("", !0)
 		]));
