@@ -138,7 +138,7 @@ export const CreateLease: Story = {
           <Stepper :steps="steps" :activeStep="0" />
 
           <!-- Form Card -->
-          <div class="border border-border rounded-[12px] bg-surface p-[24px]">
+          <div class="border border-border rounded-[12px] bg-surface p-[14px] sm:p-[20px] md:p-[24px]">
 
             <!-- Section: Select Property & Unit -->
             <div>
@@ -179,7 +179,7 @@ export const CreateLease: Story = {
             </div>
 
             <!-- Section: Monthly Rent -->
-            <div class="mt-[32px]">
+            <div class="mt-[24px] sm:mt-[32px]">
               <h3 class="text-[16px] font-semibold text-content-primary mb-[16px]">Monthly Rent</h3>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-[16px]">
                 <FormControl label="Base rent">
@@ -195,7 +195,7 @@ export const CreateLease: Story = {
             </div>
 
             <!-- Section: Lease Duration -->
-            <div class="mt-[32px]">
+            <div class="mt-[24px] sm:mt-[32px]">
               <h3 class="text-[16px] font-semibold text-content-primary mb-[16px]">Lease Duration</h3>
 
               <!-- Lease type tiles -->
@@ -219,7 +219,7 @@ export const CreateLease: Story = {
             </div>
 
             <!-- Section: Additional Terms -->
-            <div class="mt-[32px]">
+            <div class="mt-[24px] sm:mt-[32px]">
               <h3 class="text-[16px] font-semibold text-content-primary mb-[16px]">Additional Terms</h3>
               <div class="flex flex-col gap-[16px]">
                 <Checkbox
@@ -247,12 +247,12 @@ export const CreateLease: Story = {
           </div>
 
           <!-- Bottom bar -->
-          <div class="border-t border-border pt-[20px] mt-[32px] flex items-center justify-between">
-            <button class="px-[20px] py-[10px] text-[14px] font-medium text-content-primary bg-surface-input hover:bg-surface-input-hover rounded-[8px] transition-colors">
+          <div class="border-t border-border pt-[16px] sm:pt-[20px] mt-[24px] sm:mt-[24px] sm:mt-[32px] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-[10px]">
+            <button class="px-[16px] sm:px-[20px] py-[10px] text-[14px] font-medium text-content-primary bg-surface-input hover:bg-surface-input-hover rounded-[8px] transition-colors order-2 sm:order-1">
               Save as draft
             </button>
-            <button class="px-[20px] py-[10px] text-[14px] font-medium bg-btn-primary text-btn-primary-text rounded-[8px] transition-colors">
-              Continue to tenant info \u2192
+            <button class="px-[16px] sm:px-[20px] py-[10px] text-[14px] font-medium bg-btn-primary text-btn-primary-text rounded-[8px] transition-colors order-1 sm:order-2">
+              Continue to tenant info →
             </button>
           </div>
         </template>
