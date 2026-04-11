@@ -2166,7 +2166,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 	"disabled"
 ], Gr = { class: "mt-0.5" }, Kr = {
 	key: 0,
-	class: "w-2.5 h-2.5 rounded-full bg-black"
+	class: "w-2.5 h-2.5 rounded-full bg-content-primary"
 }, qr = { class: "text-sm font-medium text-content-primary" }, Jr = {
 	key: 0,
 	class: "text-xs text-content-tertiary mt-0.5"
@@ -2200,7 +2200,7 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 				disabled: e.disabled,
 				class: "sr-only"
 			}, null, 8, Wr),
-			o("div", Gr, [o("div", { class: f(["w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors", t.modelValue === e.value ? "border-black" : e.disabled ? "border-border" : "border-border group-hover:border-border-hover"]) }, [t.modelValue === e.value ? (g(), a("div", Kr)) : i("", !0)], 2)]),
+			o("div", Gr, [o("div", { class: f(["w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors", t.modelValue === e.value ? "border-content-primary" : e.disabled ? "border-border" : "border-content-tertiary group-hover:border-content-secondary"]) }, [t.modelValue === e.value ? (g(), a("div", Kr)) : i("", !0)], 2)]),
 			o("div", null, [o("span", qr, S(e.label), 1), e.description ? (g(), a("p", Jr, S(e.description), 1)) : i("", !0)])
 		], 10, Ur))), 128))], 2));
 	}

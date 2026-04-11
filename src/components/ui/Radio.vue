@@ -56,15 +56,15 @@ function select(option: RadioOption) {
           :class="[
             'w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors',
             modelValue === option.value
-              ? 'border-black'
+              ? 'border-content-primary'
               : option.disabled
                 ? 'border-border'
-                : 'border-border group-hover:border-border-hover',
+                : 'border-content-tertiary group-hover:border-content-secondary',
           ]"
         >
           <div
             v-if="modelValue === option.value"
-            class="w-2.5 h-2.5 rounded-full bg-black"
+            class="w-2.5 h-2.5 rounded-full bg-content-primary"
           />
         </div>
       </div>
