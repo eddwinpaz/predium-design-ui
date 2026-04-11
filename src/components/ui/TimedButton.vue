@@ -65,7 +65,6 @@ function reset() {
   finished.value = false
 }
 
-/* Declarative start/pause via paused prop */
 watch(() => props.paused, (paused) => {
   if (!paused && !finished.value) {
     startTimer()
@@ -89,7 +88,7 @@ defineExpose({ reset })
       'relative inline-flex items-center justify-center overflow-hidden rounded-[8px] text-[14px] font-medium',
       'h-[48px] min-w-[140px]',
       finished || disabled
-        ? 'bg-surface-input-hover text-content-disabled cursor-not-allowed'
+        ? 'bg-bg-tertiary text-content-disabled cursor-not-allowed'
         : 'cursor-pointer',
     ]"
     :disabled="finished || disabled"
@@ -97,19 +96,19 @@ defineExpose({ reset })
   >
     <!-- Background layers when running -->
     <template v-if="running && !finished">
-      <!-- Elapsed portion: black -->
+      <!-- Elapsed portion: darker gray -->
       <div
-        class="absolute inset-y-0 left-0 bg-btn-primary transition-[width] duration-1000 ease-linear"
+        class="absolute inset-y-0 left-0 bg-content-tertiary transition-[width] duration-1000 ease-linear"
         :style="{ width: progress + '%' }"
       />
-      <!-- Remaining portion: gray -->
+      <!-- Remaining portion: lighter gray -->
       <div
-        class="absolute inset-y-0 right-0 bg-surface-input-hover transition-[width] duration-1000 ease-linear"
+        class="absolute inset-y-0 right-0 bg-bg-tertiary transition-[width] duration-1000 ease-linear"
         :style="{ width: (100 - progress) + '%' }"
       />
     </template>
 
-    <!-- Solid black when paused but not finished and not started yet -->
+    <!-- Solid dark when paused but not finished and not started yet -->
     <div
       v-if="!running && !finished && !disabled"
       class="absolute inset-0 bg-btn-primary"
@@ -119,7 +118,9 @@ defineExpose({ reset })
     <span
       :class="[
         'relative z-10 flex items-center gap-[4px] px-[16px]',
-        finished || disabled ? 'text-content-disabled' : 'text-btn-primary-text',
+        finished || disabled ? 'text-content-disabled' : '',
+        running ? 'text-content-primary' : '',
+        !running && !finished && !disabled ? 'text-btn-primary-text' : '',
       ]"
     >
       <span>{{ label }}</span>

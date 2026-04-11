@@ -2979,20 +2979,25 @@ var V = { class: "w-full border-t border-border" }, H = ["aria-expanded", "onCli
 			class: f([
 				"relative inline-flex items-center justify-center overflow-hidden rounded-[8px] text-[14px] font-medium",
 				"h-[48px] min-w-[140px]",
-				d.value || t.disabled ? "bg-surface-input-hover text-content-disabled cursor-not-allowed" : "cursor-pointer"
+				d.value || t.disabled ? "bg-bg-tertiary text-content-disabled cursor-not-allowed" : "cursor-pointer"
 			]),
 			disabled: d.value || t.disabled,
 			onClick: r[0] ||= (e) => !d.value && !t.disabled && n.$emit("click")
 		}, [
 			v.value && !d.value ? (g(), a(e, { key: 0 }, [o("div", {
-				class: "absolute inset-y-0 left-0 bg-btn-primary transition-[width] duration-1000 ease-linear",
+				class: "absolute inset-y-0 left-0 bg-content-tertiary transition-[width] duration-1000 ease-linear",
 				style: p({ width: b.value + "%" })
 			}, null, 4), o("div", {
-				class: "absolute inset-y-0 right-0 bg-surface-input-hover transition-[width] duration-1000 ease-linear",
+				class: "absolute inset-y-0 right-0 bg-bg-tertiary transition-[width] duration-1000 ease-linear",
 				style: p({ width: 100 - b.value + "%" })
 			}, null, 4)], 64)) : i("", !0),
 			!v.value && !d.value && !t.disabled ? (g(), a("div", va)) : i("", !0),
-			o("span", { class: f(["relative z-10 flex items-center gap-[4px] px-[16px]", d.value || t.disabled ? "text-content-disabled" : "text-btn-primary-text"]) }, [o("span", null, S(t.label), 1), o("span", ya, "(" + S(y.value) + ")", 1)], 2)
+			o("span", { class: f([
+				"relative z-10 flex items-center gap-[4px] px-[16px]",
+				d.value || t.disabled ? "text-content-disabled" : "",
+				v.value ? "text-content-primary" : "",
+				!v.value && !d.value && !t.disabled ? "text-btn-primary-text" : ""
+			]) }, [o("span", null, S(t.label), 1), o("span", ya, "(" + S(y.value) + ")", 1)], 2)
 		], 10, _a));
 	}
 }), xa = { class: "flex-1" }, Sa = /* @__PURE__ */ u({
