@@ -24,7 +24,7 @@ defineExpose({ openMobileSidebar, closeMobileSidebar });
 <template>
   <div class="flex h-screen overflow-hidden bg-surface">
     <!-- Desktop sidebar -->
-    <div class="hidden sm:flex">
+    <div class="hidden lg:flex">
       <slot name="sidebar" />
     </div>
 
@@ -39,7 +39,7 @@ defineExpose({ openMobileSidebar, closeMobileSidebar });
     >
       <div
         v-if="mobileSidebarOpen"
-        class="sm:hidden fixed inset-y-0 left-0 z-[9999] flex"
+        class="lg:hidden fixed inset-y-0 left-0 z-[10001] flex [&_nav]:!w-[240px]"
       >
         <slot name="sidebar" />
       </div>
@@ -55,7 +55,7 @@ defineExpose({ openMobileSidebar, closeMobileSidebar });
     >
       <div
         v-if="mobileSidebarOpen"
-        class="sm:hidden fixed inset-0 z-[9998] bg-black/40"
+        class="lg:hidden fixed inset-0 z-[10000] bg-black/40"
         @click="closeMobileSidebar"
       />
     </Transition>

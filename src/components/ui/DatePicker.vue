@@ -177,7 +177,7 @@ const sizeClasses = computed(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="relative inline-block w-64">
+  <div ref="containerRef" class="relative inline-block w-full">
     <!-- Trigger -->
     <button
       type="button"

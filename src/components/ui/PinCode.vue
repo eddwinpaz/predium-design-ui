@@ -65,6 +65,26 @@ function handleBackspace(index: number, event: KeyboardEvent) {
     });
   }
 }
+
+function handlePaste(event: ClipboardEvent) {
+  event.preventDefault();
+  const pasted = event.clipboardData
+    ?.getData("text")
+    .replace(/\D/g, "")
+    .slice(0, props.length) || "";
+  if (!pasted) return;
+
+  emit("update:modelValue", pasted.padEnd(props.length, "").slice(0, props.length));
+
+  const focusIndex = Math.min(pasted.length, props.length - 1);
+  nextTick(() => {
+    inputs.value[focusIndex]?.focus();
+  });
+
+  if (pasted.length === props.length) {
+    emit("complete", pasted);
+  }
+}
 </script>
 
 <template>
@@ -88,6 +108,7 @@ function handleBackspace(index: number, event: KeyboardEvent) {
       ]"
       @input="handleInput(i - 1, $event)"
       @keydown.backspace="handleBackspace(i - 1, $event)"
+      @paste="handlePaste"
     />
   </div>
 </template>
