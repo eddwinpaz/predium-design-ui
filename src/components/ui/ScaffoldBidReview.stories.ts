@@ -125,14 +125,15 @@ export const SeptemberBid: Story = {
             brand="Predium"
             brandSuffix="Exchange"
             subtitle="Dunder Mifflin"
-            :navItems="[
-              { label: 'Bid events', active: true },
-              { label: 'Carriers' },
-            ]"
-            :modules="modules"
-            userName="Alejandro Bernal"
-            avatarColor="#276EF1"
-          />
+          >
+            <template #actions>
+              <nav class="hidden sm:flex items-center gap-[2px] mr-[12px]">
+                <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-primary font-medium whitespace-nowrap">Bid events</button>
+                <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Carriers</button>
+              </nav>
+              <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #276EF1">AB</button>
+            </template>
+          </NavHeader>
         </template>
 
         <!-- Page Header -->

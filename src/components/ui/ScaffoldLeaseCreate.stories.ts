@@ -200,17 +200,18 @@ export const CreateLease: Story = {
             brand="PREDIUM"
             brandSuffix=""
             subtitle="Inmobiliaria Pedro Mariano"
-            :navItems="[
-              { label: 'Propiedades' },
-              { label: 'Contratos', active: true },
-              { label: 'Pagos' },
-            ]"
-            :modules="modules"
             :showMenuButton="true"
-            userName="Eddwin Paz"
-            avatarColor="#000"
             @menuClick="openSidebar"
-          />
+          >
+            <template #actions>
+              <nav class="hidden sm:flex items-center gap-[2px] mr-[12px]">
+                <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Propiedades</button>
+                <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-primary font-medium whitespace-nowrap">Contratos</button>
+                <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Pagos</button>
+              </nav>
+              <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #000">EP</button>
+            </template>
+          </NavHeader>
         </template>
 
         <!-- Page Header -->

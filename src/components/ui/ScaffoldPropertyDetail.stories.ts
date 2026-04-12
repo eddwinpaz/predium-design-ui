@@ -192,9 +192,11 @@ export const PropertyDetail: Story = {
             brand="Predium"
             brandSuffix="Properties"
             subtitle="Sunset Realty Group"
-            :modules="modules"
-            userName="Maria Santos"
-          />
+          >
+            <template #actions>
+              <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #276EF1">MS</button>
+            </template>
+          </NavHeader>
         </template>
 
         <!-- Page header -->

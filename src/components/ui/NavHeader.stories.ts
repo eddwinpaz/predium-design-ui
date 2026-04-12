@@ -1,30 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import NavHeader from "./NavHeader.vue";
 
-const defaultModules = [
-  {
-    title: "Properties",
-    items: [
-      { label: "New Property" },
-      { label: "List Properties" },
-      { label: "Payments" },
-      { label: "Sinisters" },
-    ],
-  },
-  {
-    title: "Operations",
-    items: [
-      { label: "Maintenance" },
-      { label: "Ticket Support" },
-      { label: "Calendar" },
-    ],
-  },
-  {
-    title: "Admin",
-    items: [{ label: "Reports" }, { label: "Settings" }],
-  },
-];
-
 const meta: Meta<typeof NavHeader> = {
   title: "UI/NavHeader",
   component: NavHeader,
@@ -33,9 +9,6 @@ const meta: Meta<typeof NavHeader> = {
     brand: { control: "text" },
     brandSuffix: { control: "text" },
     subtitle: { control: "text" },
-    userName: { control: "text" },
-    userInitials: { control: "text" },
-    avatarColor: { control: "color" },
   },
   decorators: [
     () => ({
@@ -49,98 +22,106 @@ export default meta;
 type Story = StoryObj<typeof NavHeader>;
 
 export const Default: Story = {
-  args: {
-    brand: "Predium",
-    brandSuffix: "Exchange",
-    subtitle: "Bev's Beverages",
-    navItems: [
-      { label: "Bid events", active: true },
-      { label: "My organization" },
-      { label: "My carriers" },
-    ],
-    modules: defaultModules,
-    userName: "Alejandro Bernal",
-    avatarColor: "#000",
-  },
+  render: () => ({
+    components: { NavHeader },
+    template: `
+      <NavHeader brand="Predium" brandSuffix="Exchange" subtitle="Bev's Beverages">
+        <template #actions>
+          <nav class="hidden sm:flex items-center gap-[2px] mr-[12px]">
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-primary font-medium whitespace-nowrap">Bid events</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">My organization</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">My carriers</button>
+          </nav>
+          <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #000">AB</button>
+        </template>
+        <template #mobile-menu>
+          <nav class="flex flex-col py-[8px]">
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">Bid events</button>
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">My organization</button>
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">My carriers</button>
+          </nav>
+        </template>
+      </NavHeader>
+    `,
+  }),
 };
 
-export const WithModules: Story = {
-  args: {
-    brand: "Predium",
-    brandSuffix: "TMS",
-    subtitle: "RapidHaul Logistics",
-    navItems: [
-      { label: "Dashboard", active: true },
-      { label: "Shipments" },
-      { label: "Orders" },
-    ],
-    modules: [
-      {
-        title: "Properties",
-        items: [
-          { label: "New Property", color: "#276EF1" },
-          { label: "List Properties", color: "#048848" },
-          { label: "Payments", color: "#7356BF" },
-          { label: "Sinisters", color: "#E11900" },
-        ],
-      },
-      {
-        title: "Operations",
-        items: [
-          { label: "Maintenance", color: "#FFC043" },
-          { label: "Ticket Support", color: "#0D9488" },
-          { label: "Calendar", color: "#4F46E5" },
-        ],
-      },
-      {
-        title: "Admin",
-        items: [
-          { label: "Reports", color: "#F97066" },
-          { label: "Settings", color: "#545454" },
-        ],
-      },
-    ],
-    userName: "Maria Santos",
-    avatarColor: "#7356BF",
-  },
+export const WithNavAndGrid: Story = {
+  render: () => ({
+    components: { NavHeader },
+    template: `
+      <NavHeader brand="Predium" brandSuffix="TMS" subtitle="RapidHaul Logistics">
+        <template #actions>
+          <nav class="hidden sm:flex items-center gap-[2px] mr-[12px]">
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-primary font-medium whitespace-nowrap">Dashboard</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Shipments</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Orders</button>
+          </nav>
+          <button class="w-[36px] h-[36px] flex items-center justify-center rounded-[8px] text-content-secondary hover:bg-surface-input">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="5" cy="5" r="2" /><circle cx="12" cy="5" r="2" /><circle cx="19" cy="5" r="2" />
+              <circle cx="5" cy="12" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="19" cy="12" r="2" />
+              <circle cx="5" cy="19" r="2" /><circle cx="12" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
+            </svg>
+          </button>
+          <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #7356BF">MS</button>
+        </template>
+      </NavHeader>
+    `,
+  }),
 };
 
 export const Minimal: Story = {
-  args: {
-    brand: "Predium",
-    brandSuffix: "",
-    navItems: [{ label: "Dashboard", active: true }, { label: "Settings" }],
-    modules: defaultModules,
-    userInitials: "EP",
-    avatarColor: "#048848",
-  },
+  render: () => ({
+    components: { NavHeader },
+    template: `
+      <NavHeader brand="Predium" brandSuffix="">
+        <template #actions>
+          <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #048848">EP</button>
+        </template>
+      </NavHeader>
+    `,
+  }),
 };
 
 export const FullNav: Story = {
-  args: {
-    brand: "Predium",
-    brandSuffix: "TMS",
-    subtitle: "RapidHaul Logistics",
-    navItems: [
-      { label: "Dashboard" },
-      { label: "Shipments", active: true },
-      { label: "Orders" },
-      { label: "Carriers" },
-      { label: "Billing" },
-    ],
-    modules: defaultModules,
-    userName: "Maria Santos",
-    avatarColor: "#7356BF",
-  },
+  render: () => ({
+    components: { NavHeader },
+    template: `
+      <NavHeader brand="Predium" brandSuffix="TMS" subtitle="RapidHaul Logistics">
+        <template #actions>
+          <nav class="hidden sm:flex items-center gap-[2px] mr-[12px]">
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Dashboard</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-primary font-medium whitespace-nowrap">Shipments</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Orders</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Carriers</button>
+            <button class="px-[12px] py-[6px] text-[14px] rounded-[8px] text-content-secondary hover:text-content-primary hover:bg-surface-input whitespace-nowrap">Billing</button>
+          </nav>
+          <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #7356BF">MS</button>
+        </template>
+        <template #mobile-menu>
+          <nav class="flex flex-col py-[8px]">
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">Dashboard</button>
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">Shipments</button>
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">Orders</button>
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">Carriers</button>
+            <button class="w-full text-left px-[16px] py-[12px] text-[15px] text-content-secondary hover:bg-surface-input hover:text-content-primary">Billing</button>
+          </nav>
+        </template>
+      </NavHeader>
+    `,
+  }),
 };
 
-export const NoModules: Story = {
-  args: {
-    brand: "Predium",
-    brandSuffix: "Exchange",
-    subtitle: "Contract Management",
-    navItems: [{ label: "Contracts", active: true }, { label: "Carriers" }],
-    userName: "John Doe",
-    avatarColor: "#E11900",
-  },
+export const NoActions: Story = {
+  render: () => ({
+    components: { NavHeader },
+    template: `
+      <NavHeader
+        brand="Predium"
+        brandSuffix="Exchange"
+        subtitle="Contract Management"
+      />
+    `,
+  }),
 };

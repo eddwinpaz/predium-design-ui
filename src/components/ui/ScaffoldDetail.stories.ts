@@ -145,12 +145,13 @@ export const ShipmentDetail: Story = {
             brand="Predium"
             brandSuffix="TMS"
             subtitle="Bev's Beverages Operations"
-            :modules="modules"
             :showMenuButton="true"
-            userName="Alejandro Bernal"
-            avatarColor="#000"
             @menuClick="openSidebar"
-          />
+          >
+            <template #actions>
+              <button class="w-[36px] h-[36px] rounded-full flex items-center justify-center text-white text-[11px] font-semibold hover:opacity-90" style="background-color: #000">AB</button>
+            </template>
+          </NavHeader>
         </template>
 
         <!-- Page header -->
