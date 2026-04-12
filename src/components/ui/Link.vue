@@ -1,38 +1,41 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
-const props = withDefaults(defineProps<{
-  href?: string
-  to?: string | Record<string, unknown>
-  external?: boolean
-  kind?: 'default' | 'underline' | 'subtle'
-  size?: 'sm' | 'md'
-}>(), {
-  href: undefined,
-  to: undefined,
-  external: false,
-  kind: 'default',
-  size: 'md',
-})
+const props = withDefaults(
+  defineProps<{
+    href?: string;
+    to?: string | Record<string, unknown>;
+    external?: boolean;
+    kind?: "default" | "underline" | "subtle";
+    size?: "sm" | "md";
+  }>(),
+  {
+    href: undefined,
+    to: undefined,
+    external: false,
+    kind: "default",
+    size: "md",
+  },
+);
 
 const linkClasses = computed(() => {
   const kindMap: Record<string, string> = {
-    default: 'text-accent hover:text-accent/80 font-medium',
-    underline: 'text-accent underline underline-offset-2 hover:text-accent/80',
-    subtle: 'text-content-secondary hover:text-content-primary',
-  }
+    default: "text-accent hover:text-accent/80 font-medium",
+    underline: "text-accent underline underline-offset-2 hover:text-accent/80",
+    subtle: "text-content-secondary hover:text-content-primary",
+  };
 
   const sizeMap: Record<string, string> = {
-    sm: 'text-xs',
-    md: 'text-sm',
-  }
+    sm: "text-xs",
+    md: "text-sm",
+  };
 
   return [
-    'inline-flex items-center transition-colors',
+    "inline-flex items-center transition-colors",
     kindMap[props.kind],
     sizeMap[props.size],
-  ].join(' ')
-})
+  ].join(" ");
+});
 </script>
 
 <template>

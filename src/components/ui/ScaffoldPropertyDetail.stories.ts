@@ -1,93 +1,183 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import SidebarNav from './SidebarNav.vue'
-import NavHeader from './NavHeader.vue'
-import PageHeader from './PageHeader.vue'
-import Tabs from './Tabs.vue'
-import DetailSection from './DetailSection.vue'
-import DataGrid from './DataGrid.vue'
-import Badge from './Badge.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import SidebarNav from "./SidebarNav.vue";
+import NavHeader from "./NavHeader.vue";
+import PageHeader from "./PageHeader.vue";
+import Tabs from "./Tabs.vue";
+import DetailSection from "./DetailSection.vue";
+import DataGrid from "./DataGrid.vue";
+import Badge from "./Badge.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/PropertyDetail',
+  title: "Scaffolds/PropertyDetail",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const PropertyDetail: Story = {
   render: () => ({
-    components: { ScaffoldDetail, SidebarNav, NavHeader, PageHeader, Tabs, DetailSection, DataGrid, Badge },
+    components: {
+      ScaffoldDetail,
+      SidebarNav,
+      NavHeader,
+      PageHeader,
+      Tabs,
+      DetailSection,
+      DataGrid,
+      Badge,
+    },
     setup() {
-      const sidebarCollapsed = ref(window.innerWidth < 1024)
-      const activeTab = ref('overview')
+      const sidebarCollapsed = ref(window.innerWidth < 1024);
+      const activeTab = ref("overview");
       const tabs = [
-        { key: 'overview', label: 'Overview' },
-        { key: 'units', label: 'Units' },
-        { key: 'tenants', label: 'Tenants' },
-        { key: 'leases', label: 'Leases' },
-        { key: 'maintenance', label: 'Maintenance' },
-        { key: 'financials', label: 'Financials' },
-        { key: 'documents', label: 'Documents' },
-      ]
+        { key: "overview", label: "Overview" },
+        { key: "units", label: "Units" },
+        { key: "tenants", label: "Tenants" },
+        { key: "leases", label: "Leases" },
+        { key: "maintenance", label: "Maintenance" },
+        { key: "financials", label: "Financials" },
+        { key: "documents", label: "Documents" },
+      ];
       const navItems = [
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Properties', to: '/properties', active: true },
-        { label: 'Tenants', to: '/tenants' },
-        { label: 'Leases', to: '/leases' },
-        { label: 'Maintenance', to: '/maintenance' },
-        { label: 'Payments', to: '/payments' },
-        { label: 'Reports', to: '/reports' },
-        { label: 'Settings', to: '/settings' },
-      ]
+        { label: "Dashboard", to: "/dashboard" },
+        { label: "Properties", to: "/properties", active: true },
+        { label: "Tenants", to: "/tenants" },
+        { label: "Leases", to: "/leases" },
+        { label: "Maintenance", to: "/maintenance" },
+        { label: "Payments", to: "/payments" },
+        { label: "Reports", to: "/reports" },
+        { label: "Settings", to: "/settings" },
+      ];
       const modules = [
-        { title: 'Properties', items: [
-          { label: 'Properties' }, { label: 'Units' }, { label: 'Amenities' },
-        ]},
-        { title: 'Operations', items: [
-          { label: 'Maintenance' }, { label: 'Inspections' }, { label: 'Vendors' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Settings' }, { label: 'Reports' },
-        ]},
-      ]
+        {
+          title: "Properties",
+          items: [
+            { label: "Properties" },
+            { label: "Units" },
+            { label: "Amenities" },
+          ],
+        },
+        {
+          title: "Operations",
+          items: [
+            { label: "Maintenance" },
+            { label: "Inspections" },
+            { label: "Vendors" },
+          ],
+        },
+        {
+          title: "Admin",
+          items: [{ label: "Settings" }, { label: "Reports" }],
+        },
+      ];
 
       const unitsCols = [
-        { key: 'unit', label: 'Unit', width: '70px' },
-        { key: 'type', label: 'Type', width: '90px' },
-        { key: 'bedrooms', label: 'Bedrooms', width: '90px' },
-        { key: 'bathrooms', label: 'Bathrooms', width: '90px' },
-        { key: 'sqft', label: 'Sq Ft', width: '80px' },
-        { key: 'rent', label: 'Rent', width: '90px' },
-        { key: 'status', label: 'Status', width: '100px' },
-        { key: 'tenant', label: 'Tenant' },
-      ]
+        { key: "unit", label: "Unit", width: "70px" },
+        { key: "type", label: "Type", width: "90px" },
+        { key: "bedrooms", label: "Bedrooms", width: "90px" },
+        { key: "bathrooms", label: "Bathrooms", width: "90px" },
+        { key: "sqft", label: "Sq Ft", width: "80px" },
+        { key: "rent", label: "Rent", width: "90px" },
+        { key: "status", label: "Status", width: "100px" },
+        { key: "tenant", label: "Tenant" },
+      ];
       const unitsRows = [
-        { unit: '1A', type: 'Studio', bedrooms: '0', bathrooms: '1', sqft: '450', rent: '$1,200', status: 'Occupied', statusVariant: 'positive', tenant: 'John Martinez' },
-        { unit: '1B', type: '1BR', bedrooms: '1', bathrooms: '1', sqft: '650', rent: '$1,600', status: 'Occupied', statusVariant: 'positive', tenant: 'Sarah Chen' },
-        { unit: '2A', type: '2BR', bedrooms: '2', bathrooms: '1', sqft: '900', rent: '$2,200', status: 'Occupied', statusVariant: 'positive', tenant: 'Mike Johnson' },
-        { unit: '2B', type: '2BR', bedrooms: '2', bathrooms: '2', sqft: '950', rent: '$2,400', status: 'Vacant', statusVariant: 'neutral', tenant: '\u2014' },
-        { unit: '3A', type: '3BR', bedrooms: '3', bathrooms: '2', sqft: '1,200', rent: '$3,100', status: 'Occupied', statusVariant: 'positive', tenant: 'The Williams Family' },
-        { unit: '3B', type: 'Penthouse', bedrooms: '3', bathrooms: '2.5', sqft: '1,500', rent: '$4,200', status: 'Notice', statusVariant: 'warning', tenant: 'David Park' },
-      ]
+        {
+          unit: "1A",
+          type: "Studio",
+          bedrooms: "0",
+          bathrooms: "1",
+          sqft: "450",
+          rent: "$1,200",
+          status: "Occupied",
+          statusVariant: "positive",
+          tenant: "John Martinez",
+        },
+        {
+          unit: "1B",
+          type: "1BR",
+          bedrooms: "1",
+          bathrooms: "1",
+          sqft: "650",
+          rent: "$1,600",
+          status: "Occupied",
+          statusVariant: "positive",
+          tenant: "Sarah Chen",
+        },
+        {
+          unit: "2A",
+          type: "2BR",
+          bedrooms: "2",
+          bathrooms: "1",
+          sqft: "900",
+          rent: "$2,200",
+          status: "Occupied",
+          statusVariant: "positive",
+          tenant: "Mike Johnson",
+        },
+        {
+          unit: "2B",
+          type: "2BR",
+          bedrooms: "2",
+          bathrooms: "2",
+          sqft: "950",
+          rent: "$2,400",
+          status: "Vacant",
+          statusVariant: "neutral",
+          tenant: "\u2014",
+        },
+        {
+          unit: "3A",
+          type: "3BR",
+          bedrooms: "3",
+          bathrooms: "2",
+          sqft: "1,200",
+          rent: "$3,100",
+          status: "Occupied",
+          statusVariant: "positive",
+          tenant: "The Williams Family",
+        },
+        {
+          unit: "3B",
+          type: "Penthouse",
+          bedrooms: "3",
+          bathrooms: "2.5",
+          sqft: "1,500",
+          rent: "$4,200",
+          status: "Notice",
+          statusVariant: "warning",
+          tenant: "David Park",
+        },
+      ];
 
       const summaryStats = [
-        { label: 'Occupancy', value: '96%' },
-        { label: 'Total monthly', value: '$45,200' },
-        { label: 'Avg rent', value: '$1,883' },
-        { label: 'Vacant units', value: '1' },
-        { label: 'Upcoming lease renewals', value: '3' },
-      ]
+        { label: "Occupancy", value: "96%" },
+        { label: "Total monthly", value: "$45,200" },
+        { label: "Avg rent", value: "$1,883" },
+        { label: "Vacant units", value: "1" },
+        { label: "Upcoming lease renewals", value: "3" },
+      ];
 
-      return { sidebarCollapsed, activeTab, tabs, navItems, modules, unitsCols, unitsRows, summaryStats }
+      return {
+        sidebarCollapsed,
+        activeTab,
+        tabs,
+        navItems,
+        modules,
+        unitsCols,
+        unitsRows,
+        summaryStats,
+      };
     },
     template: `
       <ScaffoldDetail>
@@ -237,4 +327,4 @@ export const PropertyDetail: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

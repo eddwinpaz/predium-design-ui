@@ -1,110 +1,147 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import NavHeader from './NavHeader.vue'
-import PageHeader from './PageHeader.vue'
-import Stepper from './Stepper.vue'
-import Tile from './Tile.vue'
-import FormControl from './FormControl.vue'
-import Input from './Input.vue'
-import Select from './Select.vue'
-import Checkbox from './Checkbox.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import NavHeader from "./NavHeader.vue";
+import PageHeader from "./PageHeader.vue";
+import Stepper from "./Stepper.vue";
+import Tile from "./Tile.vue";
+import FormControl from "./FormControl.vue";
+import Input from "./Input.vue";
+import Select from "./Select.vue";
+import Checkbox from "./Checkbox.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/LeaseCreate',
+  title: "Scaffolds/LeaseCreate",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const CreateLease: Story = {
   render: () => ({
-    components: { ScaffoldDetail, NavHeader, PageHeader, Stepper, Tile, FormControl, Input, Select, Checkbox },
+    components: {
+      ScaffoldDetail,
+      NavHeader,
+      PageHeader,
+      Stepper,
+      Tile,
+      FormControl,
+      Input,
+      Select,
+      Checkbox,
+    },
     setup() {
       const modules = [
-        { title: 'Properties', items: [
-          { label: 'Properties' }, { label: 'Units' }, { label: 'Amenities' },
-        ]},
-        { title: 'Operations', items: [
-          { label: 'Maintenance' }, { label: 'Inspections' }, { label: 'Vendors' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Settings' }, { label: 'Reports' },
-        ]},
-      ]
+        {
+          title: "Properties",
+          items: [
+            { label: "Properties" },
+            { label: "Units" },
+            { label: "Amenities" },
+          ],
+        },
+        {
+          title: "Operations",
+          items: [
+            { label: "Maintenance" },
+            { label: "Inspections" },
+            { label: "Vendors" },
+          ],
+        },
+        {
+          title: "Admin",
+          items: [{ label: "Settings" }, { label: "Reports" }],
+        },
+      ];
 
       const steps = [
-        { label: 'Property & Unit' },
-        { label: 'Tenant Info' },
-        { label: 'Lease Terms' },
-        { label: 'Review & Sign' },
-      ]
+        { label: "Property & Unit" },
+        { label: "Tenant Info" },
+        { label: "Lease Terms" },
+        { label: "Review & Sign" },
+      ];
 
-      const propertyTypeResidential = ref(true)
-      const propertyTypeCommercial = ref(false)
-      const leaseTypeFixed = ref(true)
-      const leaseTypeMonthly = ref(false)
+      const propertyTypeResidential = ref(true);
+      const propertyTypeCommercial = ref(false);
+      const leaseTypeFixed = ref(true);
+      const leaseTypeMonthly = ref(false);
 
-      const selectedProperty = ref('sunset-apartments')
+      const selectedProperty = ref("sunset-apartments");
       const propertyOptions = [
-        { label: 'Sunset Apartments', value: 'sunset-apartments' },
-        { label: 'Downtown Lofts', value: 'downtown-lofts' },
-        { label: 'Riverside Complex', value: 'riverside-complex' },
-      ]
+        { label: "Sunset Apartments", value: "sunset-apartments" },
+        { label: "Downtown Lofts", value: "downtown-lofts" },
+        { label: "Riverside Complex", value: "riverside-complex" },
+      ];
 
-      const selectedUnit = ref('unit-2b')
+      const selectedUnit = ref("unit-2b");
       const unitOptions = [
-        { label: 'Unit 2B - 2BR/2BA - $2,400/mo', value: 'unit-2b' },
-        { label: 'Unit 1A - Studio - $1,200/mo', value: 'unit-1a' },
-      ]
+        { label: "Unit 2B - 2BR/2BA - $2,400/mo", value: "unit-2b" },
+        { label: "Unit 1A - Studio - $1,200/mo", value: "unit-1a" },
+      ];
 
-      const moveInDate = ref('04/15/2026')
-      const baseRent = ref('$2,400')
-      const securityDeposit = ref('$4,800')
-      const petDeposit = ref('$500')
-      const startDate = ref('04/15/2026')
-      const endDate = ref('04/14/2027')
+      const moveInDate = ref("04/15/2026");
+      const baseRent = ref("$2,400");
+      const securityDeposit = ref("$4,800");
+      const petDeposit = ref("$500");
+      const startDate = ref("04/15/2026");
+      const endDate = ref("04/14/2027");
 
-      const utilitiesIncluded = ref(false)
-      const parkingIncluded = ref(false)
-      const rentersInsurance = ref(true)
-      const lateFeePolicy = ref(true)
+      const utilitiesIncluded = ref(false);
+      const parkingIncluded = ref(false);
+      const rentersInsurance = ref(true);
+      const lateFeePolicy = ref(true);
 
       function selectResidential() {
-        propertyTypeResidential.value = true
-        propertyTypeCommercial.value = false
+        propertyTypeResidential.value = true;
+        propertyTypeCommercial.value = false;
       }
       function selectCommercial() {
-        propertyTypeResidential.value = false
-        propertyTypeCommercial.value = true
+        propertyTypeResidential.value = false;
+        propertyTypeCommercial.value = true;
       }
       function selectFixed() {
-        leaseTypeFixed.value = true
-        leaseTypeMonthly.value = false
+        leaseTypeFixed.value = true;
+        leaseTypeMonthly.value = false;
       }
       function selectMonthly() {
-        leaseTypeFixed.value = false
-        leaseTypeMonthly.value = true
+        leaseTypeFixed.value = false;
+        leaseTypeMonthly.value = true;
       }
 
       return {
-        modules, steps,
-        propertyTypeResidential, propertyTypeCommercial,
-        leaseTypeFixed, leaseTypeMonthly,
-        selectedProperty, propertyOptions,
-        selectedUnit, unitOptions,
-        moveInDate, baseRent, securityDeposit, petDeposit,
-        startDate, endDate,
-        utilitiesIncluded, parkingIncluded, rentersInsurance, lateFeePolicy,
-        selectResidential, selectCommercial, selectFixed, selectMonthly,
-      }
+        modules,
+        steps,
+        propertyTypeResidential,
+        propertyTypeCommercial,
+        leaseTypeFixed,
+        leaseTypeMonthly,
+        selectedProperty,
+        propertyOptions,
+        selectedUnit,
+        unitOptions,
+        moveInDate,
+        baseRent,
+        securityDeposit,
+        petDeposit,
+        startDate,
+        endDate,
+        utilitiesIncluded,
+        parkingIncluded,
+        rentersInsurance,
+        lateFeePolicy,
+        selectResidential,
+        selectCommercial,
+        selectFixed,
+        selectMonthly,
+      };
     },
     template: `
       <ScaffoldDetail>
@@ -259,4 +296,4 @@ export const CreateLease: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

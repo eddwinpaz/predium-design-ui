@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Avatar from './Avatar.vue'
-import { h } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Avatar from "./Avatar.vue";
+import { h } from "vue";
 
 const meta: Meta<typeof Avatar> = {
-  title: 'UI/Avatar',
+  title: "UI/Avatar",
   component: Avatar,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     size: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg'],
+      control: "select",
+      options: ["xs", "sm", "md", "lg"],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Avatar>
+export default meta;
+type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {
   args: {
-    name: 'John Doe',
-    size: 'md',
+    name: "John Doe",
+    size: "md",
   },
-}
+};
 
 export const WithImage: Story = {
   args: {
-    name: 'Jane Smith',
-    size: 'md',
-    src: 'https://i.pravatar.cc/150?u=jane',
+    name: "Jane Smith",
+    size: "md",
+    src: "https://i.pravatar.cc/150?u=jane",
   },
-}
+};
 
 export const Sizes: Story = {
   render: () => ({
@@ -44,7 +44,7 @@ export const Sizes: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Colors: Story = {
   render: () => ({
@@ -60,7 +60,7 @@ export const Colors: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Group: Story = {
   render: () => ({
@@ -74,4 +74,4 @@ export const Group: Story = {
       </div>
     `,
   }),
-}
+};

@@ -1,91 +1,91 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import KpiCard from './KpiCard.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import KpiCard from "./KpiCard.vue";
 
 const meta: Meta<typeof KpiCard> = {
-  title: 'UI/KpiCard',
+  title: "UI/KpiCard",
   component: KpiCard,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     accentColor: {
-      control: 'select',
-      options: ['positive', 'negative', 'warning', 'accent', 'neutral'],
+      control: "select",
+      options: ["positive", "negative", "warning", "accent", "neutral"],
     },
     trendDirection: {
-      control: 'select',
-      options: ['up', 'down', 'neutral'],
+      control: "select",
+      options: ["up", "down", "neutral"],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof KpiCard>
+export default meta;
+type Story = StoryObj<typeof KpiCard>;
 
 export const Default: Story = {
   args: {
-    value: '1,284',
-    label: 'Total Shipments',
+    value: "1,284",
+    label: "Total Shipments",
   },
-}
+};
 
 export const WithTrendUp: Story = {
   args: {
-    value: '298',
-    label: 'Delivered',
-    trend: '+12',
-    trendDirection: 'up',
+    value: "298",
+    label: "Delivered",
+    trend: "+12",
+    trendDirection: "up",
   },
-}
+};
 
 export const WithTrendDown: Story = {
   args: {
-    value: '7',
-    label: 'Failed Deliveries',
-    trend: '-3',
-    trendDirection: 'down',
-    accentColor: 'negative',
+    value: "7",
+    label: "Failed Deliveries",
+    trend: "-3",
+    trendDirection: "down",
+    accentColor: "negative",
   },
-}
+};
 
 export const Positive: Story = {
   args: {
-    value: '99.2%',
-    label: 'On-Time Rate',
-    accentColor: 'positive',
-    trend: '+1.5%',
-    trendDirection: 'up',
+    value: "99.2%",
+    label: "On-Time Rate",
+    accentColor: "positive",
+    trend: "+1.5%",
+    trendDirection: "up",
   },
-}
+};
 
 export const Negative: Story = {
   args: {
-    value: '2',
-    label: 'Past Due',
-    accentColor: 'negative',
-    trend: '-1',
-    trendDirection: 'down',
+    value: "2",
+    label: "Past Due",
+    accentColor: "negative",
+    trend: "-1",
+    trendDirection: "down",
   },
-}
+};
 
 export const Warning: Story = {
   args: {
-    value: '14',
-    label: 'At Risk',
-    accentColor: 'warning',
-    trend: '+3',
-    trendDirection: 'up',
+    value: "14",
+    label: "At Risk",
+    accentColor: "warning",
+    trend: "+3",
+    trendDirection: "up",
   },
-}
+};
 
 export const WithDot: Story = {
   args: {
-    value: '13',
-    label: 'Active Shipments',
-    accentColor: 'positive',
+    value: "13",
+    label: "Active Shipments",
+    accentColor: "positive",
     dot: true,
-    trend: '+3',
-    trendDirection: 'up',
+    trend: "+3",
+    trendDirection: "up",
   },
-}
+};
 
 export const ControlTowerRow: Story = {
   render: () => ({
@@ -130,4 +130,4 @@ export const ControlTowerRow: Story = {
       </div>
     `,
   }),
-}
+};

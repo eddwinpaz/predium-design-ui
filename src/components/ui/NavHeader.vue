@@ -116,9 +116,9 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
 </script>
 
 <template>
-  <div>
+  <div class="relative z-[9999]">
     <header
-      class="flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-border bg-surface"
+      class="relative z-[9999] flex items-center justify-between h-[52px] px-[12px] sm:px-[24px] border-b border-border bg-surface"
     >
       <!-- Left: Hamburger (mobile) + Brand -->
       <div class="flex items-center gap-[8px]">
@@ -218,7 +218,7 @@ function getColor(item: ModuleItem, groupIdx: number, itemIdx: number): string {
           >
             <div
               v-if="gridOpen && modules?.length"
-              class="hidden sm:block absolute right-0 top-[44px] w-[420px] max-h-[70vh] rounded-[16px] border border-border shadow-2xl bg-surface overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              class="hidden sm:block absolute right-0 top-[44px] z-[10000] w-[420px] max-h-[70vh] rounded-[16px] border border-border shadow-2xl bg-surface overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <div class="flex items-center justify-end px-[12px] pt-[10px]">
                 <button

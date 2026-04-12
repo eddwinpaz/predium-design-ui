@@ -1,27 +1,30 @@
 <script setup lang="ts">
 interface RadioOption {
-  label: string
-  value: string
-  description?: string
-  disabled?: boolean
+  label: string;
+  value: string;
+  description?: string;
+  disabled?: boolean;
 }
 
-const props = withDefaults(defineProps<{
-  modelValue: string
-  options: RadioOption[]
-  name: string
-  orientation?: 'vertical' | 'horizontal'
-}>(), {
-  orientation: 'vertical',
-})
+const props = withDefaults(
+  defineProps<{
+    modelValue: string;
+    options: RadioOption[];
+    name: string;
+    orientation?: "vertical" | "horizontal";
+  }>(),
+  {
+    orientation: "vertical",
+  },
+);
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string]
-}>()
+  "update:modelValue": [value: string];
+}>();
 
 function select(option: RadioOption) {
   if (!option.disabled) {
-    emit('update:modelValue', option.value)
+    emit("update:modelValue", option.value);
   }
 }
 </script>
@@ -69,8 +72,13 @@ function select(option: RadioOption) {
         </div>
       </div>
       <div>
-        <span class="text-sm font-medium text-content-primary">{{ option.label }}</span>
-        <p v-if="option.description" class="text-xs text-content-tertiary mt-0.5">
+        <span class="text-sm font-medium text-content-primary">{{
+          option.label
+        }}</span>
+        <p
+          v-if="option.description"
+          class="text-xs text-content-tertiary mt-0.5"
+        >
           {{ option.description }}
         </p>
       </div>

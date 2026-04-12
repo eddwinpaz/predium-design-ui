@@ -1,74 +1,74 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { h } from 'vue'
-import Typography from './Typography.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { h } from "vue";
+import Typography from "./Typography.vue";
 
 const meta: Meta<typeof Typography> = {
-  title: 'Components/Typography',
+  title: "Components/Typography",
   component: Typography,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
+      control: "select",
       options: [
-        'display-large',
-        'display-medium',
-        'display-small',
-        'heading-xlarge',
-        'heading-large',
-        'heading-medium',
-        'heading-small',
-        'heading-xsmall',
-        'label-large',
-        'label-medium',
-        'label-small',
-        'paragraph-large',
-        'paragraph-medium',
-        'paragraph-small',
-        'paragraph-xsmall',
+        "display-large",
+        "display-medium",
+        "display-small",
+        "heading-xlarge",
+        "heading-large",
+        "heading-medium",
+        "heading-small",
+        "heading-xsmall",
+        "label-large",
+        "label-medium",
+        "label-small",
+        "paragraph-large",
+        "paragraph-medium",
+        "paragraph-small",
+        "paragraph-xsmall",
       ],
     },
     color: {
-      control: 'select',
+      control: "select",
       options: [
-        'primary',
-        'secondary',
-        'tertiary',
-        'inverse',
-        'accent',
-        'positive',
-        'negative',
+        "primary",
+        "secondary",
+        "tertiary",
+        "inverse",
+        "accent",
+        "positive",
+        "negative",
       ],
     },
-    as: { control: 'text' },
+    as: { control: "text" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Typography>
+export default meta;
+type Story = StoryObj<typeof Typography>;
 
 const allVariants = [
-  'display-large',
-  'display-medium',
-  'display-small',
-  'heading-xlarge',
-  'heading-large',
-  'heading-medium',
-  'heading-small',
-  'heading-xsmall',
-  'label-large',
-  'label-medium',
-  'label-small',
-  'paragraph-large',
-  'paragraph-medium',
-  'paragraph-small',
-  'paragraph-xsmall',
-] as const
+  "display-large",
+  "display-medium",
+  "display-small",
+  "heading-xlarge",
+  "heading-large",
+  "heading-medium",
+  "heading-small",
+  "heading-xsmall",
+  "label-large",
+  "label-medium",
+  "label-small",
+  "paragraph-large",
+  "paragraph-medium",
+  "paragraph-small",
+  "paragraph-xsmall",
+] as const;
 
 export const AllVariants: Story = {
   render: () => ({
     components: { Typography },
     setup() {
-      return { allVariants }
+      return { allVariants };
     },
     template: `
       <div class="space-y-4">
@@ -79,7 +79,7 @@ export const AllVariants: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Colors: Story = {
   render: () => ({
@@ -98,22 +98,22 @@ export const Colors: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const CustomTag: Story = {
   args: {
-    variant: 'heading-large',
-    as: 'span',
-    color: 'primary',
+    variant: "heading-large",
+    as: "span",
+    color: "primary",
   },
   render: (args) => ({
     components: { Typography },
     setup() {
-      return { args }
+      return { args };
     },
     template: `<Typography v-bind="args">This heading renders as a &lt;span&gt;</Typography>`,
   }),
-}
+};
 
 export const DisplayScales: Story = {
   render: () => ({
@@ -126,7 +126,7 @@ export const DisplayScales: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const BodyScales: Story = {
   render: () => ({
@@ -140,7 +140,7 @@ export const BodyScales: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const LabelScales: Story = {
   render: () => ({
@@ -153,4 +153,4 @@ export const LabelScales: Story = {
       </div>
     `,
   }),
-}
+};

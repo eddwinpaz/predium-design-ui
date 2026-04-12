@@ -1,43 +1,43 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import ProgressBar from './ProgressBar.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import ProgressBar from "./ProgressBar.vue";
 
 const meta: Meta<typeof ProgressBar> = {
-  title: 'UI/ProgressBar',
+  title: "UI/ProgressBar",
   component: ProgressBar,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    value: { control: { type: 'range', min: 0, max: 100 } },
+    value: { control: { type: "range", min: 0, max: 100 } },
     color: {
-      control: 'select',
-      options: ['primary', 'positive', 'warning', 'negative', 'accent'],
+      control: "select",
+      options: ["primary", "positive", "warning", "negative", "accent"],
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
+      control: "select",
+      options: ["sm", "md", "lg"],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ProgressBar>
+export default meta;
+type Story = StoryObj<typeof ProgressBar>;
 
 export const Default: Story = {
   args: {
     value: 50,
   },
-}
+};
 
 export const Full: Story = {
   args: {
     value: 100,
   },
-}
+};
 
 export const Empty: Story = {
   args: {
     value: 0,
   },
-}
+};
 
 export const Colors: Story = {
   render: () => ({
@@ -67,7 +67,7 @@ export const Colors: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Sizes: Story = {
   render: () => ({
@@ -89,19 +89,19 @@ export const Sizes: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const WithLabel: Story = {
   args: {
     value: 67,
     showLabel: true,
   },
-}
+};
 
 export const Animated: Story = {
   args: {
     value: 45,
     animated: true,
-    color: 'accent',
+    color: "accent",
   },
-}
+};

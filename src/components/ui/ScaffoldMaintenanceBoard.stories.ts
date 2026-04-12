@@ -1,99 +1,247 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import SidebarNav from './SidebarNav.vue'
-import NavHeader from './NavHeader.vue'
-import SidePanel from './SidePanel.vue'
-import FilterList from './FilterList.vue'
-import KpiCard from './KpiCard.vue'
-import SegmentControl from './SegmentControl.vue'
-import Avatar from './Avatar.vue'
-import Badge from './Badge.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import SidebarNav from "./SidebarNav.vue";
+import NavHeader from "./NavHeader.vue";
+import SidePanel from "./SidePanel.vue";
+import FilterList from "./FilterList.vue";
+import KpiCard from "./KpiCard.vue";
+import SegmentControl from "./SegmentControl.vue";
+import Avatar from "./Avatar.vue";
+import Badge from "./Badge.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/MaintenanceBoard',
+  title: "Scaffolds/MaintenanceBoard",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const TicketBoard: Story = {
   render: () => ({
-    components: { ScaffoldDetail, SidebarNav, NavHeader, SidePanel, FilterList, KpiCard, SegmentControl, Avatar, Badge },
+    components: {
+      ScaffoldDetail,
+      SidebarNav,
+      NavHeader,
+      SidePanel,
+      FilterList,
+      KpiCard,
+      SegmentControl,
+      Avatar,
+      Badge,
+    },
     setup() {
-      const sidebarCollapsed = ref(window.innerWidth < 1024)
-      const panelCollapsed = ref(false)
-      const viewMode = ref('board')
-      const activeFilter = ref('all')
-      const showCategories = ref(true)
+      const sidebarCollapsed = ref(window.innerWidth < 1024);
+      const panelCollapsed = ref(false);
+      const viewMode = ref("board");
+      const activeFilter = ref("all");
+      const showCategories = ref(true);
 
       const navItems = [
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Properties', to: '/properties' },
-        { label: 'Tenants', to: '/tenants' },
-        { label: 'Leases', to: '/leases' },
-        { label: 'Maintenance', to: '/maintenance', active: true },
-        { label: 'Payments', to: '/payments' },
-        { label: 'Reports', to: '/reports' },
-        { label: 'Settings', to: '/settings' },
-      ]
+        { label: "Dashboard", to: "/dashboard" },
+        { label: "Properties", to: "/properties" },
+        { label: "Tenants", to: "/tenants" },
+        { label: "Leases", to: "/leases" },
+        { label: "Maintenance", to: "/maintenance", active: true },
+        { label: "Payments", to: "/payments" },
+        { label: "Reports", to: "/reports" },
+        { label: "Settings", to: "/settings" },
+      ];
 
       const modules = [
-        { title: 'Properties', items: [
-          { label: 'New Property' },
-          { label: 'All Properties' },
-          { label: 'Vacant' },
-        ]},
-        { title: 'Operations', items: [
-          { label: 'Maintenance' },
-          { label: 'Payments' },
-          { label: 'Calendar' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Reports' },
-          { label: 'Settings' },
-        ]},
-      ]
+        {
+          title: "Properties",
+          items: [
+            { label: "New Property" },
+            { label: "All Properties" },
+            { label: "Vacant" },
+          ],
+        },
+        {
+          title: "Operations",
+          items: [
+            { label: "Maintenance" },
+            { label: "Payments" },
+            { label: "Calendar" },
+          ],
+        },
+        {
+          title: "Admin",
+          items: [{ label: "Reports" }, { label: "Settings" }],
+        },
+      ];
 
       const filterItems = [
-        { label: 'All Tickets', value: 'all', count: 47 },
-        { label: 'Open', value: 'open', count: 12 },
-        { label: 'In Progress', value: 'in-progress', count: 8 },
-        { label: 'Urgent', value: 'urgent', count: 3 },
-        { label: 'Scheduled', value: 'scheduled', count: 6 },
-        { label: 'Resolved', value: 'resolved', count: 18 },
-      ]
+        { label: "All Tickets", value: "all", count: 47 },
+        { label: "Open", value: "open", count: 12 },
+        { label: "In Progress", value: "in-progress", count: 8 },
+        { label: "Urgent", value: "urgent", count: 3 },
+        { label: "Scheduled", value: "scheduled", count: 6 },
+        { label: "Resolved", value: "resolved", count: 18 },
+      ];
 
       const categories = [
-        { label: 'Plumbing', count: 8 },
-        { label: 'Electrical', count: 5 },
-        { label: 'HVAC', count: 7 },
-        { label: 'Appliances', count: 4 },
-        { label: 'General', count: 6 },
-        { label: 'Pest Control', count: 2 },
-      ]
+        { label: "Plumbing", count: 8 },
+        { label: "Electrical", count: 5 },
+        { label: "HVAC", count: 7 },
+        { label: "Appliances", count: 4 },
+        { label: "General", count: 6 },
+        { label: "Pest Control", count: 2 },
+      ];
 
       const tickets = [
-        { id: 'TK-001', property: 'Sunset Apartments', unit: '3A', issue: 'Leaking faucet in kitchen', priority: 'High', priorityColor: 'negative', status: 'Open', statusColor: 'warning', assignee: 'Mike R.', assigneeColor: '#276EF1', created: '2 hours ago' },
-        { id: 'TK-002', property: 'Downtown Lofts', unit: '2B', issue: 'AC not cooling properly', priority: 'Urgent', priorityColor: 'negative', status: 'In Progress', statusColor: 'accent', assignee: 'Sarah L.', assigneeColor: '#05944F', created: '5 hours ago' },
-        { id: 'TK-003', property: 'Sunset Apartments', unit: '1B', issue: 'Broken window lock', priority: 'Medium', priorityColor: 'warning', status: 'Open', statusColor: 'warning', assignee: '', assigneeColor: '', created: '1 day ago' },
-        { id: 'TK-004', property: 'Riverside Complex', unit: '5A', issue: 'Pest issue - cockroaches', priority: 'High', priorityColor: 'negative', status: 'Scheduled', statusColor: 'neutral', assignee: 'Tom K.', assigneeColor: '#E54B4B', created: '1 day ago' },
-        { id: 'TK-005', property: 'Pine Grove', unit: '2A', issue: 'Dishwasher not draining', priority: 'Low', priorityColor: 'neutral', status: 'Open', statusColor: 'warning', assignee: '', assigneeColor: '', created: '2 days ago' },
-        { id: 'TK-006', property: 'Sunset Apartments', unit: '2A', issue: 'Light fixture flickering', priority: 'Low', priorityColor: 'neutral', status: 'In Progress', statusColor: 'accent', assignee: 'Mike R.', assigneeColor: '#276EF1', created: '2 days ago' },
-        { id: 'TK-007', property: 'Harbor View', unit: '4C', issue: 'Water heater making noise', priority: 'Medium', priorityColor: 'warning', status: 'Scheduled', statusColor: 'neutral', assignee: 'Sarah L.', assigneeColor: '#05944F', created: '3 days ago' },
-        { id: 'TK-008', property: 'Downtown Lofts', unit: '1A', issue: 'Front door lock jammed', priority: 'High', priorityColor: 'negative', status: 'Resolved', statusColor: 'positive', assignee: 'Tom K.', assigneeColor: '#E54B4B', created: '3 days ago' },
-        { id: 'TK-009', property: 'Riverside Complex', unit: '3B', issue: 'Ceiling fan wobbling', priority: 'Low', priorityColor: 'neutral', status: 'Resolved', statusColor: 'positive', assignee: 'Mike R.', assigneeColor: '#276EF1', created: '4 days ago' },
-        { id: 'TK-010', property: 'Sunset Apartments', unit: 'PH', issue: 'Elevator maintenance', priority: 'Medium', priorityColor: 'warning', status: 'In Progress', statusColor: 'accent', assignee: 'External', assigneeColor: '#7356BF', created: '5 days ago' },
-      ]
+        {
+          id: "TK-001",
+          property: "Sunset Apartments",
+          unit: "3A",
+          issue: "Leaking faucet in kitchen",
+          priority: "High",
+          priorityColor: "negative",
+          status: "Open",
+          statusColor: "warning",
+          assignee: "Mike R.",
+          assigneeColor: "#276EF1",
+          created: "2 hours ago",
+        },
+        {
+          id: "TK-002",
+          property: "Downtown Lofts",
+          unit: "2B",
+          issue: "AC not cooling properly",
+          priority: "Urgent",
+          priorityColor: "negative",
+          status: "In Progress",
+          statusColor: "accent",
+          assignee: "Sarah L.",
+          assigneeColor: "#05944F",
+          created: "5 hours ago",
+        },
+        {
+          id: "TK-003",
+          property: "Sunset Apartments",
+          unit: "1B",
+          issue: "Broken window lock",
+          priority: "Medium",
+          priorityColor: "warning",
+          status: "Open",
+          statusColor: "warning",
+          assignee: "",
+          assigneeColor: "",
+          created: "1 day ago",
+        },
+        {
+          id: "TK-004",
+          property: "Riverside Complex",
+          unit: "5A",
+          issue: "Pest issue - cockroaches",
+          priority: "High",
+          priorityColor: "negative",
+          status: "Scheduled",
+          statusColor: "neutral",
+          assignee: "Tom K.",
+          assigneeColor: "#E54B4B",
+          created: "1 day ago",
+        },
+        {
+          id: "TK-005",
+          property: "Pine Grove",
+          unit: "2A",
+          issue: "Dishwasher not draining",
+          priority: "Low",
+          priorityColor: "neutral",
+          status: "Open",
+          statusColor: "warning",
+          assignee: "",
+          assigneeColor: "",
+          created: "2 days ago",
+        },
+        {
+          id: "TK-006",
+          property: "Sunset Apartments",
+          unit: "2A",
+          issue: "Light fixture flickering",
+          priority: "Low",
+          priorityColor: "neutral",
+          status: "In Progress",
+          statusColor: "accent",
+          assignee: "Mike R.",
+          assigneeColor: "#276EF1",
+          created: "2 days ago",
+        },
+        {
+          id: "TK-007",
+          property: "Harbor View",
+          unit: "4C",
+          issue: "Water heater making noise",
+          priority: "Medium",
+          priorityColor: "warning",
+          status: "Scheduled",
+          statusColor: "neutral",
+          assignee: "Sarah L.",
+          assigneeColor: "#05944F",
+          created: "3 days ago",
+        },
+        {
+          id: "TK-008",
+          property: "Downtown Lofts",
+          unit: "1A",
+          issue: "Front door lock jammed",
+          priority: "High",
+          priorityColor: "negative",
+          status: "Resolved",
+          statusColor: "positive",
+          assignee: "Tom K.",
+          assigneeColor: "#E54B4B",
+          created: "3 days ago",
+        },
+        {
+          id: "TK-009",
+          property: "Riverside Complex",
+          unit: "3B",
+          issue: "Ceiling fan wobbling",
+          priority: "Low",
+          priorityColor: "neutral",
+          status: "Resolved",
+          statusColor: "positive",
+          assignee: "Mike R.",
+          assigneeColor: "#276EF1",
+          created: "4 days ago",
+        },
+        {
+          id: "TK-010",
+          property: "Sunset Apartments",
+          unit: "PH",
+          issue: "Elevator maintenance",
+          priority: "Medium",
+          priorityColor: "warning",
+          status: "In Progress",
+          statusColor: "accent",
+          assignee: "External",
+          assigneeColor: "#7356BF",
+          created: "5 days ago",
+        },
+      ];
 
-      return { sidebarCollapsed, panelCollapsed, viewMode, activeFilter, showCategories, navItems, modules, filterItems, categories, tickets }
+      return {
+        sidebarCollapsed,
+        panelCollapsed,
+        viewMode,
+        activeFilter,
+        showCategories,
+        navItems,
+        modules,
+        filterItems,
+        categories,
+        tickets,
+      };
     },
     template: `
       <ScaffoldDetail>
@@ -214,4 +362,4 @@ export const TicketBoard: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

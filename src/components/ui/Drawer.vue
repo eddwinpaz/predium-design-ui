@@ -4,31 +4,31 @@ import {
   DialogPanel,
   TransitionRoot,
   TransitionChild,
-} from '@headlessui/vue'
+} from "@headlessui/vue";
 
 const props = withDefaults(
   defineProps<{
-    open: boolean
-    side?: 'left' | 'right'
-    size?: 'sm' | 'md' | 'lg'
-    title?: string
+    open: boolean;
+    side?: "left" | "right";
+    size?: "sm" | "md" | "lg";
+    title?: string;
   }>(),
   {
-    side: 'right',
-    size: 'md',
-    title: '',
-  }
-)
+    side: "right",
+    size: "md",
+    title: "",
+  },
+);
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 
 const sizeClasses: Record<string, string> = {
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-}
+  sm: "max-w-sm",
+  md: "max-w-md",
+  lg: "max-w-lg",
+};
 </script>
 
 <template>
@@ -58,11 +58,15 @@ const sizeClasses: Record<string, string> = {
             <TransitionChild
               as="template"
               enter="transform transition duration-300 ease-out"
-              :enter-from="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
+              :enter-from="
+                side === 'right' ? 'translate-x-full' : '-translate-x-full'
+              "
               enter-to="translate-x-0"
               leave="transform transition duration-200 ease-in"
               leave-from="translate-x-0"
-              :leave-to="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
+              :leave-to="
+                side === 'right' ? 'translate-x-full' : '-translate-x-full'
+              "
             >
               <DialogPanel
                 :class="[
@@ -71,7 +75,9 @@ const sizeClasses: Record<string, string> = {
                 ]"
               >
                 <!-- Header -->
-                <div class="flex items-center justify-between px-4 py-3 border-b border-border">
+                <div
+                  class="flex items-center justify-between px-4 py-3 border-b border-border"
+                >
                   <h2 class="text-lg font-semibold text-content-primary">
                     {{ title }}
                   </h2>

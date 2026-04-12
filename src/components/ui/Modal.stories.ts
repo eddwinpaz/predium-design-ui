@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
-import Modal from './Modal.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
+import Modal from "./Modal.vue";
 
 const meta: Meta<typeof Modal> = {
-  title: 'Components/Modal',
+  title: "Components/Modal",
   component: Modal,
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof Modal>
+export default meta;
+type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
   render: () => ({
     components: { Modal },
     setup() {
-      const isOpen = ref(false)
-      return { isOpen }
+      const isOpen = ref(false);
+      return { isOpen };
     },
     template: `
       <div>
@@ -34,14 +34,14 @@ export const Default: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const WithFooter: Story = {
   render: () => ({
     components: { Modal },
     setup() {
-      const isOpen = ref(false)
-      return { isOpen }
+      const isOpen = ref(false);
+      return { isOpen };
     },
     template: `
       <div>
@@ -75,14 +75,14 @@ export const WithFooter: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Large: Story = {
   render: () => ({
     components: { Modal },
     setup() {
-      const isOpen = ref(false)
-      return { isOpen }
+      const isOpen = ref(false);
+      return { isOpen };
     },
     template: `
       <div>
@@ -100,14 +100,14 @@ export const Large: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Small: Story = {
   render: () => ({
     components: { Modal },
     setup() {
-      const isOpen = ref(false)
-      return { isOpen }
+      const isOpen = ref(false);
+      return { isOpen };
     },
     template: `
       <div>
@@ -141,4 +141,4 @@ export const Small: Story = {
       </div>
     `,
   }),
-}
+};

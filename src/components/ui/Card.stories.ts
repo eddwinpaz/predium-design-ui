@@ -1,26 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Card from './Card.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Card from "./Card.vue";
 
 const meta: Meta<typeof Card> = {
-  title: 'UI/Card',
+  title: "UI/Card",
   component: Card,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     padding: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
+      control: "select",
+      options: ["none", "sm", "md", "lg"],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Card>
+export default meta;
+type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args">
@@ -28,13 +28,13 @@ export const Default: Story = {
       </Card>
     `,
   }),
-}
+};
 
 export const WithHeader: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args">
@@ -45,13 +45,13 @@ export const WithHeader: Story = {
       </Card>
     `,
   }),
-}
+};
 
 export const WithFooter: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args">
@@ -65,13 +65,13 @@ export const WithFooter: Story = {
       </Card>
     `,
   }),
-}
+};
 
 export const Hoverable: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args" :hoverable="true">
@@ -79,13 +79,13 @@ export const Hoverable: Story = {
       </Card>
     `,
   }),
-}
+};
 
 export const NoPadding: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args" padding="none">
@@ -93,13 +93,13 @@ export const NoPadding: Story = {
       </Card>
     `,
   }),
-}
+};
 
 export const Shadow: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args" :shadow="true" :bordered="false">
@@ -107,13 +107,13 @@ export const Shadow: Story = {
       </Card>
     `,
   }),
-}
+};
 
 export const Complete: Story = {
   render: (args) => ({
     components: { Card },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Card v-bind="args">
@@ -146,4 +146,4 @@ export const Complete: Story = {
       </Card>
     `,
   }),
-}
+};

@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import Tile from './Tile.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import Tile from "./Tile.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof Tile> = {
-  title: 'UI/Tile',
+  title: "UI/Tile",
   component: Tile,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    selected: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    align: { control: 'select', options: ['top', 'center'] },
+    selected: { control: "boolean" },
+    disabled: { control: "boolean" },
+    align: { control: "select", options: ["top", "center"] },
   },
-}
-export default meta
-type Story = StoryObj<typeof Tile>
+};
+export default meta;
+type Story = StoryObj<typeof Tile>;
 
 export const Default: Story = {
   args: { selected: false },
@@ -32,7 +32,7 @@ export const Default: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Selected: Story = {
   args: { selected: true },
@@ -51,7 +51,7 @@ export const Selected: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Disabled: Story = {
   args: { selected: false, disabled: true },
@@ -67,14 +67,14 @@ export const Disabled: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const ServiceTypeSelector: Story = {
   render: () => ({
     components: { Tile },
     setup() {
-      const selected = ref('ftl')
-      return { selected }
+      const selected = ref("ftl");
+      return { selected };
     },
     template: `
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px;">
@@ -95,14 +95,14 @@ export const ServiceTypeSelector: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const ThreeOptions: Story = {
   render: () => ({
     components: { Tile },
     setup() {
-      const selected = ref('normal')
-      return { selected }
+      const selected = ref("normal");
+      return { selected };
     },
     template: `
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; max-width: 800px;">
@@ -121,4 +121,4 @@ export const ThreeOptions: Story = {
       </div>
     `,
   }),
-}
+};

@@ -1,15 +1,18 @@
 <script setup lang="ts">
 interface BreadcrumbItem {
-  label: string
-  to?: string
+  label: string;
+  to?: string;
 }
 
-withDefaults(defineProps<{
-  items: BreadcrumbItem[]
-  separator?: string
-}>(), {
-  separator: '/',
-})
+withDefaults(
+  defineProps<{
+    items: BreadcrumbItem[];
+    separator?: string;
+  }>(),
+  {
+    separator: "/",
+  },
+);
 </script>
 
 <template>
@@ -25,7 +28,11 @@ withDefaults(defineProps<{
       </a>
       <span
         v-else
-        :class="i === items.length - 1 ? 'text-content-primary font-medium' : 'text-content-secondary'"
+        :class="
+          i === items.length - 1
+            ? 'text-content-primary font-medium'
+            : 'text-content-secondary'
+        "
       >
         {{ item.label }}
       </span>

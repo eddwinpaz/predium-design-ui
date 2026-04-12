@@ -1,66 +1,76 @@
 <script setup lang="ts">
-import { watch, ref, onBeforeUnmount } from 'vue'
+import { watch, ref, onBeforeUnmount } from "vue";
 
-const props = withDefaults(defineProps<{
-  message: string
-  kind?: 'info' | 'positive' | 'warning' | 'negative'
-  action?: string
-  duration?: number
-  visible?: boolean
-}>(), {
-  kind: 'info',
-  duration: 5000,
-  visible: false,
-})
+const props = withDefaults(
+  defineProps<{
+    message: string;
+    kind?: "info" | "positive" | "warning" | "negative";
+    action?: string;
+    duration?: number;
+    visible?: boolean;
+  }>(),
+  {
+    kind: "info",
+    duration: 5000,
+    visible: false,
+  },
+);
 
 const emit = defineEmits<{
-  close: []
-  action: []
-}>()
+  close: [];
+  action: [];
+}>();
 
-const timer = ref<ReturnType<typeof setTimeout> | null>(null)
+const timer = ref<ReturnType<typeof setTimeout> | null>(null);
 
 function startTimer() {
-  clearTimer()
+  clearTimer();
   if (props.duration > 0 && props.visible) {
     timer.value = setTimeout(() => {
-      emit('close')
-    }, props.duration)
+      emit("close");
+    }, props.duration);
   }
 }
 
 function clearTimer() {
   if (timer.value) {
-    clearTimeout(timer.value)
-    timer.value = null
+    clearTimeout(timer.value);
+    timer.value = null;
   }
 }
 
-watch(() => props.visible, (val) => {
-  if (val) {
-    startTimer()
-  } else {
-    clearTimer()
-  }
-}, { immediate: true })
+watch(
+  () => props.visible,
+  (val) => {
+    if (val) {
+      startTimer();
+    } else {
+      clearTimer();
+    }
+  },
+  { immediate: true },
+);
 
-watch(() => props.duration, () => {
-  if (props.visible) startTimer()
-})
+watch(
+  () => props.duration,
+  () => {
+    if (props.visible) startTimer();
+  },
+);
 
 onBeforeUnmount(() => {
-  clearTimer()
-})
+  clearTimer();
+});
 
 const kindClassMap: Record<string, string> = {
-  info: 'bg-bg-inverse text-content-inverse',
-  positive: 'bg-positive text-white',
-  warning: 'bg-warning text-black',
-  negative: 'bg-negative text-white',
-}
+  info: "bg-bg-inverse text-content-inverse",
+  positive: "bg-positive text-white",
+  warning: "bg-warning text-black",
+  negative: "bg-negative text-white",
+};
 
 function kindClasses(): string {
-  return kindClassMap[props.kind] ?? kindClassMap['info'] ?? ''
+  return kindClassMap[props.kind] ?? kindClassMap["info"] ?? "";
 }
 </script>
 
@@ -75,7 +85,10 @@ function kindClasses(): string {
   >
     <div
       v-if="visible"
-      :class="['flex items-center gap-3 px-4 py-3 rounded-lg shadow-xl text-sm min-w-[320px]', kindClasses()]"
+      :class="[
+        'flex items-center gap-3 px-4 py-3 rounded-lg shadow-xl text-sm min-w-[320px]',
+        kindClasses(),
+      ]"
     >
       <span class="flex-1">{{ message }}</span>
       <button

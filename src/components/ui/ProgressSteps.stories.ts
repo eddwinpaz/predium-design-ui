@@ -1,30 +1,39 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import ProgressSteps from './ProgressSteps.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import ProgressSteps from "./ProgressSteps.vue";
 
 const meta: Meta<typeof ProgressSteps> = {
-  title: 'UI/ProgressSteps',
+  title: "UI/ProgressSteps",
   component: ProgressSteps,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    currentStep: { control: 'number' },
+    currentStep: { control: "number" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ProgressSteps>
+export default meta;
+type Story = StoryObj<typeof ProgressSteps>;
 
 const defaultSteps = [
-  { title: 'Create shipment', description: 'Enter origin, destination, and cargo details' },
-  { title: 'Select carrier', description: 'Choose from available carriers and rates' },
-  { title: 'Confirm & book', description: 'Review details and confirm your booking' },
-]
+  {
+    title: "Create shipment",
+    description: "Enter origin, destination, and cargo details",
+  },
+  {
+    title: "Select carrier",
+    description: "Choose from available carriers and rates",
+  },
+  {
+    title: "Confirm & book",
+    description: "Review details and confirm your booking",
+  },
+];
 
 export const Default: Story = {
   args: {
     steps: defaultSteps,
     currentStep: 0,
   },
-}
+};
 
 export const SecondStep: Story = {
   args: {
@@ -49,22 +58,31 @@ export const SecondStep: Story = {
       </ProgressSteps>
     `,
   }),
-}
+};
 
 export const AllCompleted: Story = {
   args: {
     steps: defaultSteps,
     currentStep: 3,
   },
-}
+};
 
 export const FourSteps: Story = {
   args: {
     steps: [
-      { title: 'Contract details', description: 'Set contract name, dates, and terms' },
-      { title: 'Add lanes', description: 'Define origin-destination lane pairs' },
-      { title: 'Set rates', description: 'Configure pricing for each lane' },
-      { title: 'Review & finalize', description: 'Review all details and submit' },
+      {
+        title: "Contract details",
+        description: "Set contract name, dates, and terms",
+      },
+      {
+        title: "Add lanes",
+        description: "Define origin-destination lane pairs",
+      },
+      { title: "Set rates", description: "Configure pricing for each lane" },
+      {
+        title: "Review & finalize",
+        description: "Review all details and submit",
+      },
     ],
     currentStep: 2,
   },
@@ -95,4 +113,4 @@ export const FourSteps: Story = {
       </ProgressSteps>
     `,
   }),
-}
+};

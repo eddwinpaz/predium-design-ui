@@ -1,57 +1,64 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 export interface PageHeaderAction {
-  label: string
-  kind?: 'primary' | 'secondary' | 'dropdown'
-  items?: string[]
+  label: string;
+  kind?: "primary" | "secondary" | "dropdown";
+  items?: string[];
 }
 
 const props = withDefaults(
   defineProps<{
-    breadcrumbs?: string[]
-    title: string
-    subtitle?: string
-    status?: string
-    statusColor?: 'positive' | 'warning' | 'negative' | 'accent' | 'neutral'
-    actions?: PageHeaderAction[]
+    breadcrumbs?: string[];
+    title: string;
+    subtitle?: string;
+    status?: string;
+    statusColor?: "positive" | "warning" | "negative" | "accent" | "neutral";
+    actions?: PageHeaderAction[];
   }>(),
   {
-    statusColor: 'positive',
-  }
-)
+    statusColor: "positive",
+  },
+);
 
 defineEmits<{
-  breadcrumbClick: [index: number]
-  actionClick: [action: PageHeaderAction]
-  dropdownSelect: [action: PageHeaderAction, item: string]
-}>()
+  breadcrumbClick: [index: number];
+  actionClick: [action: PageHeaderAction];
+  dropdownSelect: [action: PageHeaderAction, item: string];
+}>();
 
-const openDropdown = ref<number | null>(null)
+const openDropdown = ref<number | null>(null);
 
 function toggleDropdown(i: number) {
-  openDropdown.value = openDropdown.value === i ? null : i
+  openDropdown.value = openDropdown.value === i ? null : i;
 }
 
 const statusClasses = computed(() => {
   const map: Record<string, string> = {
-    positive: 'bg-positive-light text-positive-text',
-    warning: 'bg-warning-light text-warning-text',
-    negative: 'bg-negative-light text-negative-text',
-    accent: 'bg-accent-light text-accent-text',
-    neutral: 'bg-surface-input text-content-secondary',
-  }
-  return map[props.statusColor] ?? map.neutral
-})
+    positive: "bg-positive-light text-positive-text",
+    warning: "bg-warning-light text-warning-text",
+    negative: "bg-negative-light text-negative-text",
+    accent: "bg-accent-light text-accent-text",
+    neutral: "bg-surface-input text-content-secondary",
+  };
+  return map[props.statusColor] ?? map.neutral;
+});
 </script>
 
 <template>
-  <div class="px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-surface">
+  <div
+    class="px-[16px] sm:px-[24px] pt-[16px] sm:pt-[20px] pb-[12px] sm:pb-[16px] bg-surface"
+  >
     <!-- Breadcrumbs + Title row -->
-    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]">
+    <div
+      class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-[12px]"
+    >
       <div>
         <!-- Breadcrumbs: desktop shows all, mobile shows first + last -->
-        <div v-if="breadcrumbs?.length" class="flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px]">
+        <div
+          v-if="breadcrumbs?.length"
+          class="flex items-center gap-[6px] text-[13px] sm:text-[14px] mb-[4px]"
+        >
           <!-- Mobile: collapsed -->
           <div class="flex items-baseline flex-wrap gap-[4px] sm:hidden">
             <span
@@ -64,8 +71,13 @@ const statusClasses = computed(() => {
               <span class="text-content-tertiary">›</span>
               <span class="text-content-tertiary">...</span>
             </template>
-            <span v-if="breadcrumbs.length > 1" class="text-content-tertiary">›</span>
-            <span v-if="breadcrumbs.length > 1" class="text-content-primary font-medium break-words">
+            <span v-if="breadcrumbs.length > 1" class="text-content-tertiary"
+              >›</span
+            >
+            <span
+              v-if="breadcrumbs.length > 1"
+              class="text-content-primary font-medium break-words"
+            >
               {{ breadcrumbs[breadcrumbs.length - 1] }}
             </span>
           </div>
@@ -80,17 +92,26 @@ const statusClasses = computed(() => {
               >
                 {{ crumb }}
               </span>
-              <span v-else class="text-content-primary font-medium">{{ crumb }}</span>
+              <span v-else class="text-content-primary font-medium">{{
+                crumb
+              }}</span>
             </template>
           </div>
         </div>
 
         <!-- Title + Status -->
         <div class="flex flex-wrap items-center gap-[8px] sm:gap-[12px]">
-          <h1 class="text-[20px] sm:text-[24px] font-bold text-content-primary leading-[28px] sm:leading-[32px]">{{ title }}</h1>
+          <h1
+            class="text-[20px] sm:text-[24px] font-bold text-content-primary leading-[28px] sm:leading-[32px]"
+          >
+            {{ title }}
+          </h1>
           <span
             v-if="status"
-            :class="['inline-flex items-center px-[10px] py-[2px] rounded-full text-[12px] font-medium', statusClasses]"
+            :class="[
+              'inline-flex items-center px-[10px] py-[2px] rounded-full text-[12px] font-medium',
+              statusClasses,
+            ]"
           >
             {{ status }}
           </span>
@@ -103,7 +124,10 @@ const statusClasses = computed(() => {
       </div>
 
       <!-- Actions -->
-      <div v-if="actions?.length" class="flex flex-wrap items-center gap-[8px] sm:mt-[4px]">
+      <div
+        v-if="actions?.length"
+        class="flex flex-wrap items-center gap-[8px] sm:mt-[4px]"
+      >
         <template v-for="(action, i) in actions" :key="i">
           <!-- Dropdown button -->
           <div v-if="action.kind === 'dropdown'" class="relative">
@@ -112,7 +136,15 @@ const statusClasses = computed(() => {
               @click.stop="toggleDropdown(i)"
             >
               {{ action.label }}
-              <svg class="w-[14px] h-[14px] text-content-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              <svg
+                class="w-[14px] h-[14px] text-content-secondary"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </button>
             <div
               v-if="openDropdown === i"
@@ -122,7 +154,10 @@ const statusClasses = computed(() => {
                 v-for="item in action.items"
                 :key="item"
                 class="w-full text-left px-[16px] py-[10px] text-[14px] text-content-primary hover:bg-surface-input transition-colors"
-                @click="openDropdown = null; $emit('dropdownSelect', action, item)"
+                @click="
+                  openDropdown = null;
+                  $emit('dropdownSelect', action, item);
+                "
               >
                 {{ item }}
               </button>

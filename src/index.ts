@@ -1,6 +1,6 @@
 // Predium Design UI
 // Vue 3 component library based on Uber's Base Web design system
 
-import './style.css'
+import "./style.css";
 
-export * from './components/ui'
+export * from "./components/ui";

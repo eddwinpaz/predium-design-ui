@@ -1,63 +1,68 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import EmptyState from './EmptyState.vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import EmptyState from "./EmptyState.vue";
 
 const meta: Meta<typeof EmptyState> = {
-  title: 'UI/EmptyState',
+  title: "UI/EmptyState",
   component: EmptyState,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    icon: { control: 'select', options: ['search', 'document', 'inbox', 'error'] },
+    icon: {
+      control: "select",
+      options: ["search", "document", "inbox", "error"],
+    },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof EmptyState>
+export default meta;
+type Story = StoryObj<typeof EmptyState>;
 
 export const Default: Story = {
   args: {
-    title: 'No results found',
-    description: 'Try adjusting your search or filter to find what you are looking for.',
-    actionLabel: 'Clear filters',
-    icon: 'search',
+    title: "No results found",
+    description:
+      "Try adjusting your search or filter to find what you are looking for.",
+    actionLabel: "Clear filters",
+    icon: "search",
   },
-}
+};
 
 export const NoProperties: Story = {
   args: {
-    title: 'No properties yet',
-    description: 'Get started by adding your first property to the platform.',
-    actionLabel: 'Add property',
-    secondaryActionLabel: 'Import from CSV',
-    icon: 'inbox',
+    title: "No properties yet",
+    description: "Get started by adding your first property to the platform.",
+    actionLabel: "Add property",
+    secondaryActionLabel: "Import from CSV",
+    icon: "inbox",
   },
-}
+};
 
 export const NoDocuments: Story = {
   args: {
-    title: 'No documents',
-    description: 'Upload lease agreements, inspection reports, or other documents.',
-    actionLabel: 'Upload document',
-    icon: 'document',
+    title: "No documents",
+    description:
+      "Upload lease agreements, inspection reports, or other documents.",
+    actionLabel: "Upload document",
+    icon: "document",
   },
-}
+};
 
 export const ErrorState: Story = {
   args: {
-    title: 'Something went wrong',
-    description: 'We encountered an error loading this page. Please try again.',
-    actionLabel: 'Retry',
-    secondaryActionLabel: 'Contact support',
-    icon: 'error',
+    title: "Something went wrong",
+    description: "We encountered an error loading this page. Please try again.",
+    actionLabel: "Retry",
+    secondaryActionLabel: "Contact support",
+    icon: "error",
   },
-}
+};
 
 export const NoAction: Story = {
   args: {
-    title: 'All caught up!',
-    description: 'There are no pending maintenance requests at this time.',
-    icon: 'inbox',
+    title: "All caught up!",
+    description: "There are no pending maintenance requests at this time.",
+    icon: "inbox",
   },
-}
+};
 
 export const CustomIcon: Story = {
   render: () => ({
@@ -76,4 +81,4 @@ export const CustomIcon: Story = {
       </EmptyState>
     `,
   }),
-}
+};

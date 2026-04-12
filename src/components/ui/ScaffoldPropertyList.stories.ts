@@ -1,78 +1,167 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import SidebarNav from './SidebarNav.vue'
-import NavHeader from './NavHeader.vue'
-import PageHeader from './PageHeader.vue'
-import SidePanel from './SidePanel.vue'
-import FilterList from './FilterList.vue'
-import SegmentControl from './SegmentControl.vue'
-import Badge from './Badge.vue'
-import Pagination from './Pagination.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import SidebarNav from "./SidebarNav.vue";
+import NavHeader from "./NavHeader.vue";
+import PageHeader from "./PageHeader.vue";
+import SidePanel from "./SidePanel.vue";
+import FilterList from "./FilterList.vue";
+import SegmentControl from "./SegmentControl.vue";
+import Badge from "./Badge.vue";
+import Pagination from "./Pagination.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/PropertyList',
+  title: "Scaffolds/PropertyList",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const AllProperties: Story = {
   render: () => ({
-    components: { ScaffoldDetail, SidebarNav, NavHeader, PageHeader, SidePanel, FilterList, SegmentControl, Badge, Pagination },
+    components: {
+      ScaffoldDetail,
+      SidebarNav,
+      NavHeader,
+      PageHeader,
+      SidePanel,
+      FilterList,
+      SegmentControl,
+      Badge,
+      Pagination,
+    },
     setup() {
-      const sidebarCollapsed = ref(window.innerWidth < 1024)
-      const panelCollapsed = ref(false)
-      const activeFilter = ref('all')
-      const viewMode = ref('table')
+      const sidebarCollapsed = ref(window.innerWidth < 1024);
+      const panelCollapsed = ref(false);
+      const activeFilter = ref("all");
+      const viewMode = ref("table");
 
       const navItems = [
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Properties', to: '/properties', active: true },
-        { label: 'Tenants', to: '/tenants' },
-        { label: 'Leases', to: '/leases' },
-        { label: 'Maintenance', to: '/maintenance' },
-        { label: 'Payments', to: '/payments' },
-        { label: 'Reports', to: '/reports' },
-        { label: 'Settings', to: '/settings' },
-      ]
+        { label: "Dashboard", to: "/dashboard" },
+        { label: "Properties", to: "/properties", active: true },
+        { label: "Tenants", to: "/tenants" },
+        { label: "Leases", to: "/leases" },
+        { label: "Maintenance", to: "/maintenance" },
+        { label: "Payments", to: "/payments" },
+        { label: "Reports", to: "/reports" },
+        { label: "Settings", to: "/settings" },
+      ];
 
       const modules = [
-        { title: 'Properties', items: [
-          { label: 'New Property' },
-          { label: 'All Properties' },
-          { label: 'Vacant' },
-        ]},
-        { title: 'Operations', items: [
-          { label: 'Maintenance' },
-          { label: 'Payments' },
-          { label: 'Calendar' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Reports' },
-          { label: 'Settings' },
-        ]},
-      ]
+        {
+          title: "Properties",
+          items: [
+            { label: "New Property" },
+            { label: "All Properties" },
+            { label: "Vacant" },
+          ],
+        },
+        {
+          title: "Operations",
+          items: [
+            { label: "Maintenance" },
+            { label: "Payments" },
+            { label: "Calendar" },
+          ],
+        },
+        {
+          title: "Admin",
+          items: [{ label: "Reports" }, { label: "Settings" }],
+        },
+      ];
 
       const properties = [
-        { name: 'Sunset Apartments', address: '123 Oak Street, Austin, TX', units: '24 units', occupancy: '96%', revenue: '$45,200', status: 'Active', statusVariant: 'positive' },
-        { name: 'Downtown Lofts', address: '456 Main Ave, Dallas, TX', units: '12 units', occupancy: '100%', revenue: '$38,400', status: 'Active', statusVariant: 'positive' },
-        { name: 'Riverside Complex', address: '789 River Rd, Houston, TX', units: '36 units', occupancy: '89%', revenue: '$62,100', status: 'Active', statusVariant: 'positive' },
-        { name: 'Pine Grove', address: '321 Pine St, San Antonio, TX', units: '8 units', occupancy: '75%', revenue: '$12,800', status: 'Maintenance', statusVariant: 'warning' },
-        { name: 'Metro Plaza', address: '555 Commerce Blvd, Austin, TX', units: '4 units', occupancy: '50%', revenue: '$8,900', status: 'Vacant', statusVariant: 'neutral' },
-        { name: 'Harbor View', address: '111 Coast Dr, Corpus Christi, TX', units: '16 units', occupancy: '94%', revenue: '$28,600', status: 'Active', statusVariant: 'positive' },
-        { name: 'Oak Park Residences', address: '222 Oak Park, Dallas, TX', units: '20 units', occupancy: '90%', revenue: '$35,000', status: 'Active', statusVariant: 'positive' },
-        { name: 'The Willows', address: '333 Willow Lane, Houston, TX', units: '6 units', occupancy: '0%', revenue: '$0', status: 'Vacant', statusVariant: 'neutral' },
-      ]
+        {
+          name: "Sunset Apartments",
+          address: "123 Oak Street, Austin, TX",
+          units: "24 units",
+          occupancy: "96%",
+          revenue: "$45,200",
+          status: "Active",
+          statusVariant: "positive",
+        },
+        {
+          name: "Downtown Lofts",
+          address: "456 Main Ave, Dallas, TX",
+          units: "12 units",
+          occupancy: "100%",
+          revenue: "$38,400",
+          status: "Active",
+          statusVariant: "positive",
+        },
+        {
+          name: "Riverside Complex",
+          address: "789 River Rd, Houston, TX",
+          units: "36 units",
+          occupancy: "89%",
+          revenue: "$62,100",
+          status: "Active",
+          statusVariant: "positive",
+        },
+        {
+          name: "Pine Grove",
+          address: "321 Pine St, San Antonio, TX",
+          units: "8 units",
+          occupancy: "75%",
+          revenue: "$12,800",
+          status: "Maintenance",
+          statusVariant: "warning",
+        },
+        {
+          name: "Metro Plaza",
+          address: "555 Commerce Blvd, Austin, TX",
+          units: "4 units",
+          occupancy: "50%",
+          revenue: "$8,900",
+          status: "Vacant",
+          statusVariant: "neutral",
+        },
+        {
+          name: "Harbor View",
+          address: "111 Coast Dr, Corpus Christi, TX",
+          units: "16 units",
+          occupancy: "94%",
+          revenue: "$28,600",
+          status: "Active",
+          statusVariant: "positive",
+        },
+        {
+          name: "Oak Park Residences",
+          address: "222 Oak Park, Dallas, TX",
+          units: "20 units",
+          occupancy: "90%",
+          revenue: "$35,000",
+          status: "Active",
+          statusVariant: "positive",
+        },
+        {
+          name: "The Willows",
+          address: "333 Willow Lane, Houston, TX",
+          units: "6 units",
+          occupancy: "0%",
+          revenue: "$0",
+          status: "Vacant",
+          statusVariant: "neutral",
+        },
+      ];
 
-      return { sidebarCollapsed, panelCollapsed, activeFilter, viewMode, navItems, modules, properties }
+      return {
+        sidebarCollapsed,
+        panelCollapsed,
+        activeFilter,
+        viewMode,
+        navItems,
+        modules,
+        properties,
+      };
     },
     template: `
       <ScaffoldDetail>
@@ -179,4 +268,4 @@ export const AllProperties: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

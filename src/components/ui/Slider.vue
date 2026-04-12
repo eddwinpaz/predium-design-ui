@@ -1,12 +1,12 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    modelValue: number
-    min?: number
-    max?: number
-    step?: number
-    disabled?: boolean
-    showValue?: boolean
+    modelValue: number;
+    min?: number;
+    max?: number;
+    step?: number;
+    disabled?: boolean;
+    showValue?: boolean;
   }>(),
   {
     min: 0,
@@ -14,12 +14,12 @@ withDefaults(
     step: 1,
     disabled: false,
     showValue: false,
-  }
-)
+  },
+);
 
 defineEmits<{
-  'update:modelValue': [value: number]
-}>()
+  "update:modelValue": [value: number];
+}>();
 </script>
 
 <template>
@@ -32,12 +32,13 @@ defineEmits<{
         :step="step"
         :value="modelValue"
         :disabled="disabled"
-        class="slider-input w-full h-2 rounded-full appearance-none cursor-pointer bg-bg-tertiary
-          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
-          [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-content-primary [&::-webkit-slider-thumb]:cursor-pointer
-          [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface [&::-webkit-slider-thumb]:shadow-md
-          disabled:opacity-40 disabled:cursor-not-allowed"
-        @input="$emit('update:modelValue', Number(($event.target as HTMLInputElement).value))"
+        class="slider-input w-full h-2 rounded-full appearance-none cursor-pointer bg-bg-tertiary [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-content-primary [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-surface [&::-webkit-slider-thumb]:shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
+        @input="
+          $emit(
+            'update:modelValue',
+            Number(($event.target as HTMLInputElement).value),
+          )
+        "
       />
       <span
         v-if="showValue"

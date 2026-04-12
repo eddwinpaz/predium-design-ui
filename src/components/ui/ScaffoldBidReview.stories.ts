@@ -1,58 +1,121 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import NavHeader from './NavHeader.vue'
-import PageHeader from './PageHeader.vue'
-import Tabs from './Tabs.vue'
-import KpiCard from './KpiCard.vue'
-import ProgressBar from './ProgressBar.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import NavHeader from "./NavHeader.vue";
+import PageHeader from "./PageHeader.vue";
+import Tabs from "./Tabs.vue";
+import KpiCard from "./KpiCard.vue";
+import ProgressBar from "./ProgressBar.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/BidReview',
+  title: "Scaffolds/BidReview",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const SeptemberBid: Story = {
   render: () => ({
-    components: { ScaffoldDetail, NavHeader, PageHeader, Tabs, KpiCard, ProgressBar },
+    components: {
+      ScaffoldDetail,
+      NavHeader,
+      PageHeader,
+      Tabs,
+      KpiCard,
+      ProgressBar,
+    },
     setup() {
-      const activeTab = ref('lanes')
+      const activeTab = ref("lanes");
       const tabs = [
-        { key: 'lanes', label: 'Lanes' },
-        { key: 'carriers', label: 'Carriers' },
-        { key: 'documents', label: 'Documents' },
-      ]
+        { key: "lanes", label: "Lanes" },
+        { key: "carriers", label: "Carriers" },
+        { key: "documents", label: "Documents" },
+      ];
 
       const modules = [
-        { title: 'Procurement', items: [
-          { label: 'Bid events' },
-          { label: 'Carriers' },
-          { label: 'Reports' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Settings' },
-        ]},
-      ]
+        {
+          title: "Procurement",
+          items: [
+            { label: "Bid events" },
+            { label: "Carriers" },
+            { label: "Reports" },
+          ],
+        },
+        { title: "Admin", items: [{ label: "Settings" }] },
+      ];
 
       const lanes = [
-        { origin: 'Rogers, AR', dest: 'Park City, UT', invited: 5, bids: 5, loads: '15 /week', status: 'Assigned', primary: 2, backup: 2 },
-        { origin: 'Rogers, AR', dest: 'Big Sky, MT', invited: 4, bids: 4, loads: '11 /week', status: 'Assigned', primary: 2, backup: 2 },
-        { origin: 'Rogers, AR', dest: 'Whistler, BC', invited: 6, bids: 6, loads: '12 /week', status: 'Assigned', primary: 2, backup: 2 },
-        { origin: 'Santa Monica, CA', dest: 'Alta, UT', invited: 13, bids: 12, loads: '5 /week', status: 'Assigned', primary: 1, backup: 2 },
-        { origin: 'Santa Monica, CA', dest: 'Aspen, CO', invited: 13, bids: 13, loads: '7 /week', status: 'Assigned', primary: 1, backup: 2 },
-        { origin: 'Chicago, IL', dest: 'Telluride, CO', invited: 13, bids: 10, loads: '8 /week', status: 'Assigned', primary: 2, backup: 1 },
-      ]
+        {
+          origin: "Rogers, AR",
+          dest: "Park City, UT",
+          invited: 5,
+          bids: 5,
+          loads: "15 /week",
+          status: "Assigned",
+          primary: 2,
+          backup: 2,
+        },
+        {
+          origin: "Rogers, AR",
+          dest: "Big Sky, MT",
+          invited: 4,
+          bids: 4,
+          loads: "11 /week",
+          status: "Assigned",
+          primary: 2,
+          backup: 2,
+        },
+        {
+          origin: "Rogers, AR",
+          dest: "Whistler, BC",
+          invited: 6,
+          bids: 6,
+          loads: "12 /week",
+          status: "Assigned",
+          primary: 2,
+          backup: 2,
+        },
+        {
+          origin: "Santa Monica, CA",
+          dest: "Alta, UT",
+          invited: 13,
+          bids: 12,
+          loads: "5 /week",
+          status: "Assigned",
+          primary: 1,
+          backup: 2,
+        },
+        {
+          origin: "Santa Monica, CA",
+          dest: "Aspen, CO",
+          invited: 13,
+          bids: 13,
+          loads: "7 /week",
+          status: "Assigned",
+          primary: 1,
+          backup: 2,
+        },
+        {
+          origin: "Chicago, IL",
+          dest: "Telluride, CO",
+          invited: 13,
+          bids: 10,
+          loads: "8 /week",
+          status: "Assigned",
+          primary: 2,
+          backup: 1,
+        },
+      ];
 
-      return { activeTab, tabs, modules, lanes }
+      return { activeTab, tabs, modules, lanes };
     },
     template: `
       <ScaffoldDetail>
@@ -169,4 +232,4 @@ export const SeptemberBid: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

@@ -1,61 +1,68 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import List from './List.vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import List from "./List.vue";
 
 const meta: Meta<typeof List> = {
-  title: 'Components/List',
+  title: "Components/List",
   component: List,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    hoverable: { control: 'boolean' },
-    divided: { control: 'boolean' },
+    hoverable: { control: "boolean" },
+    divided: { control: "boolean" },
   },
   decorators: [
     () => ({
-      template: '<div class="max-w-md border border-border rounded-lg overflow-hidden"><story /></div>',
+      template:
+        '<div class="max-w-md border border-border rounded-lg overflow-hidden"><story /></div>',
     }),
   ],
-}
-export default meta
-type Story = StoryObj<typeof List>
+};
+export default meta;
+type Story = StoryObj<typeof List>;
 
 const defaultItems = [
-  { label: 'Account settings' },
-  { label: 'Privacy & security' },
-  { label: 'Notifications' },
-  { label: 'Payment methods' },
-  { label: 'Help & support' },
-]
+  { label: "Account settings" },
+  { label: "Privacy & security" },
+  { label: "Notifications" },
+  { label: "Payment methods" },
+  { label: "Help & support" },
+];
 
 const itemsWithDescriptions = [
-  { label: 'Account settings', description: 'Manage your personal information' },
-  { label: 'Privacy & security', description: 'Control your data and permissions' },
-  { label: 'Notifications', description: 'Choose what updates you receive' },
-  { label: 'Payment methods', description: 'Add or remove payment options' },
-  { label: 'Help & support', description: 'Get help with your account' },
-]
+  {
+    label: "Account settings",
+    description: "Manage your personal information",
+  },
+  {
+    label: "Privacy & security",
+    description: "Control your data and permissions",
+  },
+  { label: "Notifications", description: "Choose what updates you receive" },
+  { label: "Payment methods", description: "Add or remove payment options" },
+  { label: "Help & support", description: "Get help with your account" },
+];
 
 const itemsWithEndContent = [
-  { label: 'Basic plan', endContent: '$9/mo' },
-  { label: 'Pro plan', endContent: '$29/mo' },
-  { label: 'Enterprise plan', endContent: '$99/mo' },
-  { label: 'Custom plan', endContent: 'Contact us' },
-]
+  { label: "Basic plan", endContent: "$9/mo" },
+  { label: "Pro plan", endContent: "$29/mo" },
+  { label: "Enterprise plan", endContent: "$99/mo" },
+  { label: "Custom plan", endContent: "Contact us" },
+];
 
 export const Default: Story = {
   args: { items: defaultItems },
-}
+};
 
 export const WithDescriptions: Story = {
   args: { items: itemsWithDescriptions },
-}
+};
 
 export const WithEndContent: Story = {
   args: { items: itemsWithEndContent },
-}
+};
 
 export const NoDividers: Story = {
   args: { items: defaultItems, divided: false },
-}
+};
 
 export const CustomSlot: Story = {
   args: { items: itemsWithDescriptions },
@@ -81,4 +88,4 @@ export const CustomSlot: Story = {
       </List>
     `,
   }),
-}
+};

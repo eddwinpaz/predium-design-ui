@@ -1,58 +1,58 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 import {
   Combobox,
   ComboboxInput,
   ComboboxButton,
   ComboboxOptions,
   ComboboxOption,
-} from '@headlessui/vue'
+} from "@headlessui/vue";
 
 export interface ComboboxOptionItem {
-  label: string
-  value: string
+  label: string;
+  value: string;
 }
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string | null
-    options: ComboboxOptionItem[]
-    placeholder?: string
-    disabled?: boolean
-    size?: 'compact' | 'default' | 'large'
+    modelValue: string | null;
+    options: ComboboxOptionItem[];
+    placeholder?: string;
+    disabled?: boolean;
+    size?: "compact" | "default" | "large";
   }>(),
   {
-    placeholder: 'Search...',
+    placeholder: "Search...",
     disabled: false,
-    size: 'default',
-  }
-)
+    size: "default",
+  },
+);
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string | null]
-}>()
+  "update:modelValue": [value: string | null];
+}>();
 
-const query = ref('')
+const query = ref("");
 
 const filteredOptions = computed(() => {
-  if (query.value === '') return props.options
-  const q = query.value.toLowerCase()
-  return props.options.filter((opt) => opt.label.toLowerCase().includes(q))
-})
+  if (query.value === "") return props.options;
+  const q = query.value.toLowerCase();
+  return props.options.filter((opt) => opt.label.toLowerCase().includes(q));
+});
 
 const sizeClass = computed(() => {
   switch (props.size) {
-    case 'compact':
-      return 'h-8'
-    case 'large':
-      return 'h-12'
+    case "compact":
+      return "h-8";
+    case "large":
+      return "h-12";
     default:
-      return 'h-10'
+      return "h-10";
   }
-})
+});
 
 function getDisplayValue(val: unknown): string {
-  return props.options.find((o) => o.value === val)?.label ?? ''
+  return props.options.find((o) => o.value === val)?.label ?? "";
 }
 </script>
 
@@ -66,7 +66,9 @@ function getDisplayValue(val: unknown): string {
       <div
         :class="[
           'flex items-center border-2 rounded-[8px] transition-colors',
-          disabled ? 'opacity-40 bg-surface-input border-transparent cursor-not-allowed' : 'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected',
+          disabled
+            ? 'opacity-40 bg-surface-input border-transparent cursor-not-allowed'
+            : 'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected',
           sizeClass,
         ]"
       >
@@ -76,7 +78,9 @@ function getDisplayValue(val: unknown): string {
           class="w-full bg-transparent outline-none px-3 text-sm placeholder:text-content-tertiary text-content-primary"
           @change="query = ($event.target as HTMLInputElement).value"
         />
-        <ComboboxButton class="px-2 text-content-tertiary hover:text-content-secondary">
+        <ComboboxButton
+          class="px-2 text-content-tertiary hover:text-content-secondary"
+        >
           <svg
             class="w-4 h-4"
             viewBox="0 0 24 24"

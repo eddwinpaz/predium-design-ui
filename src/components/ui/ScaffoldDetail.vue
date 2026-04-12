@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
 /**
  * ScaffoldDetail - Full page layout for detail views
@@ -8,17 +8,17 @@ import { ref } from 'vue'
  * On desktop: sidebar is always visible
  */
 
-const mobileSidebarOpen = ref(false)
+const mobileSidebarOpen = ref(false);
 
 function openMobileSidebar() {
-  mobileSidebarOpen.value = true
+  mobileSidebarOpen.value = true;
 }
 
 function closeMobileSidebar() {
-  mobileSidebarOpen.value = false
+  mobileSidebarOpen.value = false;
 }
 
-defineExpose({ openMobileSidebar, closeMobileSidebar })
+defineExpose({ openMobileSidebar, closeMobileSidebar });
 </script>
 
 <template>
@@ -37,7 +37,10 @@ defineExpose({ openMobileSidebar, closeMobileSidebar })
       leave-from-class="translate-x-0"
       leave-to-class="-translate-x-full"
     >
-      <div v-if="mobileSidebarOpen" class="sm:hidden fixed inset-y-0 left-0 z-[9999] flex">
+      <div
+        v-if="mobileSidebarOpen"
+        class="sm:hidden fixed inset-y-0 left-0 z-[9999] flex"
+      >
         <slot name="sidebar" />
       </div>
     </Transition>
@@ -82,7 +85,10 @@ defineExpose({ openMobileSidebar, closeMobileSidebar })
             </div>
           </div>
 
-          <div v-if="$slots.rightPanel" class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-border p-[12px] sm:p-[16px] md:p-[24px]">
+          <div
+            v-if="$slots.rightPanel"
+            class="w-full lg:w-[340px] xl:w-[400px] flex-shrink-0 border-t lg:border-t-0 lg:border-l border-border p-[12px] sm:p-[16px] md:p-[24px]"
+          >
             <div class="lg:sticky lg:top-[24px]">
               <slot name="rightPanel" />
             </div>

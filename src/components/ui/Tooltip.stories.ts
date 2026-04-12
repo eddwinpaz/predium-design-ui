@@ -1,37 +1,38 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Tooltip from './Tooltip.vue'
-import Button from './Button.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Tooltip from "./Tooltip.vue";
+import Button from "./Button.vue";
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: "Components/Tooltip",
   component: Tooltip,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    content: { control: 'text' },
+    content: { control: "text" },
     placement: {
-      control: 'select',
-      options: ['top', 'bottom', 'left', 'right'],
+      control: "select",
+      options: ["top", "bottom", "left", "right"],
     },
   },
   decorators: [
     () => ({
-      template: '<div class="flex items-center justify-center p-20"><story /></div>',
+      template:
+        '<div class="flex items-center justify-center p-20"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Tooltip>
+export default meta;
+type Story = StoryObj<typeof Tooltip>;
 
 export const Top: Story = {
   args: {
-    content: 'Tooltip on top',
-    placement: 'top',
+    content: "Tooltip on top",
+    placement: "top",
   },
   render: (args) => ({
     components: { Tooltip },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -39,17 +40,17 @@ export const Top: Story = {
       </Tooltip>
     `,
   }),
-}
+};
 
 export const Bottom: Story = {
   args: {
-    content: 'Tooltip on bottom',
-    placement: 'bottom',
+    content: "Tooltip on bottom",
+    placement: "bottom",
   },
   render: (args) => ({
     components: { Tooltip },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -57,17 +58,17 @@ export const Bottom: Story = {
       </Tooltip>
     `,
   }),
-}
+};
 
 export const Left: Story = {
   args: {
-    content: 'Tooltip on left',
-    placement: 'left',
+    content: "Tooltip on left",
+    placement: "left",
   },
   render: (args) => ({
     components: { Tooltip },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -75,17 +76,17 @@ export const Left: Story = {
       </Tooltip>
     `,
   }),
-}
+};
 
 export const Right: Story = {
   args: {
-    content: 'Tooltip on right',
-    placement: 'right',
+    content: "Tooltip on right",
+    placement: "right",
   },
   render: (args) => ({
     components: { Tooltip },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -93,17 +94,17 @@ export const Right: Story = {
       </Tooltip>
     `,
   }),
-}
+};
 
 export const WithButton: Story = {
   args: {
-    content: 'Click to submit your form',
-    placement: 'top',
+    content: "Click to submit your form",
+    placement: "top",
   },
   render: (args) => ({
     components: { Tooltip, Button },
     setup() {
-      return { args }
+      return { args };
     },
     template: `
       <Tooltip v-bind="args">
@@ -111,4 +112,4 @@ export const WithButton: Story = {
       </Tooltip>
     `,
   }),
-}
+};

@@ -1,35 +1,38 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 interface Props {
-  modelValue?: number
-  max?: number
-  size?: 'sm' | 'md' | 'lg'
-  readOnly?: boolean
-  color?: string
+  modelValue?: number;
+  max?: number;
+  size?: "sm" | "md" | "lg";
+  readOnly?: boolean;
+  color?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: 0,
   max: 5,
-  size: 'md',
+  size: "md",
   readOnly: false,
-  color: '#FFC043',
-})
+  color: "#FFC043",
+});
 
 const emit = defineEmits<{
-  'update:modelValue': [value: number]
-}>()
+  "update:modelValue": [value: number];
+}>();
 
-const hoverValue = ref(0)
+const hoverValue = ref(0);
 
 const sizeClass = computed(() => {
   switch (props.size) {
-    case 'sm': return 'w-4 h-4'
-    case 'lg': return 'w-7 h-7'
-    default: return 'w-5 h-5'
+    case "sm":
+      return "w-4 h-4";
+    case "lg":
+      return "w-7 h-7";
+    default:
+      return "w-5 h-5";
   }
-})
+});
 </script>
 
 <template>

@@ -1,64 +1,66 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 const props = withDefaults(
   defineProps<{
     placement?:
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'top'
-      | 'top-start'
-      | 'top-end'
+      | "bottom"
+      | "bottom-start"
+      | "bottom-end"
+      | "top"
+      | "top-start"
+      | "top-end";
   }>(),
   {
-    placement: 'bottom-start',
-  }
-)
+    placement: "bottom-start",
+  },
+);
 
-const open = ref(false)
-const popoverRef = ref<HTMLElement | null>(null)
+const open = ref(false);
+const popoverRef = ref<HTMLElement | null>(null);
 
 function toggle() {
-  open.value = !open.value
+  open.value = !open.value;
 }
 
 function close() {
-  open.value = false
+  open.value = false;
 }
 
 function handleClickOutside(e: MouseEvent) {
   if (popoverRef.value && !popoverRef.value.contains(e.target as Node)) {
-    close()
+    close();
   }
 }
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
+  document.addEventListener("click", handleClickOutside);
+});
 
 onBeforeUnmount(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+  document.removeEventListener("click", handleClickOutside);
+});
 
 const placementClasses = computed(() => {
   const map: Record<string, string> = {
-    'bottom-end': 'right-0 top-full mt-2',
-    'bottom-start': 'left-0 top-full mt-2',
-    'bottom': 'left-1/2 -translate-x-1/2 top-full mt-2',
-    'top-end': 'right-0 bottom-full mb-2',
-    'top-start': 'left-0 bottom-full mb-2',
-    'top': 'left-1/2 -translate-x-1/2 bottom-full mb-2',
-  }
-  return map[props.placement] ?? 'left-0 top-full mt-2'
-})
+    "bottom-end": "right-0 top-full mt-2",
+    "bottom-start": "left-0 top-full mt-2",
+    bottom: "left-1/2 -translate-x-1/2 top-full mt-2",
+    "top-end": "right-0 bottom-full mb-2",
+    "top-start": "left-0 bottom-full mb-2",
+    top: "left-1/2 -translate-x-1/2 bottom-full mb-2",
+  };
+  return map[props.placement] ?? "left-0 top-full mt-2";
+});
 </script>
 
 <template>
   <div ref="popoverRef" class="relative inline-block">
     <div @click.stop="toggle" class="inline-block cursor-pointer">
       <slot name="trigger">
-        <button class="px-4 py-2 text-sm font-medium bg-black text-white rounded-lg">
+        <button
+          class="px-4 py-2 text-sm font-medium bg-black text-white rounded-lg"
+        >
           Open
         </button>
       </slot>

@@ -1,34 +1,37 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
 interface Props {
-  modelValue?: string
-  countryCode?: string
-  disabled?: boolean
-  error?: boolean
-  size?: 'compact' | 'default' | 'large'
+  modelValue?: string;
+  countryCode?: string;
+  disabled?: boolean;
+  error?: boolean;
+  size?: "compact" | "default" | "large";
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  modelValue: '',
-  countryCode: '+1',
+  modelValue: "",
+  countryCode: "+1",
   disabled: false,
   error: false,
-  size: 'default',
-})
+  size: "default",
+});
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string]
-  'update:countryCode': [value: string]
-}>()
+  "update:modelValue": [value: string];
+  "update:countryCode": [value: string];
+}>();
 
 const sizeClass = computed(() => {
   switch (props.size) {
-    case 'compact': return 'h-8 text-sm'
-    case 'large': return 'h-12 text-base'
-    default: return 'h-10 text-sm'
+    case "compact":
+      return "h-8 text-sm";
+    case "large":
+      return "h-12 text-base";
+    default:
+      return "h-10 text-sm";
   }
-})
+});
 </script>
 
 <template>
@@ -36,7 +39,9 @@ const sizeClass = computed(() => {
     :class="[
       'flex border-2 rounded-[8px] overflow-hidden transition-colors',
       error ? 'border-[#e11900] bg-surface' : '',
-      !error && !disabled ? 'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected' : '',
+      !error && !disabled
+        ? 'bg-surface-input border-transparent hover:bg-surface-input-hover focus-within:!bg-surface focus-within:!border-border-selected'
+        : '',
       disabled ? 'opacity-40 bg-surface-input border-transparent' : '',
     ]"
   >
@@ -47,7 +52,9 @@ const sizeClass = computed(() => {
         'bg-bg-secondary border-r border-border px-2 text-sm font-medium outline-none cursor-pointer',
         sizeClass,
       ]"
-      @change="emit('update:countryCode', ($event.target as HTMLSelectElement).value)"
+      @change="
+        emit('update:countryCode', ($event.target as HTMLSelectElement).value)
+      "
     >
       <option value="+1">&#x1F1FA;&#x1F1F8; +1</option>
       <option value="+52">&#x1F1F2;&#x1F1FD; +52</option>
@@ -64,7 +71,9 @@ const sizeClass = computed(() => {
       type="tel"
       placeholder="(555) 123-4567"
       :class="['flex-1 outline-none px-3 text-sm bg-transparent', sizeClass]"
-      @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      @input="
+        emit('update:modelValue', ($event.target as HTMLInputElement).value)
+      "
     />
   </div>
 </template>

@@ -1,28 +1,28 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Drawer from './Drawer.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Drawer from "./Drawer.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof Drawer> = {
-  title: 'UI/Drawer',
+  title: "UI/Drawer",
   component: Drawer,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    side: { control: 'select', options: ['left', 'right'] },
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
-    title: { control: 'text' },
-    open: { control: 'boolean' },
+    side: { control: "select", options: ["left", "right"] },
+    size: { control: "select", options: ["sm", "md", "lg"] },
+    title: { control: "text" },
+    open: { control: "boolean" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Drawer>
+export default meta;
+type Story = StoryObj<typeof Drawer>;
 
 export const Default: Story = {
   render: (args) => ({
     components: { Drawer },
     setup() {
-      const isOpen = ref(false)
-      return { args, isOpen }
+      const isOpen = ref(false);
+      return { args, isOpen };
     },
     template: `
       <div>
@@ -49,18 +49,18 @@ export const Default: Story = {
     `,
   }),
   args: {
-    title: 'Drawer Title',
-    side: 'right',
-    size: 'md',
+    title: "Drawer Title",
+    side: "right",
+    size: "md",
   },
-}
+};
 
 export const LeftSide: Story = {
   render: (args) => ({
     components: { Drawer },
     setup() {
-      const isOpen = ref(false)
-      return { args, isOpen }
+      const isOpen = ref(false);
+      return { args, isOpen };
     },
     template: `
       <div>
@@ -77,18 +77,18 @@ export const LeftSide: Story = {
     `,
   }),
   args: {
-    title: 'Left Drawer',
-    side: 'left',
-    size: 'md',
+    title: "Left Drawer",
+    side: "left",
+    size: "md",
   },
-}
+};
 
 export const Large: Story = {
   render: (args) => ({
     components: { Drawer },
     setup() {
-      const isOpen = ref(false)
-      return { args, isOpen }
+      const isOpen = ref(false);
+      return { args, isOpen };
     },
     template: `
       <div>
@@ -111,18 +111,18 @@ export const Large: Story = {
     `,
   }),
   args: {
-    title: 'Large Drawer',
-    side: 'right',
-    size: 'lg',
+    title: "Large Drawer",
+    side: "right",
+    size: "lg",
   },
-}
+};
 
 export const WithFooter: Story = {
   render: (args) => ({
     components: { Drawer },
     setup() {
-      const isOpen = ref(false)
-      return { args, isOpen }
+      const isOpen = ref(false);
+      return { args, isOpen };
     },
     template: `
       <div>
@@ -161,8 +161,8 @@ export const WithFooter: Story = {
     `,
   }),
   args: {
-    title: 'Edit Details',
-    side: 'right',
-    size: 'md',
+    title: "Edit Details",
+    side: "right",
+    size: "md",
   },
-}
+};

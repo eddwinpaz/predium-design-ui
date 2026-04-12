@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
-import FormControl from './FormControl.vue'
-import Input from './Input.vue'
-import Select from './Select.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
+import FormControl from "./FormControl.vue";
+import Input from "./Input.vue";
+import Select from "./Select.vue";
 
 const meta: Meta<typeof FormControl> = {
-  title: 'UI/FormControl',
+  title: "UI/FormControl",
   component: FormControl,
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof FormControl>
+export default meta;
+type Story = StoryObj<typeof FormControl>;
 
 export const Default: Story = {
   render: (args) => ({
     components: { FormControl, Input },
     setup() {
-      const value = ref('')
-      return { args, value }
+      const value = ref("");
+      return { args, value };
     },
     template: `
       <FormControl v-bind="args">
@@ -27,16 +27,16 @@ export const Default: Story = {
     `,
   }),
   args: {
-    label: 'Full Name',
+    label: "Full Name",
   },
-}
+};
 
 export const WithCaption: Story = {
   render: (args) => ({
     components: { FormControl, Input },
     setup() {
-      const value = ref('')
-      return { args, value }
+      const value = ref("");
+      return { args, value };
     },
     template: `
       <FormControl v-bind="args">
@@ -45,17 +45,17 @@ export const WithCaption: Story = {
     `,
   }),
   args: {
-    label: 'Email Address',
-    caption: 'We will never share your email with anyone.',
+    label: "Email Address",
+    caption: "We will never share your email with anyone.",
   },
-}
+};
 
 export const WithError: Story = {
   render: (args) => ({
     components: { FormControl, Input },
     setup() {
-      const value = ref('bad-email')
-      return { args, value }
+      const value = ref("bad-email");
+      return { args, value };
     },
     template: `
       <FormControl v-bind="args">
@@ -64,17 +64,17 @@ export const WithError: Story = {
     `,
   }),
   args: {
-    label: 'Email Address',
-    error: 'Please enter a valid email address.',
+    label: "Email Address",
+    error: "Please enter a valid email address.",
   },
-}
+};
 
 export const Required: Story = {
   render: (args) => ({
     components: { FormControl, Input },
     setup() {
-      const value = ref('')
-      return { args, value }
+      const value = ref("");
+      return { args, value };
     },
     template: `
       <FormControl v-bind="args">
@@ -83,24 +83,24 @@ export const Required: Story = {
     `,
   }),
   args: {
-    label: 'Company Name',
+    label: "Company Name",
     required: true,
-    caption: 'This field is required.',
+    caption: "This field is required.",
   },
-}
+};
 
 export const Composition: Story = {
   render: () => ({
     components: { FormControl, Input, Select },
     setup() {
-      const name = ref('')
-      const mode = ref(null)
+      const name = ref("");
+      const mode = ref(null);
       const options = [
-        { label: 'Full Truckload', value: 'ftl' },
-        { label: 'LTL', value: 'ltl' },
-        { label: 'Intermodal', value: 'intermodal' },
-      ]
-      return { name, mode, options }
+        { label: "Full Truckload", value: "ftl" },
+        { label: "LTL", value: "ltl" },
+        { label: "Intermodal", value: "intermodal" },
+      ];
+      return { name, mode, options };
     },
     template: `
       <div class="max-w-md">
@@ -113,4 +113,4 @@ export const Composition: Story = {
       </div>
     `,
   }),
-}
+};

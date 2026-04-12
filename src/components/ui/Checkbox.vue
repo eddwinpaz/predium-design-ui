@@ -40,18 +40,18 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    modelValue: boolean
-    label: string
-    description?: string
-    disabled?: boolean
+    modelValue: boolean;
+    label: string;
+    description?: string;
+    disabled?: boolean;
   }>(),
   {
-    description: '',
+    description: "",
     disabled: false,
   },
-)
+);
 
 defineEmits<{
-  'update:modelValue': [value: boolean]
-}>()
+  "update:modelValue": [value: boolean];
+}>();
 </script>

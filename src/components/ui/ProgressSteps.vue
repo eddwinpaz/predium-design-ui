@@ -1,17 +1,17 @@
 <script setup lang="ts">
 interface Step {
-  title: string
-  description?: string
+  title: string;
+  description?: string;
 }
 
 interface Props {
-  steps: Step[]
-  currentStep?: number
+  steps: Step[];
+  currentStep?: number;
 }
 
 withDefaults(defineProps<Props>(), {
   currentStep: 0,
-})
+});
 </script>
 
 <template>
@@ -23,9 +23,15 @@ withDefaults(defineProps<Props>(), {
         <div
           :class="[
             'w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0 border-2 transition-colors',
-            i < currentStep ? 'bg-btn-primary border-btn-primary text-btn-primary-text' : '',
-            i === currentStep ? 'bg-btn-primary border-btn-primary text-btn-primary-text' : '',
-            i > currentStep ? 'bg-surface border-border text-content-tertiary' : '',
+            i < currentStep
+              ? 'bg-btn-primary border-btn-primary text-btn-primary-text'
+              : '',
+            i === currentStep
+              ? 'bg-btn-primary border-btn-primary text-btn-primary-text'
+              : '',
+            i > currentStep
+              ? 'bg-surface border-border text-content-tertiary'
+              : '',
           ]"
         >
           <!-- Checkmark for completed -->
@@ -65,7 +71,9 @@ withDefaults(defineProps<Props>(), {
           v-if="step.description"
           :class="[
             'text-xs mt-0.5',
-            i <= currentStep ? 'text-content-secondary' : 'text-content-tertiary',
+            i <= currentStep
+              ? 'text-content-secondary'
+              : 'text-content-tertiary',
           ]"
         >
           {{ step.description }}

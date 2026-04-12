@@ -1,24 +1,24 @@
 <script setup lang="ts">
 export interface ButtonGroupOption {
-  label: string
-  value: string
-  disabled?: boolean
+  label: string;
+  value: string;
+  disabled?: boolean;
 }
 
 withDefaults(
   defineProps<{
-    modelValue: string
-    options: ButtonGroupOption[]
-    size?: 'compact' | 'default'
+    modelValue: string;
+    options: ButtonGroupOption[];
+    size?: "compact" | "default";
   }>(),
   {
-    size: 'default',
-  }
-)
+    size: "default",
+  },
+);
 
 defineEmits<{
-  'update:modelValue': [value: string]
-}>()
+  "update:modelValue": [value: string];
+}>();
 </script>
 
 <template>

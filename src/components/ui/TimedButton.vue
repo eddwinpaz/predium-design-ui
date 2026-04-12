@@ -1,85 +1,92 @@
 <script setup lang="ts">
-import { ref, computed, onBeforeUnmount, watch } from 'vue'
+import { ref, computed, onBeforeUnmount, watch } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    label?: string
-    duration?: number
-    paused?: boolean
-    disabled?: boolean
+    label?: string;
+    duration?: number;
+    paused?: boolean;
+    disabled?: boolean;
   }>(),
   {
-    label: 'Countdown',
+    label: "Countdown",
     duration: 10,
     paused: true,
     disabled: false,
-  }
-)
+  },
+);
 
 const emit = defineEmits<{
-  click: []
-}>()
+  click: [];
+}>();
 
-const remaining = ref(props.duration)
-const finished = ref(false)
-let interval: ReturnType<typeof setInterval> | null = null
+const remaining = ref(props.duration);
+const finished = ref(false);
+let interval: ReturnType<typeof setInterval> | null = null;
 
-const running = computed(() => !props.paused && !finished.value)
+const running = computed(() => !props.paused && !finished.value);
 
 const displayTime = computed(() => {
-  const mins = Math.floor(remaining.value / 60)
-  const secs = remaining.value % 60
-  return `${mins}:${String(secs).padStart(2, '0')}`
-})
+  const mins = Math.floor(remaining.value / 60);
+  const secs = remaining.value % 60;
+  return `${mins}:${String(secs).padStart(2, "0")}`;
+});
 
 const progress = computed(() => {
-  if (props.duration === 0) return 100
-  return ((props.duration - remaining.value) / props.duration) * 100
-})
+  if (props.duration === 0) return 100;
+  return ((props.duration - remaining.value) / props.duration) * 100;
+});
 
 function tick() {
-  remaining.value--
+  remaining.value--;
   if (remaining.value <= 0) {
-    remaining.value = 0
-    finished.value = true
-    stopTimer()
-    emit('click')
+    remaining.value = 0;
+    finished.value = true;
+    stopTimer();
+    emit("click");
   }
 }
 
 function startTimer() {
-  if (interval || finished.value) return
-  interval = setInterval(tick, 1000)
+  if (interval || finished.value) return;
+  interval = setInterval(tick, 1000);
 }
 
 function stopTimer() {
   if (interval) {
-    clearInterval(interval)
-    interval = null
+    clearInterval(interval);
+    interval = null;
   }
 }
 
 function reset() {
-  stopTimer()
-  remaining.value = props.duration
-  finished.value = false
+  stopTimer();
+  remaining.value = props.duration;
+  finished.value = false;
 }
 
-watch(() => props.paused, (paused) => {
-  if (!paused && !finished.value) {
-    startTimer()
-  } else {
-    stopTimer()
-  }
-}, { immediate: true })
+watch(
+  () => props.paused,
+  (paused) => {
+    if (!paused && !finished.value) {
+      startTimer();
+    } else {
+      stopTimer();
+    }
+  },
+  { immediate: true },
+);
 
-watch(() => props.duration, () => {
-  reset()
-})
+watch(
+  () => props.duration,
+  () => {
+    reset();
+  },
+);
 
-onBeforeUnmount(() => stopTimer())
+onBeforeUnmount(() => stopTimer());
 
-defineExpose({ reset })
+defineExpose({ reset });
 </script>
 
 <template>
@@ -104,7 +111,7 @@ defineExpose({ reset })
       <!-- Remaining portion: lighter gray -->
       <div
         class="absolute inset-y-0 right-0 bg-bg-tertiary transition-[width] duration-1000 ease-linear"
-        :style="{ width: (100 - progress) + '%' }"
+        :style="{ width: 100 - progress + '%' }"
       />
     </template>
 

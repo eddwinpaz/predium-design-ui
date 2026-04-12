@@ -1,20 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Popover from './Popover.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Popover from "./Popover.vue";
 
 const meta: Meta<typeof Popover> = {
-  title: 'UI/Popover',
+  title: "UI/Popover",
   component: Popover,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     placement: {
-      control: 'select',
-      options: ['bottom', 'bottom-start', 'bottom-end', 'top', 'top-start', 'top-end'],
+      control: "select",
+      options: [
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "top",
+        "top-start",
+        "top-end",
+      ],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Popover>
+export default meta;
+type Story = StoryObj<typeof Popover>;
 
 export const Default: Story = {
   render: () => ({
@@ -36,7 +43,7 @@ export const Default: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const BottomStart: Story = {
   render: () => ({
@@ -58,7 +65,7 @@ export const BottomStart: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const BottomEnd: Story = {
   render: () => ({
@@ -80,7 +87,7 @@ export const BottomEnd: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const WithCustomContent: Story = {
   render: () => ({
@@ -117,4 +124,4 @@ export const WithCustomContent: Story = {
       </div>
     `,
   }),
-}
+};

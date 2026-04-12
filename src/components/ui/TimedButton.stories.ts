@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import TimedButton from './TimedButton.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import TimedButton from "./TimedButton.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof TimedButton> = {
-  title: 'UI/TimedButton',
+  title: "UI/TimedButton",
   component: TimedButton,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    label: { control: 'text' },
-    duration: { control: 'number' },
-    paused: { control: 'boolean' },
-    disabled: { control: 'boolean' },
+    label: { control: "text" },
+    duration: { control: "number" },
+    paused: { control: "boolean" },
+    disabled: { control: "boolean" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof TimedButton>
+export default meta;
+type Story = StoryObj<typeof TimedButton>;
 
 export const Default: Story = {
   args: {
-    label: 'Countdown',
+    label: "Countdown",
     duration: 10,
     paused: true,
   },
-}
+};
 
 export const DeferredInit: Story = {
   render: () => ({
     components: { TimedButton },
     setup() {
-      const paused = ref(true)
-      return { paused }
+      const paused = ref(true);
+      return { paused };
     },
     template: `
       <div class="flex flex-col gap-[16px]">
@@ -47,7 +47,7 @@ export const DeferredInit: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Durations: Story = {
   render: () => ({
@@ -61,43 +61,43 @@ export const Durations: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Paused: Story = {
   args: {
-    label: 'Confirm',
+    label: "Confirm",
     duration: 6,
     paused: true,
   },
-}
+};
 
 export const Running: Story = {
   args: {
-    label: 'Processing',
+    label: "Processing",
     duration: 15,
     paused: false,
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
-    label: 'Expired',
+    label: "Expired",
     duration: 0,
     disabled: true,
   },
-}
+};
 
 export const WithReset: Story = {
   render: () => ({
     components: { TimedButton },
     setup() {
-      const btnRef = ref()
-      const paused = ref(true)
+      const btnRef = ref();
+      const paused = ref(true);
       function reset() {
-        btnRef.value?.reset()
-        paused.value = true
+        btnRef.value?.reset();
+        paused.value = true;
       }
-      return { btnRef, paused, reset }
+      return { btnRef, paused, reset };
     },
     template: `
       <div class="flex items-center gap-[12px]">
@@ -117,4 +117,4 @@ export const WithReset: Story = {
       </div>
     `,
   }),
-}
+};

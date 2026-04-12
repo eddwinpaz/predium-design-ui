@@ -74,7 +74,11 @@
       class="flex-shrink-0 p-0.5 rounded hover:bg-black/5 transition-colors duration-150 cursor-pointer"
       @click="handleClose"
     >
-      <svg class="w-4 h-4 text-content-secondary" viewBox="0 0 20 20" fill="currentColor">
+      <svg
+        class="w-4 h-4 text-content-secondary"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
         <path
           fill-rule="evenodd"
           d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -86,44 +90,44 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    kind?: 'info' | 'positive' | 'warning' | 'negative'
-    closeable?: boolean
-    title?: string
+    kind?: "info" | "positive" | "warning" | "negative";
+    closeable?: boolean;
+    title?: string;
   }>(),
   {
-    kind: 'info',
+    kind: "info",
     closeable: true,
-    title: '',
+    title: "",
   },
-)
+);
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 
-const visible = ref(true)
+const visible = ref(true);
 
 const kindClasses = computed(() => {
   switch (props.kind) {
-    case 'info':
-      return 'bg-accent-light border-l-accent text-content-primary'
-    case 'positive':
-      return 'bg-positive-light border-l-positive text-content-primary'
-    case 'warning':
-      return 'bg-warning-light border-l-warning text-content-primary'
-    case 'negative':
-      return 'bg-negative-light border-l-negative text-content-primary'
+    case "info":
+      return "bg-accent-light border-l-accent text-content-primary";
+    case "positive":
+      return "bg-positive-light border-l-positive text-content-primary";
+    case "warning":
+      return "bg-warning-light border-l-warning text-content-primary";
+    case "negative":
+      return "bg-negative-light border-l-negative text-content-primary";
     default:
-      return 'bg-accent-light border-l-accent text-content-primary'
+      return "bg-accent-light border-l-accent text-content-primary";
   }
-})
+});
 
 function handleClose() {
-  visible.value = false
-  emit('close')
+  visible.value = false;
+  emit("close");
 }
 </script>

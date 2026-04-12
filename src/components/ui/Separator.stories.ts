@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Separator from './Separator.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Separator from "./Separator.vue";
 
 const meta: Meta<typeof Separator> = {
-  title: 'UI/Separator',
+  title: "UI/Separator",
   component: Separator,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     orientation: {
-      control: 'select',
-      options: ['horizontal', 'vertical'],
+      control: "select",
+      options: ["horizontal", "vertical"],
     },
     spacing: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
+      control: "select",
+      options: ["none", "sm", "md", "lg"],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Separator>
+export default meta;
+type Story = StoryObj<typeof Separator>;
 
 export const Horizontal: Story = {
   render: () => ({
@@ -31,7 +31,7 @@ export const Horizontal: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Vertical: Story = {
   render: () => ({
@@ -44,7 +44,7 @@ export const Vertical: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Spacings: Story = {
   render: () => ({
@@ -73,4 +73,4 @@ export const Spacings: Story = {
       </div>
     `,
   }),
-}
+};

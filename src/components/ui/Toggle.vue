@@ -1,18 +1,21 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
-  modelValue: boolean
-  label?: string
-  description?: string
-  disabled?: boolean
-  size?: 'sm' | 'md'
-}>(), {
-  disabled: false,
-  size: 'md',
-})
+withDefaults(
+  defineProps<{
+    modelValue: boolean;
+    label?: string;
+    description?: string;
+    disabled?: boolean;
+    size?: "sm" | "md";
+  }>(),
+  {
+    disabled: false,
+    size: "md",
+  },
+);
 
 defineEmits<{
-  'update:modelValue': [value: boolean]
-}>()
+  "update:modelValue": [value: boolean];
+}>();
 </script>
 
 <template>
@@ -41,14 +44,22 @@ defineEmits<{
         :class="[
           'inline-block rounded-full shadow-sm transition-all duration-200',
           modelValue ? 'bg-btn-primary-text' : 'bg-content-secondary',
-          size === 'sm' ? 'h-[14px] w-[14px] mt-[2px] ml-[2px]' : 'h-[18px] w-[18px] mt-[2px] ml-[2px]',
-          modelValue ? (size === 'sm' ? 'translate-x-[18px]' : 'translate-x-[22px]') : 'translate-x-0',
+          size === 'sm'
+            ? 'h-[14px] w-[14px] mt-[2px] ml-[2px]'
+            : 'h-[18px] w-[18px] mt-[2px] ml-[2px]',
+          modelValue
+            ? size === 'sm'
+              ? 'translate-x-[18px]'
+              : 'translate-x-[22px]'
+            : 'translate-x-0',
         ]"
       />
     </button>
     <div v-if="label">
       <span class="text-sm font-medium text-content-primary">{{ label }}</span>
-      <p v-if="description" class="text-xs text-content-tertiary">{{ description }}</p>
+      <p v-if="description" class="text-xs text-content-tertiary">
+        {{ description }}
+      </p>
     </div>
   </label>
 </template>

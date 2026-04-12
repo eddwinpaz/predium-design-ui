@@ -17,31 +17,33 @@
     :placeholder="placeholder"
     :rows="rows"
     :disabled="disabled"
-    @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
+    @input="
+      $emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)
+    "
   />
 </template>
 
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    modelValue?: string
-    placeholder?: string
-    rows?: number
-    disabled?: boolean
-    error?: boolean
-    resize?: 'none' | 'vertical' | 'both'
+    modelValue?: string;
+    placeholder?: string;
+    rows?: number;
+    disabled?: boolean;
+    error?: boolean;
+    resize?: "none" | "vertical" | "both";
   }>(),
   {
-    modelValue: '',
-    placeholder: '',
+    modelValue: "",
+    placeholder: "",
     rows: 3,
     disabled: false,
     error: false,
-    resize: 'vertical',
+    resize: "vertical",
   },
-)
+);
 
 defineEmits<{
-  'update:modelValue': [value: string]
-}>()
+  "update:modelValue": [value: string];
+}>();
 </script>

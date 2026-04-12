@@ -1,103 +1,103 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
-import Checkbox from './Checkbox.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { ref } from "vue";
+import Checkbox from "./Checkbox.vue";
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Components/Checkbox',
+  title: "Components/Checkbox",
   component: Checkbox,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    modelValue: { control: 'boolean' },
-    label: { control: 'text' },
-    description: { control: 'text' },
-    disabled: { control: 'boolean' },
+    modelValue: { control: "boolean" },
+    label: { control: "text" },
+    description: { control: "text" },
+    disabled: { control: "boolean" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Checkbox>
+export default meta;
+type Story = StoryObj<typeof Checkbox>;
 
 export const Unchecked: Story = {
   render: (args) => ({
     components: { Checkbox },
     setup() {
-      const checked = ref(false)
-      return { args, checked }
+      const checked = ref(false);
+      return { args, checked };
     },
     template: `<Checkbox v-bind="args" v-model="checked" />`,
   }),
   args: {
-    label: 'Accept terms and conditions',
+    label: "Accept terms and conditions",
   },
-}
+};
 
 export const Checked: Story = {
   render: (args) => ({
     components: { Checkbox },
     setup() {
-      const checked = ref(true)
-      return { args, checked }
+      const checked = ref(true);
+      return { args, checked };
     },
     template: `<Checkbox v-bind="args" v-model="checked" />`,
   }),
   args: {
-    label: 'Accept terms and conditions',
+    label: "Accept terms and conditions",
   },
-}
+};
 
 export const WithDescription: Story = {
   render: (args) => ({
     components: { Checkbox },
     setup() {
-      const checked = ref(false)
-      return { args, checked }
+      const checked = ref(false);
+      return { args, checked };
     },
     template: `<Checkbox v-bind="args" v-model="checked" />`,
   }),
   args: {
-    label: 'Enable notifications',
-    description: 'You will receive email notifications for important updates.',
+    label: "Enable notifications",
+    description: "You will receive email notifications for important updates.",
   },
-}
+};
 
 export const Disabled: Story = {
   render: (args) => ({
     components: { Checkbox },
     setup() {
-      const checked = ref(false)
-      return { args, checked }
+      const checked = ref(false);
+      return { args, checked };
     },
     template: `<Checkbox v-bind="args" v-model="checked" />`,
   }),
   args: {
-    label: 'Unavailable option',
+    label: "Unavailable option",
     disabled: true,
   },
-}
+};
 
 export const DisabledChecked: Story = {
   render: (args) => ({
     components: { Checkbox },
     setup() {
-      const checked = ref(true)
-      return { args, checked }
+      const checked = ref(true);
+      return { args, checked };
     },
     template: `<Checkbox v-bind="args" v-model="checked" />`,
   }),
   args: {
-    label: 'Required agreement',
+    label: "Required agreement",
     disabled: true,
   },
-}
+};
 
 export const Group: Story = {
   render: () => ({
     components: { Checkbox },
     setup() {
-      const paymentTerms = ref(true)
-      const cargoInsurance = ref(true)
-      const detentionClause = ref(false)
-      return { paymentTerms, cargoInsurance, detentionClause }
+      const paymentTerms = ref(true);
+      const cargoInsurance = ref(true);
+      const detentionClause = ref(false);
+      return { paymentTerms, cargoInsurance, detentionClause };
     },
     template: `
       <div class="space-y-4">
@@ -119,4 +119,4 @@ export const Group: Story = {
       </div>
     `,
   }),
-}
+};

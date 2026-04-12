@@ -1,38 +1,39 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import SidePanel from './SidePanel.vue'
-import FilterList from './FilterList.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import SidePanel from "./SidePanel.vue";
+import FilterList from "./FilterList.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof SidePanel> = {
-  title: 'UI/SidePanel',
+  title: "UI/SidePanel",
   component: SidePanel,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    title: { control: 'text' },
-    width: { control: 'number' },
-    collapsible: { control: 'boolean' },
-    bordered: { control: 'boolean' },
+    title: { control: "text" },
+    width: { control: "number" },
+    collapsible: { control: "boolean" },
+    bordered: { control: "boolean" },
   },
   decorators: [
     () => ({
-      template: '<div style="height: 500px; margin: -16px; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 500px; margin: -16px; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof SidePanel>
+export default meta;
+type Story = StoryObj<typeof SidePanel>;
 
 export const Default: Story = {
   render: () => ({
     components: { SidePanel, FilterList },
     setup() {
-      const collapsed = ref(false)
-      const activeFilter = ref('all')
-      const showEnRoute = ref(false)
-      const showAuctions = ref(true)
-      const showSaved = ref(true)
-      return { collapsed, activeFilter, showEnRoute, showAuctions, showSaved }
+      const collapsed = ref(false);
+      const activeFilter = ref("all");
+      const showEnRoute = ref(false);
+      const showAuctions = ref(true);
+      const showSaved = ref(true);
+      return { collapsed, activeFilter, showEnRoute, showAuctions, showSaved };
     },
     template: `
       <SidePanel v-model:collapsed="collapsed" title="Boards">
@@ -138,14 +139,14 @@ export const Default: Story = {
       </SidePanel>
     `,
   }),
-}
+};
 
 export const Collapsed: Story = {
   render: () => ({
     components: { SidePanel },
     setup() {
-      const collapsed = ref(true)
-      return { collapsed }
+      const collapsed = ref(true);
+      return { collapsed };
     },
     template: `
       <SidePanel v-model:collapsed="collapsed" title="Filters">
@@ -165,15 +166,15 @@ export const Collapsed: Story = {
       </SidePanel>
     `,
   }),
-}
+};
 
 export const WithFilterList: Story = {
   render: () => ({
     components: { SidePanel, FilterList },
     setup() {
-      const collapsed = ref(false)
-      const active = ref('all')
-      return { collapsed, active }
+      const collapsed = ref(false);
+      const active = ref("all");
+      return { collapsed, active };
     },
     template: `
       <SidePanel v-model:collapsed="collapsed" title="Filter Shipments" :width="240">
@@ -198,4 +199,4 @@ export const WithFilterList: Story = {
       </SidePanel>
     `,
   }),
-}
+};

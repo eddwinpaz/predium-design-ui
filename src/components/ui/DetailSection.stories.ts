@@ -1,94 +1,94 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import DetailSection from './DetailSection.vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import DetailSection from "./DetailSection.vue";
 
 const meta: Meta<typeof DetailSection> = {
-  title: 'UI/DetailSection',
+  title: "UI/DetailSection",
   component: DetailSection,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    columns: { control: 'select', options: [2, 3, 4, 5, 6] },
-    editable: { control: 'boolean' },
+    columns: { control: "select", options: [2, 3, 4, 5, 6] },
+    editable: { control: "boolean" },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof DetailSection>
+export default meta;
+type Story = StoryObj<typeof DetailSection>;
 
 export const Overview: Story = {
   args: {
-    title: 'Overview',
+    title: "Overview",
     editable: true,
     columns: 6,
     fields: [
-      { label: 'Origin', value: 'New Orleans, LA 30161 USA' },
-      { label: 'Destination', value: 'Houston, TX 78740 USA' },
-      { label: 'Route forecast', value: 'Normal conditions' },
-      { label: 'Risk', value: 'Mid-risk' },
-      { label: 'Status', value: 'In-Transit' },
-      { label: 'Service level', value: 'Standard' },
-      { label: 'Transit days', value: '2' },
-      { label: 'Health', value: 'Healthy' },
-      { label: 'Health reason', value: '-' },
-      { label: 'Seller', value: '-' },
-      { label: 'Freight forwarder status', value: 'N/A' },
-      { label: 'Robot flag', value: 'No' },
-      { label: 'Customer routed', value: 'No' },
+      { label: "Origin", value: "New Orleans, LA 30161 USA" },
+      { label: "Destination", value: "Houston, TX 78740 USA" },
+      { label: "Route forecast", value: "Normal conditions" },
+      { label: "Risk", value: "Mid-risk" },
+      { label: "Status", value: "In-Transit" },
+      { label: "Service level", value: "Standard" },
+      { label: "Transit days", value: "2" },
+      { label: "Health", value: "Healthy" },
+      { label: "Health reason", value: "-" },
+      { label: "Seller", value: "-" },
+      { label: "Freight forwarder status", value: "N/A" },
+      { label: "Robot flag", value: "No" },
+      { label: "Customer routed", value: "No" },
     ],
   },
-}
+};
 
 export const ReferenceNumbers: Story = {
   args: {
-    title: 'Reference #',
+    title: "Reference #",
     editable: true,
     columns: 6,
     fields: [
-      { label: 'UF shipment #', value: '875357061' },
-      { label: 'SAP Shipment #', value: '0803552940' },
-      { label: 'BOL number', value: '875357061' },
-      { label: 'Trailer/Container ID', value: '276133' },
-      { label: 'Customer reference #', value: '29F7212' },
-      { label: 'Pro number', value: '#4901293' },
-      { label: 'Monitor ID', value: 'AP29031NA' },
+      { label: "UF shipment #", value: "875357061" },
+      { label: "SAP Shipment #", value: "0803552940" },
+      { label: "BOL number", value: "875357061" },
+      { label: "Trailer/Container ID", value: "276133" },
+      { label: "Customer reference #", value: "29F7212" },
+      { label: "Pro number", value: "#4901293" },
+      { label: "Monitor ID", value: "AP29031NA" },
     ],
   },
-}
+};
 
 export const Financials: Story = {
   args: {
-    title: 'Financials',
+    title: "Financials",
     editable: true,
     columns: 6,
     fields: [
-      { label: 'Total AP', value: '$1,227.31' },
-      { label: 'Target AP', value: '$1,227.31' },
-      { label: 'Total AP approved', value: '$1,227.31' },
-      { label: 'Total AR', value: '$1,423.91' },
-      { label: 'Total AR approved', value: '$1,423.91' },
-      { label: 'Total AR Paid', value: '$1,423.91' },
-      { label: 'Net margin', value: '$231.60' },
-      { label: 'Invoice only', value: 'No' },
-      { label: 'Override taxes', value: 'No' },
-      { label: 'Auto invoice', value: 'Yes' },
+      { label: "Total AP", value: "$1,227.31" },
+      { label: "Target AP", value: "$1,227.31" },
+      { label: "Total AP approved", value: "$1,227.31" },
+      { label: "Total AR", value: "$1,423.91" },
+      { label: "Total AR approved", value: "$1,423.91" },
+      { label: "Total AR Paid", value: "$1,423.91" },
+      { label: "Net margin", value: "$231.60" },
+      { label: "Invoice only", value: "No" },
+      { label: "Override taxes", value: "No" },
+      { label: "Auto invoice", value: "Yes" },
     ],
   },
-}
+};
 
 export const ThreeColumns: Story = {
   args: {
-    title: 'Contract Details',
+    title: "Contract Details",
     editable: false,
     columns: 3,
     fields: [
-      { label: 'Contract ID', value: 'CNT-2026-0847' },
-      { label: 'Carrier', value: 'GlobalFlow Carriers (GFC)' },
-      { label: 'Status', value: 'Active' },
-      { label: 'Effective start', value: '07/01/2026' },
-      { label: 'Effective end', value: '12/31/2026' },
-      { label: 'Rate type', value: 'Flat rate per lane' },
+      { label: "Contract ID", value: "CNT-2026-0847" },
+      { label: "Carrier", value: "GlobalFlow Carriers (GFC)" },
+      { label: "Status", value: "Active" },
+      { label: "Effective start", value: "07/01/2026" },
+      { label: "Effective end", value: "12/31/2026" },
+      { label: "Rate type", value: "Flat rate per lane" },
     ],
   },
-}
+};
 
 export const WithCustomContent: Story = {
   render: (args) => ({
@@ -119,7 +119,7 @@ export const WithCustomContent: Story = {
       </DetailSection>
     `,
   }),
-}
+};
 
 export const ShipmentPage: Story = {
   render: () => ({
@@ -174,4 +174,4 @@ export const ShipmentPage: Story = {
       </div>
     `,
   }),
-}
+};

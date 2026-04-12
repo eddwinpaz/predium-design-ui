@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import WeekPicker from './WeekPicker.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import WeekPicker from "./WeekPicker.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof WeekPicker> = {
-  title: 'UI/WeekPicker',
+  title: "UI/WeekPicker",
   component: WeekPicker,
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof WeekPicker>
+export default meta;
+type Story = StoryObj<typeof WeekPicker>;
 
 export const Default: Story = {
   render: () => ({
     components: { WeekPicker },
     setup() {
-      const selected = ref(26)
-      return { selected }
+      const selected = ref(26);
+      return { selected };
     },
     template: `
       <div style="max-width: 700px;">
@@ -37,14 +37,14 @@ export const Default: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const WithDelivery: Story = {
   render: () => ({
     components: { WeekPicker },
     setup() {
-      const selected = ref(28)
-      return { selected }
+      const selected = ref(28);
+      return { selected };
     },
     template: `
       <div style="max-width: 700px;">
@@ -63,14 +63,14 @@ export const WithDelivery: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const NoPrices: Story = {
   render: () => ({
     components: { WeekPicker },
     setup() {
-      const selected = ref(15)
-      return { selected }
+      const selected = ref(15);
+      return { selected };
     },
     template: `
       <div style="max-width: 700px;">
@@ -89,14 +89,14 @@ export const NoPrices: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const AllPriced: Story = {
   render: () => ({
     components: { WeekPicker },
     setup() {
-      const selected = ref(3)
-      return { selected }
+      const selected = ref(3);
+      return { selected };
     },
     template: `
       <div style="max-width: 700px;">
@@ -114,4 +114,4 @@ export const AllPriced: Story = {
       </div>
     `,
   }),
-}
+};

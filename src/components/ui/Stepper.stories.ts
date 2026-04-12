@@ -1,26 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import Stepper from './Stepper.vue'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import Stepper from "./Stepper.vue";
 
 const meta: Meta<typeof Stepper> = {
-  title: 'Components/Stepper',
+  title: "Components/Stepper",
   component: Stepper,
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof Stepper>
+export default meta;
+type Story = StoryObj<typeof Stepper>;
 
 const threeSteps = [
-  { label: 'Event details' },
-  { label: 'Add lanes' },
-  { label: 'Invite carriers' },
-]
+  { label: "Event details" },
+  { label: "Add lanes" },
+  { label: "Invite carriers" },
+];
 
 export const Step1: Story = {
   render: () => ({
     components: { Stepper },
     setup() {
-      return { steps: threeSteps }
+      return { steps: threeSteps };
     },
     template: `
       <div class="max-w-lg mx-auto py-8">
@@ -28,13 +28,13 @@ export const Step1: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Step2: Story = {
   render: () => ({
     components: { Stepper },
     setup() {
-      return { steps: threeSteps }
+      return { steps: threeSteps };
     },
     template: `
       <div class="max-w-lg mx-auto py-8">
@@ -42,13 +42,13 @@ export const Step2: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const Step3: Story = {
   render: () => ({
     components: { Stepper },
     setup() {
-      return { steps: threeSteps }
+      return { steps: threeSteps };
     },
     template: `
       <div class="max-w-lg mx-auto py-8">
@@ -56,19 +56,19 @@ export const Step3: Story = {
       </div>
     `,
   }),
-}
+};
 
 export const FourSteps: Story = {
   render: () => ({
     components: { Stepper },
     setup() {
       const steps = [
-        { label: 'Contract details' },
-        { label: 'Lanes & rates' },
-        { label: 'Terms' },
-        { label: 'Review & sign' },
-      ]
-      return { steps }
+        { label: "Contract details" },
+        { label: "Lanes & rates" },
+        { label: "Terms" },
+        { label: "Review & sign" },
+      ];
+      return { steps };
     },
     template: `
       <div class="max-w-2xl mx-auto py-8">
@@ -76,4 +76,4 @@ export const FourSteps: Story = {
       </div>
     `,
   }),
-}
+};

@@ -1,27 +1,86 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import Badge from './Badge.vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import Badge from "./Badge.vue";
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  title: "Components/Badge",
   component: Badge,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    variant: { control: 'select', options: ['neutral', 'positive', 'warning', 'negative', 'accent', 'purple'] },
-    size: { control: 'select', options: ['sm', 'md'] },
-    dot: { control: 'boolean' },
-    closeable: { control: 'boolean' },
+    variant: {
+      control: "select",
+      options: [
+        "neutral",
+        "positive",
+        "warning",
+        "negative",
+        "accent",
+        "purple",
+      ],
+    },
+    size: { control: "select", options: ["sm", "md"] },
+    dot: { control: "boolean" },
+    closeable: { control: "boolean" },
   },
-}
-export default meta
-type Story = StoryObj<typeof Badge>
+};
+export default meta;
+type Story = StoryObj<typeof Badge>;
 
-export const Neutral: Story = { args: { variant: 'neutral' }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">Neutral</Badge>' }) }
-export const Positive: Story = { args: { variant: 'positive' }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">Active</Badge>' }) }
-export const Warning: Story = { args: { variant: 'warning' }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">Pending</Badge>' }) }
-export const Negative: Story = { args: { variant: 'negative' }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">Error</Badge>' }) }
-export const Accent: Story = { args: { variant: 'accent' }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">New</Badge>' }) }
-export const WithDot: Story = { args: { variant: 'positive', dot: true }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">Online</Badge>' }) }
-export const Closeable: Story = { args: { variant: 'neutral', closeable: true }, render: (args) => ({ components: { Badge }, setup: () => ({ args }), template: '<Badge v-bind="args">Removable</Badge>' }) }
+export const Neutral: Story = {
+  args: { variant: "neutral" },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">Neutral</Badge>',
+  }),
+};
+export const Positive: Story = {
+  args: { variant: "positive" },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">Active</Badge>',
+  }),
+};
+export const Warning: Story = {
+  args: { variant: "warning" },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">Pending</Badge>',
+  }),
+};
+export const Negative: Story = {
+  args: { variant: "negative" },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">Error</Badge>',
+  }),
+};
+export const Accent: Story = {
+  args: { variant: "accent" },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">New</Badge>',
+  }),
+};
+export const WithDot: Story = {
+  args: { variant: "positive", dot: true },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">Online</Badge>',
+  }),
+};
+export const Closeable: Story = {
+  args: { variant: "neutral", closeable: true },
+  render: (args) => ({
+    components: { Badge },
+    setup: () => ({ args }),
+    template: '<Badge v-bind="args">Removable</Badge>',
+  }),
+};
 export const AllVariants: Story = {
   render: () => ({
     components: { Badge },
@@ -36,7 +95,7 @@ export const AllVariants: Story = {
       </div>
     `,
   }),
-}
+};
 export const Sizes: Story = {
   render: () => ({
     components: { Badge },
@@ -47,4 +106,4 @@ export const Sizes: Story = {
       </div>
     `,
   }),
-}
+};

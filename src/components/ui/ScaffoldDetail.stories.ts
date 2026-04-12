@@ -1,87 +1,136 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import SidebarNav from './SidebarNav.vue'
-import NavHeader from './NavHeader.vue'
-import PageHeader from './PageHeader.vue'
-import Tabs from './Tabs.vue'
-import DetailSection from './DetailSection.vue'
-import DataGrid from './DataGrid.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import SidebarNav from "./SidebarNav.vue";
+import NavHeader from "./NavHeader.vue";
+import PageHeader from "./PageHeader.vue";
+import Tabs from "./Tabs.vue";
+import DetailSection from "./DetailSection.vue";
+import DataGrid from "./DataGrid.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/DetailView',
+  title: "Scaffolds/DetailView",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const ShipmentDetail: Story = {
   render: () => ({
-    components: { ScaffoldDetail, SidebarNav, NavHeader, PageHeader, Tabs, DetailSection, DataGrid },
+    components: {
+      ScaffoldDetail,
+      SidebarNav,
+      NavHeader,
+      PageHeader,
+      Tabs,
+      DetailSection,
+      DataGrid,
+    },
     setup() {
-      const sidebarCollapsed = ref(window.innerWidth < 1024)
-      const activeTab = ref('details')
+      const sidebarCollapsed = ref(window.innerWidth < 1024);
+      const activeTab = ref("details");
       const tabs = [
-        { key: 'details', label: 'Details' },
-        { key: 'shipping', label: "What's shipping" },
-        { key: 'scheduling', label: 'Scheduling' },
-        { key: 'carriers', label: 'Carriers' },
-        { key: 'financials', label: 'Financials' },
-        { key: 'coverage', label: 'Coverage' },
-        { key: 'activity', label: 'Activity' },
-        { key: 'documents', label: 'Documents' },
-      ]
+        { key: "details", label: "Details" },
+        { key: "shipping", label: "What's shipping" },
+        { key: "scheduling", label: "Scheduling" },
+        { key: "carriers", label: "Carriers" },
+        { key: "financials", label: "Financials" },
+        { key: "coverage", label: "Coverage" },
+        { key: "activity", label: "Activity" },
+        { key: "documents", label: "Documents" },
+      ];
       const navItems = [
-        { label: 'Dashboard', to: '/dashboard' },
-        { label: 'Search', to: '/search' },
-        { label: 'Orders', to: '/orders' },
-        { label: 'Shipments', to: '/shipments', active: true },
-        { label: 'Rates & Routing', children: [
-          { label: 'Rates & lanes', to: '/rates-lanes' },
-          { label: 'Routing guides', to: '/routing-guides' },
-          { label: 'Bid events', to: '/bid-events' },
-        ]},
-        { label: 'Carriers', to: '/carriers' },
-        { label: 'Facilities', children: [
-          { label: 'Locations', to: '/locations' },
-          { label: 'Dock scheduling', to: '/dock-scheduling' },
-        ]},
-        { label: 'Financials', to: '/financials' },
-        { label: 'Settings', to: '/settings' },
-      ]
+        { label: "Dashboard", to: "/dashboard" },
+        { label: "Search", to: "/search" },
+        { label: "Orders", to: "/orders" },
+        { label: "Shipments", to: "/shipments", active: true },
+        {
+          label: "Rates & Routing",
+          children: [
+            { label: "Rates & lanes", to: "/rates-lanes" },
+            { label: "Routing guides", to: "/routing-guides" },
+            { label: "Bid events", to: "/bid-events" },
+          ],
+        },
+        { label: "Carriers", to: "/carriers" },
+        {
+          label: "Facilities",
+          children: [
+            { label: "Locations", to: "/locations" },
+            { label: "Dock scheduling", to: "/dock-scheduling" },
+          ],
+        },
+        { label: "Financials", to: "/financials" },
+        { label: "Settings", to: "/settings" },
+      ];
       const modules = [
-        { title: 'Operations', items: [
-          { label: 'Shipments' }, { label: 'Orders' }, { label: 'Carriers' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Settings' }, { label: 'Reports' },
-        ]},
-      ]
+        {
+          title: "Operations",
+          items: [
+            { label: "Shipments" },
+            { label: "Orders" },
+            { label: "Carriers" },
+          ],
+        },
+        {
+          title: "Admin",
+          items: [{ label: "Settings" }, { label: "Reports" }],
+        },
+      ];
 
       const schedulingCols = [
-        { key: 'stop', label: 'Stop', width: '50px' },
-        { key: 'type', label: 'Type', width: '70px' },
-        { key: 'status', label: 'Status', width: '90px' },
-        { key: 'time', label: 'Time' },
-        { key: 'locationId', label: 'Location ID', width: '90px' },
-        { key: 'address', label: 'Address' },
-        { key: 'contact', label: 'Contact' },
-        { key: 'method', label: 'Method', width: '70px' },
-        { key: 'scheduledBy', label: 'Scheduled by' },
-      ]
+        { key: "stop", label: "Stop", width: "50px" },
+        { key: "type", label: "Type", width: "70px" },
+        { key: "status", label: "Status", width: "90px" },
+        { key: "time", label: "Time" },
+        { key: "locationId", label: "Location ID", width: "90px" },
+        { key: "address", label: "Address" },
+        { key: "contact", label: "Contact" },
+        { key: "method", label: "Method", width: "70px" },
+        { key: "scheduledBy", label: "Scheduled by" },
+      ];
       const schedulingRows = [
-        { stop: '1', type: 'Pickup', status: 'Booked', time: '09/19/2024 09:00', locationId: '12KAS', address: '107 MARKET RD, NEW ORLEANS', contact: 'Dallas Waters', method: 'Manual', scheduledBy: 'Carrier' },
-        { stop: '99', type: 'Dropoff', status: 'Requested', time: '09/21/2024 09:00', locationId: '1923', address: '1480 MAIN AVE UNIT 200, HOUST', contact: 'Michelle Woods', method: 'Manual', scheduledBy: 'UF Operations' },
-      ]
+        {
+          stop: "1",
+          type: "Pickup",
+          status: "Booked",
+          time: "09/19/2024 09:00",
+          locationId: "12KAS",
+          address: "107 MARKET RD, NEW ORLEANS",
+          contact: "Dallas Waters",
+          method: "Manual",
+          scheduledBy: "Carrier",
+        },
+        {
+          stop: "99",
+          type: "Dropoff",
+          status: "Requested",
+          time: "09/21/2024 09:00",
+          locationId: "1923",
+          address: "1480 MAIN AVE UNIT 200, HOUST",
+          contact: "Michelle Woods",
+          method: "Manual",
+          scheduledBy: "UF Operations",
+        },
+      ];
 
-      return { sidebarCollapsed, activeTab, tabs, navItems, modules, schedulingCols, schedulingRows }
+      return {
+        sidebarCollapsed,
+        activeTab,
+        tabs,
+        navItems,
+        modules,
+        schedulingCols,
+        schedulingRows,
+      };
     },
     template: `
       <ScaffoldDetail>
@@ -303,4 +352,4 @@ export const ShipmentDetail: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

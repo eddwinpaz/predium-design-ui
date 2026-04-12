@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    modelValue: 'light' | 'dark'
-    size?: 'sm' | 'md'
+    modelValue: "light" | "dark";
+    size?: "sm" | "md";
   }>(),
   {
-    size: 'md',
-  }
-)
+    size: "md",
+  },
+);
 
 const emit = defineEmits<{
-  'update:modelValue': [value: 'light' | 'dark']
-}>()
+  "update:modelValue": [value: "light" | "dark"];
+}>();
 
-const isDark = computed(() => props.modelValue === 'dark')
+const isDark = computed(() => props.modelValue === "dark");
 
 function toggle() {
-  emit('update:modelValue', isDark.value ? 'light' : 'dark')
+  emit("update:modelValue", isDark.value ? "light" : "dark");
 }
 </script>
 
@@ -41,10 +41,10 @@ function toggle() {
     <span
       :class="[
         'inline-flex items-center justify-center rounded-full shadow transition-all duration-300',
-        isDark
-          ? 'bg-[#1a1a1a] translate-x-[24px]'
-          : 'bg-white translate-x-0',
-        size === 'sm' ? 'h-[18px] w-[18px] mt-[2px] ml-[2px]' : 'h-[22px] w-[22px] mt-[2px] ml-[2px]',
+        isDark ? 'bg-[#1a1a1a] translate-x-[24px]' : 'bg-white translate-x-0',
+        size === 'sm'
+          ? 'h-[18px] w-[18px] mt-[2px] ml-[2px]'
+          : 'h-[22px] w-[22px] mt-[2px] ml-[2px]',
         isDark && size === 'sm' ? 'translate-x-[24px]' : '',
         isDark && size === 'md' ? 'translate-x-[26px]' : '',
       ]"
@@ -60,7 +60,9 @@ function toggle() {
         stroke-linecap="round"
       >
         <circle cx="12" cy="12" r="5" />
-        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        <path
+          d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+        />
       </svg>
       <!-- Moon icon (dark mode) -->
       <svg

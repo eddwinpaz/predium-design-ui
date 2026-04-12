@@ -1,29 +1,35 @@
 <script setup lang="ts">
 interface Tab {
-  key: string
-  label: string
-  count?: number
+  key: string;
+  label: string;
+  count?: number;
 }
 
 withDefaults(
   defineProps<{
-    modelValue: string | number
-    tabs: Tab[]
-    fill?: boolean
+    modelValue: string | number;
+    tabs: Tab[];
+    fill?: boolean;
   }>(),
   {
     fill: false,
-  }
-)
+  },
+);
 
 defineEmits<{
-  'update:modelValue': [value: string | number]
-}>()
+  "update:modelValue": [value: string | number];
+}>();
 </script>
 
 <template>
   <div>
-    <div :class="['flex border-b border-border overflow-x-auto scrollbar-none', fill ? '' : 'gap-0']" role="tablist">
+    <div
+      :class="[
+        'flex border-b border-border overflow-x-auto scrollbar-none',
+        fill ? '' : 'gap-0',
+      ]"
+      role="tablist"
+    >
       <button
         v-for="tab in tabs"
         :key="tab.key"
@@ -38,7 +44,10 @@ defineEmits<{
         ]"
         @click="$emit('update:modelValue', tab.key)"
       >
-        {{ tab.label }}<span v-if="tab.count != null" class="ml-1 text-content-tertiary">({{ tab.count }})</span>
+        {{ tab.label
+        }}<span v-if="tab.count != null" class="ml-1 text-content-tertiary"
+          >({{ tab.count }})</span
+        >
         <span
           v-if="modelValue === tab.key"
           class="absolute bottom-0 left-0 right-0 h-[3px] bg-content-primary"

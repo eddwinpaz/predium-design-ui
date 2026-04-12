@@ -1,73 +1,121 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import ScaffoldDetail from './ScaffoldDetail.vue'
-import SidebarNav from './SidebarNav.vue'
-import NavHeader from './NavHeader.vue'
-import KpiCard from './KpiCard.vue'
-import MessageCard from './MessageCard.vue'
-import SegmentControl from './SegmentControl.vue'
-import Tile from './Tile.vue'
-import Avatar from './Avatar.vue'
-import Badge from './Badge.vue'
-import { ref } from 'vue'
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import ScaffoldDetail from "./ScaffoldDetail.vue";
+import SidebarNav from "./SidebarNav.vue";
+import NavHeader from "./NavHeader.vue";
+import KpiCard from "./KpiCard.vue";
+import MessageCard from "./MessageCard.vue";
+import SegmentControl from "./SegmentControl.vue";
+import Tile from "./Tile.vue";
+import Avatar from "./Avatar.vue";
+import Badge from "./Badge.vue";
+import { ref } from "vue";
 
 const meta: Meta<typeof ScaffoldDetail> = {
-  title: 'Scaffolds/Dashboard',
+  title: "Scaffolds/Dashboard",
   component: ScaffoldDetail,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     () => ({
-      template: '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
+      template:
+        '<div style="height: 100vh; margin: -16px; overflow: hidden;"><story /></div>',
     }),
   ],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ScaffoldDetail>
+export default meta;
+type Story = StoryObj<typeof ScaffoldDetail>;
 
 export const PropertyDashboard: Story = {
   render: () => ({
-    components: { ScaffoldDetail, SidebarNav, NavHeader, KpiCard, MessageCard, SegmentControl, Tile, Avatar, Badge },
+    components: {
+      ScaffoldDetail,
+      SidebarNav,
+      NavHeader,
+      KpiCard,
+      MessageCard,
+      SegmentControl,
+      Tile,
+      Avatar,
+      Badge,
+    },
     setup() {
-      const sidebarCollapsed = ref(window.innerWidth < 1024)
-      const activityPeriod = ref('today')
+      const sidebarCollapsed = ref(window.innerWidth < 1024);
+      const activityPeriod = ref("today");
 
       const navItems = [
-        { label: 'Dashboard', to: '/dashboard', active: true },
-        { label: 'Properties', to: '/properties' },
-        { label: 'Tenants', to: '/tenants' },
-        { label: 'Leases', to: '/leases' },
-        { label: 'Maintenance', to: '/maintenance' },
-        { label: 'Payments', to: '/payments' },
-        { label: 'Reports', to: '/reports' },
-        { label: 'Settings', to: '/settings' },
-      ]
+        { label: "Dashboard", to: "/dashboard", active: true },
+        { label: "Properties", to: "/properties" },
+        { label: "Tenants", to: "/tenants" },
+        { label: "Leases", to: "/leases" },
+        { label: "Maintenance", to: "/maintenance" },
+        { label: "Payments", to: "/payments" },
+        { label: "Reports", to: "/reports" },
+        { label: "Settings", to: "/settings" },
+      ];
 
       const modules = [
-        { title: 'Properties', items: [
-          { label: 'New Property' },
-          { label: 'All Properties' },
-          { label: 'Vacant' },
-        ]},
-        { title: 'Operations', items: [
-          { label: 'Maintenance' },
-          { label: 'Payments' },
-          { label: 'Calendar' },
-        ]},
-        { title: 'Admin', items: [
-          { label: 'Reports' },
-          { label: 'Settings' },
-        ]},
-      ]
+        {
+          title: "Properties",
+          items: [
+            { label: "New Property" },
+            { label: "All Properties" },
+            { label: "Vacant" },
+          ],
+        },
+        {
+          title: "Operations",
+          items: [
+            { label: "Maintenance" },
+            { label: "Payments" },
+            { label: "Calendar" },
+          ],
+        },
+        {
+          title: "Admin",
+          items: [{ label: "Reports" }, { label: "Settings" }],
+        },
+      ];
 
       const activities = [
-        { name: 'John Martinez', color: '#276EF1', action: 'paid rent for Unit 4B', time: '2 hours ago' },
-        { name: 'Sarah Chen', color: '#05944F', action: 'submitted maintenance request', time: '5 hours ago' },
-        { name: 'David Kim', color: '#E54B4B', action: 'signed lease for Unit 2A', time: 'Yesterday' },
-        { name: 'Emily Torres', color: '#FFC043', action: 'moved out of Unit 7C', time: 'Yesterday' },
-        { name: 'Robert Wilson', color: '#7356BF', action: 'requested early lease termination', time: '2 days ago' },
-      ]
+        {
+          name: "John Martinez",
+          color: "#276EF1",
+          action: "paid rent for Unit 4B",
+          time: "2 hours ago",
+        },
+        {
+          name: "Sarah Chen",
+          color: "#05944F",
+          action: "submitted maintenance request",
+          time: "5 hours ago",
+        },
+        {
+          name: "David Kim",
+          color: "#E54B4B",
+          action: "signed lease for Unit 2A",
+          time: "Yesterday",
+        },
+        {
+          name: "Emily Torres",
+          color: "#FFC043",
+          action: "moved out of Unit 7C",
+          time: "Yesterday",
+        },
+        {
+          name: "Robert Wilson",
+          color: "#7356BF",
+          action: "requested early lease termination",
+          time: "2 days ago",
+        },
+      ];
 
-      return { sidebarCollapsed, activityPeriod, navItems, modules, activities }
+      return {
+        sidebarCollapsed,
+        activityPeriod,
+        navItems,
+        modules,
+        activities,
+      };
     },
     template: `
       <ScaffoldDetail>
@@ -171,4 +219,4 @@ export const PropertyDashboard: Story = {
       </ScaffoldDetail>
     `,
   }),
-}
+};

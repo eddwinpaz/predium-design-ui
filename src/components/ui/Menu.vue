@@ -1,47 +1,49 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref } from "vue";
 
 export interface MenuItemType {
-  label?: string
-  icon?: string
-  danger?: boolean
-  disabled?: boolean
-  divider?: boolean
+  label?: string;
+  icon?: string;
+  danger?: boolean;
+  disabled?: boolean;
+  divider?: boolean;
 }
 
 const props = withDefaults(
   defineProps<{
-    items: MenuItemType[]
-    align?: 'left' | 'right'
+    items: MenuItemType[];
+    align?: "left" | "right";
   }>(),
-  { align: 'left' }
-)
+  { align: "left" },
+);
 
 const emit = defineEmits<{
-  select: [item: MenuItemType]
-}>()
+  select: [item: MenuItemType];
+}>();
 
-const open = ref(false)
+const open = ref(false);
 
-const alignClass = computed(() => props.align === 'right' ? 'right-0' : 'left-0')
+const alignClass = computed(() =>
+  props.align === "right" ? "right-0" : "left-0",
+);
 
 function handleClickOutside(e: MouseEvent) {
-  open.value = false
+  open.value = false;
 }
 
 function toggle() {
-  open.value = !open.value
+  open.value = !open.value;
   if (open.value) {
     setTimeout(() => {
-      document.addEventListener('click', handleClickOutside, { once: true })
-    }, 0)
+      document.addEventListener("click", handleClickOutside, { once: true });
+    }, 0);
   }
 }
 
 function selectItem(item: MenuItemType) {
-  if (item.disabled) return
-  emit('select', item)
-  open.value = false
+  if (item.disabled) return;
+  emit("select", item);
+  open.value = false;
 }
 </script>
 
@@ -49,7 +51,9 @@ function selectItem(item: MenuItemType) {
   <div class="relative inline-block text-left">
     <div @click.stop="toggle">
       <slot name="trigger">
-        <button class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg">
+        <button
+          class="px-4 py-2 text-sm font-medium bg-btn-primary text-btn-primary-text rounded-lg"
+        >
           Menu
         </button>
       </slot>
@@ -65,7 +69,10 @@ function selectItem(item: MenuItemType) {
     >
       <div
         v-if="open"
-        :class="['absolute z-[9999] mt-1 w-56 bg-surface border border-border rounded-xl shadow-lg py-1 focus:outline-none', alignClass]"
+        :class="[
+          'absolute z-[9999] mt-1 w-56 bg-surface border border-border rounded-xl shadow-lg py-1 focus:outline-none',
+          alignClass,
+        ]"
         @click.stop
       >
         <template v-for="(item, i) in items" :key="i">
@@ -74,8 +81,12 @@ function selectItem(item: MenuItemType) {
             v-else
             :class="[
               'w-full text-left px-3 py-2 text-sm flex items-center gap-2 transition-colors',
-              item.danger ? 'text-[#e11900] hover:bg-[#fef2f2]' : 'text-content-primary hover:bg-surface-input',
-              item.disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
+              item.danger
+                ? 'text-[#e11900] hover:bg-[#fef2f2]'
+                : 'text-content-primary hover:bg-surface-input',
+              item.disabled
+                ? 'opacity-40 cursor-not-allowed'
+                : 'cursor-pointer',
             ]"
             @click="selectItem(item)"
           >

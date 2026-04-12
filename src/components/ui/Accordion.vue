@@ -1,54 +1,61 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch } from "vue";
 
 interface AccordionItem {
-  title: string
-  content: string
-  defaultOpen?: boolean
+  title: string;
+  content: string;
+  defaultOpen?: boolean;
 }
 
-const props = withDefaults(defineProps<{
-  items: AccordionItem[]
-  multiple?: boolean
-}>(), {
-  multiple: false,
-})
+const props = withDefaults(
+  defineProps<{
+    items: AccordionItem[];
+    multiple?: boolean;
+  }>(),
+  {
+    multiple: false,
+  },
+);
 
-const openItems = ref<Set<number>>(new Set())
+const openItems = ref<Set<number>>(new Set());
 
 watch(
   () => props.items,
   (items) => {
     items.forEach((item, index) => {
       if (item.defaultOpen) {
-        openItems.value.add(index)
+        openItems.value.add(index);
       }
-    })
+    });
   },
-  { immediate: true }
-)
+  { immediate: true },
+);
 
 function toggle(index: number) {
-  const newSet = new Set(openItems.value)
+  const newSet = new Set(openItems.value);
   if (newSet.has(index)) {
-    newSet.delete(index)
+    newSet.delete(index);
   } else {
     if (!props.multiple) {
-      newSet.clear()
+      newSet.clear();
     }
-    newSet.add(index)
+    newSet.add(index);
   }
-  openItems.value = newSet
+  openItems.value = newSet;
 }
 
 function isOpen(index: number): boolean {
-  return openItems.value.has(index)
+  return openItems.value.has(index);
 }
 </script>
 
 <template>
   <div class="w-full">
-    <div v-for="(item, index) in items" :key="index" class="border-b border-border">
+    <div
+      v-for="(item, index) in items"
+      :key="index"
+      class="border-b border-border"
+    >
       <button
         type="button"
         class="flex items-center justify-between w-full px-[14px] py-[14px] text-left text-[14px] font-medium text-content-primary hover:bg-surface-hover transition-colors"
@@ -65,7 +72,12 @@ function isOpen(index: number): boolean {
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
       <div
@@ -74,7 +86,9 @@ function isOpen(index: number): boolean {
           isOpen(index) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
         ]"
       >
-        <div class="px-[14px] pb-[14px] text-[14px] text-content-secondary leading-[22px]">
+        <div
+          class="px-[14px] pb-[14px] text-[14px] text-content-secondary leading-[22px]"
+        >
           {{ item.content }}
         </div>
       </div>

@@ -1,17 +1,20 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
-  variant?: 'text' | 'circle' | 'rect'
-  width?: string
-  height?: string
-  rows?: number
-  animated?: boolean
-}>(), {
-  variant: 'text',
-  width: '100%',
-  height: '16px',
-  rows: 1,
-  animated: true,
-})
+const props = withDefaults(
+  defineProps<{
+    variant?: "text" | "circle" | "rect";
+    width?: string;
+    height?: string;
+    rows?: number;
+    animated?: boolean;
+  }>(),
+  {
+    variant: "text",
+    width: "100%",
+    height: "16px",
+    rows: 1,
+    animated: true,
+  },
+);
 </script>
 
 <template>

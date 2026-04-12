@@ -5,40 +5,44 @@ import {
   DialogTitle,
   TransitionRoot,
   TransitionChild,
-} from '@headlessui/vue'
+} from "@headlessui/vue";
 
 withDefaults(
   defineProps<{
-    open: boolean
-    size?: 'sm' | 'md' | 'lg' | 'xl'
-    title?: string
-    closeable?: boolean
+    open: boolean;
+    size?: "sm" | "md" | "lg" | "xl";
+    title?: string;
+    closeable?: boolean;
   }>(),
   {
-    size: 'md',
+    size: "md",
     closeable: true,
-  }
-)
+  },
+);
 
 const emit = defineEmits<{
-  close: []
-}>()
+  close: [];
+}>();
 
 const sizeClasses: Record<string, string> = {
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-  xl: 'max-w-xl',
-}
+  sm: "max-w-sm",
+  md: "max-w-md",
+  lg: "max-w-lg",
+  xl: "max-w-xl",
+};
 
 function onClose() {
-  emit('close')
+  emit("close");
 }
 </script>
 
 <template>
   <TransitionRoot :show="open" as="template">
-    <Dialog :open="open" @close="closeable ? onClose() : undefined" class="relative z-50">
+    <Dialog
+      :open="open"
+      @close="closeable ? onClose() : undefined"
+      class="relative z-50"
+    >
       <!-- Backdrop -->
       <TransitionChild
         as="template"
@@ -71,7 +75,10 @@ function onClose() {
           >
             <!-- Header -->
             <div class="flex items-center justify-between px-6 pt-6 pb-0">
-              <DialogTitle v-if="title" class="text-lg font-semibold text-content-primary">
+              <DialogTitle
+                v-if="title"
+                class="text-lg font-semibold text-content-primary"
+              >
                 {{ title }}
               </DialogTitle>
               <button
@@ -80,8 +87,18 @@ function onClose() {
                 aria-label="Close"
                 @click="onClose"
               >
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
