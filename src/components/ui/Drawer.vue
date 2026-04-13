@@ -12,11 +12,13 @@ const props = withDefaults(
     side?: "left" | "right";
     size?: "sm" | "md" | "lg";
     title?: string;
+    persistent?: boolean;
   }>(),
   {
     side: "right",
     size: "md",
     title: "",
+    persistent: false,
   },
 );
 
@@ -33,7 +35,7 @@ const sizeClasses: Record<string, string> = {
 
 <template>
   <TransitionRoot :show="open" as="template">
-    <Dialog class="relative z-50" @close="emit('close')">
+    <Dialog class="relative z-50" @close="!persistent && emit('close')">
       <!-- Backdrop -->
       <TransitionChild
         as="template"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 export interface Branch {
   id: string;
@@ -24,6 +24,16 @@ const emit = defineEmits<{
 }>();
 
 const open = ref(false);
+const rootEl = ref<HTMLElement | null>(null);
+
+function onClickOutside(e: MouseEvent) {
+  if (open.value && rootEl.value && !rootEl.value.contains(e.target as Node)) {
+    open.value = false;
+  }
+}
+
+onMounted(() => document.addEventListener("click", onClickOutside));
+onBeforeUnmount(() => document.removeEventListener("click", onClickOutside));
 
 const selected = computed(() =>
   props.branches.find((b) => b.id === props.modelValue),
@@ -93,7 +103,7 @@ function select(branch: Branch) {
 </script>
 
 <template>
-  <div class="relative" :class="triggerAlignClass">
+  <div ref="rootEl" class="relative" :class="triggerAlignClass">
     <!-- Trigger -->
     <button
       :class="[
@@ -168,11 +178,5 @@ function select(branch: Branch) {
       </div>
     </Transition>
 
-    <!-- Backdrop -->
-    <div
-      v-if="open"
-      class="fixed inset-0 z-40"
-      @click="open = false"
-    />
   </div>
 </template>
