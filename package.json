@@ -65,7 +65,8 @@
     }
   },
   "dependencies": {
-    "@headlessui/vue": "^1.7.23"
+    "@headlessui/vue": "^1.7.23",
+    "@tanstack/vue-table": "^8.21.3"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^10.3.5",
