@@ -32,6 +32,7 @@ const props = withDefaults(
     columnToggle?: boolean;
     searchable?: boolean;
     searchPlaceholder?: string;
+    columnToggleLabel?: string;
     loading?: boolean;
     loadingRows?: number;
     emptyTitle?: string;
@@ -48,6 +49,7 @@ const props = withDefaults(
     columnToggle: false,
     searchable: false,
     searchPlaceholder: "Search...",
+    columnToggleLabel: "Columns",
     loading: false,
     loadingRows: 5,
     emptyTitle: "No data",
@@ -229,7 +231,7 @@ function handleRowClick(row: Record<string, any>, index: number) {
             <rect x="3" y="14" width="7" height="7" rx="1" />
             <rect x="14" y="14" width="7" height="7" rx="1" />
           </svg>
-          Columns
+          {{ columnToggleLabel }}
         </button>
 
         <Transition

@@ -4708,6 +4708,7 @@ var xs = {
 			default: !1
 		},
 		searchPlaceholder: { default: "Search..." },
+		columnToggleLabel: { default: "Columns" },
 		loading: {
 			type: Boolean,
 			default: !1
@@ -4819,7 +4820,7 @@ var xs = {
 				s("button", {
 					class: "inline-flex items-center gap-[6px] px-[10px] py-[6px] text-[12px] font-medium text-content-secondary border border-border rounded-[8px] hover:bg-surface-input transition-colors",
 					onClick: i[2] ||= N((e) => v.value = !v.value, ["stop"])
-				}, [...i[6] ||= [c("<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"></rect><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"></rect><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"></rect><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"></rect></svg> Columns ", 2)]]),
+				}, [i[6] ||= c("<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"></rect><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"></rect><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"></rect><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"></rect></svg>", 1), l(" " + D(t.columnToggleLabel), 1)]),
 				u(n, {
 					"enter-active-class": "transition duration-100 ease-out",
 					"enter-from-class": "opacity-0 scale-95",
