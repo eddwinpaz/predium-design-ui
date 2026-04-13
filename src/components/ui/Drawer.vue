@@ -35,7 +35,7 @@ const sizeClasses: Record<string, string> = {
 
 <template>
   <TransitionRoot :show="open" as="template">
-    <Dialog class="relative z-50" @close="!persistent && emit('close')">
+    <Dialog class="relative z-[10001]" @close="!persistent && emit('close')">
       <!-- Backdrop -->
       <TransitionChild
         as="template"

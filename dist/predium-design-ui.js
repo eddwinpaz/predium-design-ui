@@ -973,7 +973,7 @@ var he = { class: "w-full" }, ge = ["aria-expanded", "onClick"], _e = { class: "
 			as: "template"
 		}, {
 			default: N(() => [u(k(se), {
-				class: "relative z-50",
+				class: "relative z-[10001]",
 				onClose: c[1] ||= (t) => !e.persistent && n("close")
 			}, {
 				default: N(() => [u(k(F), {
