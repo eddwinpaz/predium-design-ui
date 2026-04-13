@@ -4888,7 +4888,7 @@ var Os = {
 			getCoreRowModel: gs(),
 			getSortedRowModel: xs(),
 			getFilteredRowModel: bs()
-		}), S = r(() => x.getRowModel().rows), ee = r(() => !d.loading && S.value.length === 0), E = r(() => x.getAllLeafColumns().filter((e) => e.getIsVisible()).length), te = r(() => ["text-font100 font-medium text-content-tertiary uppercase tracking-wider px-scale400 py-scale300 border-b-2 border-border bg-bg-primary", d.stickyHeader ? "sticky top-0 z-10" : ""]), A = r(() => ["px-scale400 text-font200 text-content-primary", d.compact ? "py-scale200" : "py-scale400"]);
+		}), S = r(() => x.getRowModel().rows), ee = r(() => !d.loading && S.value.length === 0), E = r(() => x.getAllLeafColumns().filter((e) => e.getIsVisible()).length), te = r(() => ["text-font100 font-medium text-content-primary uppercase tracking-wider px-scale400 py-scale300 border-b-2 border-border bg-bg-primary", d.stickyHeader ? "sticky top-0 z-10" : ""]), A = r(() => ["px-scale400 text-font200 text-content-primary", d.compact ? "py-scale200" : "py-scale400"]);
 		function j(e) {
 			return [
 				"border-b border-border",
