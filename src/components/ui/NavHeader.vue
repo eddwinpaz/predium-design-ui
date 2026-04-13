@@ -74,6 +74,11 @@ function toggleMobileMenu() {
         </div>
       </div>
 
+      <!-- Center -->
+      <div v-if="slots.center" class="absolute left-1/2 -translate-x-1/2 flex items-center">
+        <slot name="center" />
+      </div>
+
       <!-- Right: composable actions -->
       <div class="flex items-center gap-[4px]">
         <slot name="actions" />

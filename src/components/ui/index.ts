@@ -5,6 +5,7 @@ export { default as Accordion } from "./Accordion.vue";
 export { default as Avatar } from "./Avatar.vue";
 export { default as Badge } from "./Badge.vue";
 export { default as Banner } from "./Banner.vue";
+export { default as BranchPicker } from "./BranchPicker.vue";
 export { default as Breadcrumbs } from "./Breadcrumbs.vue";
 export { default as Button } from "./Button.vue";
 export { default as ButtonGroup } from "./ButtonGroup.vue";
