@@ -128,7 +128,7 @@ const totalColumns = computed(() =>
 );
 
 const headerClass = computed(() => [
-  "text-font100 font-medium text-content-primary uppercase tracking-wider px-scale400 py-scale300 border-b-2 border-border bg-bg-primary",
+  "text-font100 font-medium text-content-primary px-scale400 py-scale300 border-b-2 border-border bg-bg-primary",
   props.stickyHeader ? "sticky top-0 z-10" : "",
 ]);
 
