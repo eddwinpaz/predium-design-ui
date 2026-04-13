@@ -34,11 +34,51 @@ const sizeClasses: Record<string, string> = {
 </script>
 
 <template>
-  <TransitionRoot :show="open" as="template">
-    <Dialog class="relative z-[10001]" @close="!persistent && emit('close')">
-      <!-- Backdrop (hidden when persistent to allow clicking through) -->
+  <!-- PERSISTENT MODE: no Dialog, no focus trap, no backdrop -->
+  <Transition
+    v-if="persistent"
+    enter-active-class="transform transition duration-300 ease-out"
+    :enter-from-class="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
+    enter-to-class="translate-x-0"
+    leave-active-class="transform transition duration-200 ease-in"
+    leave-from-class="translate-x-0"
+    :leave-to-class="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
+  >
+    <div
+      v-if="open"
+      :class="[
+        'fixed inset-y-0 z-[10001] flex flex-col bg-bg-primary shadow-xl w-screen',
+        side === 'right' ? 'right-0' : 'left-0',
+        sizeClasses[size],
+      ]"
+    >
+      <!-- Header -->
+      <div class="flex items-center justify-between px-4 py-3 border-b border-border">
+        <h2 class="text-lg font-semibold text-content-primary">{{ title }}</h2>
+        <button
+          class="p-1 rounded-lg text-content-tertiary hover:text-content-primary hover:bg-bg-secondary transition-colors cursor-pointer"
+          @click="emit('close')"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+      <!-- Body -->
+      <div class="flex-1 overflow-y-auto p-4">
+        <slot />
+      </div>
+      <!-- Footer -->
+      <div v-if="$slots.footer" class="border-t border-border px-4 py-3">
+        <slot name="footer" />
+      </div>
+    </div>
+  </Transition>
+
+  <!-- NORMAL MODE: Dialog with backdrop and focus trap -->
+  <TransitionRoot v-else :show="open" as="template">
+    <Dialog class="relative z-[10001]" @close="emit('close')">
       <TransitionChild
-        v-if="!persistent"
         as="template"
         enter="transition-opacity duration-300 ease-out"
         enter-from="opacity-0"
@@ -50,7 +90,7 @@ const sizeClasses: Record<string, string> = {
         <div class="fixed inset-0 bg-black/50" />
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-hidden" :class="persistent ? 'pointer-events-none' : ''">
+      <div class="fixed inset-0 overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
           <div
             :class="[
@@ -61,15 +101,11 @@ const sizeClasses: Record<string, string> = {
             <TransitionChild
               as="template"
               enter="transform transition duration-300 ease-out"
-              :enter-from="
-                side === 'right' ? 'translate-x-full' : '-translate-x-full'
-              "
+              :enter-from="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
               enter-to="translate-x-0"
               leave="transform transition duration-200 ease-in"
               leave-from="translate-x-0"
-              :leave-to="
-                side === 'right' ? 'translate-x-full' : '-translate-x-full'
-              "
+              :leave-to="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
             >
               <DialogPanel
                 :class="[
@@ -77,42 +113,21 @@ const sizeClasses: Record<string, string> = {
                   sizeClasses[size],
                 ]"
               >
-                <!-- Header -->
-                <div
-                  class="flex items-center justify-between px-4 py-3 border-b border-border"
-                >
-                  <h2 class="text-lg font-semibold text-content-primary">
-                    {{ title }}
-                  </h2>
+                <div class="flex items-center justify-between px-4 py-3 border-b border-border">
+                  <h2 class="text-lg font-semibold text-content-primary">{{ title }}</h2>
                   <button
                     class="p-1 rounded-lg text-content-tertiary hover:text-content-primary hover:bg-bg-secondary transition-colors cursor-pointer"
                     @click="emit('close')"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                      />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                   </button>
                 </div>
-
-                <!-- Body -->
                 <div class="flex-1 overflow-y-auto p-4">
                   <slot />
                 </div>
-
-                <!-- Footer -->
-                <div
-                  v-if="$slots.footer"
-                  class="border-t border-border px-4 py-3"
-                >
+                <div v-if="$slots.footer" class="border-t border-border px-4 py-3">
                   <slot name="footer" />
                 </div>
               </DialogPanel>
