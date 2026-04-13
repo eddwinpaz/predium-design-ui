@@ -36,8 +36,9 @@ const sizeClasses: Record<string, string> = {
 <template>
   <TransitionRoot :show="open" as="template">
     <Dialog class="relative z-[10001]" @close="!persistent && emit('close')">
-      <!-- Backdrop -->
+      <!-- Backdrop (hidden when persistent to allow clicking through) -->
       <TransitionChild
+        v-if="!persistent"
         as="template"
         enter="transition-opacity duration-300 ease-out"
         enter-from="opacity-0"
@@ -49,7 +50,7 @@ const sizeClasses: Record<string, string> = {
         <div class="fixed inset-0 bg-black/50" />
       </TransitionChild>
 
-      <div class="fixed inset-0 overflow-hidden">
+      <div class="fixed inset-0 overflow-hidden" :class="persistent ? 'pointer-events-none' : ''">
         <div class="absolute inset-0 overflow-hidden">
           <div
             :class="[
