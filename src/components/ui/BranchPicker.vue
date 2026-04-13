@@ -102,7 +102,7 @@ function select(branch: Branch) {
       ]"
       @click.stop="open = !open"
     >
-      <span class="font-medium">{{ selected?.label ?? 'Select branch' }}</span>
+      <span class="font-medium whitespace-nowrap">{{ selected?.label ?? 'Select branch' }}</span>
       <svg
         :width="chevronSize"
         :height="chevronSize"
@@ -145,7 +145,7 @@ function select(branch: Branch) {
           ]"
           @click="select(branch)"
         >
-          <span>{{ branch.label }}</span>
+          <span class="whitespace-nowrap">{{ branch.label }}</span>
           <!-- Check icon -->
           <span
             v-if="branch.id === modelValue"
