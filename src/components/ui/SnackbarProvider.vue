@@ -57,9 +57,11 @@ const isTop = computed(() => props.placement.startsWith("top"));
         <div v-if="current" class="pointer-events-auto w-full sm:w-auto">
           <SnackbarElement
             :message="current.message"
+            :kind="current.kind"
             :action-text="current.actionText"
             :progress="current.progress"
             @action-click="handleAction"
+            @close="dequeue"
           />
         </div>
       </Transition>

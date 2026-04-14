@@ -9,6 +9,7 @@ import {
 
 export interface SnackbarOptions {
   message: string;
+  kind?: "default" | "success" | "error";
   actionText?: string;
   progress?: boolean;
   duration?: "short" | "medium" | "long" | "infinite";
