@@ -583,6 +583,9 @@ var he = { class: "w-full" }, ge = ["aria-expanded", "onClick"], _e = { class: "
 			]) }, [u(k(ie), {
 				placeholder: t.placeholder,
 				displayValue: _,
+				autocomplete: "off",
+				"data-1p-ignore": "",
+				"data-lpignore": "true",
 				class: "w-full bg-transparent outline-none px-3 text-sm placeholder:text-content-tertiary text-content-primary",
 				onChange: c[0] ||= (e) => {
 					p.value = e.target.value, f("search", p.value);

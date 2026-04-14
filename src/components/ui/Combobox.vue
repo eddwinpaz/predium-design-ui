@@ -78,6 +78,9 @@ function getDisplayValue(val: unknown): string {
         <ComboboxInput
           :placeholder="placeholder"
           :displayValue="getDisplayValue"
+          autocomplete="off"
+          data-1p-ignore
+          data-lpignore="true"
           class="w-full bg-transparent outline-none px-3 text-sm placeholder:text-content-tertiary text-content-primary"
           @change="query = ($event.target as HTMLInputElement).value; emit('search', query)"
         />
