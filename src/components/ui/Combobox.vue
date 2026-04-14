@@ -19,11 +19,13 @@ const props = withDefaults(
     options: ComboboxOptionItem[];
     placeholder?: string;
     disabled?: boolean;
+    loading?: boolean;
     size?: "compact" | "default" | "large";
   }>(),
   {
     placeholder: "Search...",
     disabled: false,
+    loading: false,
     size: "default",
   },
 );
@@ -79,7 +81,15 @@ function getDisplayValue(val: unknown): string {
           class="w-full bg-transparent outline-none px-3 text-sm placeholder:text-content-tertiary text-content-primary"
           @change="query = ($event.target as HTMLInputElement).value; emit('search', query)"
         />
+        <!-- Loading spinner -->
+        <div v-if="loading" class="px-2 flex items-center">
+          <svg class="w-4 h-4 animate-spin text-content-tertiary" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+          </svg>
+        </div>
         <ComboboxButton
+          v-else
           class="px-2 text-content-tertiary hover:text-content-secondary"
         >
           <svg
@@ -106,7 +116,17 @@ function getDisplayValue(val: unknown): string {
           class="absolute z-50 mt-1 w-full bg-bg-primary border border-border rounded-lg shadow-lg py-1 max-h-60 overflow-auto"
         >
           <div
-            v-if="filteredOptions.length === 0"
+            v-if="loading"
+            class="px-3 py-2 text-sm text-content-tertiary flex items-center gap-2"
+          >
+            <svg class="w-3 h-3 animate-spin" viewBox="0 0 24 24" fill="none">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" />
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            Searching...
+          </div>
+          <div
+            v-else-if="filteredOptions.length === 0"
             class="px-3 py-2 text-sm text-content-tertiary"
           >
             No results found
