@@ -545,7 +545,7 @@ var he = { class: "w-full" }, ge = ["aria-expanded", "onClick"], _e = { class: "
 		},
 		size: { default: "default" }
 	},
-	emits: ["update:modelValue"],
+	emits: ["update:modelValue", "search"],
 	setup(t, { emit: c }) {
 		let d = t, f = c, p = C(""), m = r(() => {
 			if (p.value === "") return d.options;
@@ -574,7 +574,9 @@ var he = { class: "w-full" }, ge = ["aria-expanded", "onClick"], _e = { class: "
 				placeholder: t.placeholder,
 				displayValue: _,
 				class: "w-full bg-transparent outline-none px-3 text-sm placeholder:text-content-tertiary text-content-primary",
-				onChange: c[0] ||= (e) => p.value = e.target.value
+				onChange: c[0] ||= (e) => {
+					p.value = e.target.value, f("search", p.value);
+				}
 			}, null, 8, ["placeholder"]), u(k(re), { class: "px-2 text-content-tertiary hover:text-content-secondary" }, {
 				default: N(() => [...c[2] ||= [s("svg", {
 					class: "w-4 h-4",

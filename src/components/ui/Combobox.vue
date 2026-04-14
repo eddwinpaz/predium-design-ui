@@ -30,6 +30,7 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   "update:modelValue": [value: string | null];
+  search: [query: string];
 }>();
 
 const query = ref("");
@@ -76,7 +77,7 @@ function getDisplayValue(val: unknown): string {
           :placeholder="placeholder"
           :displayValue="getDisplayValue"
           class="w-full bg-transparent outline-none px-3 text-sm placeholder:text-content-tertiary text-content-primary"
-          @change="query = ($event.target as HTMLInputElement).value"
+          @change="query = ($event.target as HTMLInputElement).value; emit('search', query)"
         />
         <ComboboxButton
           class="px-2 text-content-tertiary hover:text-content-secondary"
