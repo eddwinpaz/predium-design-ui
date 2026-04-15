@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, useSlots } from "vue";
+import Checkbox from "./Checkbox.vue";
 import {
   useVueTable,
   getCoreRowModel,
@@ -248,21 +249,19 @@ function handleRowClick(row: Record<string, any>, index: number) {
         >
           <div
             v-if="columnMenuOpen"
-            class="absolute right-0 top-[36px] z-50 min-w-[180px] rounded-[10px] border border-border bg-surface shadow-lg py-[4px]"
+            class="absolute right-0 top-[36px] z-50 min-w-[180px] rounded-[10px] border border-border bg-surface shadow-lg py-[6px] px-[4px]"
           >
-            <label
+            <div
               v-for="col in table.getAllLeafColumns()"
               :key="col.id"
-              class="flex items-center gap-[8px] px-[12px] py-[6px] text-[13px] text-content-primary hover:bg-surface-input cursor-pointer select-none"
+              class="px-[8px] py-[2px] rounded-[6px] hover:bg-surface-input"
             >
-              <input
-                type="checkbox"
-                :checked="col.getIsVisible()"
-                class="accent-accent w-[14px] h-[14px] rounded"
-                @change="col.toggleVisibility()"
+              <Checkbox
+                :model-value="col.getIsVisible()"
+                :label="String(col.columnDef.header)"
+                @update:model-value="col.toggleVisibility()"
               />
-              {{ col.columnDef.header }}
-            </label>
+            </div>
           </div>
         </Transition>
 
