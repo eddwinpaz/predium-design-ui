@@ -5100,7 +5100,7 @@ var Fs = {
 					"stroke-width": "2.5",
 					"stroke-linecap": "round"
 				}, [s("path", { d: "M18 6L6 18M6 6l12 12" })], -1)]])) : a("", !0)
-			])) : (b(), o("div", Rs)), s("div", zs, [T(r.$slots, "toolbar-actions"), t.columnToggle ? (b(), o("div", Bs, [
+			])) : (b(), o("div", Rs)), s("div", zs, [t.columnToggle ? (b(), o("div", Bs, [
 				s("button", {
 					class: "inline-flex items-center gap-[6px] px-[10px] py-[6px] text-[12px] font-medium text-content-secondary border border-border rounded-[8px] hover:bg-surface-input transition-colors",
 					onClick: i[2] ||= F((e) => v.value = !v.value, ["stop"])
@@ -5132,7 +5132,7 @@ var Fs = {
 					class: "fixed inset-0 z-40",
 					onClick: i[3] ||= (e) => v.value = !1
 				})) : a("", !0)
-			])) : a("", !0)])])) : a("", !0),
+			])) : a("", !0), T(r.$slots, "toolbar-actions")])])) : a("", !0),
 			s("div", { class: g(t.stickyHeader ? "" : "overflow-x-auto") }, [s("table", Hs, [s("thead", null, [(b(!0), o(e, null, w(A(x).getHeaderGroups(), (n) => (b(), o("tr", { key: n.id }, [(b(!0), o(e, null, w(n.headers, (e) => (b(), o("th", {
 				key: e.id,
 				class: g([
