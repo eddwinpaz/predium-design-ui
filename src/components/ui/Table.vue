@@ -166,7 +166,7 @@ function handleRowClick(row: Record<string, any>, index: number) {
     <!-- Toolbar: search + column toggle -->
     <div
       v-if="searchable || columnToggle"
-      class="flex items-center justify-between gap-[8px] mb-[8px]"
+      class="flex items-center gap-[8px] mb-[8px]"
     >
       <!-- Search -->
       <div v-if="searchable" class="relative flex-1 max-w-[320px]">

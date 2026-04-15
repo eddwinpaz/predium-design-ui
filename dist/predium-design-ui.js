@@ -4910,7 +4910,7 @@ function Ps(e) {
 //#region src/components/ui/Table.vue?vue&type=script&setup=true&lang.ts
 var Fs = {
 	key: 0,
-	class: "flex items-center justify-between gap-[8px] mb-[8px]"
+	class: "flex items-center gap-[8px] mb-[8px]"
 }, Is = {
 	key: 0,
 	class: "relative flex-1 max-w-[320px]"
