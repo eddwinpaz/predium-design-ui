@@ -246,7 +246,7 @@ function handleRowClick(row: Record<string, any>, index: number) {
         >
           <div
             v-if="columnMenuOpen"
-            class="absolute right-0 top-[36px] z-50 min-w-[180px] rounded-[10px] border border-border bg-surface shadow-lg py-[6px] px-[4px]"
+            class="absolute left-0 top-[36px] z-[100] min-w-[180px] rounded-[10px] border border-border bg-surface shadow-lg py-[6px] px-[4px]"
           >
             <div
               v-for="col in table.getAllLeafColumns()"
@@ -265,7 +265,7 @@ function handleRowClick(row: Record<string, any>, index: number) {
         <!-- Backdrop -->
         <div
           v-if="columnMenuOpen"
-          class="fixed inset-0 z-40"
+          class="fixed inset-0 z-[99]"
           @click="columnMenuOpen = false"
         />
       </div>

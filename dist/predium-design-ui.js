@@ -4919,7 +4919,7 @@ var Fs = {
 	class: "relative"
 }, Vs = {
 	key: 0,
-	class: "absolute right-0 top-[36px] z-50 min-w-[180px] rounded-[10px] border border-border bg-surface shadow-lg py-[6px] px-[4px]"
+	class: "absolute left-0 top-[36px] z-[100] min-w-[180px] rounded-[10px] border border-border bg-surface shadow-lg py-[6px] px-[4px]"
 }, Hs = { class: "w-full border-collapse text-sm" }, Us = ["onClick"], Ws = {
 	key: 0,
 	class: "inline-flex text-[10px] opacity-60"
@@ -5129,7 +5129,7 @@ var Fs = {
 				}),
 				v.value ? (b(), o("div", {
 					key: 0,
-					class: "fixed inset-0 z-40",
+					class: "fixed inset-0 z-[99]",
 					onClick: i[3] ||= (e) => v.value = !1
 				})) : a("", !0)
 			])) : a("", !0), T(r.$slots, "toolbar-actions")])])) : a("", !0),
