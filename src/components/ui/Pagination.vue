@@ -10,13 +10,17 @@ const props = withDefaults(
     pageSizes?: number[];
     siblingCount?: number;
     size?: "compact" | "default";
+    rowsPerPageLabel?: string;
+    ofLabel?: string;
   }>(),
   {
     totalItems: 0,
     pageSize: 20,
-    pageSizes: () => [10, 25, 50, 100],
+    pageSizes: () => [10, 20, 50, 100],
     siblingCount: 1,
     size: "default",
+    rowsPerPageLabel: "Rows per page",
+    ofLabel: "of",
   },
 );
 
@@ -98,7 +102,7 @@ const buttonSize = computed(() =>
     <!-- Left: Page size selector -->
     <div class="flex items-center gap-2">
       <span class="text-[13px] text-content-tertiary whitespace-nowrap"
-        >Rows per page</span
+        >{{ rowsPerPageLabel }}</span
       >
       <div class="relative">
         <button
@@ -145,7 +149,7 @@ const buttonSize = computed(() =>
       <span class="font-medium text-content-secondary">{{ showingFrom }}</span>
       –
       <span class="font-medium text-content-secondary">{{ showingTo }}</span>
-      of
+      {{ ofLabel }}
       <span class="font-medium text-content-secondary">{{ totalItems }}</span>
     </span>
 
