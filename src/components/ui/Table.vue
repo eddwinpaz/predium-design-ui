@@ -210,6 +210,10 @@ function handleRowClick(row: Record<string, any>, index: number) {
       </div>
       <div v-else />
 
+      <div class="flex items-center gap-[8px]">
+      <!-- Toolbar actions slot -->
+      <slot name="toolbar-actions" />
+
       <!-- Column toggle -->
       <div v-if="columnToggle" class="relative">
         <button
@@ -268,6 +272,7 @@ function handleRowClick(row: Record<string, any>, index: number) {
           class="fixed inset-0 z-40"
           @click="columnMenuOpen = false"
         />
+      </div>
       </div>
     </div>
 
