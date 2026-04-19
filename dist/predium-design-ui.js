@@ -122,7 +122,8 @@ var me = { class: "w-full" }, he = ["aria-expanded", "onClick"], ge = { class: "
 					warning: "bg-warning-light text-warning-text",
 					negative: "bg-negative-light text-negative-text",
 					accent: "bg-accent-light text-accent-text",
-					purple: "bg-purple-light text-purple"
+					purple: "bg-purple-light text-purple",
+					black: "bg-black text-white"
 				}[n.variant],
 				{
 					sm: "px-2 py-0.5 text-xs",
@@ -137,7 +138,8 @@ var me = { class: "w-full" }, he = ["aria-expanded", "onClick"], ge = { class: "
 				warning: "bg-warning",
 				negative: "bg-negative",
 				accent: "bg-accent",
-				purple: "bg-purple-600"
+				purple: "bg-purple-600",
+				black: "bg-white"
 			}[n.variant]].join(" ");
 		}
 		let u = r(() => c()), d = r(() => l());
@@ -5058,7 +5060,7 @@ var Is = {
 			getFilteredRowModel: ks()
 		}), S = r(() => x.getRowModel().rows), E = r(() => !d.loading && S.value.length === 0), D = r(() => x.getAllLeafColumns().filter((e) => e.getIsVisible()).length), O = r(() => [
 			"text-font100 font-medium text-content-primary px-scale400 py-scale300",
-			d.borderless ? "border-b border-border" : "border-b-2 border-border",
+			d.borderless ? "" : "border-b-2 border-border",
 			d.headerBg ? d.headerBg : "bg-bg-primary",
 			d.stickyHeader ? "sticky top-0 z-10" : ""
 		]), M = r(() => ["px-scale400 text-font200 text-content-primary", d.compact ? "py-scale200" : "py-scale400"]);
