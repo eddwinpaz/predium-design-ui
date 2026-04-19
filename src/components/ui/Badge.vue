@@ -9,7 +9,8 @@ const props = withDefaults(
       | "warning"
       | "negative"
       | "accent"
-      | "purple";
+      | "purple"
+      | "black";
     size?: "sm" | "md";
     dot?: boolean;
     closeable?: boolean;
@@ -36,6 +37,7 @@ function badgeClasses(): string {
     negative: "bg-negative-light text-negative-text",
     accent: "bg-accent-light text-accent-text",
     purple: "bg-purple-light text-purple",
+    black: "bg-black text-white",
   };
 
   const sizeMap: Record<string, string> = {
@@ -56,6 +58,7 @@ function dotClasses(): string {
     negative: "bg-negative",
     accent: "bg-accent",
     purple: "bg-purple-600",
+    black: "bg-white",
   };
 
   return [base, dotColorMap[props.variant]].join(" ");
