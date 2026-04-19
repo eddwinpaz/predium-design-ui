@@ -53,25 +53,27 @@ function toggleMobileMenu() {
           </svg>
         </button>
 
-        <div class="flex items-center gap-1">
-          <span
-            class="text-[15px] font-bold text-content-primary tracking-tight"
-            >{{ brand }}</span
-          >
-          <span
-            v-if="brandSuffix"
-            class="text-[15px] font-normal text-content-primary"
-            >{{ brandSuffix }}</span
-          >
-          <div
-            v-if="subtitle"
-            class="hidden sm:block ml-2 pl-2 border-l border-border"
-          >
-            <span class="text-xs text-content-secondary italic">{{
-              subtitle
-            }}</span>
+        <slot name="left">
+          <div class="flex items-center gap-1">
+            <span
+              class="text-[15px] font-bold text-content-primary tracking-tight"
+              >{{ brand }}</span
+            >
+            <span
+              v-if="brandSuffix"
+              class="text-[15px] font-normal text-content-primary"
+              >{{ brandSuffix }}</span
+            >
+            <div
+              v-if="subtitle"
+              class="hidden sm:block ml-2 pl-2 border-l border-border"
+            >
+              <span class="text-xs text-content-secondary italic">{{
+                subtitle
+              }}</span>
+            </div>
           </div>
-        </div>
+        </slot>
       </div>
 
       <!-- Center -->

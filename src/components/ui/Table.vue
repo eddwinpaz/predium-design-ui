@@ -39,6 +39,8 @@ const props = withDefaults(
     emptyTitle?: string;
     emptyDescription?: string;
     clickableRows?: boolean;
+    borderless?: boolean;
+    headerBg?: string;
   }>(),
   {
     hoverable: true,
@@ -56,6 +58,8 @@ const props = withDefaults(
     emptyTitle: "No data",
     emptyDescription: "There are no records to display.",
     clickableRows: false,
+    borderless: false,
+    headerBg: "",
   },
 );
 
@@ -129,7 +133,9 @@ const totalColumns = computed(() =>
 );
 
 const headerClass = computed(() => [
-  "text-font100 font-medium text-content-primary px-scale400 py-scale300 border-b-2 border-border bg-bg-primary",
+  "text-font100 font-medium text-content-primary px-scale400 py-scale300",
+  props.borderless ? "border-b border-border" : "border-b-2 border-border",
+  props.headerBg ? props.headerBg : "bg-bg-primary",
   props.stickyHeader ? "sticky top-0 z-10" : "",
 ]);
 
@@ -140,7 +146,7 @@ const cellClass = computed(() => [
 
 function rowClass(index: number) {
   return [
-    "border-b border-border",
+    props.borderless ? "" : "border-b border-border",
     props.hoverable ? "hover:bg-bg-secondary" : "",
     props.striped && index % 2 !== 0 ? "bg-bg-secondary/50" : "",
     props.clickableRows ? "cursor-pointer" : "",
@@ -381,7 +387,7 @@ function handleRowClick(row: Record<string, any>, index: number) {
             <tr
               v-for="n in loadingRows"
               :key="'skel-' + n"
-              class="border-b border-border"
+              :class="borderless ? '' : 'border-b border-border'"
             >
               <td
                 v-for="col in table.getVisibleLeafColumns()"

@@ -1832,11 +1832,11 @@ var me = { class: "w-full" }, he = ["aria-expanded", "onClick"], ge = { class: "
 				stroke: "currentColor",
 				"stroke-width": "2",
 				"stroke-linecap": "round"
-			}, [s("path", { d: "M4 6h16M4 12h16M4 18h16" })], -1)]])) : a("", !0), s("div", br, [
+			}, [s("path", { d: "M4 6h16M4 12h16M4 18h16" })], -1)]])) : a("", !0), T(t.$slots, "left", {}, () => [s("div", br, [
 				s("span", xr, k(e.brand), 1),
 				e.brandSuffix ? (b(), o("span", Sr, k(e.brandSuffix), 1)) : a("", !0),
 				e.subtitle ? (b(), o("div", Cr, [s("span", wr, k(e.subtitle), 1)])) : a("", !0)
-			])]),
+			])])]),
 			A(r).center ? (b(), o("div", Tr, [T(t.$slots, "center")])) : a("", !0),
 			s("div", Er, [T(t.$slots, "actions")])
 		]), u(n, {
@@ -5005,7 +5005,12 @@ var Is = {
 		clickableRows: {
 			type: Boolean,
 			default: !1
-		}
+		},
+		borderless: {
+			type: Boolean,
+			default: !1
+		},
+		headerBg: { default: "" }
 	},
 	emits: ["rowClick"],
 	setup(t, { emit: i }) {
@@ -5051,10 +5056,15 @@ var Is = {
 			getCoreRowModel: Ts(),
 			getSortedRowModel: As(),
 			getFilteredRowModel: ks()
-		}), S = r(() => x.getRowModel().rows), E = r(() => !d.loading && S.value.length === 0), D = r(() => x.getAllLeafColumns().filter((e) => e.getIsVisible()).length), O = r(() => ["text-font100 font-medium text-content-primary px-scale400 py-scale300 border-b-2 border-border bg-bg-primary", d.stickyHeader ? "sticky top-0 z-10" : ""]), M = r(() => ["px-scale400 text-font200 text-content-primary", d.compact ? "py-scale200" : "py-scale400"]);
+		}), S = r(() => x.getRowModel().rows), E = r(() => !d.loading && S.value.length === 0), D = r(() => x.getAllLeafColumns().filter((e) => e.getIsVisible()).length), O = r(() => [
+			"text-font100 font-medium text-content-primary px-scale400 py-scale300",
+			d.borderless ? "border-b border-border" : "border-b-2 border-border",
+			d.headerBg ? d.headerBg : "bg-bg-primary",
+			d.stickyHeader ? "sticky top-0 z-10" : ""
+		]), M = r(() => ["px-scale400 text-font200 text-content-primary", d.compact ? "py-scale200" : "py-scale400"]);
 		function N(e) {
 			return [
-				"border-b border-border",
+				d.borderless ? "" : "border-b border-border",
 				d.hoverable ? "hover:bg-bg-secondary" : "",
 				d.striped && e % 2 != 0 ? "bg-bg-secondary/50" : "",
 				d.clickableRows ? "cursor-pointer" : ""
@@ -5150,16 +5160,16 @@ var Is = {
 			} }, () => [u(A(Ns), {
 				render: e.column.columnDef.header,
 				props: e.getContext()
-			}, null, 8, ["render", "props"])]), e.column.getCanSort() ? (b(), o("span", Gs, [e.column.getIsSorted() === "asc" ? (b(), o("svg", Ks, [...i[7] ||= [s("path", { d: "M12 19V5M5 12l7-7 7 7" }, null, -1)]])) : e.column.getIsSorted() === "desc" ? (b(), o("svg", qs, [...i[8] ||= [s("path", { d: "M12 5v14M19 12l-7 7-7-7" }, null, -1)]])) : (b(), o("svg", Js, [...i[9] ||= [s("path", { d: "M7 15l5 5 5-5M7 9l5-5 5 5" }, null, -1)]]))])) : a("", !0)], 2)], 14, Ws))), 128))]))), 128))]), s("tbody", null, [t.loading ? (b(!0), o(e, { key: 0 }, w(t.loadingRows, (t) => (b(), o("tr", {
-				key: "skel-" + t,
-				class: "border-b border-border"
+			}, null, 8, ["render", "props"])]), e.column.getCanSort() ? (b(), o("span", Gs, [e.column.getIsSorted() === "asc" ? (b(), o("svg", Ks, [...i[7] ||= [s("path", { d: "M12 19V5M5 12l7-7 7 7" }, null, -1)]])) : e.column.getIsSorted() === "desc" ? (b(), o("svg", qs, [...i[8] ||= [s("path", { d: "M12 5v14M19 12l-7 7-7-7" }, null, -1)]])) : (b(), o("svg", Js, [...i[9] ||= [s("path", { d: "M7 15l5 5 5-5M7 9l5-5 5 5" }, null, -1)]]))])) : a("", !0)], 2)], 14, Ws))), 128))]))), 128))]), s("tbody", null, [t.loading ? (b(!0), o(e, { key: 0 }, w(t.loadingRows, (n) => (b(), o("tr", {
+				key: "skel-" + n,
+				class: g(t.borderless ? "" : "border-b border-border")
 			}, [(b(!0), o(e, null, w(A(x).getVisibleLeafColumns(), (e) => (b(), o("td", {
 				key: "skel-" + e.id,
 				class: g(M.value)
 			}, [s("div", {
 				class: "h-[14px] rounded-[4px] bg-surface-input animate-pulse",
-				style: _({ width: 40 + (t * 17 + e.id.length * 13) % 40 + "%" })
-			}, null, 4)], 2))), 128))]))), 128)) : E.value ? (b(), o("tr", Ys, [s("td", {
+				style: _({ width: 40 + (n * 17 + e.id.length * 13) % 40 + "%" })
+			}, null, 4)], 2))), 128))], 2))), 128)) : E.value ? (b(), o("tr", Ys, [s("td", {
 				colspan: D.value,
 				class: "py-[48px] text-center"
 			}, [T(r.$slots, "empty", {}, () => [s("div", Zs, [
