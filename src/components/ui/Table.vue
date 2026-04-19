@@ -134,7 +134,7 @@ const totalColumns = computed(() =>
 
 const headerClass = computed(() => [
   "text-font100 font-medium text-content-primary px-scale400 py-scale300",
-  props.borderless ? "border-b border-border" : "border-b-2 border-border",
+  props.borderless ? "" : "border-b-2 border-border",
   props.headerBg ? props.headerBg : "bg-bg-primary",
   props.stickyHeader ? "sticky top-0 z-10" : "",
 ]);
